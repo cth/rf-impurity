@@ -1,0 +1,1 @@
+Automated accounts on social media have become increasingly problematic. We propose the use of a key feature, Socio-Informatics, in combination with existing methods to improve machine learning algorithms for bot detection. We successfully improve classification performance through the inclusion of the proposed feature.

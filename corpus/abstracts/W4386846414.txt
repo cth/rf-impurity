@@ -1,0 +1,1 @@
+PRIORNET: a framework for improving multilayer perceptron for genomic prediction using SNP prioritisation and protein
