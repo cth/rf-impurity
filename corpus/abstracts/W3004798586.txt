@@ -1,0 +1,1 @@
+Sellereite et al., (2019). shapr: An R-package for explaining machine learning models with dependence-aware Shapley values. Journal of Open Source Software, 5(46), 2027, https://doi.org/10.21105/joss.02027

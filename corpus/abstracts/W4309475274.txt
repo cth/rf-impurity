@@ -1,0 +1,1 @@
+mlr3shiny provides a simple accessible and user-friendly web-application, combining the graphical user interface with state-of-the-art ML functionalities in order to enable researchers less familiar with machine learning and programming to apply this methodology in their field and build experience with machine learning practice.

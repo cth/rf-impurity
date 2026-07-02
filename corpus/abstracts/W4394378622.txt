@@ -1,0 +1,1 @@
+Additional file 11: Table S2. Top 100 random forest importance ranks and GreenGenes taxonomy from nares, forehead, stool, and inside floor samples.
