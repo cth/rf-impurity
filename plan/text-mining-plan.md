@@ -9,8 +9,7 @@ genuinely non-linear effect from a linear effect on a skewed feature.
 
 **Hard caveat.** Text mining can only *flag risk*. It cannot prove a conclusion
 was wrong — that requires re-running each study's model on its own data with an
-unbiased importance measure (an optional gold tier, out of scope for the
-flag-at-scale effort).
+unbiased importance measure (future work; see §6).
 
 ---
 
@@ -55,7 +54,7 @@ these papers is usually **not** "the p-value is wrong"; it is:
 2. a "significant **and** large" importance still cannot separate a real
    non-linear effect from a skewed feature (§6 of the paper).
 
-The risk score must reward exactly this chain:
+The extraction (§4) must capture exactly this chain:
 **impurity p-values reported → features ranked/interpreted by magnitude →
 conclusions built on that ranking → no cross-check.**
 
@@ -70,68 +69,150 @@ and gives a defensible prevalence denominator.
 |------|--------|------|
 | **Core** | OpenAlex `cites:W2157395790` (ranger, Wright & Ziegler 2017; ~3,290 citing works) | High-precision backbone across all fields |
 | **Fingerprint** | full-text signals: `importance_pvalues`, "Altmann", "Janitza", "corrected impurity", "Boruta" | Isolates the significance-claim subset — tighter than citing ranger alone |
-| **Awareness / control** | `cites:Strobl 2007` (W1875061881) and `cites:Nembrini 2018` | Papers citing the bias literature likely mitigate → down-weight, or use as a negative-control set |
+| **Awareness / control** | `cites:Strobl 2007` (W1875061881) and `cites:Nembrini 2018` | Papers citing the bias literature likely mitigate → note as a mitigating signal, or use as a negative-control set |
 
-Full text via **Europe PMC / PMC open-access subset** (the at-risk reasoning
-lives in Results/Discussion, not abstracts). Paywalled papers fall back to
-abstract-only with a lower-confidence flag. `randomForest`/sklearn/XGBoost are
-deliberately de-scoped by the p-value framing — they lack the inferential wrapper
-that defines the target.
+`randomForest`/sklearn/XGBoost are deliberately de-scoped by the p-value framing —
+they lack the inferential wrapper that defines the target.
 
----
+### Two access tracks, reported separately
 
-## 3. Pipeline
+Full-text availability changes what can be extracted and how confident the flag
+is, so the two are **kept as separate cohorts throughout** — separate storage,
+separate statistics, separate tables. They are never pooled into one prevalence
+number.
 
-**Phase 0 — Gold set.** Hand-label ~30 papers (≈15 at-risk, ≈15 safe) to
-calibrate the classifier and later report precision/recall.
-
-**Phase 1 — Retrieve.** Pull `cites:ranger` works from OpenAlex; resolve
-open-access full text via Europe PMC. Snapshot the set (date-stamped) for
-reproducibility.
-
-**Phase 2 — Relevance filter.** Rule-based prefilter on the fingerprint strings →
-LLM confirms the paper actually reports impurity importance *with a significance
-verdict* and interprets it.
-
-**Phase 3 — Signal extraction** (LLM + regex over full text, per paper):
-importance method; p-value method (Altmann/Janitza/Boruta); corroborating methods
-present?; magnitude/ranking claims vs. verdict-only; feature heterogeneity
-(mixed types, scale, skew); centrality of the ranking to the conclusions;
-data/code availability.
-
-**Phase 4 — Risk score.** `P(affected) × centrality-to-conclusions`, with the
-awareness signal as a down-weight. Output a ranked, filterable table.
-
-**Phase 5 — Adjudication.** Independent/multi-model review of top candidates,
-each prompted to *argue against* the flag (adversarial verification) to cut false
-positives.
-
-**Phase 6 — Reproduce (optional gold tier, out of current scope).** For papers
-with open data + code, re-run the model and compare impurity vs. permutation/SHAP
-importance to *demonstrate* altered conclusions.
+- **Full-text track** — open access via Europe PMC / PMC OA subset. The at-risk
+  reasoning lives in Results/Discussion, so these get the full extraction and a
+  high-confidence flag.
+- **Abstract-only / paywalled track** — metadata + abstract only. Extraction is
+  necessarily shallower and the flag is explicitly low-confidence. Reported in a
+  separate table, clearly labelled as under-powered, never merged with full-text
+  statistics.
 
 ---
 
-## 4. Deliverables
+## 3. Local corpus storage (reproducibility)
 
-- **Ranked candidate table**: paper, importance method, p-value method,
-  corroboration present, risk score, one-line rationale, data availability.
-- **Prevalence estimate**: fraction of ranger-citing (and of the p-value-subset)
-  papers at risk, by field.
-- **Negative-control set**: bias-aware papers, for comparison.
+All fetched text is stored in the repo so the entire analysis can be **re-run
+without re-fetching**, and so results are auditable.
 
-## 5. Scope decisions locked
+- `corpus/fulltext/<openalex_id>.txt` (or `.xml`) — retrieved full text.
+- `corpus/abstracts/<openalex_id>.txt` — abstract-only records.
+- `corpus/manifest.csv` — one row per paper: OpenAlex id, DOI, title, year,
+  venue, track (fulltext | abstract_only), source (europepmc / pmc / openalex),
+  **fetch timestamp (UTC, ISO-8601)**, source URL, and a content hash.
+
+The fetch timestamp is recorded per record (and a corpus-level snapshot date in
+the manifest header) because OpenAlex citation sets and OA availability drift
+over time; every statistic is reported against a named snapshot.
+
+Licensing note: store only text we are permitted to redistribute (PMC OA / CC
+subset). For records whose licence forbids redistribution, store the hash +
+source URL + fetch timestamp rather than the text, so the fetch is reproducible
+without re-hosting.
+
+---
+
+## 4. Extraction — structured output per paper (replaces hand-labelling)
+
+There is **no manual gold-labelling phase** (not feasible at this scale).
+Instead, every paper is processed by an LLM/agent that emits, for that paper, a
+**structured record** (for aggregate statistics) plus **free-text reasoning**
+(the evidence trail for each judgement). Both are stored.
+
+Per-paper structured record (illustrative fields):
+
+| Field | Type | Meaning |
+|-------|------|---------|
+| `uses_impurity_importance` | bool | impurity/Gini/AIR importance reported |
+| `pvalue_method` | enum | none / altmann / janitza / boruta / other |
+| `interprets_magnitude_or_ranking` | bool | ranks / selects / compares by importance |
+| `corroboration` | enum-set | permutation / SHAP / PDP-ALE / conditional / heldout / none |
+| `feature_heterogeneity` | enum-set | mixed-types / high-cardinality / skewed / scale-mismatch |
+| **`p_affected`** | **bool** | LLM's binary verdict: could the bias have altered a conclusion? |
+| **`central_to_conclusions`** | **bool** | LLM's binary verdict: is the importance ranking central to the paper's conclusions? |
+| `evidence` | text | quoted spans + reasoning supporting the above |
+| `track` | enum | fulltext / abstract_only |
+
+**No composite risk model.** We deliberately avoid a fitted/weighted risk score —
+it is hard to calibrate and hard to defend. The two decisive judgements are
+emitted directly by the LLM as **binary indicators**: `p_affected` and
+`central_to_conclusions`. The headline candidate set is simply
+`p_affected AND central_to_conclusions`. All other fields are reported as
+descriptive cross-tabs, not folded into a single number.
+
+Every judgement is backed by stored `evidence` so a human can audit any flag.
+
+### Relevance filter (documented, with measured accuracy)
+
+A cheap rule-based prefilter (fingerprint strings of §2) narrows the corpus
+before the expensive per-paper extraction. Because it gates everything
+downstream, it is **documented and its accuracy is measured**:
+
+- The filter's rules/patterns are versioned in the repo.
+- Accuracy is estimated on a **stratified random sample** of papers the filter
+  *kept* and *dropped*, adjudicated by the same structured-extraction step.
+  Report precision (kept ∩ truly-relevant / kept) and — critically —
+  the **false-negative rate** (relevant papers wrongly dropped), with CIs.
+- If recall is inadequate the filter is loosened and re-measured; the report
+  states the operating point used.
+
+---
+
+## 5. Pipeline summary
+
+1. **Retrieve** `cites:ranger` from OpenAlex; resolve OA full text via Europe
+   PMC; split into full-text vs. abstract-only tracks; store text + manifest with
+   fetch timestamps (§3).
+2. **Relevance filter** on fingerprint strings; store filter version and its
+   measured accuracy (§4).
+3. **Structured extraction** per paper — record + evidence, both stored (§4).
+4. **Aggregate & report** — candidate set = `p_affected ∧ central_to_conclusions`;
+   descriptive cross-tabs; the two tracks reported separately.
+
+---
+
+## 6. Future work (explicitly out of current scope)
+
+- **Adjudication pass** — independent/multi-model adversarial re-review of
+  candidates to cut false positives.
+- **Reproduction** — for papers with open data + code, re-run the model and
+  compare impurity vs. permutation/SHAP importance to *demonstrate* altered
+  conclusions (the only step that proves, rather than flags, impact).
+
+---
+
+## 7. Deliverables
+
+- **Two ranked candidate tables** (full-text; abstract-only, labelled
+  low-confidence): paper, importance method, p-value method, corroboration,
+  `p_affected`, `central_to_conclusions`, evidence link, data availability.
+- **Prevalence statistics**, per track separately: fraction of ranger-citing
+  papers with `p_affected ∧ central_to_conclusions`, by field.
+- **Relevance-filter accuracy report** (precision + false-negative rate).
+- **Stored corpus** (`corpus/`) with fetch timestamps, enabling exact re-runs.
+- **Negative-control set**: bias-aware papers (cite Strobl/Nembrini), for
+  comparison.
+
+## 8. Scope decisions locked
 
 - **Fields:** all fields (citation anchor handles the breadth).
-- **Depth:** flag at scale (Phases 1–5); Phase 6 reproduction deferred.
-- **Target:** p-value-centric — the `cites:ranger` ∩ importance-p-value
-  fingerprint, per §1.
+- **Access:** full-text and abstract-only/paywalled tracks reported separately,
+  never pooled.
+- **Labelling:** LLM/agent structured output + reasoning per paper; no manual
+  gold set.
+- **Scoring:** binary `p_affected` and `central_to_conclusions` indicators; no
+  composite risk model.
+- **Depth:** flag at scale (retrieve → filter → extract → report). Adjudication
+  and reproduction are future work.
+- **Reproducibility:** all fetched text stored in-repo with per-record fetch
+  timestamps.
 
-## 6. Open item
+## 9. Open item
 
-- **Pilot:** run Phases 1–4 on a tractable slice (ranger-citing papers in the PMC
-  open-access full-text subset) to validate the pipeline and refine signals —
-  manual/single-process vs. a parallel multi-agent workflow (broader but
+- **Pilot:** run the pipeline on a tractable slice (ranger-citing papers in the
+  PMC open-access full-text subset) to validate it and measure the relevance
+  filter — manual/single-process vs. a parallel multi-agent workflow (broader but
   token-heavy). Decision pending.
 
 ## Key identifiers
