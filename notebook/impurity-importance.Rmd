@@ -1,0 +1,435 @@
+---
+title: "Feature importance (impurity) in relation to interactions and non-linear relationships"
+output: html_notebook
+author: Christian Theil Have
+date: 17-05-2022
+---
+
+
+```{r,  echo=FALSE, results='hide'}
+library(tibble)
+library(ranger)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(dotwhisker)
+```
+
+## Introduction
+
+This note discusses some intricacies and opportunities with regard interpretation of the variable importance calculated using mean decrease in impurity measure.
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6198850/
+
+
+This is usually calculated by summing over mean decrease in impurity in every split in every trees in the random
+forest where a feature is used as basis of the split, and dividing by the total decrease of impurity
+(which is the sum over decrease in impurity over all splits regardless of which feature is used).
+For random forests used for classification, decrease in impurity is calculated using [Gini](https://victorzhou.com/blog/gini-impurity/).
+For further clarifications see, e.g., [Feature Importance Measures for Tree Models — Part I. Ceshine Lee, 2017](https://blog.ceshine.net/post/feature-importance-part-1/)
+and also [Understanding Bias in RF Variable Importance Metrics, Caleb Scheidel, 2018](https://blog.methodsconsultants.com/posts/be-aware-of-bias-in-rf-variable-importance-metrics/).
+However, for regression tree models impurity is cannot immediately be calculated in this way, since for a given split, there is no label for which to calculate Gini in the samples.
+In the ranger package, decrease in variance is used as a proxy of decrease in impurity, though other choices are available.
+
+The offset of the discussion here is to what degree coefficients from linear models (Ordinary Least Squares, OLS) can be compared to random forest variable importance measure mean decrease in impurity. The perhaps most obvious difference is the importance measure is positive measure indicating only the magnitude of the effect of a feature and the the direction of its the effect.
+
+In this note, we demonstrate/discuss following aspects of feature importance measures through mean decrease in impurity:
+
+- Sensitivity to effects from interactions.
+- Sensitivities to the non-linearity of effects and feature distributions.
+
+These sensitivities make it difficult to compare them coefficients from linear models, but also makes it possible to detect effects that naively specified linear models may not and to refine the linear models to include specific terms to capture identified effects.
+
+## Linear features
+
+Let us first see if the  variable importance measure captures differences in the magnitude of linear effects. To test this we create a small dataset with random points generated from the function $y = a + 2b + 4c$. From this function we  generate data by varying  $a$, $b$ and $c$ in the interval $[0;1]$ and calculating $y$. We generate in total 1000 data instances.
+
+```{r, echo=FALSE, results='hide'}
+set.seed(42)
+n = 1000
+df <- tibble(
+  a = runif(n),
+  b = runif(n),
+  c = runif(n),
+  y = a + 2*b + 4*c
+)
+summary(df)
+```
+
+Next, we fit a random forest model to the data. To fit the random forest we used the ranger package with default parameters except setting the `importance` measure to `impurity`and using a total of $100$ trees in the random forest (`num.trees=100`).
+```{r, results="hide", echo=FALSE}
+rf.model <- ranger::ranger(y ~ .,data = df, importance = "impurity_corrected", num.trees =  100)
+rf.model
+#barplot(importance(rf.model),main="RF variables importance", ylim=c(0,000))
+```
+The random forest achieves a fit with an out-of-bag $R^2=0.98$ Below we show the variable importances of the model:
+```{r, echo=FALSE}
+barplot(importance(rf.model),main="Linear effects - variable importance", ylim=c(0,2000), ylab="variable importance", xlab="Variable")
+```
+
+These variables are not way of what we would expect: $b$ is twice as important as $a$ (as expected), but $c$ is sixfold important than $a$ (we expected fourfold). This gives the impression that it is generally feasible to compare if one (linear) feature is more important than another, but also we should beware about the quantification of importance.
+
+There does seem to be non-linear magnification of the *relative* variable importance with linear growths of effects. Consider a function $y = a + 2b + 3c + 4d + 5e +  \dots 11k$, where we vary $a \dots k$ in the interval $[0;1]$. Below, the bar plot depicts the resulting variable importances and it does seems like there is some non-linear growth: By modelling the variable importance as a function of the function effect size as a line, we can get decent fit ($R^2 = 0.9$), but modelling it as a quadratic growth will result in a much better fit ($R^2 = 0.99$).
+
+
+```{r, echo=FALSE}
+set.seed(43)
+n = 1000
+df <- tibble(
+  a = runif(n),
+  b = runif(n),
+  c = runif(n),
+  d = runif(n),
+  e = runif(n),
+  f = runif(n),
+  g = runif(n),
+  h = runif(n),
+  i = runif(n),
+  j = runif(n),
+  k = runif(n),
+  y = a + 2*b + 3*c + 4*d + 5*e + 6*f + 7*g + 8*h + 9*i + 10*j + 11*k
+)
+rf.model <- ranger::ranger(y ~ .,data = df, importance = "impurity_corrected", num.trees =  1000)
+var.imp<-importance(rf.model)
+barplot(var.imp, ylim=c(0,10000), main="Linear effects - variable importance", ylab="Variable Importance", xlab="Variable")
+```
+
+```{r, echo=FALSE, results='hide'}
+#fit1 <- lm(y ~ x , data.frame(x=2:12, y=var.imp))
+fit2 <- lm(y ~ x + I(x^2), data.frame(x=1:11, y=var.imp))
+
+pred <- predict(fit2)
+ix <- sort(x, index.return=T)$ix
+#add polynomial curve to plot
+#lines(x[ix], pred[ix], col='red', lwd=2)
+
+#lines(smooth.spline(rf.model))
+
+library(stargazer)
+
+stargazer(fit1,fit2, type="text")
+
+```
+
+
+
+
+If we known that all we have in the data is linear effects, then we are better of with linear regression (OLS) than random forsts. In the followin we will explore some scenarios with interactions, non-linear effects and the like.
+
+```{r}
+# Further experiments possible?
+#
+```
+
+
+## Sensitivity to interactions
+### Data set
+
+In the following we explore how impurity (variance) variable importance is affected by interactions in the data. Interactions are effects are when different variables affect effect an outcome with a different magnitude when specific configurations are present. For instance, the weight (outcome variable) of person might be characterized as in terms of waist circumference and height - both of which would on their own be predictive of weight, but by considering their **interaction** we would be obviously better be able predict weight.
+
+It is well-known that random forest (and decision trees on their own) can incorporate interactions. The question is then whether this is reflected in variable importance measures, which are given on a per variable basis. In a random forest model that has learned an interaction, will this interaction inflate or deflate variable importances?
+
+To answer this , we consider a form of interaction that where the variables will have no independent effect on the outcome: we create a dataset with explanatory variables $a$, $b$, and $c$ and a response variable $y$. The variables $a$ and $b$ has no independent effect on $y$, but in unison they have an (interaction) effect, i.e., when their sum is even. The model is specified in the formula below:
+$$
+  y=\begin{cases}
+    1+\frac{c}{10}, & \text{if $a+b \mod 2 = 0$}.\\
+    0+\frac{c}{10}, & \text{otherwise}.
+  \end{cases}
+$$
+
+We generate 1000 random data instances where we randomly pick $a$, $b$ and $c$ from the set ${0,1}$ and calculate $y$ as above. Note that the variable $c$ has an independent effect on $y$, but that it's effect is smaller than interaction effect of $a$ and $b$.
+
+
+```{r, results='hide',echo=FALSE}
+set.seed(42)
+n = 10000
+integer_numbers <- function(n) round(runif(n))
+df <- tibble(
+  a = integer_numbers(n),
+  b = integer_numbers(n),
+  c = round(runif(n)),
+  y = c/10 + (a + b) %% 2
+)
+```
+
+### OLS model
+
+If we fit an linear model (OLS) to this data, we can we that $a$ and $b$ is reported as having **no** effect, whereas $c$ has a small (but significant) effect as intended (see plot below). The resulting linear model has very low predictive power $R^2 = 0.01$.
+
+```{r, echo=FALSE, results='hide'}
+ols_model <- lm(y ~ a + b + c, data = df)
+summary(ols_model)
+```
+
+
+```{r, echo=FALSE, fig.dim = c(1, 2)}
+{dwplot(ols_model, show_intercept = F) +
+theme_bw() + xlab("Coefficient") + ylab("Variable") +
+theme(legend.position="none") +
+geom_vline(xintercept = 0, colour = "grey50", linetype = 2) + ggtitle("OLS model effect estimates + 95% CIs")}
+
+```
+As a side-note - one could add an interaction term to the linear model, but this particular (non-linear) interaction is not of the type easily handled with a usual interaction term in linear models, since that is expected to be a *linear* interaction.
+
+```{r,echo=FALSE,results='hide'}
+ols_model <- lm(y ~ a + b + c + a*b, data = df) # Add a*b interaction, as usual
+dotwhisker::dwplot(ols_model) + xlab("Effect estimate") + ylab("variable")+ ggtitle("OLS model effect estimates + 95% CIs")
+```
+
+### Random Forest model
+
+In the following section, we fit a Random Forest model to the interaction data. We use again the ranger package with default parameters except setting the `importance` measure to `impurity`and using a total of $100$ trees in the random forest (`num.trees=100`).
+
+
+```{r}
+set.seed(42)
+rf.model <- ranger::ranger(y ~ a + b + c,data = df, importance = "impurity_corrected", num.trees =  100)
+rf.model
+```
+
+The random forest model gets a predictive power - summarized by out-of-bag $R^2 = 0.6$ - which is not fantastic, but a lot better than the $R^2=0.01$ achieved by the linear model. Hence, the random forest is to some degree capable of capturing the interaction.
+
+Since the learned model reflects the interaction, we are interested in knowing what emphasis it puts on the different variables. Using out variance/impurity variable importance measure we can see variable importances put more emphasis on $a$ and $b$ and less on $c$:
+
+```{r, echo=FALSE}
+barplot(importance(rf.model),main="Interaction effect - variable importance", ylim=c(0,2000), ylab="variable importance", xlab="Variable")
+
+```
+
+This clearly demonstrates that the interaction effect (that is captured by the Random Forest) counts towards the feature importance.
+
+### Exploring interactions: Partial depedence plots
+
+If we plot the dependency of `c` on `y`, we see a clear linear contribution whereas if we plot `a` or `b` on why we will see an eradic relationships.
+
+```{r}
+par(mfrow=c(1,3))
+pdp.a <- partial(rf.model, pred.var = c("a"))
+pdp.b <- partial(rf.model, pred.var = c("b"))
+pdp.c <- partial(rf.model, pred.var = c("c"))
+
+plot(pdp.a,t="l",ylim=c(0.5, 0.6), main="PD for a")
+plot(pdp.b,t="l",ylim=c(0.5, 0.6), main="PD for b")
+plot(pdp.c,t="l",ylim=c(0.5, 0.6), main="PD for c")
+```
+
+However, if we do a combined PD for `a` and `b`, we should ideally get an interesting a checkered-like pattern:
+
+```{r}
+par(mfrow=c(1,1))
+pd <- partial(rf.model, pred.var = c("a", "b"))
+rwb <- colorRampPalette(c("red", "white", "blue"))
+pdp2 <- plotPartial(pd, contour = TRUE, col.regions = rwb)
+plot(pdp2)
+```
+
+In reality, this does maybe not really look checkered, but at least it hints that this interaction is not linear and something more interesting is going on.
+
+## Sensitivity to non-linearity and numeric distributions
+
+### The distribution of the response variable variance
+
+Let us consider how the distribution of the response variable may affect the variance-based splitting criterion.
+
+To make it easier to reason about this, we will consider an ordered dataset with features of different orders, where there is no random noise and points are sorted by increasing `y`-values. Let's consider three different polynomials of different orders:
+
+```{r}
+n=1000
+df <- tibble(x = 1:n, y1 = x, y2 = x^2, y3 = x^3)
+```
+
+From the (https://cran.r-project.org/web/packages/ranger/ranger.pdf)[ranger documentation] we learn that ranger (by default) splits by variance of the values `y`, i.e., it finds a split that minimizes variance after split (sum of variance of both branches, see (https://github.com/imbs-hl/ranger/blob/daa8da58f85e44c90a39ebb98b7f9ad6a6fe65b4/src/TreeRegression.cpp#L382)[here]).
+
+We can consider a split at any index $2 \leq idx n-1$, giving rise to $n-2$ possible splits. We introduce a small utility function to calculate the variance for a given split `idx` and vector `y`:
+
+```{r}
+variance_of_split <- function(idx,y) {
+  var(y[1:idx]) + var(y[idx:length(y)])
+}
+```
+
+We can now consider all the possible splits for each variable. Below, we plot the distribution of $y$ in each case, along with the variances for each possible split:
+
+```{r}
+par(mfrow=c(2,3))
+hist(df$y1,breaks=100, main="y=x", xlab="")
+hist(df$y2,breaks=100, main="y=x^2", xlab="", ylab="")
+hist(df$y3,breaks=100, main="y=x^3", xlab="",ylab="")
+
+var.y1 <- sapply(2:(n-2),function(x) variance_of_split(x,df$y1))
+var.y2 <- sapply(2:(n-2),function(x) variance_of_split(x,df$y2))
+var.y3 <- sapply(2:(n-2),function(x) variance_of_split(x,df$y3))
+
+plot(2:(n-2), var.y1, xlab="index",ylab="split variance", main="y=x")
+plot(2:(n-2), var.y2, xlab="index",ylab="", main="y=x^2" )
+plot(2:(n-2), var.y3, xlab="index",ylab="", main="y=x^3")
+
+```
+
+**Observation 1**: Some things to notice from the above plot is that when `y` is linear (uniformly distributed) the best split (minimum) in the middle of the line, i.e., with the same number of samples in both branches. However, as we move to higher order polynomials, the best split will consist of a branch with a higher number of samples for the lowest y-values and lower number of samples from the high-end of y-values. The significance of this in relation to variable importance is that with higher order features more splits will be needed (the tree becomes unbalanced).
+
+**Observation 2**: Another thing to note is the scale - the minimum variance increases with at a pace seeming proportional to the growth of the polynomial:
+
+```{r}
+list(min.var.y1 = min(var.y1), min.var.y2 = min(var.y2), min.var.y3 = min(var.y3))
+```
+Observation 2 tells us that contributions to $y$ which come from higher order (non-linear) features will **dominate** decisions about splits and those splits
+will yield larger variance reductions, and ergo higher variable importance.
+This variable is further multiplied through since  higher order features require more splits (observation 1).
+
+
+### Non-linear (higher order polynomial) effects
+
+Following the reasoning from the previous section, if we had data with higher order
+effects, i.e., if $y$ grows at a linear rate in response to a feature $a$ and at a higher rate than linear in response to increases in another feature $b$, then
+we expect $b$ to get higher variable importance than $a$.
+
+To test this, we generate data where `y` depends on a non-linear combination
+of `a`, `b`, `c`: $y = a + b^2 + c^3$.
+
+```{r}
+set.seed(42)
+n = 10000
+integer_numbers <- function(n) round(100*runif(n))
+df_nl <- tibble(
+  a = 1+runif (n),
+  b = 1+runif(n),
+  c = 1+runif(n),
+  y = a+b^2+c^3
+)
+summary(df_nl)
+```
+
+```{r}
+rf.model.nl <- ranger::ranger(y ~ .,data = df_nl, importance = "impurity_corrected", num.trees =  100)
+barplot(importance(rf.model.nl), main="RF variable importances")
+
+```
+
+As expected $vip(a) < vip(b) < vip(c)$ and in addition, variable importance grows more than linearly in the degree of the polynomial feature.
+
+Of course, linear models would also pick up on the different effect sizes/growth rates of y in response to a,b or c.
+
+```{r}
+linear.model <- lm(y ~ ., data=df_nl)
+dotwhisker::dwplot(linear.model)
+```
+However, we know that these estimates cannot be validly be interpreted as linear effects. We can also see this assumption violation also as non-normally distributed residuals:
+
+```{r}
+qqnorm( residuals(linear.model), pch = 1, frame = FALSE)
+qqline(residuals(linear.model), col = "steelblue", lwd = 2)
+```
+
+#### Partial dependency plots, again
+
+If we use partial dependency plots we can get a good intuition about how each feature
+affects the response variable.
+
+```{r}
+par(mfrow=c(1,1))
+pdp.a.nl <- partial(rf.model.nl, pred.var = c("a"))
+pdp.b.nl <- partial(rf.model.nl, pred.var = c("b"))
+pdp.c.nl <- partial(rf.model.nl, pred.var = c("c"))
+
+plot(pdp.a.nl,t="l",ylim=c(5,10),xlab="feature value")
+lines(pdp.b.nl,t="l", col="blue")
+lines(pdp.c.nl,t="l", col="red")
+```
+Perhaps is not completely evident, but there should be indications of increase of curvature going from $a$ (black), to $b$ (blue) to $c$ (red).
+
+### Linear effects, but skewed features
+
+Consider another generated dataset. We construct `y` as the linear combination of
+`a`, `b` and `c`. However, we construct `a` to be linearly increasing, but `b` and `c` to increase quadratic and cubic, respectively.
+
+
+```{r}
+set.seed(42)
+n = 10000
+integer_numbers <- function(n) round(100*runif(n))
+df_inc <- tibble(
+  a = 1+runif(n),
+  b = (1+runif(n))^2,
+  c = (1+runif(n))^3,
+  y = jitter(a+b+c),
+)
+summary(df_inc)
+```
+Fitting a linear model to this data will **correctly** tell us that for each unit increase in either `a`, `b` or `c`, we see a one unit increase in `y`:
+
+```{r}
+linear.model <- lm(y ~ ., data=df_inc)
+dotwhisker::dwplot(linear.model)
+```
+
+
+##### Variable importance feature distribution sensitivity
+
+Now comes the funny thing - with a random forest, we get variable importances that look nowhere near equal (as in the OLS case):
+
+
+```{r}
+library(ranger)
+rf.model.inc <- ranger::ranger(y ~ .,data = df_inc, importance = "impurity_corrected", num.trees =  100)
+barplot(importance(rf.model.inc), main="RF variable importance")
+```
+
+In fact, they look suspiciously similar to what we got from the model with polynomial effects!
+
+This seems wrong. How can this be? Let's look at the $y$-variance distribution for possible first splits of $a$, $b$ and $c$:
+
+```{r}
+variance_of_split <- function(idx,df,x) {
+  var(df[1:idx,]$y) + var(df[idx:nrow(df),]$y)
+}
+par(mfrow=c(1,3))
+df <- df_inc
+df.sort.a <- df[order(df$a),]
+var.a <- sapply(2:(n-2),function(x) variance_of_split(x,df.sort.a))
+df.sort.b <- df[order(df$b),]
+var.b <- sapply(2:(n-2),function(x) variance_of_split(x,df.sort.b))
+df.sort.c <- df[order(df$c),]
+var.c <- sapply(2:(n-2),function(x) variance_of_split(x,df.sort.c))
+plot(2:(n-2), var.a, xlab="index",ylab="split variance", main="a",ylim=c(0,20))
+plot(2:(n-2), var.b, xlab="index",ylab="", main="b", ylim=c(0,20))
+plot(2:(n-2), var.c, xlab="index",ylab="", main="c", ylim=c(0,20))
+```
+```{r}
+boxplot(data.frame(a=var.a,b=var.b,c=var.c), ylab="split variance")
+```
+
+
+Things to note:
+
+- We cannot deterministic predict order of splits, because a) only a (random) subset of the data is is used to build each tree and b) each time we make a split in such a tree, only a random subset of the features (the size of the subset is determined by the `mtry` parameter) is considered
+- Nevertheless, split variances are on average lower for $c$ than $b$, and $b$ is on average lower than $a$ and this is consistent with $vip(a) < vip(b) < vip(c)$.
+- The minimum variance when splitting on $c$ is lower than when splitting the other two variables. It is hence likely that a split on $c$ will be appear early in most trees. If we can't make the first split on $c$ (due to `mtry`) then $a$ has the next-lowest variance split-point, though it is an outlier. However, the split on $a$ is unbalanced (will separate out very few samples) any additional splits will need to happen if choosing this split, and those will be likely be from $c$ (most likely) or $b$ (less likely, but more likely than an additional split in $a$).
+
+#### PDPs, comparison to the non-linear effects model
+
+Shown below is comparison between the PDP plots for the random forest model estimated from date with non-linear effects and from the random forest model estimated from the data with linear effects, but polynomial input features.
+
+```{r}
+par(mfrow=c(1,3))
+pdp.a.inc <- partial(rf.model.inc, pred.var = c("a"))
+pdp.b.inc <- partial(rf.model.inc, pred.var = c("b"))
+pdp.c.inc <- partial(rf.model.inc, pred.var = c("c"))
+
+plot(pdp.a.inc,t="l")
+legend(1.2, 7.2, legend=c("Linear effects", "Non-linear effects"), lty=c(1,3), cex=0.8)
+lines(pdp.a.nl,t="l",lty=3)
+plot(pdp.b.inc,t="l")
+lines(pdp.b.nl,t="l",lty=3)
+plot(pdp.c.inc,t="l")
+lines(pdp.c.nl,t="l",lty=3)
+
+```
+
+The curvature of the non-linear effects model (dotted line) in comparison the lack of curvature in linear effects model (solid line) shows that while their variable importances may be indistinguishable, it is possible to check for non-linear effects using PDPs.
+
+Inspection of PDPs could perhaps inform an approach to motivate adding polynomial terms to an OLS model.
+
+### Resources
+
+- The revival of the Gini importance?
