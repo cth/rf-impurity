@@ -157,16 +157,80 @@ downstream, it is **documented and its accuracy is measured**:
 - If recall is inadequate the filter is loosened and re-measured; the report
   states the operating point used.
 
+### Fingerprint rules
+
+The fingerprint is a versioned, recall-tuned regex set (`analysis/fingerprint.py`).
+Its job is to cut the LLM corpus cheaply and deterministically — a missed true
+positive is expensive (gone forever), a false positive is cheap (the LLM discards
+it), so it is a generous OR of signals, case-insensitive and separator-tolerant.
+Because the locked target requires a **significance verdict** (condition 1 of §1),
+it keys on the p-value machinery, not merely "uses importance".
+
+**Keep signals (any match → candidate):**
+- `importance[_\s]?p[-_\s]?values?` — ranger's `importance_pvalues()`
+- `\bBoruta\b` — shadow-feature significance
+- `\bAltmann\b`, `\bJanitza\b` — the two p-value methods (a citation to them counts)
+- `impurity[_\s]?corrected` | `corrected impurity` | `actual impurity reduction`
+- `(variable|feature|permutation)\s+importance` within ~50 chars of
+  `p[-\s]?value | significan | null distribution`
+
+**Recorded but not gating** (feed the extraction's corroboration fields):
+`importance\s*=\s*["']impurity`, `SHAP`, `permutation importance`,
+`partial dependence|PDP|ALE`, `cforest|conditional importance`.
+
+Known weak spots to measure, not assume away: abstracts rarely contain these
+strings (poor recall on the abstract track → send that cohort to the LLM more
+liberally); bare author surnames ("Altmann") cause false positives (acceptable
+under recall-first); code-free / method-unnamed papers are caught only by the
+proximity rule (the recall risk the FN measurement quantifies).
+
 ---
 
-## 5. Pipeline summary
+## 5. Model cascade (who reads what)
+
+The fingerprint is a **pre-pass for determinism and measurement, not for cost** —
+reading the full-text corpus with a cheap model is inexpensive (see anchors
+below), so cost is not the reason to gate. The reasons to keep the regex are that
+it is deterministic (an auditable, exactly-repeatable candidate set — an LLM
+filter is not), free, and the only thing whose accuracy can be *characterized* (a
+rule has a measurable false-negative rate; "what the model decided that day" does
+not). Extraction is therefore a **cascade**, not a single model:
+
+| Stage | Model | Reads | Emits |
+|-------|-------|-------|-------|
+| 1. Fingerprint | — (regex) | all stored text | deterministic candidate set + FN sample |
+| 2. Structured extraction | **Haiku 4.5** | fingerprint survivors + a random sample of the *rejected* set | the full §4 record incl. `p_affected` / `central_to_conclusions` + evidence |
+| 3. Adjudication *(future work, §6)* | **Sonnet / Opus** | only the positives & borderline cases from stage 2 | confirm / refute each flag |
+
+Rationale: "Haiku-as-filter" and "Haiku-as-extractor" collapse — once Haiku reads
+the text you have paid the input cost, so Haiku *is* the reader and emits the
+structured record in one pass rather than a separate gate. Running Haiku on a
+random sample of fingerprint-*rejected* papers is exactly how §4's false-negative
+rate is measured. The expensive model (Sonnet/Opus) sees only the shortlist.
+
+**Cost anchors** (Haiku 4.5 $1/$5 per 1M in/out; Sonnet 5 $3/$15; Opus 4.8
+$5/$25; full-text mean ~19k input tokens/paper):
+
+| Option | Model | ~Cost |
+|--------|-------|-------|
+| Read **all** ~1,400 full texts | Haiku | **~$40** |
+| Read all ~1,400 full texts | Sonnet | ~$110 |
+| Read only fingerprint survivors (~300) | Sonnet | ~$28 |
+
+At ~$40 to Haiku-read everything, cost does not force the fingerprint — it earns
+its place on determinism and measurability alone.
+
+---
+
+## 5b. Pipeline summary
 
 1. **Retrieve** `cites:ranger` from OpenAlex; resolve OA full text via Europe
    PMC; split into full-text vs. abstract-only tracks; store text + manifest with
    fetch timestamps (§3).
-2. **Relevance filter** on fingerprint strings; store filter version and its
-   measured accuracy (§4).
-3. **Structured extraction** per paper — record + evidence, both stored (§4).
+2. **Fingerprint** on stored text; store filter version and its measured accuracy
+   (§4, §5).
+3. **Haiku structured extraction** per paper — record + evidence, both stored;
+   also run on a random rejected-set sample to measure the FN rate (§5).
 4. **Aggregate & report** — candidate set = `p_affected ∧ central_to_conclusions`;
    descriptive cross-tabs; the two tracks reported separately.
 
@@ -203,6 +267,8 @@ downstream, it is **documented and its accuracy is measured**:
   gold set.
 - **Scoring:** binary `p_affected` and `central_to_conclusions` indicators; no
   composite risk model.
+- **Models:** regex fingerprint (determinism/measurement) → Haiku 4.5 extraction
+  → Sonnet/Opus adjudication (future work); no model gates before reading.
 - **Depth:** flag at scale (retrieve → filter → extract → report). Adjudication
   and reproduction are future work.
 - **Reproducibility:** all fetched text stored in-repo with per-record fetch
