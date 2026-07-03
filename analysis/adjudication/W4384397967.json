@@ -1,0 +1,9 @@
+{
+  "id": "W4384397967",
+  "cites": 3,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": false,
+  "adequate_corroboration": true,
+  "reason": "The RF importance type is never explicitly named (no 'Gini'/'impurity'/'permutation' stated), but nothing indicates permutation was used, so impurity-type importance is the reasonable default assumption. However, the specific ranking the flag challenges (year tied with extent) is not what drives the paper's stated conclusions: the final Conclusions paragraph names range uncertainty, motion management, and systematic underdosing as the 'main culprits' and never invokes the year-extent parity to support that claim. The extent finding, which IS load-bearing for the conclusions, is independently corroborated by non-impurity evidence: a significant univariate regression of pass rate on extent (R^2=0.71-0.85, p=.008-.003) plus significant t-tests distinguishing pass vs fail by extent (p=.003, .002, Table 3) and by motion-management technique. The weaker year-signal (R^2=0.30, p=.20) is explicitly flagged by the authors themselves in the Discussion as non-significant over the full timeframe, so the paper does not lean on it as a validated, independently-significant driver equal to extent -- it is stated cautiously and is absent from the final Conclusions. Since the potentially bias-inflated element of the ranking (year's parity with extent) is not central to the stated conclusions, and the variable that is central (extent) has adequate non-impurity corroboration, the flag does not hold."
+}

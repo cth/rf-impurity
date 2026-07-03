@@ -1,0 +1,9 @@
+{
+  "id": "W2322754609",
+  "cites": 212,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "This is a simulation study with fully known ground truth: for every scenario the authors know exactly which SNPs are the true interacting pair, which are marginal-only, and which are pure noise, and they measure whether Gini importance ranks the known true interacting SNPs highly across 100 replicates per scenario. That is a stronger form of validation than the rubric's own examples (held-out validation of the selected feature set), since truth is fixed by design rather than inferred. The paper's conclusion is explicitly that Gini importance is confounded by MAF and marginal effects and that \"caution is warranted when claiming random forests uncover interactions\"-i.e., the paper's finding IS a demonstration/characterization of the very impurity-importance bias the audit checks for, not a conclusion undermined by it. Because the ranking is validated against known simulated ground truth (and cross-checked against permutation importance and multiple pairwise measures), condition (3) of the CONFIRMED test fails, so the flag is refuted."
+}

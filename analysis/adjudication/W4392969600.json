@@ -1,0 +1,9 @@
+{
+  "id": "W4392969600",
+  "cites": 12,
+  "verdict": "uncertain",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper never states which importance measure the ranger-based RF used (\"Feature importance plots for each model were also generated for explainability\"); a full-text grep for \"Gini,\" \"impurity,\" \"permutation,\" and \"SHAP\" returns zero hits, and Fig. 4 (the actual importance plots) is not reproduced in the extracted text, so criterion (1) cannot be confirmed from the available text, only inferred as plausible given ranger's common default usage. Criterion (2) does hold: the Discussion's \"Interpretation\" section builds a clinical narrative directly on the RF/LR/LASSO importance rankings (\"male and public location were the variables which highly contributed to the model\"), so ranking is not a throwaway detail. Criterion (3) also clearly fails to be corroborated: no permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of the selected feature subset is reported, only overall AUC/Brier comparisons across the three whole models. Because the single decisive fact, whether the RF importance shown is impurity-based (as opposed to permutation, which ranger equally supports and which would make the flag moot), cannot be verified from the text, the flag is unverifiable rather than clearly confirmed or refuted."
+}

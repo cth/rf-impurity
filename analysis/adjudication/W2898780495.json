@@ -1,0 +1,9 @@
+{
+  "id": "W2898780495",
+  "cites": 32,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly uses Gini Index impurity importance for random forests (\"the Gini Index importance of a feature was estimated based on the impurity of splitting testing samples on the tree node using the feature\") and an analogous split-improvement-based (not permutation-based) importance for GBM. This ranking is squarely central: the 44-SNP candidate set, the headline claim that \"SNP rs3760948 from gene ARRDC5 was ranked the highest by both random forests and GBM,\" and all downstream interaction/enrichment analyses derive directly from this impurity-based ranking cutoff. The only \"validation\" offered is (a) agreement between RF-Gini and GBM's own impurity/improvement-based score, two estimators that share the same class of impurity biases rather than providing independent corroboration; (b) univariate PLINK p-values, which several selected SNPs actually fail (e.g., rs11185516, p=0.669, rank 125,071/186,251), used by the authors to argue these are pure-interaction signals rather than as a check on ranking validity; (c) permutation testing of information gain, but only among the 44 already-selected SNPs to test specific pairwise/three-way interaction hypotheses, not permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of the selection/ranking itself; and (d) functional enrichment/literature overlap, which is biological plausibility, not statistical corroboration of the ranking. Since the study specifically seeks interaction-driven, non-additive signal, it is exactly the regime where impurity importance's tendency to inflate variables involved in interactions could most plausibly have distorted which SNPs made the top-44 cut, and no method on the adequate-corroboration list was applied."
+}

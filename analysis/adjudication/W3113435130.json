@@ -1,0 +1,9 @@
+{
+  "id": "W3113435130",
+  "cites": 81,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly computes feature importance as \"the unbiased corrected Gini index, a measure of how well individual features do at reducing node impurity\" — this is an impurity/Gini-type measure (a bias-corrected variant per Nembrini et al. 2018 that addresses split-count bias, not the superlinear/interaction/nonlinearity biases at issue here), not a permutation, SHAP, or conditional-importance measure. The resulting ranking (engine power, max distance from port, voyages/year, avg daily fishing hours) is used to support substantive causal-flavored claims in the Results text: \"forced labor appears to cluster in similarly sized vessels,\" consistency with \"expert opinion\" and ILO indicators, and that vessels \"may actively avoid scrutiny.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of this specific feature ranking is reported anywhere in the text; the paper's only \"robustness checks\" and 10-fold CV validate overall model classification performance (F1/recall/detection prevalence) and the number of vessels flagged, not the importance ranking itself. Because all three conditions (impurity-based importance used, ranking central to a stated conclusion, no adequate corroboration of the ranking) are satisfied, the flag is confirmed rather than refuted."
+}

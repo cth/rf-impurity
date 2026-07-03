@@ -1,0 +1,9 @@
+{
+  "id": "W7118262481",
+  "cites": 0,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does use ranger's Gini/MDI importance to rank and select radiomic and clinical features, and it explicitly interprets the top-ranked feature (Maskoriginal_VolumeNum) and the composition of the top-20 subgroup as evidence of imaging biomarker relevance. However, the ranking-based selections are not left unvalidated: for every feature source (radiomics only, clinical only, multiomic) the authors systematically vary the number of top Gini-ranked features included (top 1 through 20-28) and report held-out test-cohort AUC/ACC/sensitivity/specificity for each cutoff (Figs. 2-4), identifying stable, well-performing cutoffs (e.g., top-9 radiomic features giving test AUC 0.83; top-8 multiomic features giving test AUC 0.86). This is genuine held-out predictive validation of the selected feature sets across many selection sizes, not merely a single overall-accuracy figure, and it is exactly the kind of corroboration the criteria treat as adequate. They also report a stability check (13/18 overlap in top features between the radiomics-only and multiomic rankings) and note SHAP values were computed (Supplementary Fig. 2), even though SHAP is not discussed in the main text. Because the selected/ranked feature sets are empirically shown to generalize on an independent test cohort across a wide range of cutoffs, the paper's central conclusions (radiomic features are predictive and outperform clinical-only data, and a multiomic model improves further) do not hinge on an uncorroborated, potentially bias-inflated Gini ranking, so the flag is refuted."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W4223616136",
+  "cites": 10,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly ranks RSF features \"based on their importance values,\" citing Ishwaran's high-dimensional RSF variable-selection paper and Nembrini et al.'s \"The revival of the Gini importance?\" as its methodological basis (the latter specifically concerns Gini/impurity importance and its biases), indicating an impurity-type (MDI) measure drove the feature-removal step. This ranking is central to a stated conclusion: \"all clinical features were removed from the combined model\" during optimization, and the Discussion states \"clinical features used in this work added no additional benefit,\" a claim used to justify design choices for future models. The only corroboration offered is that the final combined (post-removal) model achieves AUC 0.78-0.80 on the held-out validation cohort; per the task's own criterion this does not validate the ranking/removal decision itself, since no permutation importance, SHAP, PDP/ALE, conditional importance, or explicit ablation re-adding clinical features was reported. With 71 highly correlated continuous variability metrics competing against six clinically mixed-type (including binary) features, impurity importance's known scale/cardinality and correlation-driven inflation could plausibly have overstated variability importance and understated clinical feature importance, so the flag survives adversarial review."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W4415614888",
+  "cites": 0,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper fits ranger random forests (500 trees, tuned mtry/min.node.size) and derives \"Vimp\" via the vivid package (Inglis et al. 2023), which for tree-ensemble models like ranger extracts the model's embedded (impurity-type) importance rather than an independent, bias-corrected metric; the text never mentions permutation importance, SHAP, or any bias-corrected alternative. This ranking is squarely central to the paper's headline conclusion, stated in the abstract, Section 3.3, and Discussion: \"photoperiod dominated at the perennial site, while DTW was the controlling factor at intermittent sites,\" visualized in Figure 5 by node size (Vimp). The only checks offered are (1) a \"sensitivity analysis\" showing the top-three predictor identities (DTW, photoperiod, PDSI) are stable across alternative precipitation-lag specifications, which reuses the same importance metric rather than an independent method, and (2) overall variance explained (>90%), which the audit criteria explicitly exclude as validation of a ranking. No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of the selected feature ranking is reported anywhere in the main text or supplement, so the magnitude/ordering of photoperiod vs. DTW importance across site types is not adequately corroborated against the impurity-importance biases (non-linear/skew inflation, interaction misattribution) that could plausibly reshuffle which variable \"dominates\" at each site type."
+}

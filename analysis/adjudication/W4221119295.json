@@ -1,0 +1,9 @@
+{
+  "id": "W4221119295",
+  "cites": 37,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper explicitly states variable importance was \"determined by the unbiased difference in mean squared error (ΔMSE),\" citing the ranger package (Wright and Ziegler 2017) alongside Nembrini et al 2018's paper on Gini-importance bias. \"ΔMSE\" (increase in error from permuting a variable) is the standard definition of permutation importance for regression forests, and \"unbiased\" is the term the cited literature uses precisely to contrast this metric with biased impurity/Gini importance; the body text never uses \"Gini,\" \"node purity,\" or any impurity-based terminology. So although the feature ranking is clearly central to the paper's conclusions (it drives the \"red flag\" variable list and the risk-cluster definitions), the paper does not appear to use impurity/Gini/MDI importance at all, and the ranking is additionally corroborated by independent univariate/multivariate Poisson regression showing the same top features and by cross-cohort (AT-trained, IT-validated) cluster structure. Both facts independently support refuting the flag."
+}

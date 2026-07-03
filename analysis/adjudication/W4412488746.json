@@ -1,0 +1,9 @@
+{
+  "id": "W4412488746",
+  "cites": 0,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper's \"Mean weighted importance\" (Table 4) is not a raw random-forest impurity ranking; per Methods, it is \"normalising algorithm-specific scores per fold, weighting them by SuperLearner coefficients and aggregating across folds\" across three heterogeneous base learners: regularized regression (glmnet), random forest (ranger), and kernel SVM. Critically, random forest received the LOWEST average SuperLearner weight of the three (coefficient = 0.140), versus glmnet (0.461) and ksvm (0.399), so each feature's composite score is dominated (~86% on average) by non-tree-based importance measures immune to impurity/Gini super-linear magnification. Ranking magnitude is central to the paper's conclusions (top-10 list drives the prevention-targeting recommendation), and no permutation/SHAP/PDP/conditional-importance or held-out validation of the selected feature set is provided, so formal corroboration per the strict list is absent. However, because the reported metric is a cross-algorithm composite in which the RF-impurity-prone component is minority-weighted, the specific impurity-magnification bias could not have been the primary driver of the reported top-predictor magnitudes/ranking, undermining the first-pass characterization that these are simply \"impurity-importance rankings.\""
+}

@@ -6,9 +6,38 @@ conclusions could be affected by impurity-importance bias (see
 subagent read each paper and emitted `analysis/extraction/<id>.json`; flagged =
 `p_affected ∧ central_to_conclusions`.
 
-**Status: first-pass, unverified.** These are Haiku judgements. The plan's
-Sonnet/Opus adversarial adjudication pass (future work) has not run — treat the
-counts as a screening estimate, not confirmed findings.
+**Status: adjudicated.** Haiku produced the screening flags; a Sonnet
+adversarial pass (prompted to *refute* each flag) then verified them. Both layers
+are LLM judgements — treat the confirmed set as a strong screening estimate, not
+ground truth (proving impact needs the study's data; plan §6).
+
+## Adjudication outcome (the verified numbers)
+
+Each of the 125 flagged papers was re-read by a Sonnet agent instructed to refute
+the flag (confirm only if it uses impurity importance, the ranking is central,
+AND it is not adequately corroborated). Verdicts (`analysis/adjudication/`):
+
+| verdict | n |
+|---------|---|
+| **confirmed** | **55** |
+| refuted | 65 |
+| uncertain | 5 |
+
+- **Haiku screen precision ≈ 55/125 = 44%** — the adversarial pass overturned a
+  little over half the flags, so the raw screening counts overstate exposure by
+  ~2×. Read every unadjudicated "flagged" number below with that factor in mind.
+- **Verified prevalence: 55 confirmed of 544 screened full-text papers ≈ 10%**
+  (~7% of all 773 full-text papers).
+- **The 4,684-cite outlier `W2588003345` was CONFIRMED** — it ranks variables on
+  ranger/xgboost built-in (impurity/gain) importance with no permutation, SHAP,
+  Boruta, or conditional check. The confirmed set carries **6,659 citations**
+  total, so the citation-weight concentration survives verification.
+- Confirmed candidates: `analysis/confirmed_candidates.csv` (id, cites,
+  pvalue_method, title/DOI, adjudication reason), sorted by citations.
+
+The screening-level tables that follow (`flagged` = Haiku `p_affected ∧ central`)
+are retained for the recall/method/citation/year analyses; apply the ~44%
+precision factor to convert them to verified counts.
 
 ## Coverage
 

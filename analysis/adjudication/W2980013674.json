@@ -1,0 +1,9 @@
+{
+  "id": "W2980013674",
+  "cites": 37,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does use genuine impurity-based importance (ranger's node-impurity option, explicitly distinguished in the text from its separate 'permutation' option, plus likely Gini importance among the 'three algorithms based on random forest importance' from randomForest/randomForestSRC) as part of its 17 feature-selection algorithms, and the Discussion does treat the top descriptor (SpMax4_Bh(m)) as centrally important ('By far the most important descriptor in our work, identified by multiple feature selection algorithms'). However, the ranking metric actually reported in Table 2 is not a raw impurity-importance score but the FREQUENCY with which each descriptor appeared in the top five across all 17 methodologically heterogeneous algorithms, which explicitly include permutation-importance/conditional-importance methods (permutation importance via the 'party' package, citing Strobl et al.'s Conditional Variable Importance for Random Forests, and ranger's separate permutation-importance option) alongside ANOVA, chi-square, RELIEF, gain ratio, and symmetrical uncertainty. SpMax4_Bh(m) was selected by 14/17 and DECC by 11/17 of these diverse algorithms, meaning the reported ranking is corroborated by permutation/conditional-importance methods within that same vote count, not solely by impurity importance. This cross-method convergence, spanning largely non-impurity approaches, constitutes adequate corroboration under the stated rubric, so the impurity bias could not plausibly have altered this conclusion."
+}

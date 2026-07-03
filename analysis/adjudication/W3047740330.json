@@ -1,0 +1,9 @@
+{
+  "id": "W3047740330",
+  "cites": 72,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper's Methods section explicitly states the importance metric used: \"Z-scores of mean decrease accuracy measure as importance attribute; Ranger implementation of random forest regression.\" Mean decrease accuracy (MDA) is the permutation-based importance measure (features are shuffled and the resulting drop in held-out predictive accuracy is measured), not the impurity/Gini/MDI measure that suffers from the super-linear magnification and interaction-charging biases described. The text contains zero mentions of \"Gini\" or \"impurity\" importance. While the ranking of features (e.g., \"Promoter architecture is the most important predictor of expression variation,\" Fig 2A \"Top 30 important features\") is indeed central to the paper's mechanistic conclusions, this ranking is derived from permutation importance via Boruta/Ranger, which is not the biased statistic in question. Since criterion (1) (genuine use of impurity importance) fails, the flag is refuted regardless of corroboration adequacy."
+}

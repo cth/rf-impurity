@@ -1,0 +1,9 @@
+{
+  "id": "W4407159822",
+  "cites": 3,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "Table 6 explicitly reports RF importance as \"Node Purity\" (impurity/variance-reduction, i.e., MDI), and the Conclusion lists as a key finding an explicit ranking: \"NDF, PH, and RFV for the RF algorithm,\" with an overall combined claim that \"the most impactful factors are PH, RFV, and NDF\" — so the ranking is central to stated conclusions. The only corroboration offered is comparing this ranking to importance measures from ALM (standardized regression coefficients), ANN (connection-weight sensitivity), and MARS (basis-function contribution) — none of which is permutation importance, SHAP, PDP/ALE, conditional importance, or held-out predictive validation of the selected feature subset. No such approved corroboration method is used anywhere in the paper. Given documented severe multicollinearity among the very top-ranked variables (NDF VIF=195.95, RFV VIF=286.4, PH VIF=44.0), the impurity-importance ranking is exactly the kind of result the known bias could distort, and it is not adequately corroborated per the stated criteria, so all three conditions for CONFIRMED are met."
+}

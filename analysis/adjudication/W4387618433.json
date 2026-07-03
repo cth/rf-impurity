@@ -1,0 +1,9 @@
+{
+  "id": "W4387618433",
+  "cites": 2,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly defines its \"variable importance\" as impurity-type MDI: \"the reduction in sum of squared errors whenever a variable is chosen to split a node across every tree of the forest\" (ranger's impurity importance), with no permutation importance, SHAP, PDP/ALE, or conditional importance computed anywhere. This ranking is central: the Results section header \"The predictive power of human mobility\" leads with \"It is clear that for 2020 and 2021 G has a greater importance compared to the other features,\" the Discussion attributes Luxembourg's fit to G being \"the only important predictor,\" and the Abstract/Conclusion headline claim (\"this novel data source is able to predict tourism demand with high accuracy,\" \"We demonstrate that human mobility data from Google ... can be used to nowcast tourism demand\") rests on attributing the model's success specifically to G rather than to the static tourism/population covariates. The only validation offered (Err_abs, Err_rel, Mod_Err, RMSE against Eurostat totals) is overall model accuracy of the full model with all features included, which per the audit rules explicitly does NOT validate the ranking/attribution to G specifically, since no ablation (model without G) or permutation-based check was run. The setup is a textbook bias scenario: G is a continuous, lockdown-skewed predictor being compared against categorical/static predictors (5-level vulnerability class, tourism typology, and a within-country-constant population), which impurity/variance-reduction importance is known to systematically inflate relative to lower-cardinality or static features, so the reported dominance of G could be an artifact of the metric rather than a genuinely larger causal/predictive contribution."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W4390540183",
+  "cites": 9,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper fits RF classification models and reports a single scaled 'feature importance value' per predictor that is used to rank predictors (\"Wind speed was the most important predictor... while sea surface height, chlorophyll-a and sea surface temperature were moderately important\"), and this ranking is central to the ecological interpretation (wind noise masking communication space, seasonal coincidence with low wind speed). The only statistical treatment applied is Altmann et al.'s permutation-based p-value test, which yields a significance verdict (asterisks p<0.05 vs NS) but by construction does not re-derive or correct the magnitude/ordering of the underlying importance scores, matching exactly the split the audit describes: significance is robust, ranking/magnitude is not. The paper never explicitly names the base measure as \"Gini\" or \"impurity,\" but the workflow (default randomForest/ranger importance output, a GVIF collinearity check run specifically \"to produce accurate indices of variable importance,\" and citation of Altmann's classic Gini-importance-bias-correction paper) is most consistent with a conventional impurity-type importance being the reported metric. The only corroboration offered is (i) partial-effect plots (figure 6 a-h) showing each predictor's marginal shape, which validates direction/shape but not relative magnitude or rank across predictors, and (ii) overall model AUC/calibration on a held-out test set, which the rubric explicitly excludes as validation of a selected ranking. No permutation importance, SHAP, or conditional importance was computed as an independent check on the ranking, so the magnitude/ranking claims driving the paper's ecological conclusions are not adequately corroborated."
+}

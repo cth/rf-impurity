@@ -1,0 +1,9 @@
+{
+  "id": "W2923961976",
+  "cites": 66,
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "verdict": "confirmed",
+  "reason": "The paper explicitly uses ranger's impurity importance (\"Feature importance was evaluated using an impurity measure based on standardized response variance...scale.permutation.importance...set to FALSE\"), and Table 2's ranked list of specific connectivity features (BG within-network, ASN-Sensorimotor, vDMN-vDMN, etc.) is used to support the central conclusion that specific SN/DMN/ECN/BG/sensory connections (not just the rs-fMRI modality generally) drive the 33% explained variance and corroborate the addiction-cycle neurocircuitry model. The only corroboration offered is (a) held-out R2/RMSE validation of the whole rs-fMRI model (aggregate predictive performance, not the individual feature ranking) and (b) a purely qualitative scatter plot (Fig. 3) of top features vs AUDIT in the validation sample with no reported statistics. Critically, the authors themselves concede this gap, writing \"we do emphasize the need to focus on the results from the validation sample and interpret cautiously findings from the primary sample (i.e., the feature importance rankings), as the latter are not tested for generalizability.\" No permutation importance, SHAP, PDP/ALE, or conditional importance was computed for the individual features. All three confirmation criteria are met, so the flag is CONFIRMED rather than refuted."
+}

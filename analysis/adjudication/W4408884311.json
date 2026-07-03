@@ -1,0 +1,9 @@
+{
+  "id": "W4408884311",
+  "cites": 4,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper fits ranger() random forests and reports \"Relative importance (%)\" per predictor (Fig. 2, Table 2) without ever naming the importance type (impurity/Gini vs. permutation) or citing any bias-correction; feature selection itself was done by recursive elimination on CV R²/RMSE, not by an independent check of the importance ranking, so that RFE step validates which variables enter the model but not the reported magnitudes/order (e.g., TMIN-station \"68.3%\" ranked #1, macroclimate \"ranging from 50 to 80%\"). These exact magnitude/ranking numbers are then used directly in the Discussion to declare macroclimate the dominant driver and solar radiation/FAPAR/NDMI as \"key predictors\" — a central substantive conclusion of the paper. No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of the selected ranking is reported anywhere in the text, so the ranking is not adequately corroborated. Given the silence on importance type plus heavy reliance on ranger's default workflow across ~9,600 model fits (where impurity importance is the cheap, common default), the more likely reading is that unadjusted impurity/Gini-type importance drives these ranked percentage claims, satisfying all three CONFIRMED criteria."
+}
