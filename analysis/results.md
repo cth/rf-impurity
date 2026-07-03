@@ -68,6 +68,34 @@ corroboration, feature-heterogeneity, title/DOI (joined from
 `corpus/manifest.csv`), and the evidence quote behind each flag. Sorted with the
 `pvalue_method != none` (higher-confidence) papers first.
 
+## Citation impact of flagged papers
+
+OpenAlex `cited_by_count` for the 544 screened papers
+(`analysis/citation_counts.json`):
+
+| group | n | median cites | mean cites | max | total cites |
+|-------|---|-------------|-----------|-----|-------------|
+| **Flagged** | 125 | 11 | 68.7 | 4,684 | 8,591 |
+| Not flagged (all screened) | 419 | 10 | 30.6 | 1,077 | 12,826 |
+| Impurity-users, not flagged | 182 | 12 | 35.3 | 1,077 | 6,431 |
+
+- **Medians are essentially equal** (11 vs 10) — a typical flagged paper is no
+  more cited than a typical screened paper.
+- **But the mean is ~2× higher for flagged papers, and by citation weight the
+  flagged 23% of papers account for ~40% of all citations** to the screened set.
+  The effect is a heavy tail: a handful of highly-cited flagged papers, led by
+  one 2017 paper with **4,684 citations** (`W2588003345`), pull the flagged mean
+  up. So the *reach* of the potentially-affected conclusions is concentrated in a
+  few influential papers rather than spread evenly.
+- Every one of the ten most-cited flagged papers has `pvalue_method: none` —
+  reinforcing that the high-impact exposure is in bare impurity-ranking, not in
+  the significance-method literature.
+
+Caveat: `cited_by_count` is confounded by publication year (older papers
+accumulate more), and the flag itself is an unverified Haiku judgement — the
+4,684-cite outlier should be first in line for the adjudication pass, since one
+false positive there dominates the citation-weighted picture.
+
 ## Caveats
 
 - **Unverified Haiku first pass** — precision unknown until the Sonnet/Opus
