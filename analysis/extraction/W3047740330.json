@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: 'We retrieved the features' \"importance score\" from the Boruta algorithm' using 'Z-scores of mean decrease accuracy measure as importance attribute.' The paper then ranks features as 'the strongest predictor of variation' and constructs mechanistic conclusions: 'Two classes of genes with low variation have distinct regulatory mechanisms' based on which features rank highest (broad promoter TF occupancy vs. narrow promoter Pol II pausing). These ranking claims lack alternative validation: Boruta tests only that features 'predict better than their permuted version' (binary selection), not magnitude. Cross-validation provides held-out performance but not corroboration of feature ranking robustness to impurity bias.",
+  "id": "W3047740330",
+  "set": "survivor"
+}

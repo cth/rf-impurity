@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states \"four were significant (median latitudinal range, SST, salinity and SST range; ranked according to its importance, see Table 2).\" The key conclusion is: \"the prevalence of the median latitudinal range as the most important predictor of the species richness, being also the predictor with a high degree of phylogenetic conservatism, strongly supports the idea of an extra-tropical origin for many polychaetes species.\" Variable importance uses \"conditional random forest which accounts for the possible predictor collinearity (Strobl et al., 2008), based on the method proposed by Altmann et al. (2010), with p-values based on 10,000 permutations.\" Table 2 shows importance rankings (Median lat. range: 831.525, SST: 732.814, Salinity: 541.348, SST range: 217.978) for variables with different scales and collinearity (VIF 3.18-9.33).",
+  "id": "W3201785827",
+  "set": "survivor"
+}

@@ -1,0 +1,19 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states: \"we first estimated the contribution of each genus feature to each model using the permutation-based approach from Altman et al. (2010) to assign a P value for each feature in each model.\" The main conclusions center on identifying \"robustly well-predicted metabolites\" via threshold-based classification (Spearman's rho > 0.3, FDR < 0.1), not on ranking features by importance magnitude. They identify \"significant contributors\" (P < 0.1) and \"consistent contributors\" (>50% of models), validating findings against known biological pathways (e.g., \"Bacteroides...consistently contributed to models of several bile components...both in agreement with experimental findings\"). The paper emphasizes metabolite predictability across datasets via cross-predictability analysis and model transfer rather than relying on feature importance magnitudes for conclusions.",
+  "id": "W3205971043",
+  "set": "survivor"
+}

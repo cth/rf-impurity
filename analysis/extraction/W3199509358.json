@@ -1,0 +1,12 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs random forest analysis with the Boruta wrapper algorithm for \"Exploratory Analysis 2\". Critically, it states: \"Permutation importance of a given variable is the reduction in prediction accuracy (mean decrease in accuracy, MDA) of the model when this variable is randomly permuted.\" This is permutation importance, not impurity importance. The paper does not report Gini, MDI, or mean decrease in impurity. Since impurity-based importance is not used, the impurity bias does not affect this paper's findings.",
+  "id": "W3199509358",
+  "set": "survivor"
+}

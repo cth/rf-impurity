@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states \"Feature importance was determined according to a permutation-based method, outlined by Altman et al.\" and concludes \"Importance designated to each feature by random forest placed PCT and IL-6 among the top three features\" and \"PCT and IL-6 are among the most important features in the model, suggesting these biomarkers are useful in differentiating patients.\" Although the paper does rank features and interpret their importance magnitude, it uses permutation-based importance (a robust method) rather than impurity importance, so the validated biases do not apply.",
+  "id": "W3149782091",
+  "set": "survivor"
+}

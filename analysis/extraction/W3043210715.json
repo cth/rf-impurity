@@ -1,0 +1,19 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states: \"The ranking is based on permutation feature importance\" (Table 1 caption). Methods section confirms: \"we used permutation strategies to determine the unique contribution of the respective behavioral class...These effects were also tested for significance (41) and adjusted for multiple comparisons\" (ref. 41: Altmann et al. 2010 permutation importance). The paper ranks behavioral classes: \"communication and social behavior had the biggest impact on model performance on domain (\u03b2 = 0.027, CI 95% = [.026, .028]) and facet levels.\" However, permutation importance is robust to the impurity-bias mechanism; the central conclusion is personality predictability, not the specific ranking of behavioral drivers.",
+  "id": "W3043210715",
+  "set": "survivor"
+}

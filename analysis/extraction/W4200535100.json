@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly identifies the Gini impurity bias (\"Since the latter is biased, e.g., in favor of features with many possible split points, an unbiased adaptation called actual impurity reduction (AIR) has recently been introduced\") and deliberately avoids raw impurity importance by using AIR-corrected importance in Boruta (Table 5: \"importance_corrected\") and SMD minimal-depth approach instead. Conclusions center on feature selection and biological pathway relationships (\"feature selection and relation analysis... investigate the mutual impact of the features\"), not on importance magnitude or ranking. The paper's findings are presented through boxplot intensities and hierarchical clusters, not importance value comparisons.",
+  "id": "W4200535100",
+  "set": "survivor"
+}

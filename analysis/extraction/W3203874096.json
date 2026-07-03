@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "janitza",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"Importance for community data (0.08% threshold, genus rank) and combined data was calculated utilizing the corrected Gini impurity (Nembrini et al., 2018), followed by p-value estimation after Janitza et al. (2018).\" The central claim identifies \"potential microbial fingerprints\" by ranking: \"Thus, 25 genera were selected with Janitza importance > 0.25, p < 0.01\" and \"The most supportive genera (Figure 5) were Cocleimonas (1.65% maximal relative abundance), the unclassified Anaerolineae SBR1031 A4b (0.11%) and an unclassified Gemmatimonadaceae (0.38%).\" Notably, the authors explicitly used permutation importance (Altmann) for sediment data but not for the 25 bacterial genera that form their fingerprint. The data are compositional (1,703 genera available, highly skewed abundances), creating conditions for impurity-bias to distort both magnitude and ranking.",
+  "id": "W3203874096",
+  "set": "survivor"
+}

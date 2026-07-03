@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Boruta for variable selection, which employs permutation variable importance measures: \"The permutation VIM can be calculated using the out-of-bag observations for each tree.\" Binomial tests determine yes/no variable importance decisions rather than interpreting magnitudes: \"binomial tests, which regard how often the variable was temporarily marked as important, testing the alternative of greater or smaller VIM realizations, i.e., important or unimportant variables.\" The paper's conclusions emphasize predictive power: \"we show that both tree-based approaches can outperform elastic net when constructing GRS for binary traits\" measured by AUC and statistical power, not feature rankings or importance magnitudes.",
+  "id": "W4220673804",
+  "set": "survivor"
+}

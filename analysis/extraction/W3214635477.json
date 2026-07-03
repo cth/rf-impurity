@@ -1,0 +1,19 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper explicitly uses impurity importance for feature selection: 'For gene and rule selection...impurity as variable importance measurement' and 'The gene importance ranking was determined by training RF models...from which the highest scoring genes were selected.' However, substantive conclusions focus on predictive performance and method comparison, not importance ranking itself. Boruta validation reveals 30-50% of top-ranked rules in larger models were uninformative ('These could be discarded without any loss in performance'), indicating ranking has flaws, but main claims are validated through cross-validation and held-out accuracy, not importance magnitude/ranking. Paper does not claim specific features are 'most important drivers.'",
+  "id": "W3214635477",
+  "set": "survivor"
+}

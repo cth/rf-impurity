@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper uses ranger package random forest on model residuals but never reports or interprets importance values. Results sections state only: 'Analysis of the residuals did not indicate additional modelling was necessary' (cases/hospitalizations) and 'Random forest regression on the residuals did not indicate any additional non-linear or interaction terms were necessary' (deaths). The Altmann p-values are used for a binary decision (need extra terms?), not for magnitude/ranking. All substantive conclusions derive from NB/Poisson regression coefficients: 'Incidence rate of COVID-19 increased between 1% and 4% per every unit increase of population density, enplanement and percent Black.'",
+  "id": "W3210202946",
+  "set": "survivor"
+}

@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "janitza",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: \"The variables were ranked according to their permutation variable importance\" in the Random Survival Forest analysis using the ranger package. This is not impurity-based (Gini/MDI) importance. The paper ranks biomarkers by permutation importance (Figure 1), identifying cTnT-hs as \"the strongest association\" followed by NT-proBNP. It uses Boruta algorithm for feature selection (permutation-based) and validates findings with adjusted Cox regression in an independent validation cohort (RE-LY), providing robust corroboration.",
+  "id": "W3191008658",
+  "set": "survivor"
+}

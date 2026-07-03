@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper acknowledges the limitation of importance estimates: \"techniques that estimate the variable importance are not able to capture patterns of dependency between features and response; they only represent the strength of this dependency as a single number, and the obtained results can be difficult to interpret.\" Critically, they pivot away from relying on importance magnitude: \"Consequently, to evaluate the size and direction of the relationship between the 34 CpG features and the PFS... we firstly performed the univariate Cox regression analysis of the final 34 markers.\" Their substantive conclusions about feature relevance (which of 34 CpG probes matter; which 4-probe signature to use) rest on Cox regression coefficients and Kaplan-Meier survival curves on held-out test set, not on impurity importance ranking or magnitude. They use Boruta and RFE (which depend on importance) for binary feature selection (robust), but validate the resulting 4-CpG signature through independent Cox regression and survival analysis.",
+  "id": "W3125721538",
+  "set": "survivor"
+}

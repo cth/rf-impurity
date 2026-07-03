@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly applies \"a permutation based method that exploits the distribution of measured importance for each variable in a non-informative setting\" with 10000 permutations. No mention of Gini, impurity, MDI, or variance importance. The random forest analysis is framed as \"additional clinical validation of the clusters\" rather than a primary biomarker discovery effort. Core conclusions focus on identifying seven distinct treatment response classes and demonstrating their generalizability across samples. Predictive validity is corroborated through classification accuracy on held-out validation samples (75.0-95.2%).",
+  "id": "W2966489974",
+  "set": "survivor"
+}

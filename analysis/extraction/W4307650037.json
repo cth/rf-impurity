@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper measures importance via mean impurity estimates: \"The relative contribution of each variable to the final prediction is measured with mean importance estimates.\" However, they do not interpret the magnitude or ranking of these scores. Instead, they identify variables that meet importance and stability thresholds: \"The important variables were those with both high stability and high importance.\" The main conclusion - that cry acoustics predict NOWS with high accuracy (AUC 0.90) - depends on predictive performance and the binary verdict of which features are USED, not their relative importance ranking. Boruta tests whether variables are used in prediction, a robust verdict unaffected by impurity-importance magnitude bias. Cross-validation across two independent analyzers (Brown and Soundgen) provided additional validation that features identified were consistent across methods.",
+  "id": "W4307650037",
+  "set": "survivor"
+}

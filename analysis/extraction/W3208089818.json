@@ -1,0 +1,14 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper focuses on predictive performance metrics across 220 binary-outcome datasets, comparing diversity forests to conventional random forests. The abstract states the method is for \"innovative complex split procedures\" and results are measured via \"accuracy (ACC), the AUC, and the Brier score\" (Table 2). Variable importance is mentioned only as a future application: \"new complex split procedures...can help tackling practically important issues...such as...measuring feature importance for multi-class outcomes\" and in discussion of interaction forests' \"effect importance measure\" (reference 15, which is a separate paper). The paper contains no tables or figures reporting importance rankings, no importance-based conclusions, and cites but does not use Strobl et al.'s work on importance bias (reference 25).",
+  "id": "W3208089818",
+  "set": "survivor"
+}

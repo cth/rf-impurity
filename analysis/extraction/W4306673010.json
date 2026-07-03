@@ -1,0 +1,12 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper uses SHAP values (Shapley Additive Explanations), not impurity-based importance. Methods state: \"The best performing classifier as determined by mean MCC score was used to compute feature importance. Shapley additive explanation (SHAP) values were constructed.\" For ERP feature selection, they explicitly used \"permutation testing that assesses the change in prediction error of classification after permuting a feature,\" not impurity importance. The audit for impurity-based importance bias does not apply to this work.",
+  "id": "W4306673010",
+  "set": "survivor"
+}

@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger random forest but explicitly applies a permutation correction: \"We built a Random Forest classification model and applied a permutation heuristic developed to correct for feature importance bias [55] and identified those features that were significant at p < 0.05.\" Reference [55] is the seminal Altmann et al. (2010) paper on permutation importance. The paper does interpret magnitude/ranking, describing taxa as \"The previously identified Pseudomonas contaminant (OTU0001) was the most strongly correlated taxonomic group, followed by two common sequencing contaminants\" and listing results in ranked order. However, the main conclusions focus on bacterial density as a clinical predictor: \"Bacterial density at the time of hospital admission was independently associated with subsequent extraintestinal infection...Bacterial density is an important and under-studied feature of gut microbiome community analysis.\" The RF importance analysis is a supporting method to identify which specific taxa differ between groups, not the central evidence for clinical predictions.",
+  "id": "W4206057987",
+  "set": "survivor"
+}

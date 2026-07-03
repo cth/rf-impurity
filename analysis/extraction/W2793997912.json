@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly sets \"Variable importance mode: impurity\" in ranger models and interprets importance rankings to conclude which covariates matter: \"buffer distances are most important...more important than surface water occurrence, flood frequency, distance to river and elevation\" and \"the most important covariate for predicting daily precipitation...is: time i.e. cumulative and/or day of the year.\" They rank the top 10 covariates by importance magnitude and interpret what the rankings mean (e.g., cdate \"allows the RFsp model to fit different spatial patterns\"). However, they provide no corroboration via permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation. The vulnerability is amplified by high-cardinality buffer distances (229 covariates) and skewed spatial feature distributions, yet they conclude a handful of covariates \"dominate the model.\"",
+  "id": "W2793997912",
+  "set": "survivor"
+}

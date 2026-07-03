@@ -1,0 +1,15 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses permutation-based variable importance: \"We used a permutation-based method for measuring variable importance. In order to evaluate the predictive power of a feature, for each tree in the forest, this method computes the predictive accuracy of that tree using two versions of the data: with random permutation of the values of the variable being evaluated, and without random permutation.\" The paper states: \"In this work the variable importance values were computed using the Boruta R package with the unscaled, unconditional permutation-based variable importance measure.\" Although the paper extensively interprets the ranking of features in Table 2 (e.g., \"The top 20 selected features with the highest median variable importance are shown in Table 2\"), no impurity importance bias can occur because permutation importance, not impurity importance, was used. The substantive conclusions concern predictive accuracy (80% AUC) and which compounds are identified as potential longevity-extending drugs, not feature importance ranking.",
+  "id": "W2739273059",
+  "set": "survivor"
+}

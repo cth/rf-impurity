@@ -1,0 +1,15 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The abstract states: \"Most important variables for predicting susceptibility were time from admission to blood culture, patient age, hospital versus community-acquired infection, and age-adjusted weight score.\" Figure 5 reports that \"the most important predictor for resistance to ceftriaxone is patient age (leaving this out would decrease the model accuracy 100% of the time). Patient age is closely followed by days from hospital admission to blood sample, age-adjusted weight score, and the classification of the infection as hospital- or community-acquired (omitting this variable would decrease model accuracy 75% of the time).\" The paper uses ranger package random forests (default impurity-based importance), cites Janitza et al. for methodology, but reports no p-values or significance tests for importance scores. No corroboration via permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation is provided. The \"days from admission\" variable has exponential distribution (Table 1), making it susceptible to upward-biased impurity importance.",
+  "id": "W2883457117",
+  "set": "survivor"
+}

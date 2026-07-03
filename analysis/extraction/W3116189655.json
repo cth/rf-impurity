@@ -1,0 +1,19 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger random forest with Altmann p-value test for variable importance, which tests whether a variable is used (robust verdict). They select and visualize \"top 100 lineage markers ranked by variable importance\" in a heatmap figure (4-C). However, their substantive biological conclusions about resistance mechanisms do NOT depend on interpreting the magnitude or ranking of impurity importance. The core findings rest on: (1) cell counts showing \"lamellocyte concentration was eight times higher in the populations that had evolved under high parasitism rates\"; (2) scRNA-seq cell state analysis demonstrating \"inducible production of immature lamellocytes has become entirely constitutive\"; (3) gene ontology enrichment analysis identifying biological functions like \"actin-filament based processes and biological adhesion\"; and (4) qPCR validation of atilla and PPO3, which were selected based on prior literature defining them as lamellocyte markers, not from variable importance rankings. The variable importance ranking is used primarily as a visualization tool to select which genes to display, not to establish mechanistic claims.",
+  "id": "W3116189655",
+  "set": "survivor"
+}

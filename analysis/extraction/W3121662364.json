@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: \"Variable importance was calculated using the permutation-based method in the ranger package, which indicates the prediction accuracy lost if that variable is omitted.\" The conclusions rely on the magnitude and ranking of these importance scores: \"The four most important variables were: growing degree days, maximum temperature of the warmest quarter, precipitation of the warmest and of the wettest quarter\" and \"growing degree days in the prior summer was the strongest predictor of overwintering survival.\" Corroboration is provided through partial dependence plots: \"The four most influential variables were further evaluated using partial dependence plots\" to understand relationships. Since permutation importance is used rather than impurity/Gini importance, the impurity-bias mechanism does not apply to this analysis.",
+  "id": "W3121662364",
+  "set": "survivor"
+}

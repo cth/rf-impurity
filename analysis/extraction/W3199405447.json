@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses permutation importance, not impurity importance: \"The importance of any input feature \u2013 ontotype, gene or SNV \u2013 in random forest-based models was generated using permutation tests as implemented in the ranger R package. The distribution of the importance under the null hypothesis of no association to the response is created by 100 replications of permuting the response.\" The paper extensively ranks systems by permutation importance scores but validates these rankings through independent gene knockout experiments (held-out validation) and comparison against random gene sets of equal cardinality (conditional importance).",
+  "id": "W3199405447",
+  "set": "survivor"
+}

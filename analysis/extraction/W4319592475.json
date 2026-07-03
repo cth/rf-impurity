@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "janitza",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger random forest with Janitza variable importance p-value testing: \"the univariate random forests analysis was also used to determine if a gene could play a role in the survival of CRC patients\" with \"Statistical significances for the output (the variable: importance score) was measured based on the empirical null distribution as described previously (33)\" (Janitza et al. 2018). However, the paper's substantive claims about prognostic factors rest entirely on Cox regression (\"the multivariate Cox-model was used to compare relative contributions\") and survival analysis with log-rank tests, not on importance score rankings or magnitudes. The Janitza p-values appear used only to validate that variables are non-zero (used in the forest), which is robust. Corroboration comes from agreement across three independent immune deconvolution methods (CIBERSORT, xCell, MCP-counter).",
+  "id": "W4319592475",
+  "set": "survivor"
+}

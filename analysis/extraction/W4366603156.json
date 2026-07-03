@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Gini index for feature importance: \"From the underlying Ranger random forest (RF) models, we retrieve feature importance using the Gini index... In general, mean feature importance scores indicate contributions of all 26 features. No single feature stands out, and our broad feature categories are all represented with at least 1 highly ranked feature. We interpret this as evidence that features were carefully picked and biases avoided.\" Specific rankings are discussed: \"Epigenetic features increased in importance for the GRCh38 model (average rank 16 vs. 19).\" However, the paper's substantive conclusions focus on model performance metrics (AUPRC, AUROC) and tool comparisons, not feature importance ranking. Feature importance is a secondary exploratory analysis used for methodological validation.",
+  "id": "W4366603156",
+  "set": "survivor"
+}

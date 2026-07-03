@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Section 2.3 states: \"This issue was formally addressed by the use of random forest regression using the R package ranger, with variable importance being formally assessed via the R package vip (variable importance plot). The most predictive covariates from this process were entered into the regression modelling equations.\" The importance values themselves are confined to Supplementary Tables S5-S7 and never mentioned in the Discussion or Conclusions. The paper's main conclusions rely on p-values from inverse probability weighted panel and geospatial regression models, E-values for causal robustness, and mechanistic evidence. Rankings in the paper are by E-values, not importance magnitudes: \"Based on the mEVs, the order of strength of association...was daily > cannabis herb THC concentration > cannabis resin THC concentration.\"",
+  "id": "W4287831920",
+  "set": "survivor"
+}

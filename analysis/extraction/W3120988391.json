@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "janitza",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"the method from Janitza et al., 2018 as implemented in the ranger package\" for variable importance calculation in random forests, which is an impurity-based test. However, they explicitly use p-values for yes/no significance testing only, stating \"Proteins which had a p-value below 0.05 in >90% of the forests were included in further analyses\" and noting \"this approach of determining significant protein abundance differences was not based on individual p-values.\" Rather than interpreting importance magnitudes or rankings, they report actual protein abundance trends measured via NSAF (e.g., \"significant decrease in abundance of...FtsZ from fraction XS to fraction L\"). Main conclusions about division of labor rest on these measured abundance patterns and supporting evidence from STEM clustering, electron microscopy, and flow cytometry, not on importance score magnitude or ranking.",
+  "id": "W3120988391",
+  "set": "survivor"
+}

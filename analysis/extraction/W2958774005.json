@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Table 1 specifies RF variable importance as \"Gini index.\" The paper states: \"To determine which biomolecules were most predictive of the case/control status of each individual, the features were ranked within each source using a variable importance metric appropriate for each classification algorithm.\" Table 5 presents ranked importances and the Discussion concludes: \"In terms of the variables selected by the different methods (Table 5), CLR and CSVM-RBF selected the same 2 metabolites as the 2 most important features: alpha-tocopherol and apidic acid...Both methods found these 2 metabolites to be highly important.\" The paper employs no permutation, SHAP, PDP/ALE, conditional, or heldout validation of the Gini-based ranking. Feature sets include metabolites, lipids, and SNPs with scales ranging -0.079 to 23.149 (metabolites) vs 0 to 2.0 (SNPs).",
+  "id": "W2958774005",
+  "set": "survivor"
+}

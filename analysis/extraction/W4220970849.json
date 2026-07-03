@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states it uses \"the relative importance obtained from the feature importance algorithm\" (Ranger default = impurity importance) to weight PCs and rank variables. It explicitly claims: \"Of all trace metals in the global dataset, dFe measured from GEOTRACES samples explained most of the weighted variance across the principal component predictors used in the random forest.\" Based on importance rankings, the authors conclude that \"dFe's predictive power in the random forest was primarily derived from its nonlinear associations and interactions with other environmental variables\" despite showing dFe has weak linear correlation (r = -0.10). These importance-based interpretations are central to supporting the paper's main conclusion that specific environmental variables drive siderophore consumer biogeography.",
+  "id": "W4220970849",
+  "set": "survivor"
+}

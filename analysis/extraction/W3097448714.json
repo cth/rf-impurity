@@ -1,0 +1,19 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs corrected Gini importance for initial filtering (637k to 6,688 variants at p<0.01), explicitly stating it \"overcomes the sensitivity of GINI importance to allele frequency.\" However, the critical variant selection uses r2VIM permutation importance (6,688 to 49 variants with \"minimum permutation importance of at least one\"), not impurity magnitude. Final networks are validated via logistic regression comparisons of \"all pair-wise genotype permutations\" and FDR-corrected pathway analysis showing angiogenesis/vasculogenesis involvement (FDR<0.05). The paper's conclusions about six networks and their pathway roles depend on permutation-importance-filtered variants and epistatic structure, not on the ranking or magnitude of impurity importance scores.",
+  "id": "W3097448714",
+  "set": "survivor"
+}

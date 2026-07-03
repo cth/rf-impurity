@@ -1,0 +1,14 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses permutation importance and tree-structure-based approaches, NOT impurity/Gini/MDI importance. Methods section states: \"Most of them use the permutation importance that is calculated as the difference of the prediction performance of a variable before and after the permutation of the variable's values.\" The evaluated methods are Vita (permutation-based with Janitza p-values), Boruta (permutation with shadow variables), and MD/SMD (tree-structure based on minimal depth). No mention of Gini, impurity, or MDI importance appears in the paper. The impurity-importance bias being screened is therefore not applicable.",
+  "id": "W3014033160",
+  "set": "survivor"
+}

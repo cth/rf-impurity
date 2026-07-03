@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper uses RF importance values within Boruta and RFE methods: \"The contribution from each variable to the final model is quantified as a ranked measure of variable importance.\" However, it does not interpret importance magnitude or ranking for conclusions. Instead, conclusions focus on method stability (\"the Boruta method formed the most stable approach\"), selection frequency across iterations (\"Stable features are then defined as those identified by a particular method following a number of iterations greater than a specified stringency value\"), and empirical effect sizes: \"Five potential biomarkers, with an effect size in excess of 0.6, emerged from this analysis\" and \"V1...had an effect size of 0.82.\" Biomarker selection uses empirical Pearson correlation and Cohen's d, not importance scores. Corroboration is substantial: nested cross-validation with held-out test sets, permutation testing (1000 outcome randomizations), and validation against known features from published studies.",
+  "id": "W3108883807",
+  "set": "survivor"
+}

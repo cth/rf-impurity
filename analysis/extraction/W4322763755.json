@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not use raw impurity-based variable importance. Instead: (1) \"Random forests were fit using the ranger package. The Boruta algorithm fits a random forest and selects variables that have significantly higher importance scores than permuted variables (P < 0.01)\" - Boruta uses permutation testing, not raw Gini/MDI. (2) Primary variable selection uses \"variable selection stability from 200 bootstrapped resamples\" averaged across three different methods (triangulation), compared against \"baseline stability thresholds...with permuted data.\" (3) Main conclusions focus on poor prediction accuracy (\"average balanced accuracy...ranged from 50 to 62%\") and that selected metabolites \"explain only a small part of the differences between affected and unaffected animals,\" not on ranking or magnitude of importance scores.",
+  "id": "W4322763755",
+  "set": "survivor"
+}

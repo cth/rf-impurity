@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports GBM (gradient boosting machine) as one of the evaluated algorithms and displays Table 4 showing \"Avg. rank by GBM importance\" for 13 feature clusters (e.g., Position ranked 1, Interview and test scores ranked 2, Education ranked 3). However, the paper does not interpret or explain these importance rankings. Immediately following Table 4, the text transitions to preprocessing and data preparation without explaining what the rankings mean or using them to support conclusions. The main findings concern VOBN model accuracy (AUC=0.705) and interpretable patterns extracted from VOBN (Examples 1-5), plus the global optimization framework. The paper states: \"Thus, for interpretability purposes, we suggest selecting the VOBN model, whereas for solely aiming at prediction, we suggest using the GBM model\"\u2014acknowledging GBM is non-interpretable. The core conclusions about recruitment success prediction and optimization depend on model accuracy and VOBN-extracted patterns, not on interpreting GBM importance magnitudes or rankings.",
+  "id": "W3014109009",
+  "set": "survivor"
+}
