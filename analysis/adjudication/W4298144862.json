@@ -1,0 +1,9 @@
+{
+  "id": "W4298144862",
+  "cites": 20,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper explicitly and repeatedly states it used PERMUTATION importance, not impurity/Gini/MDI importance: \"The resulting RFC model was then used to predict the left-out sample and calculate permutated variable importance\" and \"Based on the median calculated permutated variable importance, a ranking of which features contributed most to the prediction (Wright and Ziegler, 2017), the relative abundance of P. salivae is the most important predictor.\" The cited method (Wright and Ziegler 2017, the ranger package) implements the permutation-importance approach that is immune to the specific super-linear/impurity magnification bias this audit targets. Boruta feature selection (used upstream) also defaults to permutation-based (MeanDecreaseAccuracy-style) importance rather than Gini importance. Beyond this, the central ranking claims (P. salivae as top predictor, ranked above age/BMI) are further corroborated by an independent rule-extraction algorithm (SIRUS), which produced explicit, quantified predictive probabilities (e.g., 82.2%, 91.4%) for the same features across cross-validation folds, providing an interpretable validation of the selected features beyond raw importance scores. Since the flagged bias applies specifically to impurity/Gini/MDI/variance importance and this paper's central ranking claims rest on permutation importance (with rule-based corroboration), criterion (1) fails and the flag is refuted."
+}

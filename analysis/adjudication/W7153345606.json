@@ -1,0 +1,9 @@
+{
+  "id": "W7153345606",
+  "cites": 3,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": false,
+  "adequate_corroboration": true,
+  "reason": "The RF (ranger) importance scores — described as \"all positive,\" consistent with impurity/Gini-type importance — are used only as a preliminary screening filter to reduce ~8,757 features to a manageable subset before downstream analysis (\"we selected features with a total RF importance score of [threshold]... yielding 159 features for evaluation\"). The paper's actual headline claims (daidzin, Candidatus Nitrosocosmicus, GABA, Paenibacillus as \"major contributors\") are explicitly derived from SHAP values (\"Model interpretation using SHAP indicated that... daidzin... were major contributors\"), not from the raw impurity-importance ranking itself, so the impurity ranking is not what is central to the stated conclusions. Moreover the authors go well beyond bare impurity importance: they run an explicit sensitivity analysis varying the RF-importance threshold from 0.001–0.01 and show the key SHAP-identified interactions (Paenibacillus-daidzin, Paenibacillus-GABA, etc.) survive across this range (Table 1, Fig. 15), corroborate with a permutation-based null distribution and Z-score/p-value testing for SHAP interaction edges, a 100-replicate bootstrap stability analysis, cross-validated predictive performance against a permuted-label null (Fig. 8), and independent convergence with GWAS for one SNP. Since SHAP (an explicitly listed adequate-corroboration method) plus permutation-null testing and bootstrap stability underlie the reported rankings, and the impurity importance itself is not the basis of the central biological conclusions, the flag is refuted."
+}

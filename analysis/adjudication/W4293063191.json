@@ -1,0 +1,9 @@
+{
+  "id": "W4293063191",
+  "cites": 54,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly defines importance as impurity based: \"Parameter importance is measured in terms of node impurity and calculated as the decrease in the residual sum of squares that results from splitting the response variable... A higher node impurity (or parameter importance) indicates that the parameter is more important.\" This ranking is central to the paper's headline conclusions, repeated in the abstract, key points, and discussion: \"the most important factor driving temporal variations in river width is the climate for free-flowing rivers, and is soil condition for human-impacted rivers,\" and \"Elevation is the most important parameter influencing river width variability.\" I searched the full text for permutation importance, SHAP (the one \"shap\" hit is actually \"shape\"), cross-validation, out-of-bag/R2 reporting, or held-out validation of the selected feature set, and found none. The only auxiliary tool is ALE plots, which the paper itself says are used only \"to show how the river width variability and trend change with each of them\" (visualizing functional shape/direction), not to independently validate the magnitude or rank order of importance. The paper even flags its own exploratory status (\"further investigations are needed to explain why/how climate and soil erosion impact river width\"), and its pre-selection step (choosing one \"most important\" parameter per correlated subcategory before the final RF) also relies on the same biased impurity importance, compounding rather than correcting the issue. All three CONFIRMED criteria are met: genuine impurity-importance use, centrality of the ranking to stated conclusions, and absence of adequate corroboration."
+}

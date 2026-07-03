@@ -1,0 +1,9 @@
+{
+  "id": "W4400414696",
+  "cites": 6,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The first pass mischaracterizes which model the vip importance was computed on. The paper explicitly states: \"a random forest model fitted for the BIDND predictors performed very poorly (AUC = 0.49). Given that the ridge regression model had the highest performance, this model was carried forward for further analyses.\" The very next section, \"Predictive features for response to neuromodulators and/or prokinetics,\" which contains the quoted ranking (\"Delayed GES was the most important predictor...\"), is reporting vip's model specific importance for that carried-forward ridge regression model, not Gini/impurity importance from ranger. vip's importance for a glmnet/ridge model is coefficient magnitude based, a different quantity with a different bias profile than random forest impurity importance, so criterion (1) fails. Additionally, the exact BIDND feature set that generated this ranking was itself validated on an independent held out test set (AUC 0.72, with consistent performance across GES-vs-GET substitution and alternate GCSI thresholds), and directionality was cross checked with model-agnostic breakdown (Shapley-style) plots, so even if RF importance were involved, criterion (3) corroboration would be met. The RF model, where impurity importance bias would actually apply, was discarded before any importance interpretation."
+}

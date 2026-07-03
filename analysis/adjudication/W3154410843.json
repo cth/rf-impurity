@@ -1,0 +1,9 @@
+{
+  "id": "W3154410843",
+  "cites": 76,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper trains its BAU/deweathering random forests entirely through the rmweather wrapper around ranger, and never mentions permutation, SHAP, PDP/ALE, or conditional importance anywhere in the text (verified by exhaustive keyword search of the fulltext); it reports only train/test correlation coefficients (r) as \"predictive performance,\" which the rules explicitly say does not validate a feature ranking. The impurity-based ranking is then used to draw specific, stated conclusions: it is invoked as one of the paper's stated secondary contributions (\"the importance of taking meteorology into account... is shown\"), it is used to claim the RF models are demonstrably capturing real chemical/physical processes (\"demonstrating the random forest models' interpretability nature\"), and most concretely it supports a novel, counter-to-expectation scientific claim — that \"RH is, on average, more important than Tair\" for ozone, explicitly flagged as valuable for \"future studies\" on O3 sensitivity to meteorology — plus a discussion-section claim (Sec 3.5) that wind dominates NO2 while RH/Tair dominate O3/Ox, used to explain differing magnitudes of lockdown effects. None of these ranking claims are corroborated by permutation importance, SHAP, PDP/ALE shape analysis, conditional importance, or held-out validation of the selected ranking itself, so all three conditions for CONFIRMED are met."
+}

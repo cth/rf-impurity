@@ -1,0 +1,9 @@
+{
+  "id": "W4293101458",
+  "cites": 6,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does use ranger's RF variable-importance ranking (the text never names the metric explicitly as \"Gini\"/\"impurity\" vs \"permutation,\" but ranger with unspecified importance type and no mention of permutation elsewhere is consistent with the default impurity-based measure) and the ranking is central to Analysis 4's conclusion about which topics are \"most influential\" for each story type (e.g. \"cookie_1 was ranked as the most important predictor\"). However, criterion (3) is not met: the authors explicitly follow up the raw importance ranking with partial-dependence profiles built in DALEX for exactly \"those topics that were estimated to have a strong positive correlation with a particular story type,\" checking the direction/shape of each topic's effect on predicted class probability (Fig. 5) — this is PDP/ALE-shape corroboration, one of the methods the adjudication rubric names as adequate. The authors also cross-validate the selected topics substantively against prior autobiographical-memory literature (family, education, retirement, etc. matching Thomsen et al.'s independently derived 22 manually coded themes), giving external convergent validation of the selected set beyond the impurity ranking itself. Because adequate corroboration of the selected/ranked topics exists, the flag's third required condition fails, so the flag is refuted even though impurity-type importance and its ranking are indeed used and rhetorically emphasized."
+}

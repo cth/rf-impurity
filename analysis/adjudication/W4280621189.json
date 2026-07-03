@@ -1,0 +1,9 @@
+{
+  "id": "W4280621189",
+  "cites": 8,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper's own methods text defines its RSF variable importance as permutation-based, not impurity/Gini/MDI: \"A variable was considered important if breaking the relationship between it and survival resulted in an increased prediction error and a degraded model performance\" — this is the textbook definition of permutation VIMP (as implemented in randomForestSRC), which does not suffer the impurity-importance magnification bias the flag describes. Moreover, even setting that aside, the ranking is not left uncorroborated: the authors directly validate the SELECTED subset via nested cross-validation, stepwise adding top-ranked features and showing the two-variable (prealbumin+PT) model minimizes held-out prediction error on both the outer test and validation sets (Fig. 2E-F), which is exactly the \"held-out predictive validation of the selected feature set\" the rubric treats as adequate corroboration. This is reinforced by an independent Cox/RCS model (Fig. 4B, 5B) reproducing the same nonlinear, left-skewed-consistent relationship for both variables, plus PDPs and KM/threshold analyses. Because the importance metric used is not impurity-based and the ranking is independently and adequately corroborated by held-out predictive validation and an independent statistical model, the flag is refuted."
+}

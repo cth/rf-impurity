@@ -1,0 +1,9 @@
+{
+  "id": "W3168330745",
+  "cites": 64,
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "verdict": "refuted",
+  "reason": "The paper does use RF's \"built-in\" (ranger, no permutation specified) importance scores to rank ASVs and this ranking is central: the headline finding is that \"One ASV with an exact match to Rothia dentocariosa...was highly ranked as predictive across all four disparate sample types.\" However, unlike a case where the ranking rests only on in-sample impurity scores or overall held-out AUC, the authors independently replicate this specific top-ranked feature in external, non-CV data: they show the same Rothia ASV differentiates SARS-CoV-2 status in a separate pre-pandemic 2016 ICU cohort (\"we found that high prevalence of this Rothia ASV is specific to SARS-CoV-2 positive patient samples\") and further validate a related biological association (cardiovascular disease) in the independent American Gut Project dataset (Fisher's exact p=0.041). This constitutes genuine external, held-out validation of the selected top feature itself, not merely overall model accuracy, so the impurity-importance bias (which affects relative magnitude/ranking among correlated/skewed features within one RF run) is unlikely to have produced a spurious central conclusion. The secondary \"top 40 genera\" list (Actinomyces, Anaerococcus, etc.) is not independently validated and is only weakly supported by prior-literature plausibility, but it is not the paper's central conclusion, which is squarely the cross-validated, externally replicated Rothia finding."
+}

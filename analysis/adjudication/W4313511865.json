@@ -1,0 +1,9 @@
+{
+  "id": "W4313511865",
+  "cites": 29,
+  "verdict": "uncertain",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper says only that it \"determined the variable importance for each model based on the training set using the packages' built-in methods\" (identical phrasing used across rpart, ranger, nnet, gbm, and ipred). Nowhere in the full text do the words \"impurity,\" \"Gini,\" \"permutation,\" \"MDI,\" or \"mtry\" appear, and no code/config is available (Code availability: not available), so the specific ranger importance mode (impurity vs. permutation) cannot be directly confirmed from the text; my \"true\" is a plausible-but-unverified inference based on common caret+ranger practice, not a textual fact. What is clear is that the rankings ARE central: the Discussion is built around \"the most important predictors\" (parallel program, application timing), \"the order of predictors reverses\" in year 2, and \"the third group of predictors...becomes important,\" driving the three mechanistic narratives (study choice, educational fit, academic performance) for RF-based year-2 and year-3 models. No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of the selected feature set is reported anywhere (only overall accuracy/kappa/NIR on test splits, which validates predictive accuracy, not the importance ranking). Because criterion (1) — genuine confirmation of impurity-type importance — cannot be established from the text despite being plausible, while (2) centrality is clearly true and (3) corroboration is clearly absent, I cannot fully confirm or refute; the missing methodological detail makes this a genuine \"cannot tell from text\" case rather than a clean confirm or refute."
+}

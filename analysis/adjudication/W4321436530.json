@@ -1,0 +1,9 @@
+{
+  "id": "W4321436530",
+  "cites": 7,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper's own code (github.com/gomezlab/kinotype_viability, src/build_ML_models_expression_regression/make_model_pred.Rmd, lines 73 and 102) sets `set_engine(\"ranger\", ..., importance = \"impurity\")`, confirming the random forest uses impurity/variance-reduction importance exclusively; the paper text never mentions permutation importance, SHAP, or Gini explicitly but the code settles it. This ranking is central to a headline conclusion: the abstract states they \"identified a set of kinases, several of which are understudied, that are strongly influential,\" and the Results section names CSNK2A2, PIP4K2C, CAMKK2 and DYRK1B as \"influential\" purely on the basis of their position in the top-25 impurity importance plot (Fig 3C) — these four names appear exactly once in the paper with no follow-up. No corroboration method is used: Fig 6's experimental validation tests only overall dose-response prediction accuracy on held-out cell lines/compounds, not the identity or ranking of important features, and there is no permutation importance, SHAP, PDP/ALE, conditional importance, or feature-ablation/knockdown test of the named kinases anywhere in the text or code (grep for \"permutation\"/\"SHAP\" in the repo returns no relevant hits). All three CONFIRMED criteria are therefore met."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W7160030981",
+  "cites": 1,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does use ranger's Gini impurity importance for RF, thresholded at the 95th percentile to select 15 SNPs. However, the flagship \"novel candidate\" claim the first-pass screen cites (Glyma.20G173100, WD40 domain, \"ubiquitin-mediated metabolic reprogramming\") is explicitly attributed to the SVR model (\"the SVR model identified...\"), which is ranked by linear-kernel RFE, not Gini/impurity importance, so that conclusion cannot be corrupted by RF impurity bias at all. Of the three genes highlighted in the Abstract/Conclusion, only Glyma.01G128100 (GmWRKY4) is RF-associated, and it is explicitly cross-validated as a \"stable SNP...detected by both FarmCPU and RF,\" i.e., independently recovered by a separate, non-impurity-based statistical GWAS method (FarmCPU), a legitimate convergent-evidence corroboration of that specific selected locus. The remaining RF-only genes (e.g., Glyma.09G197000, Glyma.15G032850) are described only in generic, hedged functional-annotation language (\"RF model prioritized several kinase-related genes...\") and are not elevated into a standalone ranking-dependent discovery claim. Since the specific example used to justify the flag is actually an SVR result and the one RF-linked headline gene is corroborated by an independent method, the flag is refuted."
+}

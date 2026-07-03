@@ -1,0 +1,9 @@
+{
+  "id": "W3162810055",
+  "cites": 24,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper genuinely uses impurity importance: it removes variables via \"improvement in Gini impurity\" (classification RF, Liaw and Wiener 2002) and via variance reduction for the regression phenology models, and Figure 2 explicitly ranks variables (\"most important variable was proportion of low shrub cover... followed by snow melt and onset of greenness dates\"), so this ranking is presented as central to the phenology-drives-behavior narrative. However, the ranking is not left unchecked: the top phenology variables are further examined with partial dependence plots (Figure 3, Supporting Information S4.2/S4.3) that show ecologically coherent, interpretable relationships (e.g., selection for habitat where snow melted 0-9 days earlier), and the retained feature sets are validated by AUC with bootstrapped 95% CIs used to pick the simplest adequate model, plus the resulting models \"successfully predicted extreme shifts in space-use\" matching real inter-annual variation in phenology (Figures 4-7). Per the stated rubric, PDP/ALE shape plus predictive validation of the selected feature set counts as adequate corroboration, so criterion (3) fails and the flag should be refuted rather than confirmed."
+}

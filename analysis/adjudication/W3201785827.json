@@ -1,0 +1,9 @@
+{
+  "id": "W3201785827",
+  "cites": 16,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper explicitly states: \"Variable importance was estimated using a conditional random forest which accounts for the possible predictor collinearity (Strobl et al., 2008), based on the method proposed by Altmann et al. (2010), with p-values based on 10,000 permutations, and implemented in the library ranger.\" This is a conditional permutation importance measure (Strobl 2008's cforest-style conditional permutation, corrected via Altmann's permutation-based null distribution), not Gini/MDI impurity importance — it was specifically chosen because it \"accounts for the possible predictor collinearity,\" i.e., it is the standard remedy for the exact bias the screen worried about. The authors also explicitly checked VIF (3.18-9.33, below the VIF=10 threshold) and used partial dependence plots to independently characterize each selected predictor's functional shape, and corroborated the top predictor (median latitudinal range) with an independent phylogenetic-signal test (Blomberg's K). Although the magnitude/ranking of importance (Table 2) is indeed central to the paper's key conclusion about median latitudinal range and extra-tropical origin, criterion (1) fails outright since impurity/Gini importance is not the metric used, so the flagged impurity-bias mechanism does not apply here."
+}

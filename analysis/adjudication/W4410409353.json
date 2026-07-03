@@ -1,0 +1,9 @@
+{
+  "id": "W4410409353",
+  "cites": 5,
+  "verdict": "uncertain",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper fits RF regressions with the ranger implementation and states only \"We generated variable importance for each model to assess how the foliar traits rank amongst the other drought predictors\" it never specifies importance='impurity' vs 'permutation' vs 'impurity_corrected' anywhere in text, figure captions, or the methods/software citations (Wright and Ziegler 2017 Ranger; Kuhn 2008 Caret), and the word \"permutation\" appears elsewhere only for unrelated PLSR trait model bootstraps, never for RF importance. So condition (1) cannot be confirmed from the text alone, though the default/likely case for an unremarked call is impurity based. Condition (2) clearly holds: ranking magnitude is central to headline conclusions (\"Mortality at Soaproot was best predicted by mean height and LMA,\" \"Teakettle mortality was explained primarily by elevation and mean height,\" \"LMA was a more important predictor for ponderosa pine, while elevation was a more important predictor for mixed conifer\"). Condition (3) also favors CONFIRMED: the only corroboration offered is PDPs, and the authors use them solely to confirm directional shape and to state that low-ranked covariates show \"minimal influence\" they never use permutation importance, SHAP, conditional importance, or held-out validation of the selected feature set to check the fine-grained magnitude comparisons (e.g., the LMA-vs-elevation ranking flip across species groups) that drive several conclusions. Because the impurity-vs-permutation question (condition 1) is genuinely unstated in the available text, I cannot confirm with confidence that the specific impurity bias mechanism applies, so the overall verdict is uncertain rather than a clean confirm or refute."
+}

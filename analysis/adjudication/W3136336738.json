@@ -1,0 +1,9 @@
+{
+  "id": "W3136336738",
+  "cites": 23,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "Methods 4.6 states explicitly: \"feature selection was performed on the training set using Gini importance, the inherent ranking of features within the decision trees of a RF\" with a \"25% cut-off,\" and Results 2.5/2.6 report specific named proteins (H1.2, ACTA2, HSPA8, H2A, HSPD1) as \"the highest relevance\" or \"one of the most predictive genes,\" with the Discussion building a biological narrative specifically around H1.2 being \"highly discriminative.\" This is genuine impurity/Gini importance driving named biomarker claims, so ranking magnitude is central to a stated conclusion (identification of candidate protein markers), not just an incidental byproduct. The only validation offered is held-out mean AUC (0.983-0.999) of classifiers built on the whole 135-feature Gini-selected set, which validates that the selected SET predicts well but does not corroborate the internal ranking or the specific claim that ACTA2/HSPA8/H2A/HSPD1 or H1.2 individually rank above other features (Figure 3/5B spatial maps are illustrative, not a formal permutation/SHAP/PDP/conditional-importance analysis). No permutation importance, SHAP, PDP/ALE, or conditional importance is used anywhere in the paper, matching the first-pass finding, so the ranking is not adequately corroborated."
+}

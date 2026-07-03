@@ -1,0 +1,9 @@
+{
+  "id": "W4404738023",
+  "cites": 52,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly sets ranger's variable importance to \"impurity\" (Gini/variance-reduction) and reports it in Fig. 4, with no other importance method used anywhere in the text (grep confirms zero hits for permutation, PDP, or conditional importance; the only \"shap\" hits are substrings of \"shaped\"/\"shapefile\"). The ranking and magnitude are central to stated conclusions: \"Soil depth was the most important driver of SOC density,\" elevation is discussed as \"also an important variable\" with a causal-sounding explanation, and critically the finding that \"temperature... had similar relative variable importance as many other covariates\" is used to argue against prior literature that temperature strongly drives SOC. The only \"corroboration\" offered is an overall R2 of 0.59 from spatial cross-validation, which validates predictive accuracy of the whole model, not the selected feature ranking, and the authors themselves flag the interaction confound without addressing it methodologically (\"there is uncertainty in this assessment as underlying interactions between variables are not captured\"). All three CONFIRMED criteria are met: impurity importance is genuinely used, its ranking/magnitude is central to a stated conclusion (depth as top driver; temperature as a weak/non-driver), and no permutation/SHAP/PDP/conditional-importance/held-out-ranking validation is provided."
+}

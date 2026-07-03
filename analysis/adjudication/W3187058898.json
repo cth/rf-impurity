@@ -1,0 +1,9 @@
+{
+  "id": "W3187058898",
+  "cites": 16,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does use Gini/MDI impurity importance explicitly (\"The importance of a feature is the decrease in the Gini impurity...\") and does use the ranking/summed importance to decide which callers to drop from the streamlined VarCA pipeline, so criteria (1) and (2) hold. However, the selection decision is not left unvalidated: the authors explicitly retrain the classifier using only the top-ranked callers/features and re-evaluate it on the held-out test set, reporting that \"the overall accuracy remained the same (or even improved slightly) after dropping the callers with the lowest summed feature importance\" (Supplementary Figure S10, Table S10). This is held-out predictive validation of the SELECTED feature subset (an ablation confirming the reduced model performs as well as the full model), which is exactly the kind of corroboration the audit criteria treat as adequate, distinct from merely reporting overall precision/recall of the full model. Because this third criterion (lack of adequate corroboration) fails, the flag should be refuted even though impurity importance is used and central to the caller-selection conclusion."
+}

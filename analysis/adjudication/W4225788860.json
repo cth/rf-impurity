@@ -1,0 +1,9 @@
+{
+  "id": "W4225788860",
+  "cites": 20,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly states it computes \"variable importance\" using \"the corrected Gini method\" (citing Nembrini et al. 2018), which is a bias-adjusted variant of impurity/MDI importance that only fixes the cardinality/many-splits bias, not the super-linear magnification, nonlinearity-versus-skew confound, or interaction-attribution biases the flag targets, so it is still genuine impurity importance. Ranking/magnitude of this importance is central to the paper's headline claims, e.g. \"worsening perceptions of agricultural conditions are the main predictor for climate change risk perception\" and \"Local changes in climate conditions are among the most important predictors across all models. Overall, they are more important than access to news, political ideology, or demographics,\" which drive the abstract's key results and Table 1's cross-model importance ordering. The only corroboration offered is partial dependence plots, which the authors themselves use solely \"to illustrate the magnitude and direction of the direct effects of significant predictors\" (i.e., shape/direction of individual effects), not to independently re-derive or validate the relative ranking across predictors; there is no permutation importance, SHAP, conditional importance, or held-out predictive validation of the selected/ranked feature set (the reported 63-80% \"prediction accuracy\" figures are whole-model accuracy, not validation of the ranking). All three criteria for CONFIRMED are met."
+}

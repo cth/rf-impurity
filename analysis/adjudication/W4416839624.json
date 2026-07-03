@@ -1,0 +1,9 @@
+{
+  "id": "W4416839624",
+  "cites": 1,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper never mentions Gini, MDI, impurity, or \"mean decrease\" importance anywhere in the text. Its Methods section explicitly states variable importance was assessed via \"permutational variable importance\" (used to filter category-level drivers into the global model) and \"conditional variable importance\" calculated through the Boruta algorithm (Kursa and Rudnicki 2010), which compares importance against permuted shadow features rather than impurity reduction. Boruta/conditional and permutation importance are exactly the corroborating methods the audit criteria treat as immune to the impurity-magnification bias, and the authors additionally back their top-driver ranking with partial dependence plots (Fig. 6) showing directionally sensible marginal effects for the six most important drivers. Since the paper's ranking (e.g., \"anomalously cold and dry summers were the most important predictors,\" \"pre-fire BA was the third most important driver\") rests on permutation/conditional Boruta importance plus PDP corroboration rather than raw impurity/Gini importance, criterion (1) of the confirmation test fails and the flag should be refuted."
+}

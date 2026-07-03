@@ -1,0 +1,9 @@
+{
+  "id": "W2883457117",
+  "cites": 91,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does not use Gini/impurity-based (MDI) importance. The Methods state: \"Variable importance in random forests was calculated using the method described in Janitza et al.\" and Figure 5 cites both Janitza et al. and Altmann et al. (\"Permutation importance: a corrected feature importance measure\"). Janitza, Celik & Boulesteix (2016) is a permutation-importance significance test (built on the Breiman/Altmann permutation importance, not variance/Gini-reduction impurity importance), which uses the empirical null distribution of unimportant variables' permutation importances to assign significance -- this is precisely the class of method (permutation-based) that is immune to the super-linear impurity-magnification/skew bias described in the flag. The ranking of predictors (age, days-to-culture, weight score, hospital-acquired status) is indeed central to a stated conclusion, but because the underlying importance metric is permutation-based rather than impurity-based, the specific bias mechanism the audit targets does not apply, so criterion (1) fails and the flag should be refuted."
+}

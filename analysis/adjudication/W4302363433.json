@@ -1,0 +1,9 @@
+{
+  "id": "W4302363433",
+  "cites": 21,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly uses Gini (impurity) importance from Ranger to select the top ten genes per cluster from an iRF classifier, then asserts specific genes literally \"define\" each subgroup (e.g., \"an ASD-SV in the CTNNA2 gene defines cluster 1... whereas the CACNA2D1 gene... defines cluster 3\"), and this is showcased in the abstract as a headline result (\"use an explainable artificial intelligence approach to define subgroups demonstrating their use in the context of precision medicine\"). The only support for this specific gene selection is a heatmap of the same frequency data the importance score was computed from, plus literature lookups tying the named top genes to unrelated phenotypes (startle response, cardiac arrhythmia); there is no permutation importance, SHAP, PDP/conditional importance, or held out predictive validation of this particular top ten per cluster selection. The GO/eQTL/RNA seq validation cited by the first pass screen pertains to a separate, broader 1,116 gene core ASD SV set from an independent enrichment analysis, not to the Gini ranked cluster defining genes, so it does not corroborate this specific ranking. All three CONFIRMED criteria are met: genuine impurity importance use, centrality of the ranking to a stated headline conclusion, and lack of adequate corroboration of that ranking."
+}

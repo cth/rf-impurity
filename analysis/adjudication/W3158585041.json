@@ -1,0 +1,9 @@
+{
+  "id": "W3158585041",
+  "cites": 8,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper ranks pathways/genes using \"random survival forest (RSF)\" variable importance computed with the \"ranger\" R package, citing Ishwaran et al.'s classic RSF/VIMP methodology, which is a permutation-based importance (permuting each predictor's out-of-bag values and measuring the resulting drop in predictive accuracy), not Gini/impurity/variance-reduction importance; the text never mentions Gini, MDI, or node-impurity splitting criteria, and the \"importance p-value\" framing is consistent with permutation-based VIMP testing rather than impurity importance. So criterion (1) is not satisfied. Even setting that aside, the ranking's downstream use (choosing the \"top 40 IPMGs\") is corroborated beyond same-sample accuracy: the authors built prediction models from multiple truncations of the ranked gene list (top 10/20/30/40/50/64) and evaluated each on two fully independent, externally collected anti-PD-1 cohorts (Hugo et al., Riaz et al.) that were never used in ranking or training, finding the top-40 cutoff generalizes best (AUC 80.91% externally). This is held-out predictive validation of the specific selected feature set, not merely overall model accuracy on a random test split, satisfying the adequate-corroboration bar. Because the importance measure is not impurity-based and the selection is independently validated, the impurity-bias mechanism could not have corrupted this conclusion."
+}

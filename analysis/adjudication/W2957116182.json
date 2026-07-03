@@ -1,0 +1,9 @@
+{
+  "id": "W2957116182",
+  "cites": 147,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does rank oncogenes purely by Gini impurity index (no permutation/SHAP used anywhere in the text), and this ranking is central both to naming TP53, BRAF, MYC, CREBBP as top oncogenes and to the paper's key claim that a minimal 50 oncogene subset suffices. However, the latter (more central) conclusion is directly corroborated: the authors performed systematic backward feature elimination, dropping the lowest Gini ranked oncogenes five at a time and re evaluating accuracy, sensitivity, specificity, kappa and AUC via 5 fold cross validation at each subset size (Table 2), showing performance is stable down to the top 50 oncogenes and degrades below that (\"there is no decline in performance until fewer than 50 oncogenes remain... The receiver operating characteristic plot for the models using the 50 top oncogenes yields an area under the curve of 0.94\"). This is held out predictive validation of the SELECTED feature set as explicitly defined as adequate corroboration in the rubric, not mere overall test accuracy of one fixed model. Given this direct empirical check that the Gini selected top ranked genes carry the retained predictive signal, the impurity bias could not have materially undermined the paper's central conclusion, so the flag is refuted."
+}

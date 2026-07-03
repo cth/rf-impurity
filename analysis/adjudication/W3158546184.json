@@ -1,0 +1,9 @@
+{
+  "id": "W3158546184",
+  "cites": 14,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper never mentions Gini, impurity, or MDI importance anywhere (verified by full-text search); it explicitly defines VIM as an OOB based measure: \"Using OOB data, calculate prediction error for the ensemble CHF and variable importance measures (VIM) of M features,\" which is the standard permutation type VIMP used by randomForestSRC (RSF) and party (CIF, whose entire raison d'etre per Strobl et al. is to avoid the Gini/impurity split bias via permutation based conditional importance). No description ties MSR-RF's importance to impurity/MDI either. Since criterion (1), genuine use of impurity/Gini/MDI importance, is not met, the flag fails regardless of whether the VIM-based ranking is central to the paper's MSR-RF-popularizing conclusion (it is) or whether corroboration is adequate (it is weak, only heldout IBS/c-index of overall models, and the authors themselves note VIM ranking does not track IBS/c-index). The mechanism the task warns about (super-linear magnitude inflation of impurity-decrease importance for skewed/high-cardinality features) does not apply to a permutation-based VIMP, so the flag is refuted."
+}

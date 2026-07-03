@@ -1,0 +1,9 @@
+{
+  "id": "W2989315263",
+  "cites": 45,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does run RFE with random forest as one base-learner and ranks the MCARI2-SIPI feature as top (\"retained as the last in all 30 resamples by the random forest\"), and this ranking does feed a concrete recommendation (\"Time-resolved measurements of the MCARI2 and the SIPI SVIs could allow to assess these traits at very high throughput\"). However, the authors do not stop at cross-validated model accuracy: they specifically test the top-ranked SELECTED feature's own predictive relationship with disease severity on a fully independent, out-of-year, out-of-genotype dataset (\"The top-selected spectral-temporal feature was found to be informative of STB severity in the separate experiment carried out under contrasting environmental conditions (Pearson r = 0.53, p < 0.001; Figure 11)\", n=592 plots from a 2016 experiment with different genotypes, sowing, and no artificial inoculation). This is held-out predictive validation of the selection itself (not merely overall model accuracy), which the rubric treats as adequate corroboration. Because this element of the three-part test fails (adequate corroboration is present), the flag should be refuted even though impurity importance is used and its ranking is central to the SVI recommendation."
+}

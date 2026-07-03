@@ -1,0 +1,9 @@
+{
+  "id": "W4311575488",
+  "cites": 18,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The Methods section describes their \"variable importance (VI) scores\" as a \"relative measure indicating how often a variable was used for a split in the final RF models\" using the ranger package, with no mention of setting importance=\"permutation\" — this is standard impurity-based (Gini/variance-reduction) importance, not permutation importance or SHAP. The ranking and magnitude of this VI measure is genuinely central to the paper's headline claims: \"Governance effectiveness is the most important governance indicator in fixed gear, longliner and tuna purse seiner DWF, for the latter two it is the most informative across all variables\" and \"Tuna purse seiners are the only gear type in which governance indicators dominantly exceed biophysical variables in their Variable Importance scores,\" which directly underpin the Conclusion's paradigm-challenging claim that \"governance performance indicators can be more important in explaining effort in some DWF gear or species specific fleets... than traditionally used ecological factors such as primary productivity.\" Corroboration is limited to a random-noise-variable threshold (which only screens informative vs. non-informative predictors, not correcting relative magnitude bias among real, differently-scaled predictors) and ALE plots (which show direction/shape of effects, not validity of the magnitude ranking itself). No permutation importance, SHAP, conditional importance, or held-out validation of the selected feature ranking is reported, so per the stated criteria the ranking is not adequately corroborated."
+}

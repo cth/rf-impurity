@@ -1,0 +1,9 @@
+{
+  "id": "W3149252896",
+  "cites": 24,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper explicitly states its random-forest importance metric is \"the mean decrease in out-of-bag accuracy when that parameter was excluded from the model\" — this is a permutation/OOB-accuracy-based importance (as implemented by the ranger package's 'permutation' importance mode), not Gini/MDI impurity importance. The impurity-importance bias (super-linear magnification from high-cardinality/continuous splits, mishandling of interactions) specifically afflicts split-impurity-reduction metrics computed on training data; it does not apply to OOB accuracy-decrease importance, which is evaluated on held-out (out-of-bag) samples per tree. While the ranking of features (Fd, Wd, SASA-family, etc.) is indeed central to the paper's discussion and conclusions, criterion (1) fails outright since the described metric is not impurity-based, and per the audit's own rubric, permutation importance is itself one of the accepted \"adequate corroboration\" methods. The flag is therefore refuted."
+}

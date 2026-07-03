@@ -1,0 +1,9 @@
+{
+  "id": "W3097529280",
+  "cites": 9,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly computes importance as \"the decrease in node impurity weighted by the probability of reaching that node\" (classic MDI/Gini-style importance), ranks all 92 features by this magnitude in Table 3, and uses that ranking both to select the \"top 30\" features for the final model and to frame the headline clinical claims (e.g., Age at rank 1 with 0.141, Trazodone rank 5, disease categories 5/3/1/11 as the emphasized comorbidities). The abstract's specific medication claims (\"strong indicators for no SREs\" / \"predicted the onset of SREs\") are downstream of this impurity-based selection step, and the paper's own limitations section concedes impurity importance \"can be misleading for high cardinality features and continuous variables (age and ED visits)\" — precisely the two features ranked highest — yet the only mitigation offered is a distribution check for those two continuous variables (Figure 4) plus a chi-square/proportion test (Table 5) computed on outcome groups that are themselves defined by TreeInterpreter contributions from the same impurity-built trees, which is circular rather than independent. The paper explicitly performs held-out accuracy validation of the selected 30-feature subset (Table 4), which per the rubric does not validate the ranking itself, and no permutation importance, SHAP, PDP/ALE, or genuine conditional-importance analysis is reported anywhere in the text. All three CONFIRMED conditions are therefore met: real impurity importance is used, its ranking/selection is central to the stated clinical conclusions and treatment-substitution recommendations, and no adequate corroboration of that ranking is provided."
+}

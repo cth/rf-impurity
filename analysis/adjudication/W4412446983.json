@@ -1,0 +1,9 @@
+{
+  "id": "W4412446983",
+  "cites": 3,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does report and interpret IncNodePurity alongside %IncMSE (\"Fig 5 shows that r.elevation and r.bulk soil also yield high IncNodePurity, reinforcing their importance\"), so it genuinely uses impurity importance. The central conclusion, that r.elevation is the top predictor and this is explained by it indirectly differentiating sediment type (\"elevation becomes a predictive variable because it indirectly differentiates the type of sediments: fluvial and marine deposits... and the elevated plains with loessic/continental deposits\"), is anchored on the unbiased %IncMSE permutation measure: the text states \"r.elevation emerged as the most predictive in %IncMSE\" and \"The most predictive variables, according to %IncMSE (Fig 5), are r.elevation... and r.bulk\", with IncNodePurity cited only as convergent, reinforcing evidence for those same two variables. Because the top-ranked variables driving the geological interpretation agree between the impurity measure and the unbiased permutation measure, this satisfies the adequate-corroboration bar (permutation importance corroborating the selected/ranked feature set). The one divergence between %IncMSE and IncNodePurity (r.dust: ~15% vs ~0.2x10-4) is noted but is not load-bearing for any stated conclusion; the surrounding discussion concerns the model's general failure to surface lithology-driven variables, not an interpretive claim resting on r.dust's ranking. Since the central ranking claim is independently corroborated by permutation importance, the flag is refuted."
+}

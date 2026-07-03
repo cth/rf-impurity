@@ -1,0 +1,9 @@
+{
+  "id": "W4385241282",
+  "cites": 13,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does not use Gini/impurity/MDI importance anywhere. The specific magnitude numbers the flag cites (oil viscosity 0.59, Ra 0.30, Rp0.2/K 0.05-0.06) come from the ANN \"connection weight\" algorithm (Olden-type method, RIx = sum of input to hidden and hidden to output weights), not from the random forest at all. For the RF model itself (Figure 7, nine loss functions), the paper explicitly defines its variable-importance metric as \"the mean decrease in accuracy that happened when a particular input variable was permuted randomly,\" i.e., classic permutation importance, and explains the mechanism in permutation terms twice (\"shuffling its values caused an increase/no change in the model error\"). This is the standard %IncMSE permutation-based measure in the randomForest package, not the impurity/Gini-based IncNodePurity measure that the flagged bias applies to. Since neither the headline magnitude numbers (ANN-derived) nor the RF ranking claims (explicitly permutation-based) rest on impurity importance, criterion (1) fails, and the RF-specific ranking (viscosity/Ra most important, Rp0.2/K least) is additionally corroborated by ALE plots (Figure 8) and interaction/contour plots (Figures 9-10), satisfying corroboration even if the classification were in doubt."
+}

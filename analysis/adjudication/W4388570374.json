@@ -1,0 +1,9 @@
+{
+  "id": "W4388570374",
+  "cites": 6,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does use an impurity-based importance measure from ranger, but explicitly the bias-corrected variant: \"the corrected impurity across validation and resampled sets was measured to identify variables that best predicted TI status\" (Sandri/Zuccolotto-style corrected-impurity mode), which is specifically designed to remove the split-selection bias that inflates importance for continuous/skewed features, the exact mechanism the flag worries about. No raw/uncorrected Gini importance is reported. Beyond the importance ranking itself, the %LVV+ cells finding is independently corroborated by direct analyses of the selected feature against real outcomes rather than relying on the impurity score alone: Figure 2B correlates %LVV+ cells directly with PB VCN at month 6, Figure 3A shows the %LVV+ threshold cleanly discriminates the true clinical endpoint (TI, not just the RF's surrogate outcome) across the full evaluable cohort, and Figure 3B extends the relationship to HbA T87Q at month 24; importance is also checked for stability across 50 resamples, and correlated transduction-efficiency surrogates were pre-screened via Spearman collinearity reduction (rho>0.8) before modeling. This combination of a bias-corrected impurity measure plus direct outcome-level validation of the specific selected feature constitutes adequate corroboration, so condition 3 fails and the flag is refuted."
+}

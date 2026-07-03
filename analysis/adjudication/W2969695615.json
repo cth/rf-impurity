@@ -1,0 +1,9 @@
+{
+  "id": "W2969695615",
+  "cites": 28,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does use ranger's variable-importance score (VIS) with a forward-selection-by-OOB-error procedure to shrink 12,806 methylation probes and all cancer-gene expression probes down to small candidate sets, and the ranking directly determines which probes/genes enter the final list (\"Ranger screened out 62 DNA methylation probes... according to variable importance score\"). However, the paper's central conclusion is not a claim about relative importance magnitude, but about which specific biomarkers are significantly associated with survival, and that claim is corroborated well beyond the RF step: the candidate probes/genes must (a) be independently re-selected by a separately-run ranger screen in a wholly independent validation cohort (TCGA vs. the four discovery cohorts), and (b) show FDR-corrected significant, direction-consistent Cox-regression hazard ratios in the discovery phase AND nominally significant (p<0.05), direction-consistent hazard ratios in the independent validation phase. This is exactly the \"held-out predictive validation of the SELECTED feature set\" that the rubric treats as adequate corroboration (as opposed to mere overall model AUC), since it directly tests survival-association of the specific selected probes/genes in unseen patients using a method (Cox regression) unrelated to RF impurity. Because this independent-cohort replication of the actual selected features is present, criterion (3) is not met, so the flag is refuted even though ranger importance is used for screening."
+}

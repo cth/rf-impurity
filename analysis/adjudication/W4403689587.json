@@ -1,0 +1,9 @@
+{
+  "id": "W4403689587",
+  "cites": 9,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": false,
+  "adequate_corroboration": false,
+  "reason": "The paper's methods only state that ranger's \"splitrule\" hyperparameter was tuned between \"gini\" and \"extratrees\" (how splits are chosen), never explicitly naming the variable-importance metric (impurity vs. permutation); the single reported importance statement (\"the ten most important features were microbial taxa, with Prevotella loescheii having the highest importance score\") is a one-sentence, supplementary-figure-referenced aside, not a load-bearing conclusion. The paper's actual headline claim, that saliva OTU abundances \"best distinguish\" PD cases, rests on cross-validated (99x Monte Carlo) ROC-AUC comparisons across many feature-set models, a metric unaffected by impurity-importance bias. Moreover the taxa the importance ranking highlights (e.g., Prevotella loescheii, Neisseria, Streptococcus) are independently identified as significant via a completely separate, rigorous compositional differential-abundance framework (ANCOMBC2 AND ALDEx2, both required FDR<0.05), which converges with and effectively corroborates the RF-flagged taxa. Because the ranking is not central to a stated conclusion (AUC drives the \"saliva is best\" claim) and the highlighted taxa are convergently validated by an independent statistical method, the flag does not meet the confirmation bar even though impurity-style importance was plausibly used."
+}

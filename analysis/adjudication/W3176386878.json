@@ -1,0 +1,9 @@
+{
+  "id": "W3176386878",
+  "cites": 5,
+  "verdict": "uncertain",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The ranking is unambiguously central: the paper states \"The most important variables in our soil texture models are soil physical environment classes and soil parent material, followed by altitude and variables regarding climate\" and concludes \"characterization and delineation of soil characteristics by trained photo-interpreters are more relevant for soil texture mapping than climate and remote sensing covariates,\" and no permutation, SHAP, PDP/ALE, conditional importance, or held-out validation of the selected ranking is reported anywhere (only overall R2/MAE from cross-validation, which validates accuracy, not the ranking). However, the text never specifies which importance mode was used for the ranger model (no mention of \"impurity,\" \"Gini,\" \"permutation,\" \"node purity,\" or a \"type=\" argument anywhere in the Methods, Results, or Discussion), so criterion (1) genuine use of impurity/Gini/MDI importance cannot be verified from the text alone; caret's ranger wrapper requires an explicit importance mode to produce Fig. 5, and it is plausible but not confirmed that the authors used the faster impurity-based default given the very large sample (29,570 samples, 133 covariates after dummy-coding) rather than permutation importance. Because this key mechanistic fact is unstated and the corpus provides no accompanying code/supplement to check, verdict is uncertain rather than confirmed or refuted."
+}

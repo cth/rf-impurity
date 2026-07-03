@@ -1,0 +1,9 @@
+{
+  "id": "W4220970849",
+  "cites": 44,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper text itself never says which importance type Ranger/Boruta used (\"relative importance obtained from the feature importance algorithm\"), so the first-pass screen guessed \"Ranger default = impurity.\" Checking the paper's own linked analysis code (github.com/slhogle/cyano-sidero-ocean, 07_global_metagenome_models/bin/fig4_random_forest.Rmd) shows the ranger engine is explicitly set with importance = \"permutation\" for the tuning and final models, and the PC ranking used for Fig 4/5 (and for the dFe claim) comes from step_select_boruta's Boruta object (boruta_obj$ImpHistory), which by default calls Boruta's getImpRfZ adapter - confirmed from the Boruta package source (importance.R) to run ranger with importance=\"permutation\" (normalized permutation importance), not \"impurity\"/Gini. So while the magnitude/ranking of importance (dFe's high weighted-variance rank despite weak linear r) is indeed central to the paper's interaction/nonlinearity narrative, it is not impurity/MDI importance at all, so the impurity-magnification bias mechanism does not apply here. Corroboration of the specific ranking (beyond overall test R2=0.93) is thin, but that is moot since criterion (1) already fails."
+}

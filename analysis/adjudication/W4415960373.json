@@ -1,0 +1,9 @@
+{
+  "id": "W4415960373",
+  "cites": 0,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly computes RF variable importance via ranger's Gini/impurity method (\"Node impurity was measured by the Gini index...to determine variable importance\"), not permutation importance. The magnitude/ranking is central to the paper's core conclusions: it reports \"the top ten most important predictors...in order of importance, were life satisfaction, mastery, mental health, age, BMI, social support...\" and the discussion/clinical implications are built around this specific order (e.g., psychological variables ranking above demographic/military/health-behavior variables). The only follow-up analysis (multinomial logistic regression) is fit on the same non-held-out data using only the pre-selected top-5/top-10 variables already chosen by the impurity ranking; it never re-examines the excluded variables from the full 36-variable set, and is not permutation importance, SHAP, PDP/ALE, or conditional importance as required for adequate corroboration. This is exactly the scenario the bias flag targets, since impurity importance is known to be inflated for continuous/high-split-count variables (life satisfaction, age, BMI, income) relative to binary/categorical ones (deployment, sex, service branch), which the paper explicitly notes \"did not emerge as important predictors.\""
+}

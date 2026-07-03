@@ -1,0 +1,9 @@
+{
+  "id": "W2590575045",
+  "cites": 43,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The Methods section describes both permutation and impurity-based importance, but the actual reported metric in Figs 9 and 12 (the source of every \"main/moderately/least important predictor\" ranking) is explicitly captioned \"Relative variable importance is measured by residual sum of squares and expressed relative to the maximum\" — this is the mean-decrease-in-node-impurity (RSS) measure, i.e., classic MDI/impurity importance, not permutation importance. These rankings are central: the abstract itself states \"SBACC, latitude and distance from the nearest Antarctic shores were the main geographic predictors\" and \"SSH, SST, and chlorophyll-a were the most important environmental predictors,\" and the Discussion builds biological interpretation directly on the \"least important\" status of month and day/night. No permutation importance values, SHAP, conditional importance, or held-out validation of the selected/ranked feature set is reported; the only validation metrics (AUC, RMSPE, Spearman rho, 5-fold CV/LGOCV) assess overall predictive accuracy of the fitted model, not the correctness of the impurity-based variable ranking, and the partial-dependence-style response curves (Figs 8, 10, 11) show relationship shape but do not corroborate importance magnitude or order. All three confirmation criteria are therefore met, so the flag cannot be refuted from the text."
+}

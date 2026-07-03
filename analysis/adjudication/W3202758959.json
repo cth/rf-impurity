@@ -1,0 +1,9 @@
+{
+  "id": "W3202758959",
+  "cites": 14,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper's own analysis code (stats/fsc_analyses_objAoA.R in the cited GitHub repo) calls ranger(...) with importance = \"impurity\" explicitly, confirming genuine Gini/variance impurity importance, not permutation importance. The Results section makes explicit magnitude/ranking claims from these impurity plots that function as stated findings supporting the robustness of the effect: \"PSC ld, in particular, is slightly more important than concreteness and more important than most other predictors\" and \"PSC ld is more important than iconicity in predicting AoA and ranks just below concreteness.\" No permutation importance, SHAP, PDP/ALE, or conditional importance is computed for the RF models; the corroboration actually present is linear-regression significance/direction (not magnitude), GAMs (non-linearity check), a random form-meaning-correspondence permutation test (a null-distribution check unrelated to RF variable importance), and ranger's OOB r.squared improvement from adding PSC alone (validates that PSC's marginal contribution is real, but not that its impurity-importance rank relative to concreteness/frequency/morphology/PND is trustworthy). Because the predictor set mixes continuous, binary, and skewed count variables known to bias impurity importance, and the specific comparative ranking claims are uncorroborated by any bias-robust method, all three CONFIRMED conditions are met."
+}

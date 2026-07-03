@@ -1,0 +1,9 @@
+{
+  "id": "W4403331554",
+  "cites": 13,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly states \"Importance reports the decrease in mean square error (MSE) for each feature\" and Fig 5 caption says \"Top 25 model features determined by variance of responses in Ranger\" — this is impurity/variance (MDI-type) importance from the Ranger RF package, not permutation importance. The ranking is central to the Discussion's biological narrative: \"the most important model feature...was the phylum Firmicutes,\" \"EC appeared to be most influential,\" and these rankings are used to build causal/successional claims (the \"Clostridium Effect,\" anaerobic vs. aerobic taxa dynamics, EC as a proxy for ammonium). The feature set spans wildly heterogeneous predictors (35-5195+ taxa of skewed compositional relative-abundance data mixed with continuous environmental measurements), exactly the setting where impurity importance is biased toward high-cardinality/skewed features. No permutation importance, SHAP, PDP/ALE, or conditional importance is reported anywhere in the text (searches for \"permutation,\" \"impurity,\" \"SHAP,\" \"conditional,\" \"cforest\" all return zero hits besides the MSE-decrease description). The only \"validation\" present (S3 Table, train vs. test R²) assesses overall predictive accuracy, not the specific selected/ranked feature set, so it does not meet the adequate-corroboration bar. All three confirmation criteria are met."
+}

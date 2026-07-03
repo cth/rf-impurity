@@ -1,0 +1,9 @@
+{
+  "id": "W4410521450",
+  "cites": 9,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does use an impurity-derived importance ranking that is central to its conclusions (location variables, forest-landscape characteristics like FLII, and low human-pressure importance drive the \"target areas with high surrounding forest landscape integrity\" recommendation). However, two things undercut CONFIRMED. First, the authors explicitly used the \"corrected impurity measure... unbiased in terms of the number of categories and category frequencies\" (citing Nembrini, König & Wright 2018, \"The revival of the Gini importance?\"), i.e. ranger's bias-corrected impurity importance (actual impurity reduction), which is specifically engineered to remove the cardinality/category-frequency bias mechanism the flag worries about (relevant given the high-cardinality \"country\" predictor). Second, per the rubric's own definition, adequate corroboration includes PDP/ALE shape, and the paper reports partial dependence plots (via Dalex) for every one of the 32 predictors (Fig. 4, Supp. Fig. 4), corroborating that the top-ranked variables have real, coherent, directionally sensible relationships with forest age rather than being pure artifacts of skew or interaction-charging. Given both the bias-corrected measure and the explicitly-listed-as-sufficient PDP corroboration, criterion (3) fails, so the flag should be REFUTED."
+}

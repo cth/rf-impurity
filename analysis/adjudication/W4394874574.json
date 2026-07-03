@@ -1,0 +1,9 @@
+{
+  "id": "W4394874574",
+  "cites": 10,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper explicitly states its random forest importance measure is \"mean decrease accuracy (MDA)\" (\"random forest algorithm, which allowed for the comparison of variables using the mean decrease accuracy (MDA)... The variables with the highest MDA give the best prediction\"), which is the classic permutation based importance (OOB permutation of each predictor), not impurity/Gini/MDI importance. There is no mention of Gini, MDI, node impurity, or variance reduction anywhere in the text (zero hits for \"Gini\"). Since the impurity bias described only corrupts Gini/MDI style importance and permutation importance is explicitly listed as one of the valid corroborating methods, criterion 1 fails outright. Independently, the ranking is also triangulated: Chi-Square effect sizes from the mixed-effects model and the brute-force AIC based multimodel-inference approach both largely agree with the RF-MDA ranking that calving ease and parity are the top two predictors (only their relative #1/#2 order differs slightly), which constitutes multi-method corroboration even setting the permutation-importance point aside. Because the paper does not use impurity importance for its central ranking, the flag should be refuted."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W4413489220",
+  "cites": 2,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper states explicitly: \"The variable importances (VIs) of the predictor variables for the Random Forest method were estimated using the permutation method implemented in the ranger package,\" and defines VI as \"the average decrease in model accuracy on the out-of-bag samples when the values of the respective marker are randomly permuted.\" There is zero occurrence of \"Gini\" or \"impurity\" anywhere in the full text — the authors use permutation importance (mean decrease in accuracy / Janitza hold-out permutation VI) throughout, not impurity/Gini/MDI (mean decrease in impurity) importance. The specific bias under audit (super-linear magnification of impurity-importance from split selection, conflation of non-linearity with skew, interaction effects charged to interacting variables) is a property of split-based (Gini/variance) importance and does not apply to permutation-based importance, which the authors correctly note \"can be biased\" for different reasons (correlation among predictors, addressed via Janitza et al.'s p-value/f-factor method and correlation-based marker filtering). Since criterion (1) fails outright — the paper never uses impurity importance for its ranking or feature selection — the flag is refuted regardless of the corroboration question."
+}

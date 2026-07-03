@@ -1,0 +1,9 @@
+{
+  "id": "W4224278670",
+  "cites": 11,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper fits an R `ranger` random forest and reports \"the variables of importance\" in \"arbitrary units (AU)\" (Figure 4) with no mention of permutation, SHAP, PDP/ALE, or conditional importance anywhere in the text (verified by full-text search); combined with the authors' unfamiliarity with importance-bias literature (they cite only Breiman/Ho/Dietterich, not Strobl et al.), this is consistent with the common default of impurity (Gini/variance) importance rather than a bias-corrected measure. The ranking is unambiguously central to the paper's conclusion: \"field size was the most important variable while collimator was the least important variable... field size is the driving force behind failures, and cone collimators are simply correlated with field size,\" which directly drives the clinical recommendation to pay \"particular attention\" to \"smaller field sizes.\" Critically, this causal-attribution claim is corroborated only by narrative reasoning and univariate chi-squared tests (a different, confound-blind method not on the approved corroboration list) - there is no stratified/conditional analysis, no permutation importance, no PDP, and no held-out validation of the feature ranking itself to disentangle the acknowledged field-size/collimator correlation. Since field size is the only continuous predictor competing against several categorical predictors (collimator, algorithm, machine, energy, year), this is exactly the scenario where impurity importance mechanically inflates a continuous variable's rank over a correlated categorical one, so the flag stands."
+}

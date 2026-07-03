@@ -1,0 +1,9 @@
+{
+  "id": "W4320857986",
+  "cites": 42,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does report Ranger variable-importance bars (Fig. 2E) that rank population density, land use, and temperature above rainfall seasonality, and this ranking is central to conclusions like \"population per km2 as the most important predictor of cluster membership\" and rainfall being \"in the least five important variables.\" However, the ranking is not left uncorroborated: the authors show partial dependence plots for the top five variables (\"Inset plots are the partial dependence plots for the top five most important variables in the model showing how the average prediction...varies with...variable value\"), which validates the direction/shape of each top predictor's effect, and they explicitly re-validate the ranking with held-out data (\"Model performance and variable importance ordering remained similar when fitting the model and explicitly holding out a subset of the data to subsequently evaluate model performance, SI Appendix, Fig. S8\") as well as under a different sampling scheme (no-SMOTE upsampling, SI Appendix Fig. S7), both of which reproduce the same ordering. Because PDP shape-checks and held-out validation of the ranking itself (not just overall AUC) are present, condition 3 (ranking NOT adequately corroborated) fails, so the flag should be refuted even though impurity-style Ranger importance is used and is central to a stated conclusion."
+}

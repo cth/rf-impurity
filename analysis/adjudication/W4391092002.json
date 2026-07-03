@@ -1,0 +1,9 @@
+{
+  "id": "W4391092002",
+  "cites": 7,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper never mentions Gini, node impurity, or MDI anywhere in the text; it explicitly frames the Boruta/RF importance measure as one that \"determines an unbiased grading of the predictive importance,\" and cites the ranger package (Wright and Ziegler 2017), whose Boruta wrapper (getImpRfZ) computes a Z score from permutation (mean decrease accuracy) style importance across trees rather than impurity/Gini/MDI importance -- this is exactly the design Boruta uses to avoid the classical RF importance bias. Because the described method is not shown to be impurity based, the first required condition of the flag fails, regardless of whether the MMP-12/BNP/PlGF/IDUA ranking (which is indeed central to the paper's conclusions, e.g. \"found MMP-12 to be the most promising candidate\") is corroborated. The logistic regression follow-up only confirms direction and statistical significance of the top hits on the same complete dataset (not held-out validation of the ranking, and AUCs for MMP-12/BNP/PlGF/IDUA are nearly identical at 0.66-0.68, so it does not validate the specific order), so corroboration of the exact ranking is also weak -- but this is moot given criterion 1 fails."
+}

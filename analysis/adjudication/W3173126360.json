@@ -1,0 +1,9 @@
+{
+  "id": "W3173126360",
+  "cites": 141,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly states \"variable importance was estimated using the impurity method\" and Table S1's importance ranking is used to name \"the most important predictor\" (an Rz-like lysis protein) and identify the \"50 most important proteins,\" which is then used to support the central claim that \"RaFAH learned to predict virus-host associations based on proteins that are directly involved in virus-host molecular interactions.\" This ranking-based mechanistic claim is corroborated only by qualitative biological plausibility (these protein types are known to be involved in host range) and by held-out validation of overall model accuracy (F1/precision/recall on Test Set 2), not by permutation importance, SHAP, PDP/ALE, conditional importance, or held-out predictive validation restricted to the selected top-feature subset. Since impurity importance is used, its magnitude/ranking is central to a stated biological conclusion, and no adequate corroboration of the ranking itself exists, all three conditions for CONFIRMED are met."
+}

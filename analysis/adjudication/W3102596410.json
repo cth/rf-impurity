@@ -1,0 +1,9 @@
+{
+  "id": "W3102596410",
+  "cites": 14,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly states variable importance \"was based on node impurity\" (ranger package), with no permutation, SHAP, or conditional importance reported anywhere in the text. The impurity-based ranking is central to a headline conclusion: \"Regional factors...were important predictors of diversity...This suggests that regional- to ecosystem-scale processes chiefly determined assemblage structure...with small-scale habitat characteristics, such as substrate playing an important but subordinate role,\" and \"Chlorophyll, phosphate and differences in dissolved oxygen concentrations ranked the most important gradients associated with anthropogenic pressure\" — directly feeding the paper's conservation-scale argument. The only corroboration offered is partial dependence plots restricted to the top impurity-ranked variables (circular, since PDP selection depends on the same ranking), and the authors themselves caution these \"may not be realistic and lead to misleading results in the case of strongly correlated variables\" — exactly the scenario present here (chlorophyll/phosphate/DO form a correlated eutrophication gradient, and continuous high-cardinality covariates like depth/shear stress compete against categorical substrate variables). A qualitative citation to Somerfield et al. (2009) using an unrelated method (species relatedness) offers weak, non-quantitative support but does not validate the specific importance ranking or magnitudes. No permutation importance, held-out validation of the selected feature set, or conditional importance is reported, so the ranking is not adequately corroborated."
+}

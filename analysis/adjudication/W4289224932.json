@@ -1,0 +1,9 @@
+{
+  "id": "W4289224932",
+  "cites": 412,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does use Gini/impurity importance and its ranking (climate parameters dominate) is stated as a discussion conclusion, but the first-pass evidence's key premise is factually wrong: the Methods explicitly state importance \"was determined as the mean decrease of the Gini index (classification impurity), corrected for bias in number of categories, when the values of a variable are randomly re-sorted\" — i.e. the authors applied a recognized bias correction for exactly the categorical-vs-continuous cardinality artifact they flag in the Discussion, rather than leaving it uncorrected as the flag claims. Additionally, the univariate Kendall-tau relationships in Fig. 2b for the top-ranked continuous predictors (aridity, AET, subsoil pH, etc.) show mechanistically coherent, monotonic associations consistent with an extensive prior hydrogeochemical literature and with independent regional random-forest fluoride models (India, Ghana, China) cited in the Discussion, giving convergent support for the climate-dominance conclusion beyond the raw Gini ranking alone. Given the explicit, targeted bias correction, the central premise that \"no correction\" was implemented does not hold up against the text, so the flag is not sustained."
+}

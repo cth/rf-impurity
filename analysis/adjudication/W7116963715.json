@@ -1,0 +1,9 @@
+{
+  "id": "W7116963715",
+  "cites": 0,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper's RF variable-importance rankings (\"The most important predictor variables in the heavily modified and agricultural Sacramento-San Joaquin ecoregion are local, reach-scale hydrologic regulation...followed by upstream dam density\") were produced with the R package spatialRF (rf_spatial/rf functions), which the authors ran with \"default parameters\" (explicitly stated: \"we also explored tuning the RF model to improve performance but found the default parameters were sufficient\"). The spatialRF package's internal rf() call hardcodes ranger's importance argument to \"permutation\" (confirmed by inspecting the package source, rf.R: `importance <- \"permutation\"`), not impurity/Gini/MDI. The paper never mentions impurity or Gini importance, nor does it override the package default. Because the importance metric underlying the rankings is permutation-based rather than impurity-based, criterion (1) fails outright - the impurity-bias mechanism (super-linear magnification, inability to separate non-linearity from skew, interaction attribution artifacts of Gini/MDI splits) does not apply to permutation importance. Even setting that aside, the rankings are further corroborated with PDP response-curve shapes and independent spatial mapping of the top predictors (Fig 5, Fig 9) that are checked against known land-use/hydrology patterns, satisfying the corroboration bar. The flag as written mistakes generic \"RF variable importance\" for impurity importance without checking which importance type the specific software actually computes."
+}

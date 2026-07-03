@@ -1,0 +1,9 @@
+{
+  "id": "W4389274765",
+  "cites": 6,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper reports Ranger variable-importance scores in Tables 4-5 and frames the top-ranked predictor in each model as \"the most important predictor\" / \"a critical factor,\" so ranking magnitude is genuinely central to the paper's answer to RQ2. However, unlike the first-pass screen's corroboration=[\"none\"] tag, the paper supplies partial dependence plots (Figures 2A-E, 3A-C) for every single variable it names as important, and each shows a clean, monotonic, theoretically motivated relationship (more Turkish use leads to higher scores; more years in Germany leads to lower scores) rather than an erratic pattern one would expect from a pure impurity-driven artifact. The authors also derive significance via the Altmann response-permutation procedure (1,000 permutations) for each reported variable, validating that these effects are non-null and not spurious selections. Taken together, the PDP shapes plus permutation-based significance testing on exactly the selected feature set constitute the kind of corroboration the audit criteria treat as adequate (PDP/ALE shape), so even though a ranking claim is made and the text never explicitly names the base importance metric as impurity versus permutation, the corroboration condition needed for CONFIRMED is not met."
+}

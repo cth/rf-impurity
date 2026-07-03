@@ -1,0 +1,9 @@
+{
+  "id": "W2794772181",
+  "cites": 192,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper never names its importance method explicitly (no \"permutation,\" \"Gini,\" or \"impurity\" anywhere in the full text), but the workflow (ranger RF fitted via caret on datasets up to 1.5 million points and 180 covariates, with heavy emphasis on computational cost/time throughout) strongly implies the fast, built-in impurity importance rather than the far costlier permutation importance was used; permutation importance at this scale would have been computationally prohibitive and would have been worth mentioning given how much the paper dwells on compute limits. Ranking is clearly central to the paper's conclusions: the abstract and Conclusions section state verbatim which covariates are \"the most important predictors\" for each of the three case studies, and the Discussion builds a substantive ecological claim (that vegetation distribution is climate-dominated rather than lithology/landform-dominated) directly from lithology \"not amongst the top 20 most important predictors,\" while also interpreting rank magnitude (\"the decline in variable importance was, however, gradual\"). Corroboration is limited strictly to predictive-accuracy metrics (TPR/AUC/RMSE/R2, spatial cross-validation) plus post-hoc ecological plausibility argument; there is no permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of the selected/ranked feature set anywhere in the paper. Since the ranking itself is never independently validated and it underwrites a real ecological conclusion, the flag holds."
+}

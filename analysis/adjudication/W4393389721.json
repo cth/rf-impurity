@@ -1,0 +1,9 @@
+{
+  "id": "W4393389721",
+  "cites": 2,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The variable importance in Fig. 5 was produced by the \"sdm\" R package's getVarImp routine, the standard tool this paper explicitly cites for building all ten model types (Bioclim, CART, FDA, Maxlike, BRT, MARS, GLM, Ranger, SVM, RF). That function computes importance by permuting each predictor and measuring the resulting drop in AUC or correlation, a model agnostic method that must be permutation based precisely because it is applied uniformly across non tree algorithms like GLM, SVM, and Bioclim that have no Gini/impurity splits at all. The paper text itself never mentions Gini, node impurity, or mean decrease in impurity, only \"important variables\" from Fig. 5, consistent with the sdm package's permutation criterion rather than an impurity/MDI measure. Since the ranking is central to the restoration recommendations but is already based on permutation importance (one of the explicitly accepted corroboration methods), conditions (1) and (3) of the confirmation test both fail, so the flag is refuted."
+}

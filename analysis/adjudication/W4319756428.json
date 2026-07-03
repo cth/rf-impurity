@@ -1,0 +1,9 @@
+{
+  "id": "W4319756428",
+  "cites": 7,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper's feature-ranking method is Boruta run on the randomForest R package: \"the Boruta feature selection algorithm duplicates and randomly shuffles each row of each column to generate an artificial data frame... the importance (Z-scores) for each of the real features will be evaluated and compared with its shuffled replicas.\" This shadow-feature Z-score procedure is Boruta's standard mechanism, whose default importance statistic (per the randomForest package and the original Boruta methodology) is the permutation-based Mean Decrease Accuracy, not the impurity/Gini (MeanDecreaseGini/MDI) measure that suffers the magnitude/ranking bias in question; the text never mentions Gini or MDI (grep confirms no \"Gini\" occurrence). Ranking magnitude (\"average normalized hits\") is indeed central to the biomarker claims, but the Boruta procedure is itself a built-in permutation/null-comparison validation of selected features (real vs. shuffled replicas across 100 iterations), which is the kind of corroboration the audit criteria treat as adequate, and it is further supported by ANCOM-BC agreement for CRC and CD (the authors explicitly temper the immunotherapy claims given ANCOM-BC's failure there and the low overall model performance). Since the ranking statistic is not shown to be raw impurity/Gini importance, criterion (1) fails, so the flag is refuted."
+}

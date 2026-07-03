@@ -1,0 +1,9 @@
+{
+  "id": "W4407082212",
+  "cites": 7,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does run a Random Forest via tidymodels/ranger with the default scaled variable importance, and the resulting rank (LRP1B \"the strongest CVD-risk predictive biomarker\") is central to its conclusions. But critically, the reported per-marker score is not RF impurity importance alone: \"The average importance between RF, eNet, and pls models were used to rank the markers... we calculated the mean importance of each marker in the unbiased version of these three models... The variable importance of each model was scaled to be within [0,1] before averaging.\" Elastic-net importance (regularized coefficient magnitude) and PLS/mixOmics importance (VIP/loading-based) do not share the tree-splitting super-linear magnification mechanism that biases impurity importance, so a marker ranking high in the composite score had to also score well under two structurally different, non-impurity importance measures - this is a genuine cross-method convergence check, not a single-metric artifact. Combined with held-out AUC validation showing the 8-marker restricted model retains strong predictive power (AUC>0.75 plasma, >0.7 saliva) in an independent test split, the ranking has real corroboration beyond raw RF impurity, so the flagged bias could not have been the sole driver of the stated conclusion."
+}

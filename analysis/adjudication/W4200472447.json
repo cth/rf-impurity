@@ -1,0 +1,9 @@
+{
+  "id": "W4200472447",
+  "cites": 8,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly computes impurity based importance (mean decrease in Gini and times_a_root via randomForestExplainer, with ranger splitrule = gini) and uses it to declare which specific CpG loci are the \"most important predictors\" (\"6 of the 7 (86%) INA, 2 of the 4 (50%) NHLH2, and 2 of the 7 (29%) THBS4\"). This ranking directly underwrites a stated translational conclusion in the Discussion: that \"a subset of 10 candidate loci from the total of 18 ... already permits the identification of tissue samples with a metastatic disease state ... with good accuracy,\" framing a minimal biomarker panel. The only validation offered is the 0.73 test-set accuracy of the full 18-locus random forest model; no separate model was fit or tested on just the 10 \"important\" loci, and no permutation importance, SHAP, PDP/ALE, or conditional importance was used to corroborate which loci matter or their rank order. Per the rubric, overall model accuracy on the full feature set does not validate a ranking-based feature subset, so the ranking underlying the 10-of-18 loci claim is uncorroborated and the flag is confirmed."
+}

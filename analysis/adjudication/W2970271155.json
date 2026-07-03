@@ -1,0 +1,9 @@
+{
+  "id": "W2970271155",
+  "cites": 27,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly computes ranger's random-forest variable importance defined as \"a total decrease in node impurity\" (classic Gini/MDI impurity importance), not permutation importance or SHAP. This ranking is used to draw a stated conclusion in the \"Contribution of evolutionary information\" section: Family, Target, and PFAM are ranked as high-importance sources while TS-SMART, TS-TIGR, TS-PRINT, and TS-Gene3D are ranked low, explicitly attributed to \"low model performance...and target coverage\" which is precisely the coverage-confounded scenario the bias flag describes, since PFAM/Family/Superfamily annotate over 74% of targets versus under 50% for the low-ranked sources. The only corroboration offered is a post-hoc, hedged (\"probably\", \"we think\", \"might\") correlation between each single feature's own held-out AUC (Table 1) and its Gini importance rank, which is exactly the kind of overall model-accuracy correlation the rubric says does NOT validate an importance ranking; there is no permutation importance, SHAP, PDP/ALE, conditional importance, or an ablation-style held-out test of the selected high-importance feature subset. Because the ranking supports a specific interpretive claim about which evolutionary databases matter and is not adequately corroborated by an independent importance method, the flag is confirmed."
+}

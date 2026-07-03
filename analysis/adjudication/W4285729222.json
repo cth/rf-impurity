@@ -1,0 +1,9 @@
+{
+  "id": "W4285729222",
+  "cites": 15,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper does not use classic Gini/MDI/variance impurity importance. It explicitly cites and applies the Palczewska et al. (2013) \"feature contribution method,\" which decomposes each individual prediction along the sample's decision path into per-node changes in the predicted target value (\"the contribution of the sample to the target value was calculated\"), then takes medians across samples. This is a Saabas-style local prediction-decomposition technique (a precursor to SHAP), not the sum of impurity/variance decrease across splits that scikit-learn-style Gini/MDI importance computes; its known failure mode is lack of consistency/additivity, not the cardinality-driven super-linear magnification of impurity importance. While the magnitude/ranking of these feature contributions is indeed central to Discussion 4.1 and the conclusions (e.g., city-specific recovery timing for \"company\"), and no permutation/SHAP/PDP validation of the ranking is present (only OOB R² for overall fit, ~0.43-0.65), the flag mischaracterizes the method: since criterion (1) (genuine use of impurity/Gini/MDI importance) is not satisfied, the specific impurity-importance bias mechanism this audit targets does not apply here."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W4206200000",
+  "cites": 26,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The Methods explicitly state \"Gini impurity was used to rank the variables in order of their importance\" within the RF-based recursive feature elimination, and Figure 2 orders the 9 selected features \"ranked by Gini-Impurity.\" The Discussion builds a substantive clinical claim directly on the magnitude/ranking of this impurity importance: it states the model \"weighted stride length equally important as gait speed...in terms of their classification importance measured by the Gini impurity\" and uses this specific ranking comparison to argue stride length is a more robust clinical parameter than the previously favored gait speed, concluding \"stride length in addition to gait speed might be a valuable clinical parameter to identify patients with physical frailty.\" No permutation importance, SHAP, PDP/ALE, or conditional importance is used anywhere in the paper. The only validation performed is overall AUROC/accuracy of the downstream KNN and RF classifiers trained on the whole 9-variable selected set (0.801/0.919 AUROC) — this validates that the feature set collectively predicts well, but per the stated rule this does not validate the internal ranking claim that stride length and gait speed are comparably important, which is exactly the analysis-specific bias impurity importance is prone to (correlated/continuous variables can be inflated relative to others). All three CONFIRMED criteria are met."
+}
