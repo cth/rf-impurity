@@ -111,6 +111,37 @@ Caveat: the flag itself is an unverified Haiku judgement — the 468-cites/yr
 outlier should be first in line for the adjudication pass, since one false
 positive there dominates the citation-weighted picture.
 
+## Publication-year trend
+
+Flagged papers skew slightly older (median 2022 vs 2023; Mann-Whitney z=−2.91,
+**p=0.004**, but a small ~0.7-year effect). Breaking it down by year shows *why*
+— and it is not a citation artifact but a shift in practice:
+
+| year | screened | flag% | impurity-users | flag% (users) | corroboration% (users) |
+|------|---------|-------|---------------|--------------|------------------------|
+| 2016 | 1 | 100% | 1 | 100% | 0% |
+| 2017 | 7 | 57% | 4 | 100% | 0% |
+| 2018 | 7 | 43% | 6 | 50% | 50% |
+| 2019 | 20 | 40% | 12 | 67% | 75% |
+| 2020 | 47 | 13% | 30 | 20% | 77% |
+| 2021 | 66 | 32% | 42 | 50% | 60% |
+| 2022 | 94 | 26% | 59 | 41% | 61% |
+| 2023 | 72 | 22% | 40 | 40% | 68% |
+| 2024 | 79 | 23% | 46 | 39% | 63% |
+| 2025 | 100 | 19% | 50 | 38% | 64% |
+| 2026 | 51 | 10% | 17 | 29% | 82% |
+
+Two things move together: **corroboration adoption rose** from ~0% (2016–17) to
+~60–80% in recent years, and the **flag rate fell** in step (from ~100% of
+impurity-users flagged in 2016–17 to ~30–40% recently). The most plausible
+reading is that the field increasingly pairs impurity importance with SHAP,
+permutation importance, or PDP/ALE — exactly the corroboration the flag checks
+for — so newer papers are less exposed. This makes the small year difference a
+symptom of improving practice, not a confound to explain away.
+
+Caveats on this table: the 2016–19 rows have tiny n (1–20) and are noisy; 2026 is
+a partial year. The monotonic-looking decline from 2020 on is the reliable part.
+
 ## Caveats
 
 - **Unverified Haiku first pass** — precision unknown until the Sonnet/Opus
