@@ -91,10 +91,25 @@ OpenAlex `cited_by_count` for the 544 screened papers
   reinforcing that the high-impact exposure is in bare impurity-ranking, not in
   the significance-method literature.
 
-Caveat: `cited_by_count` is confounded by publication year (older papers
-accumulate more), and the flag itself is an unverified Haiku judgement — the
-4,684-cite outlier should be first in line for the adjudication pass, since one
-false positive there dominates the citation-weighted picture.
+### Age-adjusted (citations per year)
+
+`cited_by_count / (2026 − publication_year + 1)`, to remove the confound that
+older papers accumulate more citations:
+
+| group | n | median cites/yr | mean cites/yr | max |
+|-------|---|----------------|--------------|-----|
+| **Flagged** | 125 | 2.7 | 9.1 | 468.4 |
+| Not flagged (all) | 419 | 2.5 | 5.6 | 119.7 |
+| Impurity-users, not flagged | 182 | 2.5 | 6.0 | 119.7 |
+
+The pattern survives age-adjustment: **medians nearly equal (2.7 vs 2.5), mean
+still ~1.6× higher for flagged.** So the raw-citation gap was *not* an age
+artifact — it is a genuine heavy tail. The same 2017 paper (`W2588003345`, 468
+cites/yr) dominates, an order of magnitude above the next flagged paper.
+
+Caveat: the flag itself is an unverified Haiku judgement — the 468-cites/yr
+outlier should be first in line for the adjudication pass, since one false
+positive there dominates the citation-weighted picture.
 
 ## Caveats
 
