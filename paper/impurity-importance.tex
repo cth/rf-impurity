@@ -34,8 +34,12 @@ them super-linearly, (ii) charges interaction effects to the interacting
 variables, even when those variables have no marginal effect at all, and
 (iii)~--- the central result --- \emph{cannot distinguish a genuinely non-linear
 effect from a linear effect acting on a skewed feature}. The two produce
-identical importances. The root cause is that regression trees split on variance
-reduction, and variance is not scale-invariant. We argue that impurity importance
+identical importances. Unlike the well-known bias toward high-cardinality,
+continuous, or correlated features, these distortions arise among features that
+are continuous, uncorrelated, and identically distributed, and concern the
+magnitude and ranking of genuine effects. The root cause is that regression trees
+split on variance reduction, and variance is not scale-invariant. We argue that
+impurity importance
 should be read as a detector of \emph{structure worth investigating}, not as an
 effect-size estimate, and that partial-dependence plots recover the distinction
 that importance discards. A screen of the ranger-citing literature
@@ -57,9 +61,19 @@ Impurity importance is known to be biased: it favours continuous and
 high-cardinality features and inflates the importance of correlated predictors
 (Strobl et al.\ 2007; Nembrini et al.\ 2018, \emph{The revival of the Gini
 importance?}, which introduces the bias-corrected ``actual impurity reduction'',
-AIR, exposed by \code{ranger} as \code{importance = "impurity\_corrected"}). The
-question here is narrower and more practical: \textbf{if I line up impurity
-importances next to OLS coefficients, when will I be misled?}
+AIR, exposed by \code{ranger} as \code{importance = "impurity\_corrected"}). That
+work characterises which \emph{types} of feature get inflated, largely in null or
+confounded settings. The distortions examined here are different in kind and, we
+argue, less widely appreciated: they arise among features that are all
+continuous, uncorrelated, and identically distributed, and they concern how the
+\emph{magnitude and ranking} of genuine effects are represented. Two stand out ---
+importance grows super-linearly, roughly quadratically, in a feature's linear
+effect size (Section~\ref{sec:linear}); and a genuinely non-linear effect and a
+linear effect on a skewed feature yield \emph{numerically identical} importances
+(Section~\ref{sec:confound}), so the measure cannot separate an effect's shape
+from a feature's distribution. The framing question is then practical:
+\textbf{if I line up impurity importances next to OLS coefficients, when will I be
+misled?}
 
 All experiments use \code{ranger} 0.18.0; the code that generates them and the
 figures is available with the rest of the supporting material
