@@ -256,11 +256,10 @@ wide/heavy-tailed distribution.'' The measure alone cannot say which.
   features.} Treat it as a ranked shortlist of variables worth investigating, not
   as an effect size. Never place its magnitudes alongside OLS coefficients as if
   they were the same currency.
-\item \textbf{Don't conflate variable importance with effect size.} A high bar is
-  a prompt, not a conclusion. It may reflect a marginal
-  effect, an interaction (Section~\ref{sec:interactions}), a non-linear effect
-  (Section~\ref{sec:nonlinear}), or nothing but a skewed feature distribution
-  (Section~\ref{sec:confound}).
+\item \textbf{Don't conflate variable importance with effect size.} A high bar may
+  reflect a marginal effect, an interaction (Section~\ref{sec:interactions}), a
+  non-linear effect (Section~\ref{sec:nonlinear}), or nothing but a skewed feature
+  distribution (Section~\ref{sec:confound}).
 \item \textbf{Disambiguate with partial-dependence plots.} PDPs~\cite{friedman2001}
   recover exactly what importance discards: in Section~\ref{sec:confound} the skewed-feature
   model's PDPs are straight lines while the non-linear model's curve --- same
@@ -277,16 +276,20 @@ wide/heavy-tailed distribution.'' The measure alone cannot say which.
   to detect, OLS is both more accurate and directly interpretable.
 \end{enumerate}
 
-\section{Prevalence in the literature: method}
-\label{sec:prevalence-method}
+\section{Prevalence in the literature}
 
-The preceding sections establish that the pitfall exists and reproduce it on
-demand; they say nothing about how often it affects a real conclusion. To
-estimate that, we screened the published literature that relies on the tool most
-closely associated with these importances --- the \code{ranger} R package --- for
-papers whose stated conclusions depend on the magnitude or ranking of an impurity
+The preceding sections establish some pitfalls that exists with variable importances.
+To estimate how prevalence of papers falling into hose pitfalls, we screened the published literature 
+that relies on the widely used \code{ranger} R package which provides variable importances.
+Many other packages provide random forest variable importances, \code{ranger} is both widely
+used and specialized.
+
+We screen for papers whose stated conclusions depend on the magnitude or ranking of an impurity
 importance without the corroboration that would guard against the biases of
 Sections~\ref{sec:linear}--\ref{sec:confound}.
+
+\subsection{Method}
+\label{sec:prevalence-method}
 
 \paragraph{Corpus.} We took every work recorded by OpenAlex as citing the ranger
 reference publication~\cite{wright2017} (OpenAlex work \code{W2157395790}),
@@ -404,7 +407,6 @@ confirmed papers ($93\%$) report no importance $p$-value or Boruta selection and
 simply rank features by impurity importance, suggesting that awareness of these
 methods correlate with awareness or caution about interpreting variable importances 
 and their relative ranks. 
-
 Second, the confirmed papers are not confined to low-visibility venues: their
 citation counts span the full range of the corpus (median $11$, matching the
 corpus median of $10$), and $12$ of the $55$ exceed $50$ citations, so the
@@ -422,7 +424,7 @@ with an unbiased importance measure, which is beyond the scope of a text screen.
 Impurity importance is a variance-reduction accounting, and variance is neither
 scale-invariant nor able to separate an effect's shape from a feature's
 distribution. Consequently it magnifies effect sizes super-linearly, attributes
-interaction effects to marginally-null variables, and --- most importantly ---
+interaction effects to marginally-null variables, and 
 returns identical scores for genuinely non-linear effects and for linear effects
 on skewed features. A
 literature screen (Sections~\ref{sec:prevalence-method}--\ref{sec:prevalence-results})
@@ -430,7 +432,7 @@ confirms the pitfall is not merely theoretical: about $10\%$ of importance-using
 ranger papers (including heavily-cited work) lean on impurity rankings
 without the corroboration that would catch it. Used as a \emph{screening} tool and paired with
 partial-dependence plots to interrogate the shortlist, impurity importance is
-valuable; read as a substitute for effect sizes, it will mislead.
+valuable, but misleads if read as a substitute for effect sizes.
 
 \section{Data and code availability}
 \label{sec:availability}
