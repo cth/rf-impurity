@@ -66,14 +66,15 @@ work characterises which \emph{types} of feature get inflated, largely in null o
 confounded settings. The distortions examined here are different in kind and, we
 argue, less widely appreciated: they arise among features that are all
 continuous, uncorrelated, and identically distributed, and they concern how the
-\emph{magnitude and ranking} of genuine effects are represented. Two stand out ---
-importance grows super-linearly, roughly quadratically, in a feature's linear
-effect size (Section~\ref{sec:linear}); and a genuinely non-linear effect and a
-linear effect on a skewed feature yield \emph{numerically identical} importances
-(Section~\ref{sec:confound}), so the measure cannot separate an effect's shape
-from a feature's distribution. The framing question is then practical:
+\emph{magnitude and ranking} of genuine effects are represented. 
+The practical framing question is:
 \textbf{if I line up impurity importances next to OLS coefficients, when will I be
 misled?}
+
+Two conclusions follow: Importance grows super-linearly in a feature's linear
+effect size (Section~\ref{sec:linear}); and a genuinely non-linear effect and a
+linear effect on a skewed feature yield indistinguishable importances
+(Section~\ref{sec:confound}). 
 
 All experiments use \code{ranger} 0.18.0; the code that generates them and the
 figures is available with the rest of the supporting material
@@ -343,10 +344,9 @@ the ranking. Every flag had to be supported by a quoted passage.
 a second, stronger model (Claude Sonnet 5) under an explicitly adversarial
 instruction: its task was to \emph{refute} the flag. It returned a verdict of
 \emph{confirmed}, \emph{refuted}, or \emph{uncertain}, and confirmed only when all
-three conditions held at once --- the paper genuinely uses an impurity (not solely
-a permutation or SHAP) importance, the ranking is central to a stated conclusion,
-and the ranking is not adequately corroborated --- reaching its own judgement
-rather than deferring to stage~1.
+three conditions held at once: 1) the paper genuinely uses an impurity (not solely
+a permutation or SHAP) importance, 2) the ranking is central to a stated conclusion,
+and 3) the ranking is not adequately corroborated.
 
 \section{Prevalence in the literature: results}
 \label{sec:prevalence-results}
