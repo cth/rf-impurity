@@ -1,0 +1,19 @@
+{
+  "id": "W7155090887",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses permutation-based variable importance, not impurity importance: \"packages included...vip for permutation-based variable importance\" and \"permutation-based variable importance identified key predictive antigens.\" Results corroborate rankings through linear regression (\"several antigens identified as important predictors in the random forest models...were also significantly associated with continuous P(Detect) after adjustment for age and sex\") and held-out test validation (PR AUC 0.92-0.93). Since impurity importance is not used, the documented bias cannot affect this paper's conclusions."
+}

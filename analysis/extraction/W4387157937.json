@@ -1,0 +1,14 @@
+{
+  "id": "W4387157937",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains three classifiers (EN, SVM, RF) but applies only T-REx (EN) to human genome data, reporting candidate genes from EN-based sweep probabilities (Table 1). Feature importance visualizations (Figure 4) are created exclusively for the elastic net model: \"Model-informed feature maps were generated through a linear combination of the R feature maps, weighing each map by its component's regression coefficient in the trained T-REx (EN) model.\" T-REx (RF) is evaluated only for predictive accuracy and robustness in simulations; no feature importance is extracted or used for interpretive conclusions."
+}

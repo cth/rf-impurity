@@ -1,0 +1,15 @@
+{
+  "id": "W4415431445",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper reports feature importance exclusively using permutation-based importance (Figures 5 and 8): \"The bar plot in Fig. 5 compares the permutation-based variable importance\" and \"Figure 8 shows the side-by-side bar plots comparing the permutation-based variable importance.\" Magnitude and ranking interpretations (e.g., \"Both models consistently identify T14, T13, and T15 as the top three features...with T14 exhibiting the highest importance at approximately 0.08\") derive from permutation importance, which is robust to impurity bias. The paper uses Gini impurity for RF splitting but does not report impurity-based feature importance metrics (Gini decrease/MDI)."
+}

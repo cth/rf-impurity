@@ -1,0 +1,17 @@
+{
+  "id": "W4309316237",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest models with caret::varImp to rank features and observes \"a significant positive correlation (r = 0.4, p < 0.0001) between the percentage of gene expression features among the top 100 features and an increase in MO's predictive power over PS.\" However, the main conclusion—that multi-omics improves prediction—is validated by R-squared on held-out test data across multiple datasets and methods. The authors explicitly state \"the top markers we report would be correlative in nature\" and \"refrain from making strong conclusions about individual drugs,\" using feature rankings to explain observed trends rather than as the basis for their central claim."
+}

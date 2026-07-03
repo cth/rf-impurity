@@ -1,0 +1,9 @@
+{
+  "id": "W2575280030",
+  "cites": 48,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper's own description of how importance was computed does not match impurity/Gini importance: \"The OOB error rate is reduced by ranking predictors... Calculating the difference in accuracy between models in which predictors are present or removed is used to assess predictor importance. Differences are normalized across all trees generated and then ranked based on accuracy of prediction.\" This is a textbook description of permutation-based importance (mean decrease in accuracy via OOB permutation), not the impurity-decrease (Gini/MDI) importance that carries the super-linear magnification bias the flag warns about. While the magnitude/ranking of \"most important variables\" (farm type, ownership, distance; Figure 6) is indeed central to the paper's conclusions, and there is no separate corroboration such as SHAP/PDP beyond the model's own accuracy-based ranking, criterion (1) fails because the paper does not appear to rely on impurity importance, so the specific bias mechanism flagged does not apply."
+}

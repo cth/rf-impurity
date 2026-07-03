@@ -1,0 +1,9 @@
+{
+  "id": "W4412136488",
+  "cites": 0,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly runs a ranger random forest and selects \"significant\" predictors \"based on corrected Gini impurity values,\" using a magnitude threshold (the absolute value of the lowest-importance variable) and reports the ranked importances (wing chord 0.494 > trash 0.38 > tables 0.375) in Figure 5. This ranking is directly load-bearing for a central conclusion: \"wing chord length and human activity levels...were the most significant variables for predicting infection risk,\" generalized in the Discussion/Conclusion to \"biotic factors—rather than abiotic environmental conditions—may play a more significant role in increasing infection risk.\" No permutation importance, SHAP, PDP/ALE, or conditional importance appears anywhere in the text (only false-positive substring matches for \"ale\" and unrelated uses of \"Shap-ing\"); the only follow-up is an rpart classification tree built on the same full (non-held-out) data, which is itself another impurity-based method rather than an independent corroboration, and the reported 84.7%/86% \"accuracy\" is overall model accuracy, not validation of the selected feature ranking. All three confirmation criteria are met."
+}

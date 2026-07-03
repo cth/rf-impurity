@@ -1,0 +1,17 @@
+{
+  "id": "W4391052472",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses LASSO regression (penalized linear regression) as its primary method: \"The glmnet package was used to implement a LASSO regression\" with \"nested k-fold cross-validation\" to select hyperparameter lambda. Ranger package is mentioned only for missing value imputation (\"missRanger algorithm\"), not importance scoring. Variable selection derives from the L1 penalty mechanism, not from tree impurity. Validation uses ROC/AUC curves and testing on external datasets, not importance-based methods."
+}

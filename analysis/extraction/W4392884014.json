@@ -1,0 +1,17 @@
+{
+  "id": "W4392884014",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks predictors by ranger's default impurity importance: \"The most important predictors were the number of irrigations, seasonal precipitation, pre-monsoon groundwater levels, seasonal groundwater level change, and pH, this latter as a surrogate for landscape position and other soil properties\" (abstract, conclusion). They interpret magnitudes mechanistically without robust corroboration: \"The number of irrigations and the total rainfall have a large influence in this very dry year...The high importance of pH is likely because it can substitute for silt concentration\" (Section 5.2). Features are heterogeneous (counts, continuous precipitation, groundwater levels on different scales) with likely non-linear hydrologic processes, creating conditions for impurity-importance bias to corrupt the ranking and magnitude."
+}

@@ -1,0 +1,20 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "janitza",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper documents impurity-importance bias (\"The impurity importance is known to be biased in favor of variables with many possible split points...and in favor of variables with high category frequencies,\" Section 1) and proposes AIR as a solution. However, the paper's substantive conclusions concern METHOD properties, not variable rankings: \"The corrected impurity importance measure (AIR) is almost as fast as the standard impurity importance and much faster than the permutation importance, and is simultaneously unbiased with regard to the number of categories or MAF in SNPs\" (Discussion). Real data applications validate against known biology (DNA splice positions 90-96) or use simulated associations for power testing, not real variable importance interpretation. The paper combines AIR with Janitza et al.'s testing procedure, which tests whether importance \u2260 0 (variable is used) - a verdict robust to magnitude bias.",
+  "id": "W2802643674",
+  "set": "survivor"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W4397009901",
+  "cites": 5,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper builds RF models with the \"ranger\" package and derives importance via caret's \"vip\" function without ever mentioning permutation importance, SHAP, PDP/ALE, conditional importance, or any bias correction (no hits for \"permutation,\" \"impurity_corrected,\" \"Strobl,\" \"cforest,\" etc. in the full text) — the standard, unqualified use of ranger+caret varImp defaults to impurity/Gini-based importance, and nothing in the text suggests otherwise. The ranking is unambiguously central to the paper's headline conclusions: the specific claim that \"genetic liability for two lipid traits (TC and LDL) was found to improve the classification of hypertension\" rests entirely on TC/LDL genetic liability landing in the top-10 importance ranking, and the Discussion draws a substantive biological inference from diabetes NOT appearing in that ranking (\"did not prioritize diabetes as an important feature... may align with existing inquiries in the literature\"). The only corroboration offered is that a model built from the RF-selected top-10 features achieves AUC 0.71 on the held-out test set — but per the stated rubric this is overall model accuracy/AUC on a test set, which explicitly does NOT count as validation of the ranking itself (it doesn't test rank order, feature-level robustness, or whether swapping in excluded features like diabetes would change conclusions). No permutation, SHAP, PDP/ALE, or conditional-importance corroboration exists anywhere in the text, so the flag survives adversarial review."
+}

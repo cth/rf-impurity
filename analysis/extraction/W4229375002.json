@@ -1,0 +1,20 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses 'permutation variable importance approach' (Altmann et al. 2010 ref. 51), which measures importance via out-of-bag error change, not impurity decrease. The authors rank features prominently: 'mallard contributed most to the prediction of HPAI risk, followed by mute swan, common kestrel and brant goose.' However, because permutation importance is robust to impurity-importance biases, p_affected is false. The rankings are corroborated through leave-one-group-out cross-validation, conditional logistic regression screening, and comparison of three algorithms (random forest, gradient boosted decision trees with monotonicity constraints, and PCA-transformed random forest), all producing consistent risk maps.",
+  "id": "W4229375002",
+  "set": "survivor"
+}

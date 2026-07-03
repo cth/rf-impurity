@@ -1,0 +1,17 @@
+{
+  "id": "W7130367070",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper uses permutation-based Mean Decrease in Accuracy for Random Forest: \"feature importance was quantified using the Mean Decrease in Accuracy (MDA), calculated via permutation on the out-of-bag (OOB) samples.\" Conclusions validated through held-out experimental mixtures with known proportions and independent dataset validation across schizophrenia and type 1 diabetes EWAS."
+}

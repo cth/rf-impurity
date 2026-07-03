@@ -1,0 +1,16 @@
+{
+  "id": "W4414199530",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports: \"Fig 3 depicts the first 15 important stemmed words determined using variable importance analysis of the RF model. The first two most important stemmed words for classification in the list were 'ed' and 'suicid', followed by three words related to Florida's Baker Act.\" The authors draw conclusions from this ranking, stating \"These words could be highlighted during the implementation of such models to draw the attention of clinicians in busy settings.\" However, no permutation importance, SHAP, conditional importance, PDP/ALE, or held-out validation is provided to corroborate the magnitude or ranking of these Gini-based importance scores."
+}

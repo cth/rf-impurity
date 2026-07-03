@@ -1,0 +1,17 @@
+{
+  "id": "W4319594513",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest importance (ranger/vip) \"to select the most predictive covariates which were entered into the regression modelling equations\" and to guide selection of which congenital anomalies to analyze, but explicitly states \"This process was used to select the most predictive covariates\" for downstream analysis. The substantive conclusions rely instead on inverse probability weighted panel regression (\"In inverse probability weighted panel regression models the series of anomalies...had cannabis metric p-values from: p < 2.2 × 10^-16...\") and E-values for causal inference (\"Considering E-values, the cannabis effect size order was VACTERL > situs inversus...\"). The statement \"Daily cannabis use was the strongest predictor for all anomalies\" appears in the Results section immediately after the E-values discussion, not attributed to RF importance magnitude/ranking. RF importance functions only as a screening tool for covariate/outcome selection, not for interpreting effect magnitude or ranking in conclusions."
+}

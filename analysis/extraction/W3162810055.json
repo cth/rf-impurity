@@ -1,0 +1,19 @@
+{
+  "id": "W3162810055",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses \"improvement in Gini impurity\" for variable selection and importance calculation. Figure 2 ranks phenology variables by importance, claiming \"The most important variable was the proportion of low shrub cover at the 10-km scale followed by snow melt and onset of greenness dates.\" The core finding that caribou are driven by specific phenological windows relies on these importance rankings without permutation or SHAP corroboration. The paper makes no mention of p-values for importance statistics and uses only partial dependence plots as supplementary visualization of variable relationships."
+}

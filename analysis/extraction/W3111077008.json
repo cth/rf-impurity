@@ -1,0 +1,19 @@
+{
+  "id": "W3111077008",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks covariates by random forest impurity importance, stating \"climatic images such as SM2RAIN monthly rainfall estimates and CHELSA bioclimatic images...are the most important covariates\" and that \"Sentinel-2 B11, B09 and B12, DTM vertical depth and Landsat SWIR1 are overall the most important.\" These rankings directly drive conclusions about which remote sensing products justify investment (25% of budget to Sentinel-2) and which geographic areas/nutrients need future sampling. The features are highly heterogeneous (mixed types, ~350/60 covariates, different resolutions and units) and target variables are explicitly log-normally distributed (right-skewed). No permutation, SHAP, PDP/ALE, conditional importance, or held-out validation corroborates the importance rankings."
+}

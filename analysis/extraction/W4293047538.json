@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper calculates RF importance and uses permutation-based significance testing: \"Importance values for all taxa in the random forest models were calculated during model training and significance of the importance values was determined using the permutation approach\" (Methods, ranger/Altmann ref 53). It interprets ranking by selecting candidates: \"Models were built in forward step-wise manners, starting with the most important taxa from each model.\" However, the core validation is logistic regression with forward stepwise selection: \"Taxa deemed significantly important in each random forest model were then used to build logistic regression models...New models that were statistically better were kept.\" Final indicators are determined from logistic regression significance testing, not importance magnitude. The paper's central conclusions are about experimental method effects on detection, not on importance ranking: \"these variables generally elicited more of an effect on the inferred alpha-diversity...than did exposure to BaP\" and \"only one ASV...significantly predicted BaP exposure in both data sets.\"",
+  "id": "W4293047538",
+  "set": "survivor"
+}

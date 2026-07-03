@@ -1,0 +1,9 @@
+{
+  "id": "W2588003345",
+  "cites": 4684,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper reports \"Fitted variable importance plots\" (Fig 6) generated directly from ranger and xgboost's built-in importance (no mention anywhere in the text of \"permutation,\" \"SHAP,\" \"Boruta,\" or \"conditional\" importance), i.e. the default impurity/gain-type measure for both packages. This ranking is used to state specific, non-hedged conclusions: \"spatial pattern of soil pH is primarily influenced by precipitation and surface reflectance,\" \"depth emerges as the most important covariate,\" and \"DEM-parameters...emerge as second-most dominant covariates\" for soil types/textures. Corroboration offered is only qualitative (\"largely correspond with conventional soil survey knowledge\"), a handful of raw bivariate scatter plots (Fig 7, not partial-dependence/ALE controlling for other covariates), and overall cross-validated R-square (which validates predictive accuracy of the full model, not the selected feature ranking) — none of which meets the bar of permutation/SHAP/PDP/conditional-importance/held-out validation of the ranking itself. The mismatch the authors themselves note (lithology visibly shapes predictions yet falls outside the top-15 importance list) is consistent with the classic impurity-importance artifact of under-weighting lower-cardinality categorical covariates relative to fine-grained continuous ones like precipitation/temperature/reflectance, so the bias could plausibly have altered this specific, stated ranking-based conclusion."
+}

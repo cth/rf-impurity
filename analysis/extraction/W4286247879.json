@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states explicitly in the Methods section: \"permutation importance metrics were extracted as estimated variable importance\" and cites Altmann et al. (2010) on \"Permutation importance: a corrected feature importance measure\" (reference 46). The paper uses the ranger function with permutation importance rather than impurity-based importance. However, the ranking and magnitude of importance are central to conclusions: \"Internalized moral identity provided the most consistent contribution across analyses, followed by open-mindedness, collective narcissism, morality as cooperation, symbolized moral identity, and self-control.\" They also emphasize that \"The only variable related to morality that did not substantially contribute to our criteria's prediction was the moral circle.\" The paper uses partial dependence plots as corroboration for interpreting relationships, and acknowledges that \"permutation importance reflects a reduction in error\" and notes \"the dependence of importance estimates on error estimates, which changes across models.\"",
+  "id": "W4286247879",
+  "set": "survivor"
+}

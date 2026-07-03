@@ -1,0 +1,9 @@
+{
+  "id": "W4221124318",
+  "cites": 38,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does use RF variable importance from recursive feature elimination (via caret/ranger) to rank predictors, and this ranking is discussed as identifying PSRI, PRI, RGI, GI etc. as most important, with the practical claim that image-based sensors' \"use needs rethinking.\" However, the paper does not stop at importance magnitude for its practical conclusion: it explicitly retrains the final models excluding the image-based predictors and re-evaluates them on an independent held-out test set (\"the final prediction models were retrained excluding them. The resulting models were evaluated on the independent test set where no major decrease in prediction accuracy was observed,\" Fig. 5). This is exactly the \"held-out predictive validation of the SELECTED feature set\" that the rubric treats as adequate corroboration, directly supporting the sensor-selection conclusion independent of raw importance scores. The discussion of which pigment-related indices rank highest is also cross-checked against independent prior studies using different methods (Devadas 2008, Zheng 2018, Ashourloo 2014) that found the same indices predictive, and against known disease biology (chlorophyll degradation, carotenoid stripe formation), providing convergent support beyond bare impurity-importance magnitude. Because criterion (3)-the ranking being inadequately corroborated-fails, the flag should be refuted even though impurity-type RF importance is likely used (the text never specifies permutation or SHAP importance) and importance ranking is indeed discussed prominently."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4392969600",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"From feature importance analysis, it was found that the top 3 features for the RF model were age, public arrest location, and heart disease... In comparison, the top 3 features for the multivariable logistic regression and LASSO model were cancer, public arrest location, and male gender.\" The Discussion explicitly interprets rankings: \"Based on the model features, male and public location were the variables which highly contributed to the model. We believe it may be reasonable due to the following reasons. Generally, males were reported to be the predominant population... Furthermore, OHCA cases with VF were reported to occur more commonly in public locations...\" No permutation importance, SHAP, PDP/ALE, or conditional importance corroboration is provided for these interpretations, despite an imbalanced outcome (4.1% positive) and mixed feature types that amplify impurity importance bias."
+}

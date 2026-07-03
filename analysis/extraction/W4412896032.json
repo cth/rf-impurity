@@ -1,0 +1,16 @@
+{
+  "id": "W4412896032",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Boruta variable selection with 'impurity_corrected' importance, a method designed to address impurity importance bias by testing variable usage robustness. Rather than interpreting magnitude or ranking of importance scores, the paper reports only which variables are selected for each classification task (114 for taxonomic variety, 55 for geographical origin, 20 for cultivation method, 18 for regional origin). The main conclusions focus on overall classification accuracy (93.3% to 90%) and general applicability of the BOULS data processing method, not on variable importance rankings. Since conclusions depend on robust yes/no selection calls (not magnitude/ranking), impurity importance bias cannot corrupt the paper's substantive findings."
+}

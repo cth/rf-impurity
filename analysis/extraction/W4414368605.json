@@ -1,0 +1,18 @@
+{
+  "id": "W4414368605",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Gini impurity importance but corroborates via independent pairwise association tests with proper p-values. Before mentioning random forest, they report enrichment p-values (P=0.02 and P=0.04) for interventricular septum orientation and ventricle hypoplasia in revertants. For looping class prediction, they perform independent chi-square or Fisher's exact tests showing direct associations. Main conclusions rest on longitudinal tracking, genetic tracing, molecular validation, and human patient correlation, not on importance magnitude or ranking."
+}

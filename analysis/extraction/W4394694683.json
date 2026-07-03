@@ -1,0 +1,16 @@
+{
+  "id": "W4394694683",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses VSURF variable selection based on impurity importance to select 7 predictors, then interprets their relative magnitudes in Results: \"r.srsrq3 is the more dominant predictor\" (rank), \"strongly contributed to the Sr isotope variability\" (magnitude), and \"seems to drive\" (causal attribution). In Discussion, \"bedrock age has been shown to be key in controlling the bioavailable 87 Sr/ 86 Sr.\" Corroboration is limited to geological domain knowledge and held-out validation of overall model predictions on archaeological sites (Kanaljorden), but no permutation importance, SHAP, PDP/ALE, or conditional importance testing of the individual variable importance magnitudes. The main substantive conclusions concern moose mobility (18% non-local samples, 250+ km movements) and diet, not variable importance rankings."
+}

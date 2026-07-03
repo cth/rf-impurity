@@ -1,0 +1,20 @@
+{
+  "id": "W7153770827",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "pdp_ale",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks variables by SHAP importance: \"annual precipitation variability (PVA) contributing 28.6% of the total importance, followed by bacterial Shannon Index (18.6%), and sand content (9.9%).\" This ranking supports the central claim that \"climatic variability is the dominant filter on ARG abundance.\" However, impurity-importance bias risk is minimized because SHAP values (not raw Gini/MDI) drive the ranking, SHAP dependence plots show functional forms and thresholds, K-means clustering independently validates habitat partitioning, and spatial predictions are validated on held-out test sets (R2 = 0.60-0.86). The QRF impurity approach is mentioned only for spatial mapping, not mechanistic conclusions."
+}

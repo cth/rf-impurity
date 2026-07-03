@@ -1,0 +1,9 @@
+{
+  "id": "W3048313323",
+  "cites": 21,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper does use Gini-impurity MDI importance (\"VariantSpark uses Gini-Index impurity as described in [16] to compute information gained... The importance score of a variant... represents all of its interactions discovered by the RF model\"), and the ranking is central to its headline claim (\"VariantSpark especially outperforms LR for epistatic (PE) and complex (PX) phenotypes... up to 4.6 times higher than LR\"). However, this is not an unvalidated ranking claim: the entire experiment is a ground-truth recovery study. Phenotypes were synthesized by PEPS from a known set of truth-variants (TVs) embedded in real 1000-Genomes genotypes, and the paper's metric is literally how often the top-r Gini-ranked variants match these known-true causal variants (fraction of TVs recovered, plus correlation γ to the true haplotype/TV). This is an external, independent check against ground truth, i.e., a direct validation of the SELECTED/ranked feature set, arguably stronger than permutation importance or SHAP (which have no ground truth to check against either, only cross-checking against the same impurity-derived model). The authors even explicitly reject prediction/OOB accuracy as a valid proxy for association accuracy (\"association accuracy... is distinct from prediction accuracy... prediction accuracy shows only a moderate correlation with association accuracy\"), showing methodological awareness that corroboration must be against true causal status rather than model fit, and they used the stronger ground-truth check instead. Because criterion (3) — inadequate corroboration — fails, the flag is refuted."
+}

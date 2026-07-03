@@ -1,0 +1,21 @@
+{
+  "id": "W3108396239",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forest with TLPO-CV-RFE to identify \"most important features\" (C4-carnitine, lysoPC a C28:1), interpreting their ranking and importance. However, multiple independent methods validate these findings: \"Random Forest and Support Vector Machine analysis...identified lysoPC a C28:1 and C28:0 [with SVM]\" showing two algorithms agree; ANOVA independently confirmed these metabolites differed significantly (p<0.05 after FDR); cross-validation on held-out test pairs; external validation in Ferrario et al. dataset; kinetic modeling validated pathway involvement. The conclusions center on metabolic dysregulation mechanisms and specific biomarker identification rather than on impurity importance magnitude claims."
+}

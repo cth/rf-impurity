@@ -1,0 +1,19 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses ranger random survival forests and identifies features as \"among the 20 most important predictors\" and \"among the 50 most important predictors,\" ranking them by impurity-based importance. Key claim: \"Clinically relevant features identified by the model to have the most predictive value for the time to clinical remission included age at index, time from first recorded CU-related symptom to first CU diagnosis, BMI, smoking status, asthma, allergic rhinitis, chronic pulmonary disease, and prior medication use.\" Only one variable (age) receives partial dependence validation shown in supplementary materials; other top-ranked categorical and binary comorbidity variables lack corroboration. Discussion emphasizes these identified predictors as central to understanding disease pathogenesis: \"The potential for the characteristics identified as important by the predictive model, such as comorbidities, polypharmacy, and increased laboratory workup, to help predict time to clinical remission raise intriguing questions regarding the pathogenesis of CU.\"",
+  "id": "W4307429571",
+  "set": "survivor"
+}

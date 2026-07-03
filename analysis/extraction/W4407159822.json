@@ -1,0 +1,16 @@
+{
+  "id": "W4407159822",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper reports RF importance using \"Node Purity\" (Gini impurity) in Table 6 and concludes: \"The factors that determine the fresh herbage yield in SSG hybrid are ranked in order of significance as follows...and NDF, PH, and RFV for the RF algorithm.\" These importance rankings are listed as key findings. The paper provides no permutation importance, SHAP, PDP/ALE, or conditional importance corroboration; instead it argues agreement across ANN and MARS (both impurity-based) validates the ranking. With high multicollinearity documented (VIF values up to 2748), the impurity importance magnitudes are unreliable."
+}

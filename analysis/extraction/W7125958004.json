@@ -1,0 +1,17 @@
+{
+  "id": "W7125958004",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses \"decrease of node impurity\" for Random Forest and \"gain\" for XGBoost. Methods section states: \"As feature importance metrics, we selected gain for XGB and decrease of node impurity for RF instead of permutation-based importance.\" The results interpret magnitude and ranking: \"RF model identified 44 highly important markers, with major loci on chromosomes 6A and 6D\" and \"XGB algorithm highlighted highly important loci.\" While MTAs are cross-validated across traditional and ML methods, this validation addresses which variables are selected (yes/no), not whether the magnitude and ranking of impurity importance is correct. No permutation importance, SHAP, PDP/ALE, or conditional importance validation is provided."
+}

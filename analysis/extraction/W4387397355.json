@@ -1,0 +1,17 @@
+{
+  "id": "W4387397355",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper evaluates variable importance using \"mean square error in out-of-bag data (permutation importance) for random forest\" rather than impurity-based importance. Although the conclusions rest on importance rankings (e.g., AET identified as \"the most important factor,\" regional variables described as \"outperforming\" others), the impurity-importance bias does not apply because permutation importance was used. Corroboration is provided through partial residual plots and cross-method comparison (OLS, GAM, random forest)."
+}

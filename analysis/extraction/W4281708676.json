@@ -1,0 +1,18 @@
+{
+  "id": "W4281708676",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "skewed",
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks variables as predictors: 'Our machine-learning based risk factor assessment suggests that the immediate social situation, such as not having access to gainful employment and the sector of occupation, are the most dominant factors predicting poverty...Overall, the social situation variables outperform the characteristics that describe social groups...Finally, all characteristics that relate to the opportunity structure have lower predictive power compared to the social situation and social groups.' This ranking conclusion drives policy recommendations for urban vs. rural interventions, yet lacks corroboration by permutation, SHAP, PDP/ALE, or conditional methods. Opportunity-structure variables (political leaning 61.6% vs 8.6%, language 94.8% vs 5.2%) are highly skewed, vulnerable to impurity underweighting; sector of occupation gains importance in full model due to interactions, a known impurity bias signature."
+}

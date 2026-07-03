@@ -1,0 +1,9 @@
+{
+  "id": "W4281708676",
+  "cites": 9,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper fits ranger random-forest models and reports a single, unqualified \"variable importance\" measure with no mention of permutation anywhere in the text; the only methodological caveat cited is Strobl and Zeileis (2008) on the known bias of impurity-type importance toward variables with more categories/continuous scale, which the authors address only by recoding continuous variables to categorical (a partial workaround, not a switch to permutation/conditional importance). The text also explicitly narrates the classic MDI interaction-credit artifact: \"sector of occupation... is less important in the analysis covering only characteristics of the social situation, [but] it gains importance in the full model because of its interaction with the variables measuring the opportunity structure.\" The magnitude/ranking of this importance is the direct basis for the paper's central claims (\"the social situation variables outperform... social groups,\" \"opportunity structure... have lower predictive power\") and the resulting urban/rural policy recommendations. The only validation offered is overall classification-error confusion matrices (Table 2), which check aggregate model accuracy, not the correctness of the specific feature ranking or selection; no permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of the ranked feature set is reported anywhere in the manuscript."
+}

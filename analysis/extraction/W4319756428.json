@@ -1,0 +1,17 @@
+{
+  "id": "W4319756428",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "\"The top features were defined as the highest average normalized hits across 100 iterations\" and the random forest importance (Z-scores) are evaluated and compared with shuffled replicas to determine importance. The paper makes biomarker selections based on importance ranking: \"these consistently high-importance taxa are good candidates for disease-related microbial biomarkers.\" While ANCOM-BC differential abundance provides some validation for CRC and CD, this corroboration is incomplete and fails entirely for immunotherapy (\"ANCOM-BC did not identify any genus and species-level taxa as being differentially abundant\"), yet the importance-based biomarker claims remain central to the conclusions without reliance on permutation, SHAP, PDP/ALE, conditional importance, or held-out validation."
+}

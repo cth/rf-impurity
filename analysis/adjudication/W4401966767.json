@@ -1,0 +1,9 @@
+{
+  "id": "W4401966767",
+  "cites": 3,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper's text only says variable importance was \"gathered\" (citing the vip package, Greenwell & Boehmke 2020) without naming the importance type, but the publicly linked analysis code (build_klaeger_screen_binary_predictions.Rmd in the paper's own GitHub repo, cited in the manuscript) shows the ranger engine is fit with set_engine(\"ranger\", importance = \"impurity\") before calling vip() — this is classic Gini/MDI impurity importance, not permutation or SHAP. That ranking is central to a headline conclusion: the abstract itself states the models \"identify a set of kinases whose behavior in response to perturbation drive the majority of viability responses... including the understudied kinases CSNK2A1/3, CAMKK2, and PIP4K2C,\" and a full Results subsection (\"Novel, understudied targets of PDAC are identified\") builds biological narrative around each kinase's rank position (e.g., \"CSNK2A1/3 was identified as highly ranking,\" \"CAMKK2...is a top feature found only in the P0119-T1 CAF\"). No permutation importance, SHAP, PDP/ALE, or conditional importance is used to check ranking stability; the only corroboration offered is (a) qualitative face-validity from recovering well-known targets (MAPK, AURK, EGFR) in the same top-30 lists, and (b) the Fig. 5 validation screen, which uses the full-feature model to predict binary viability on held-out compounds and reports overall ROC/PRC accuracy — it never restricts to the top-ranked feature subset or otherwise tests whether the specific rank/identity of CSNK2A1/3, CAMKK2, or PIP4K2C is robust, so per the stated criteria it does not count as validation of the selected feature set. All three CONFIRMED conditions are therefore met."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4386318974",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper centers on 'for thresholding mean decrease in impurity (MDI) importances' using empirical Bayes to identify 'features significantly associated with the response.' It validates against synthetic data with known ground truth achieving 'recall 0.465...precision 0.621' and shows '82 % overlap to RFlocalfdr' with Boruta on genomic data. Critically, they apply binary significance thresholding rather than ranking by importance magnitude, and acknowledge that heterogeneity amplifies bias: 'where the variables are all of the same type and on the same scale, the variable importances will be less susceptible to bias.'"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "W3144751945",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains random forest models and evaluates them using cross-validation performance metrics (accuracy, precision, recall, specificity, MCC, AUCROC, AUCPR), then uses prediction scores to rank 12,593 compounds for experimental screening. No variable importance is extracted, reported, or discussed. The compound selection states: \"probability scores of potential Keap1/Nrf2 PPI inhibitors were calculated for a total of 12,593 compounds in the DLiP library using the two RF models, and the compounds were sorted in descending order based on the prediction scores.\" Model conclusions center on prediction utility and experimental validation via TR-FRET bioassay, not on feature importance magnitude or ranking."
+}

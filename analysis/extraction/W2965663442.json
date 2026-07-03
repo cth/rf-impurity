@@ -1,0 +1,17 @@
+{
+  "id": "W2965663442",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states that \"MED recovers significantly higher important scores than DADA2 or UPARSE\" and claims this reflects greater \"discriminative ability\" of MED-derived taxa. However, the ranking of methods is independently validated by 10-fold cross-validation accuracy (MED 79.57%, DADA2 71.06%, UPARSE 60.96%), which corroborates that MED is genuinely superior despite potential impurity-importance bias in score magnitudes. The paper does not use importance-based biomarker selection or rely on individual taxon rankings for substantive claims."
+}

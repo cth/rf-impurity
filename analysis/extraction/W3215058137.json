@@ -1,0 +1,12 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "This is a methodological review that describes various feature importance methods for machine learning in genetics, including Gini importance from random forests. The paper states: \"This review sets out to outline some of the different software programs that provide feature importance metrics using genetic data\" and explicitly notes that \"different feature importance metrics measure different things and are thus not comparable.\" It discusses Gini importance bias (\"Gini importance has been shown to have biases, including toward higher frequency features\") but in the context of method description, not substantive biological conclusions. The paper cites examples of others' applications (REVEL, Teixeira et al., Open Target Genetics L2G) but does not conduct its own empirical analyses with impurity importance. Since this is a review article without original data analysis, impurity importance bias cannot affect its conclusions about available methods.",
+  "id": "W3215058137",
+  "set": "survivor"
+}

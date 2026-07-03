@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses \"random survival forest (RSF) approach\" to rank pathways and genes by \"feature importance (RSF variable importance, p-value < 0.05).\" Based on this ranking, they select pathways \"with the greatest bearing on predictive power\" and construct a final biomarker panel from the \"top 40 IPMGs,\" stating that \"the model taking the expression of the top 40 IPMGs as input achieved the highest 88.91% accuracy.\" Their main conclusion is that \"the expression of the 40 IPMGs can serve as a set of pan-cancer prognostic biomarkers for immunotherapies.\" This relies directly on the ranking being correct to identify which genes should be included in the panel.",
+  "id": "W3158585041",
+  "set": "survivor"
+}

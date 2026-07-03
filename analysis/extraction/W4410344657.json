@@ -1,0 +1,17 @@
+{
+  "id": "W4410344657",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses ranger/vip to extract impurity-based variable importance and explicitly states the top variables were \"life satisfaction (relative importance = 1.00), negative social interactions (0.99), primary stress source (0.85), and age (0.77).\" Variable selection for linear regression depends on this ranking: \"Using the predictors with highest importance from the random forest analysis, we first built simple linear regression models with each important variable.\" The paper provides no permutation importance, SHAP, PDP/ALE, or conditional importance validation of the ranking itself. The conclusions emphasize \"life satisfaction, negative social interactions, age, and identification of a primary source of stress were the most important\"—a ranking statement that could be altered if impurity importance distorted feature ordering on heterogeneous mixed-type features."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4295009516",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"This issue was formally addressed by the use of random forest regression using the R package ranger with variable importance being formally assessed via the R package vip\" and \"The most predictive covariates from this process were entered into the regression modelling equations.\" However, the actual conclusions come from downstream models: \"Selection of covariates was undertaken by the Random Forest analysis described above...Confirming the bivariate results in each case daily cannabis use interpolated has invariably positive coefficients and is highly statistically significant.\" The RF importance serves only as a covariate filter; conclusions rest on IPW panel and geospatial regression coefficients, not on interpreting importance magnitudes or rankings."
+}

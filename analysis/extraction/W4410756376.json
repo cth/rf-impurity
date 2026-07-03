@@ -1,0 +1,18 @@
+{
+  "id": "W4410756376",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses permutation-based importance (\"The permutation approach was used to calculate predictor importance\"), not Gini/MDI impurity importance. While they do interpret rankings (\"Notably, >50% of the relative cumulative importance was explained by the combination of the mean temperature of wettest quarter (bio8) and d_geo\"), this is subsidiary to their main conclusions about mutational load patterns. They corroborate findings with linear mixed models adjusted for kinship structure and held-out test data validation. Critically, they acknowledge the importance limitation: \"One concern is that the reported feature importance may not accurately reflect biological significance due to correlations between predictors\" and explicitly state \"We do not conclude from these analyses that climate affects mutational load directly.\""
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4392811269",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses random forest with randomForestSRC and ranger packages, stating \"Variable importance estimates were also examined to understand which variables made the strongest contributions to model performance. Note that variable importance estimates show how model performance would be impacted if the variable were removed.\" Results explicitly interpret ranking: \"Examining variable importance estimates revealed that maternal pre-eclampsia, anxiety, obesity, hypertension and tobacco use were the top five predictors\" and \"two of the CpG sites...moved into the top five variables with the greatest variable importance scores.\" The ranking is central to the conclusion: \"These findings again highlight why it is so important to add internal measures, like the epigenome, to an exposome approach\"—justified by epigenetic variables entering the top five. Corroboration via ExWAS and cumulative exposure models shows which variables are associated but does not validate the specific ranking. Features are heterogeneous: maternal demographics (categorical/continuous), medical conditions (binary), substance use (binary/ordinal), infant characteristics (continuous), and DNA methylation sites (continuous 0-1), with varying cardinality and skew."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W3198579878",
+  "cites": 36,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "Section 2.7 explicitly defines the importance metric used: \"We assessed variable importance in the random forest as the percent increase in mean-squared error for a model with the variable over a model with a permuted version of that variable, scaled for comparability across variables.\" This is permutation importance (the %IncMSE style metric), not impurity/Gini/MDI (mean decrease in impurity) importance. Fig. 3's caption confirms the same permutation based definition was used to rank uniformity, entropy, and energy as most important, and this ranking is indeed central to the Discussion's biological interpretation. However, since the paper never computes or relies on impurity importance at all, the impurity importance bias mechanism does not apply, and permutation importance is itself one of the accepted corroboration methods per the audit criteria. The first pass evidence quotes the very definition that shows this is permutation importance, apparently misclassifying it as impurity based."
+}

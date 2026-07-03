@@ -1,0 +1,17 @@
+{
+  "id": "W4290851618",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper identifies and emphasizes impurity-importance rankings as primary findings: \"Employment, HIV clinical stage, revenue source, body mass index (BMI), and education were the 5 most important predictors.\" In Discussion, it interprets these rankings to draw substantive conclusions: \"The five most important predictors are related two main themes—i. SES (education, revenue source and employment) and ii. overall health status (HIV clinical stage and BMI).\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation is reported to corroborate the ranking."
+}

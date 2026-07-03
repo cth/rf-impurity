@@ -1,0 +1,16 @@
+{
+  "id": "W7121609833",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "This meta-analysis does not employ random forest or impurity-based variable importance methods. Instead, the authors state: \"We used a model selection and multimodel inference to examine the relative importance of multiple factors influencing the effects of N enrichment... The relative importance value of each predictor was calculated as the sum of the Akaike weights\" and they used \"a cut-off value of importance to differentiate important and non-essential predictors.\" Their methods rely on meta-regression, structural equation modeling, and AIC-based model selection to identify important predictors, not tree-based impurity measures. Therefore, this paper is not subject to impurity-importance bias."
+}

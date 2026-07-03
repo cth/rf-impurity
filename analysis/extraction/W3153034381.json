@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses AIR (Gini-based impurity importance) via Boruta feature selection: \"The most influential bands were identified using the Boruta feature selection algorithm\" and \"the importance of the selected wavelengths was determined using the actual impurity reduction (AIR) importance value. The AIR is a Gini importance value that was corrected for bias.\" However, importance is employed for binary feature selection only. Main conclusions address model accuracy metrics (nRMSE, R2) and dataset superiority comparisons, not importance ranking or magnitude.",
+  "id": "W3153034381",
+  "set": "survivor"
+}

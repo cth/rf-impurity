@@ -1,0 +1,16 @@
+{
+  "id": "W4387130615",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "Paper uses permutation importance: \"we used the permutation approach to measure variable importance...the importance score is defined as the difference between the calculated prediction accuracy and the prediction accuracy while the measured variable is randomly shuffled and all other variables remain the same.\" This is distinct from impurity-based importance. Results interpret ranking: \"Based on the calculated feature importance score, CRTAC1 and NID1 were highly predictive in the discovery cohort...NID1 demonstrates the most significant biomarker potential.\" Validation includes external UK cohort, ROC curves with AUC analysis, Kaplan-Meier survival analysis, and tenfold cross-validation."
+}

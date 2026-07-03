@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper states: \"We used 'permutation importance' rather than the default 'mean decrease in impurity importance' to assess the importance of factors included in the model, since permutation importance is less biased of continuous and categorical variables with many levels.\" Authors cite Strobl et al. 2007 on bias in importance measures. Results section identifies \"location, temperature, and year\" as most significant factors based on Boruta feature selection with p=0.01. Since permutation importance is employed rather than impurity-based methods, the specific biases screened for (impurity magnitude/ranking distortion) do not apply to this paper.",
+  "id": "W3083382724",
+  "set": "survivor"
+}

@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"Random forest regression was implemented with the R package Ranger. We determined predictor variable rankings on the final model from the cross-validation step using the Boruta heuristic. This step allowed us to identify all predictor variables that consistently performed better than chance and to compare the importance of each variable to a reference importance level (i.e., random data).\" Models incorporate 44 abiotic/biotic variables including trace metals, macronutrients, and ecotype abundances. Paper reports model predictions: \"The models suggest that on average, Prochlorococcus phosphonate producers are most abundant where inorganic phosphate and DOP concentrations are highest\" and \"We found that the greatest amount of phosphonate producer variation is explained by multiple depth-dependent biotic factors.\" However, the paper's central conclusions focus on phosphonate prevalence (15% of bacterioplankton), genomic features, experimental evidence of cellular P allocation (40%), and ecological function as a defense mechanism, not on the importance ranking of environmental drivers.",
+  "id": "W4220935369",
+  "set": "survivor"
+}

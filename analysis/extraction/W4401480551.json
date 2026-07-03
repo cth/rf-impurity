@@ -1,0 +1,16 @@
+{
+  "id": "W4401480551",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly used permutation-based importance: \"variable importance was assessed using RMSE dropout loss implemented via the DALEX package in R.\" The authors ranked variables (\"intrinsic growth rate, trophic level, and carrying capacity were the most important model predictors\"), but this ranking was based on permutation loss rather than impurity, and was peripheral to the main conclusions about predictive accuracy and MPA design recommendations."
+}

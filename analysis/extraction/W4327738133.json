@@ -1,0 +1,16 @@
+{
+  "id": "W4327738133",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper compares imputation methods (MICE, missForest, Hot Deck, mean imputation) and their effects on classification accuracy for six datasets with binary classification outcomes. Results are presented as Mean Misclassification Error (MMCE) ranks across different imputation methods and classifiers. The paper never discusses, reports, or uses random forest variable/feature importance measures for any conclusions. Random Forest is used only as one of the candidate classifiers and as an imputation algorithm component, not as a source of importance metrics."
+}

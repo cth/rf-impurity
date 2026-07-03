@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks variables as \"the most important variables were number of positive lymph nodes, pT stage and completeness of resection\" based on impurity importance filtering via Boruta (\"comparing the importance of candidate variables in a random forest to a corresponding set of 'shadow' variables\"). This ranking is central to conclusions: \"The most important variables identified (lymph node status, pT stage, resection margin) are well recognised as highly prognostic.\" However, no independent corroboration is provided\u2014survival curves and RMST/LED/LER metrics derive from the same impurity-based model. Lymph node counts are count data likely heavily skewed, vulnerable to impurity-importance magnification.",
+  "id": "W3187073625",
+  "set": "survivor"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W4392811269",
+  "cites": 6,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper never mentions Gini, impurity, MDI, or mean-decrease-in-impurity anywhere in the text; the only description given is: \"variable importance estimates show how model performance would be impacted if the variable were removed\" — that is precisely the definition of permutation (dropout) importance, not impurity-based importance. randomForestSRC's default VIMP is computed by permuting/noising a variable and observing the change in OOB prediction error, consistent with this stated definition, and ranger requires an explicit importance-type argument that the paper never specifies as \"impurity.\" So criterion (1) fails: there is no textual evidence the authors used impurity/Gini/MDI importance rather than permutation importance, which is not subject to the alleged bias. Separately, even treating the ranking as suspect, the two CpGs that entered the ML top-five (cg25934728, cg09604180/cg09604167) were independently Bonferroni-significant in the EWAS and remained significant in separate regression models alongside exposures, and the three exposure variables in the top five were consistent across the exposure-only and exposure+epigenetics models — this constitutes conditional/independent corroboration of the featured variables, not reliance on the impurity ranking alone."
+}

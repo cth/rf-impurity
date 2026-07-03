@@ -1,0 +1,19 @@
+{
+  "id": "W7116129681",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly employs \"permutation-based random forest feature importance by repeatedly permuting each predictor in the held-out test set and quantifying the resulting mean decrease in AUC.\" Figures 3-4 show \"normalized permutation importances,\" not impurity-based importance. Because the importance method is permutation-based rather than impurity-based (Gini/MDI), the documented bias mechanism does not apply, regardless of how they interpret magnitude and ranking."
+}

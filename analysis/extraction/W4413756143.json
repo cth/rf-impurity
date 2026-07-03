@@ -1,0 +1,19 @@
+{
+  "id": "W4413756143",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper mentions \"Information about model calibration and variable importance is detailed in Multimedia Appendix 1\" but does not report or use variable importance in the main text. Main conclusions derive from model performance comparisons (AUC, MCC) across outcomes: \"Models predicting EHR-based PTSD performed very well (AUC .85-.9; MCC .58-.69), whereas those predicting interview-based PTSD performed only moderately well (AUC .71-.76; MCC .24-.28).\" The mechanism is identified through regression on data sparsity (\"EHR-PTSD [b=-0.18, P<.001] was a stronger predictor of data sparsity than SCID-PTSD [b=-0.06, P<.001]\") and reweighting analysis: \"When all models were rerun with importance weights...EHR-PTSD models were virtually unchanged\" showing data density captured the key pattern independently of feature importance ranking."
+}

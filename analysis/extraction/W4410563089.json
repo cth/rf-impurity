@@ -1,0 +1,17 @@
+{
+  "id": "W4410563089",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper reports RF importance scores (Table 6) and ranks variables as \"CC > CH > CD > HW > BL > CW > BH\", concluding that \"Using the RF algorithm, the variables affecting body weight the most were CC, CH, and CD\" to guide farmer selection of predictors. However, no p-values test the importance (no Altmann/Janitza/Boruta), and the ranking is not validated via permutation importance, SHAP, PDP/ALE, conditional testing, or held-out validation. The RF ranking notably diverges from correlation magnitudes (e.g., HW ranks 4th in importance despite r=0.187, lowest correlation with target), and features span vastly different scales (chest width 14-18 cm vs. chest circumference 76-93.5 cm)."
+}

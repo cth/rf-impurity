@@ -1,0 +1,18 @@
+{
+  "id": "W4387949074",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses conditional random forest variable importance (Section 2.3.3, reference 16: Strobl et al.), which is a method designed to correct impurity importance bias, not standard impurity importance. While the authors do interpret magnitude and ranking of importance scores (\"far larger than the remaining baseline characteristics\"), these rankings are corroborated by: univariate SMD analysis showing hippocampal volumes ranked highest (SMD 0.75 and 0.67, P < 0.001), regression tree analysis, repeated 5-fold cross-validation across 200 iterations with hold-out test sets, and internal validation on multiple cognitive outcomes. The main conclusion about treatment heterogeneity existence is established through permutation testing of the ABC statistic (P = 0.034), not importance magnitude."
+}

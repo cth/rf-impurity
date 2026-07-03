@@ -1,0 +1,9 @@
+{
+  "id": "W4296249018",
+  "cites": 25,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly computes Random Forest feature importance via \"the mean decrease in the Gini index\" (Methods, ref. 29; Table 5 footnote \"Measured using the mean decrease in the Gini index\"), a textbook impurity/MDI measure, and ranks 32 mostly-continuous radiomic features plus 4 clinical features by it (Table 5, Supplementary Table 2). The Discussion then builds substantive biological interpretation directly on that ranking: it identifies LAHGLE as \"the most important peritumoral feature\" and the 90th percentile as \"the most important\" intratumoral radiomic feature, and constructs mechanistic explanations (vascular convergence, honeycombing/emphysema, ground-glass opacity) tied to their rank position relative to the other 30 features — i.e., the magnitude/ordering of impurity importance is load-bearing for a stated conclusion, not incidental. The only corroboration offered is a univariate Mann-Whitney/Fisher significance test showing these two specific features individually differ by EGFR status (p<0.001) — this validates directionality/non-nullity for two features, not the relative ranking or magnitude among the full feature set, and is not permutation importance, SHAP, PDP/ALE, conditional importance, or held-out predictive validation of the selected top-10 set. Since GLSZM/GLCM/first-order features are continuous, high-cardinality variables prone to impurity-importance inflation relative to categorical clinical covariates and to features involved in interactions, the specific \"most important\" designations used to anchor the biological narrative are not adequately corroborated, so all three conditions for CONFIRMED are met."
+}

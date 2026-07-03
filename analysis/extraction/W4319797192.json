@@ -1,0 +1,17 @@
+{
+  "id": "W4319797192",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The Methods section (2.6) states: \"a random forest regression conducted using the R package ranger [69], and the variable importance was formally assessed at the same time using the R package vip (variable importance plot) [70]. The most highly predictive covariates from this process were then entered into the regression modelling equations.\" The Results and Discussion sections present Tables S5-S8 showing relative importance values but never interpret their magnitude or ranking. All substantive conclusions rest instead on regression coefficients and their p-values, E-values for causal inference robustness, and inverse probability weighting for pseudo-randomization. The data were log-transformed to address non-normality (indicating skewness), and features include mixed measurement units: percentages, mg/g concentrations, liters per capita, and USD."
+}

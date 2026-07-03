@@ -1,0 +1,12 @@
+{
+  "id": "W3043698154",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "This is a methodological paper by Debeer & Strobl on improving Conditional Permutation Importance (CPI) algorithms. The paper explicitly states \"the focus of this article\" is \"the Mean Decrease in Accuracy, which we will refer to as the Permutation Importance (PI)\", not impurity-based importance. MDI (Mean Decrease in Impurity) is mentioned only once in the background as a historical reference to measures \"originally proposed by Breiman and Cutler\". The paper's contributions are computational improvements and stability enhancements to the CPI implementation, not substantive findings about variable importance rankings or magnitudes. Conclusion: \"The proposed methodology and implementation of the CPI is computationally faster and leads to more stable results.\""
+}

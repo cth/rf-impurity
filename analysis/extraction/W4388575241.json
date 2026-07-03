@@ -1,0 +1,18 @@
+{
+  "id": "W4388575241",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "janitza",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"a variable selection algorithm and Random Forest machine learning model framework\" where \"a subset of KOs that were predictive for trophic mode classification was determined computationally with the vita variable selection package in R\" (citation 135: Janitza et al. 2018). The model selected 1,787 of 21,585 KOs and was validated with a held-out test set achieving \"an accuracy of 94.6%.\" The paper does not interpret the magnitude or ranking of variable importance scores; instead it uses binary selection to identify which KOs are predictive, and validates predictions against independent models and taxonomic annotations. The H-index metric sums all selected KOs equally (equations 5-7) without weighting by importance."
+}

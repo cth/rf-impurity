@@ -1,0 +1,9 @@
+{
+  "id": "W4389977364",
+  "cites": 5,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly trains random forests with \"average Gini impurity increase\" importance (ranger), then uses \"average Gini impurity decrease\" to weight genes for GSEA (\"we used the top 50% cumulated importance genes as input and weighted those by feature importance\") and to name the \"top 10 most important genes\" (Table S19). This importance-weighted GSEA produces a specific headline biological claim not recoverable from the independent DESeq2 differential-expression analysis: for UC vs. CON and UC vs. PSC, \"cytoplasmic translation\" is the only significant enriched term, and ribosomal/mitochondrial genes (COX6B1, MT-RNR2, RPS9) are elevated to top-importance status even though they do not appear among the 74 DEGs found by the Wald test for UC vs. CON (whose top hits are S100A12/S100A9/C19orf59). This ribosomal/translation/mitochondrial signature becomes a substantive Discussion conclusion (\"cellular biosynthesis and metabolism are generally upregulated in UC ... some have a high importance in the random forest classification model. This was not observed in PSC\"), i.e., a conclusion whose content is driven by the magnitude/ranking of Gini importance rather than by the orthogonal DE test. The only validation offered anywhere in the paper is held-out AUROC of the full classifier (and cross-cohort AUROC replication for the UC-vs-CON model), which validates overall predictive accuracy, not the specific importance ranking or the top-50%-importance gene subset used for the pathway/gene-naming claims; there is no permutation importance, SHAP, conditional importance, or held-out validation of that selected feature set. Hence all three confirmation criteria are met."
+}

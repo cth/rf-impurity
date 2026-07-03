@@ -1,0 +1,19 @@
+{
+  "id": "W4404843365",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger random forest \"mean variable importance across all species\" exclusively for recursive feature elimination during model building (\"To further refine the models, we applied recursive feature elimination, where environmental covariates were excluded based on the mean variable importance across all species\"). However, final conclusions report results from an HMSC (Bayesian hierarchical model), not random forest importance. Reported importance (\"Winter precipitation accounted for a total of 24.2% of the explained variance on average, followed by distance to natural land cover with urban areas (21.5%)...\") reflects HMSC explained variance, not impurity importance. Main conclusions focus on bee distribution changes under climate scenarios, supported by response curves with credible intervals and marginal effects from the Bayesian posterior, not RF importance rankings."
+}

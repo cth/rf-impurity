@@ -1,0 +1,16 @@
+{
+  "id": "W4200529794",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses supervised random forests with \"Gini impurity index as split rule\" and reports \"variable importance rankings\" to identify which acoustic features distinguish male from female songs, stating \"high frequency and element rate contributed most to male and female differences in purple-crowned fairy-wrens\" (Methods 2.6.1, Results 3.1). However, the central substantive conclusions about song evolution are derived from phylogenetic mixed models: \"male and female songs were more similar when parental care was more equal and when male survival was high\" and \"song elaboration was weakly related to life-history variables overall, but showed some sex-specific relationships\" (Results 3.2-3.3, Discussion 4). The RF importance rankings serve a descriptive role characterizing acoustic space, while hypothesis testing and conclusions about life-history drivers use Bayesian p-values and confidence intervals from mixed models, not impurity importance magnitudes."
+}

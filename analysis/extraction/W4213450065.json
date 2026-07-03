@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger package variable importance with Altmann p-values: \"To extract biological meaning from the RF models, variable importances were calculated, including p-values using the method developed by Altmann et al. 61 as implemented in ranger.\" It reports which genera ranked highest in importance: \"Akkermansia as a SCFA producer is of the highest importance, followed by genera belonging to the Firmicutes and Actinobacteria.\" However, the central findings about Subdoligranulum and Alistipes come from Bayesian multilevel models: \"The model was uncertain about most slope estimates while it confidently indicated that Subdoligranulum and Alistipes were negatively associated with future zBMI.\" The RF analysis is explicitly exploratory: \"Nevertheless, we computed permutation variable importances...for exploratory purposes\" and \"Neither of those remained significant when restricting to FDR < 0.1.\" The main conclusions rest on confirmatory Bayesian analyses, not RF importance ranking or magnitude.",
+  "id": "W4213450065",
+  "set": "survivor"
+}

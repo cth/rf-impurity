@@ -1,0 +1,17 @@
+{
+  "id": "W4412363123",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Feature selection uses \"Mean Decrease in GINI (MDG) and Mean Decrease in Accuracy (MDA)\" to rank and select variables, reducing 9000+ features to tens. This ranking is validated with \"stability indices Kuncheva and Spearman\" (conditional corroboration). However, the paper's central conclusions concern RF implementation stability (HRS/HSS metrics) and dataset dependency, not biomarker importance magnitude or ranking. Authors state: \"The FS used did not favor any RF implementation method.\" Main conclusions are: \"each [RF] should be tested for its AUC performance and AUC-derived hyper-stability\" - not about which features matter most."
+}

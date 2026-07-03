@@ -1,0 +1,17 @@
+{
+  "id": "W4220776141",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not use impurity-based importance. It evaluates 14 feature selection algorithms, with univariate statistical methods (Pearson correlation) performing best. The paper ranks and interprets top genes: \"For GSE10320 and GSE46691, we identified the 50 top-ranked genes, averaged across all algorithms... and used the Molecular Signatures Database to quantify the overlap between these gene lists and a curated 'hallmark' set of gene sets known to play a role in tumorigenesis.\" Feature ranking interpretation is secondary to the main conclusions about classification algorithm performance; it appears in the \"biological insight\" subsection as supplementary analysis."
+}

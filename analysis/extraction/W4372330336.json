@@ -1,0 +1,12 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "This paper uses random forest exclusively as a predictive classifier to quantify prediction error, not to extract variable importance. The methods state: \"To predict social context from the combination of Action Units we fit a random forest classifier using the 'tidymodels' R package...500 trees, 4 predictor columns randomly sampled at each split.\" Results report only classifier accuracy: \"The classifier was most accurate for rhesus (kappa = 0.92), then Barbary (kappa = 0.68), and least accurate for crested macaques (kappa = 0.49).\" The paper's three main complexity measures are Shannon entropy, context specificity (calculated via the NetFACS package specificity function), and random forest prediction error (kappa). No variable/feature importance values, rankings, or Gini/MDI scores are reported or interpreted. The impurity importance bias is therefore not applicable to this study.",
+  "id": "W4372330336",
+  "set": "survivor"
+}

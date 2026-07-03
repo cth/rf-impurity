@@ -1,0 +1,14 @@
+{
+  "id": "W7161151485",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs Ranger (Random Forest) alongside CatBoost, GBM, and logistic regression but reports only predictive performance: \"All models had sensitivities, specificities and AUCs with ranges of 0.51-0.86, from 0.52 to 0.83, and 0.71-0.74, respectively.\" Risk factor conclusions derive from multivariable logistic regression: \"In multivariable analysis, specialisation other than gastroenterology...previous inadequate bowel preparation (aOR 2.27, 95% CI 1.74-2.96), an aggregated comorbidity score >=1 (aOR 1.58...).\" No variable importance rankings or interpretations from tree-based models appear in the paper."
+}

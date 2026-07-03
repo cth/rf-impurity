@@ -1,0 +1,14 @@
+{
+  "id": "W4387847688",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Section 2.4 explicitly states: \"The relative importance of each variable in the random forest model was determined using the Gini Index.\" The results section ranks variables by importance: \"Among all variables considered, the computed t-statistics of metrics is definitively the most important in dictating cluster group membership. Since, in this context, the t-statistic measures how different the true positive and non-true-positive distributions are from one another for each metric, the high importance of the t-statistic indicates that the four empirical cluster groups are largely determined by the discriminatory ability of each metric.\" No permutation, SHAP, PDP/ALE, or other corroboration is provided for these magnitude and ranking conclusions, which form the paper's core interpretation of feature importance."
+}

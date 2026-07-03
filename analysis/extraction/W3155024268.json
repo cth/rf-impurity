@@ -1,0 +1,19 @@
+{
+  "id": "W3155024268",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"variable importance (calculated as relative mean decrease in Gini impurity) and partial dependence...were averaged across all random forests.\" They rank features (e.g., \"CG dinucleotides ranked 6th and 8th in feature importance\") but note weak correlation between importance ranks across models (ρ = 0.191). Critically, main conclusions concern model accuracy (73.5% held-out) and SARS-CoV-2 host predictions based on model outputs, not importance magnitudes. Importance is presented as explanatory: \"To investigate explanatory relationships...variable importance...was averaged\" with validation via partial dependence plots."
+}

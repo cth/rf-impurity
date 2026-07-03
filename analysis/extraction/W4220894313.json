@@ -1,0 +1,14 @@
+{
+  "id": "W4220894313",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "Paper ranks 381 miRNAs by Gini importance and interprets top-ranked features as drivers of CMS classification: \"The most important feature of miRaCl(‐20), miR‐625, was significantly upregulated in CMS1 and CMS3...\" (Section 4.2). However, conclusions are robustly corroborated: differential expression analysis validates top-ranked miRNAs are genuinely differentially expressed between CMS; network analysis confirms their predicted regulatory roles; held-out validation on READ and EGAS1127 demonstrates classifier accuracy generalization; and clinical validation shows miR‐552 (identified as top-ranked) has significant prognostic value (HR=0.89 in TCGA, HR=0.65 in Stage IV). The paper does not use permutation importance, SHAP, PDP/ALE, or conditional importance, but the convergence of differential expression, regulatory network, and survival outcome evidence makes conclusions robust against Gini magnitude/ranking bias."
+}

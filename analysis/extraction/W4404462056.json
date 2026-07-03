@@ -1,0 +1,18 @@
+{
+  "id": "W4404462056",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses SHAP and SurvSHAP(t), stating \"SHAP has a solid theoretical foundation based on Shapley values that were originally proposed in a game theory context,\" not impurity-based importance. The authors rank features by importance, concluding \"SHAP identified the maximum values of serum creatinine observed within 72 h post-surgery as the most important feature\" for both ML methods, and make policy recommendations: \"we suggest the inclusion of postoperative renal function monitoring in the form of creatinine and urea levels in future mortality prediction models.\" Their conclusions are strongly corroborated by multiple methods: both algorithms (XGB and RSF) consistently rank creatinine as most important, it was ranked top in 86% of XGB and 59% of RSF repeated CV models, CPH regression validated the identified features, and visual/distributional analysis supports the findings."
+}

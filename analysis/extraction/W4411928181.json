@@ -1,0 +1,16 @@
+{
+  "id": "W4411928181",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports variable importance from random forest: \"The five most important variables in the classification were mean VeDBA (100%), the 90th quartile of VeDBA (82.3%), mean dynamic sway acceleration (78.8%), mean dynamic heave acceleration (76.1%) and the IQR of heave acceleration (74.4%).\" However, the substantive ecological conclusions about Bermuda petrel behavior (75% time in flight, nocturnal activity patterns, surface foraging) derive from actual behavioral classification patterns and diel activity analysis, not from importance ranking or magnitude. The importance ranking was used only for feature selection via RFE, with held-out validation confirming the selected features' predictive utility."
+}

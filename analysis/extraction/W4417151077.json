@@ -1,0 +1,20 @@
+{
+  "id": "W4417151077",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"using num.trees = 1000, importance = 'permutation', and seed = 123\" and \"Predictor relevance was quantified by permutation importance.\" Since permutation importance was used rather than impurity importance, the impurity-importance bias does not apply. Magnitude/ranking interpretations appear in: \"Variable-importance analysis again highlighted F v / F m, particularly for kernel number and TKW\" and \"H 2 O 2 was a strong contributor to predictions of total kernel mass and kernel number.\" Corroboration methods include LASSO (λ=min and λ=1SE), Spearman correlations with FDR adjustment, and sensitivity analyses on imputed datasets confirming \"predictor sets and trait ranking were highly consistent.\""
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W4206724638",
+  "cites": 11,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": false,
+  "adequate_corroboration": false,
+  "reason": "The paper (Boniardi et al., LURF/NO2 lockdown study) reports \"the most important predictors were traffic load ... and roads length\" from ranger-based LURF models, but this appears only once per city in the Results section pointing to a supplementary figure (Additional file 1: A.6/A.7); the main text never states whether importance=\"impurity\" or \"permutation\" was used, so the impurity-specific mechanism cannot be confirmed from the visible text. Critically, the ranking is never invoked in the Discussion or Conclusion: the call for \"more ambitious traffic calming policies\" is grounded in the paper's opening premise that \"road traffic ... is the main cause of NO2 air pollution in cities\" (an established, independently-cited fact) and in the attributable-death quantification derived from predicted NO2 concentrations (validated via OOB R2/RMSE in Table 3), not from the magnitude/ranking of which spatial predictor mattered most. Since the importance ranking is a passing descriptive detail rather than something the policy conclusion is built on, criterion (2) fails, so the flag is refuted even though no permutation/SHAP/PDP corroboration of the ranking itself is present in the text."
+}

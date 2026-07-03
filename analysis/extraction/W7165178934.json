@@ -1,0 +1,16 @@
+{
+  "id": "W7165178934",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses \"permutation-based variable importance\" to assess predictor contributions to organic carbon distribution. Authors state \"surface and benthic salinity ranked the highest-importance predictors\" and \"our model ranked benthic primary production as a key predictor,\" interpreting variable rankings to explain hotspot drivers. These importance rankings are corroborated with partial dependence and ICE plots showing non-linear relationships. Since the impurity importance bias only affects Gini/MDI/variance-based importance measures, and this paper uses permutation-based importance instead, the p_affected concern does not apply."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W3010955233",
+  "cites": 68,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "Section 2.8 only says a \"randomforest\" model was built (via the R randomForest package, Liaw and Wiener 2002) and Fig. 6's caption reports a single unlabeled \"importance of ranking\" with no mention of permutation, SHAP, conditional importance, or type=1 testing; the R randomForest package's node-purity (Gini/IncNodePurity) measure is computed by default even without the extra importance=TRUE permutation step, so the far more likely candidate is impurity importance, consistent with the first pass. This ranking is explicitly load bearing for the paper's central mechanistic claim (\"TP53 and CSMD3 were the most important gene mutations,\" \"TP53 was the most important mutation,\" and in the Discussion \"we further identified TP53 as the most critical mutation,\" which is then wired into a TP53 to c MYC to mast cell narrative). The only independent check offered is a Mann Whitney U test (Fig. 5F) showing TP53 mutated patients have higher risk scores than wild type — this validates that TP53 alone associates with the score, but it says nothing about the relative ranking against CSMD3 or other mutated genes, does not use permutation/SHAP/PDP/conditional importance, and is not held out predictive validation of the selected feature set, so it does not meet the corroboration bar for the ranking itself. All three confirmation conditions are therefore satisfied."
+}

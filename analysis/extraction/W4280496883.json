@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses Boruta feature selection on Random Forests: \"This matrix was then used for selecting features based on the Boruta algorithm, with the Boruta R package applied to Random Forests.\" They identify 8 TEs as biomarkers: \"Using a machine learning (ML) approach, we obtained eight predictive biomarkers by comparing the Converter pre vs Converter post states... producing a classification accuracy of 78%.\" The feature selection is validated with held-out test AUC: \"70% and 30% of the samples, respectively... The generalizability of our models was validated using a five times cross-validation... The estimation of the AUC values for... (ROC curves).\" Differential expression analysis corroborates the ML results: \"both RNA-sequencing DE analyses and the ML approach identified TEs that correctly discriminate between the various patient groups.\"",
+  "id": "W4280496883",
+  "set": "survivor"
+}

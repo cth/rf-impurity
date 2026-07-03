@@ -1,0 +1,17 @@
+{
+  "id": "W4308970071",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states \"The XGBoost machine learning approach was used to select variables with the highest prediction value\" and concludes \"The following variables showed the strongest impact in building the models: VO2, [La-]b, VE age, and BMI.\" The discussion interprets these rankings physiologically: \"VO2 at RCP and maximal VO2 were the most important parameters responsible for the prediction.\" These importance rankings are supported only by internal cross-validation of predictive error (RMSE/MAE), without corroboration via permutation importance, SHAP, PDP/ALE, or conditional importance methods that would be robust to impurity-importance bias."
+}

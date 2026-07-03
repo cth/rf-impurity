@@ -1,0 +1,18 @@
+{
+  "id": "W7160133852",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "janitza",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly focuses on \"permutation variable importance measure (VIMP)\" and compares four permutation-based methods (shadowVIMP, Boruta, rfvimptest, Vita), not impurity-based importance. The biases they address are specific to permutation importance: correlation-induced bias and categorical variable cardinality bias. The paper uses importance for hypothesis testing (Is variable informative? Yes/No) rather than magnitude ranking, testing against null distributions. Since the paper does not use Gini/MDI/variance impurity importance, the impurity-importance bias does not apply to this work."
+}

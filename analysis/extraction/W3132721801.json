@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses permutation feature importance, not impurity-based importance. From Methods: \"Permutation feature importance metrics were used to identify microbial biomarkers\" and Tables S2/S3 specify \"importance score is average permutation performance score.\" Since impurity-bias only affects impurity-based importance magnitudes (Gini/MDI), and this paper uses permutation importance, the specific bias mechanism does not apply. The paper ranks and interprets magnitude of biomarkers (\"The most important microbial predictors for 2-h insulin include genus Methanobrevibacter...\") and corroborates with ALE plots that show nonlinear associations independently of the ranking.",
+  "id": "W3132721801",
+  "set": "survivor"
+}

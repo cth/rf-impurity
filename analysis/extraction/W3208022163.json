@@ -1,0 +1,17 @@
+{
+  "id": "W3208022163",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses RF importance for feature selection (\"top-ranking biomarkers\" selected via RFE importance values) but validates the final 13-biomarker panel in an independent held-out cohort (cohort 2: AUC 0.842). The authors state 'Corroborative regression and genomics analysis methods were performed' (lasso regression, DESeq2). Main conclusions emphasize predictive power (validation AUC, sensitivity/specificity) and survival outcomes (Kaplan-Meier curves, Cox proportional hazards), not importance magnitude or ranking. Alternative Panel B (16 CTAGs) achieves similar validation AUC (0.875), indicating robustness beyond importance-based selection."
+}

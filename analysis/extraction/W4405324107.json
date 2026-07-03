@@ -1,0 +1,17 @@
+{
+  "id": "W4405324107",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Gini-based impurity importance for RF and XGB, reporting that \"maternal age and z-scores of birth weight were the most important predictors using ML (RF and XGB)\" versus \"resuscitation and white matter disease\" for LR/EN. It interprets this ranking difference as evidence that ML \"detects non-linear trends,\" but provides no permutation importance, SHAP, PDP/ALE, or conditional importance corroboration of these rankings. The main conclusions about model performance (AUC 0.79 for RF vs 0.73 for LR) are based on robust held-out test set validation, but the secondary claims about which variables drive predictions rely uncorroborated on importance magnitude/ranking."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "W4323362142",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper calculates variable importance using Gini impurity ('variable importance values were calculated using the impurity-corrected mode based on the Gini Index as part of the ranger package') and reports that 'drug count, previous hospitalizations (all-cause, due to an ACSC, due to diabetes or due to hypertension) and the duration of a hospital stay in the previous year were the variables with the highest predictive value.' No permutation, SHAP, PDP/ALE, conditional, or out-of-sample importance validation is provided. However, the main conclusions concern overall prediction capability for risk stratification ('risk score predictions...might be a starting point for reducing the number of ACSH'), implementation barriers, and the need for further evaluation of clinical impact, not the relative importance ranking itself.\""
+}

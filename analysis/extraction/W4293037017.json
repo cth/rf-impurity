@@ -1,0 +1,18 @@
+{
+  "id": "W4293037017",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"We examine variable importance to evaluate the contribution of specific predictors in models with the highest predictive accuracy\" and later reports that \"Molecular (global DNA methylation, plasma cholesterol, microRNA 26p), clinical (functional impairment, anhedonia), and neuroimaging (fractional anisotropy in several white matter regions) variables all contributed to the prediction\" and \"clinical variables...measured at week 2 contributed most to the prediction.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or validation of variable importance is reported. The main conclusions concern multimodal prediction superiority, not variable importance rankings."
+}

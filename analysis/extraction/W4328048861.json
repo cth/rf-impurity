@@ -1,0 +1,19 @@
+{
+  "id": "W4328048861",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"using the impurity variable importance mode and 500 trees\" and directly interprets ranking: \"the most important terms in predicting pleiotropy were nuisance variables that included the number of input SNPs, average R2 linkage disequilibrium, and interval size. All biological features had lower importance.\" Corroboration is provided through held-out validation (\"leave-one-chromosome-out approach...strong relationship...R2 = 0.85-0.96\") and permutation comparison against null distributions created by randomly shuffling trait values."
+}

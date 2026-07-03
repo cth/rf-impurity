@@ -1,0 +1,12 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper includes random forest/blockForest as prediction methods evaluated on 18 TCGA cancer datasets. In the Discussion, they note: \"like the standard random forest variant, it does not yield easily interpretable models, even though the strengths of the variables can be assessed via the variable importance measure(s) output as a by-product of the random forest algorithms.\" However, they do not actually report, interpret, or rank features based on variable importance. All conclusions are based on prediction performance (ibrier and C-index), model sparsity, and computation time. Variable importance is mentioned only to acknowledge why RF models lack interpretability, not as a basis for conclusions.",
+  "id": "W3009545736",
+  "set": "survivor"
+}

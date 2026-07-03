@@ -1,0 +1,18 @@
+{
+  "id": "W3149252896",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"For random forest models, the importance was determined by the mean decrease in out-of-bag accuracy when that parameter was excluded from the model\" and interprets rankings extensively: \"Of note, both distance to the nearest Phe (Fd) and solvent exposure (SASA, PSA, SC_SASA, or PSSA) appear among the top features used by all models\" and \"In all predictive models of Met oxidation presented herein, Wd (distance to the nearest Trp) and Fd (distance to the nearest Phe) are among the most important parameters.\" No permutation, SHAP, PDP/ALE, or conditional importance methods are used to corroborate these rankings. Features show heterogeneous scales (distances, percentages, pH, concentrations) and the outcome is sparse (86/235 Met oxidized, 67/342 Trp oxidized)."
+}

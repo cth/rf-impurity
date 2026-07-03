@@ -1,0 +1,9 @@
+{
+  "id": "W4390875684",
+  "cites": 3,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper explicitly computes \"mean decrease in the Gini index\" averaged over 2500 random-forest runs to rank all 3054 antibodies, then uses both the magnitude (\"overall average antibody importance was around 0.018\" vs. top value 0.36) and rank position (e.g., EBNA1_430 \"ranked in the 1866th place,\" EBNA6_0070 \"not among the top most important antibodies\") to conclude, in the paper's own Conclusions section, that \"the role of EBV on eventual ME/CFS-related autoimmunity should be reconsidered under the lens of danger theory\" — i.e., ranking/magnitude directly drives the central molecular-mimicry conclusion. The only corroboration offered is (a) a Spearman correlation between the same Gini importance values and sequence-homology scores (which reuses the potentially biased magnitudes as its input rather than independently validating them) and (b) held-out test accuracy of the final 26-antibody classifier (90%), which per the stated rubric validates that the selected set predicts disease status but does not validate the internal ranking/magnitude comparisons used to argue individual candidate antibodies were unimportant. No permutation importance, SHAP, PDP/ALE, or conditional importance was used, so the ranking claim central to the mimicry conclusion is not adequately corroborated."
+}

@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses impurity-based variable importance from random forests, reporting rankings in Table 4 and stating in the NHANES example: \"For random forest models, using the impurity-based measure, age was the most important estimator by a wide margin, followed by gender and race/ethnicity, with income as the least important.\" However, these rankings lack corroboration via permutation-based magnitudes or other robust methods. Critically, the authors acknowledge in Table 8 that impurity-based VIM is \"Not recommended with mix of continuous and categorical variables\" - precisely their data scenario. Despite reporting the ranking, their substantive conclusions concern estimation accuracy (MAIHDA superiority) and random forest underperformance for this task, which do not depend on variable ranking validity. Variable selection is explicitly a secondary objective; primary conclusions remain unaffected by potential impurity importance bias.",
+  "id": "W4207046920",
+  "set": "survivor"
+}

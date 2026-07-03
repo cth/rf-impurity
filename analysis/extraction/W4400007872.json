@@ -1,0 +1,17 @@
+{
+  "id": "W4400007872",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest (ranger package) to predict BaP exposure and larval behavior from microbiome taxa, employing a two-stage approach: \"To determine which taxa putatively underlie the variation...we again used random forest to prioritize candidate taxa that were subsequently statistically evaluated using multivariate regression.\" Critically, they validate with held-out test sets (30% test, reporting 16-20% error rates), regression p-values, and germ-free experiments. Importantly, they avoid magnitude/ranking claims, instead stating that selected taxa \"could be investigated further in the future\" and acknowledging results \"may primarily be driven by a few outliers.\" Random forest importance serves only for variable filtering, not substantive conclusions; final findings rest on PERMANOVA diversity tests, linear regression p-values, and experimental microbiome state comparisons."
+}

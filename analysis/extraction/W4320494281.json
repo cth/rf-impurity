@@ -1,0 +1,17 @@
+{
+  "id": "W4320494281",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly avoids impurity-based importance, stating \"Traditional impurity-based feature importance can lead to inflated estimated importance of numerical features (Altmann et al., 2010), so we set ranger to calculate permutation importance as our variable importance metric.\" Main conclusions emphasize robust associations across three analytical approaches (correlations, multilevel models, random forests) rather than importance magnitude/ranking. Importance rankings serve secondary validation roles; the primary finding is whether associations exist and remain stable across methods."
+}

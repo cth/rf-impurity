@@ -1,0 +1,18 @@
+{
+  "id": "W2794772181",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The conclusions state findings explicitly based on importance ranking: \"the most important predictors being total annual precipitation, monthly temperatures, and bioclimatic layers\" and \"Precipitation, temperature maps, and bioclimatic images are consistently the most important covariates in all three case studies.\" The paper also ranks predictors (\"top 20 most important\") and interprets magnitude (\"decline in variable importance was gradual\"). Corroboration is limited to cross-validation accuracy and ecological plausibility arguments; the paper provides no permutation, SHAP, PDP/ALE, conditional, or held-out validation of importance rankings."
+}

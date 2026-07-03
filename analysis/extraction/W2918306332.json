@@ -1,0 +1,12 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper proposes minimal depth (MD) and surrogate minimal depth (SMD) defined as \"the level of the first split based on variable A across all trees\" and the occurrence of variables \"either as the primary split variable or a surrogate variable.\" These are tree-structure-based importance measures, not impurity-based. Paper acknowledges a different bias: \"SMD variable importance, just as Gini importance, is biased in favor of variables with many possible split points\" - a cardinality bias distinct from impurity-magnitude bias.",
+  "id": "W2918306332",
+  "set": "survivor"
+}

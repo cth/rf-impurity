@@ -1,0 +1,17 @@
+{
+  "id": "W4280621189",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper's central claim is that 'the prealbumin level and the PT were found to be the most crucial factors' based on feature selection where 'the prealbumin level and the PT were identified as the predictors of top priority. Their importance was much greater than those of the other factors.' This ranking-based conclusion depends entirely on impurity importance. While partial dependence plots are provided for the selected variables to show effect shapes, no cross-variable comparison is performed to validate the ranking across all 81 features, and the authors note that 'the distributions of the PT...are left-skewed'—precisely the scenario where impurity importance magnification bias peaks. No permutation importance, SHAP, or conditional importance analysis is provided to verify the ranking is robust to the known biases of Gini/MDI-based importance."
+}

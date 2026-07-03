@@ -1,0 +1,19 @@
+{
+  "id": "W4411272772",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses \"Top five residue positions with the highest mean Gini importance in random forest classification\" to identify the C-terminal region as critical for defluorination. However, the ML-based ranking is corroborated through three independent methods: (1) alanine scanning mutagenesis of 474 variants identifying functionally critical residues, (2) chimeric protein design showing the C-terminus alone is sufficient to confer defluorination activity, and (3) molecular dynamics simulations confirming C-terminal flexibility. The authors state: \"This finding aligns with the residues implicated in defluorination, as determined by both machine learning predictions and experimental evidence.\""
+}

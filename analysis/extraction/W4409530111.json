@@ -1,0 +1,17 @@
+{
+  "id": "W4409530111",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper employs SHAP (Shapley Additive exPlanations) rather than impurity importance: \"Variable importance was assessed using absolute SHAP values, calculated as the absolute weighted average of marginal contributions, to rank predictors.\" The ranking of drivers is central to conclusions: \"plant N resorption and use efficiency, along with climate conditions, were the most influential.\" Because SHAP, not Gini/MDI/variance impurity, was used, the impurity importance bias does not affect this analysis."
+}

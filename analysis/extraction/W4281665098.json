@@ -1,0 +1,16 @@
+{
+  "id": "W4281665098",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports random-forest feature importance explicitly: \"The features that contributed most to the performance of the final random forest algorithm are shown in Fig. 3\" with top features being medication persistence metrics and CPT codes for right-heart catheterization. However, the main conclusions focus on algorithm validation: \"In conclusion, we created and validated a machine learning algorithm that identified specifically PAH patients from the EMR at a tertiary referral center. This algorithm performed with favorable testing characteristics.\" The feature ranking is descriptive; the algorithm's validity is independently confirmed through held-out test set performance (AUC 0.96) and external validation matching published PAH registries on demographics and hemodynamics."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "W4311438776",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation",
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "This paper proposes endoR, a novel method for interpreting tree ensemble models by extracting importance from simplified decision rules rather than using Gini/impurity importance directly. The authors state: \"endoR extracts information on the importance of individual features and their pairwise interactions\" from a decision ensemble, and show that \"endoR feature importance improves on standard importance measures such as the Gini importance\" (Figure 2G-H). They use feature importance ranking centrally: \"Both the CAG-138 family and the Phil-1 genus within CAG-138 had the highest feature importances,\" and \"endoR further identified that the species Megasphaera micronuciformis was the most important one to discriminate gut microbiomes of healthy individuals from those of cirrhotic individuals.\" Although the paper interprets importance magnitude/ranking, it does not use impurity importance (Gini/MDI/variance) as the basis for conclusions—endoR is a distinct decision-rule-based importance method that is compared with Gini as an alternative."
+}

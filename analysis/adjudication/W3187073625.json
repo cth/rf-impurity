@@ -1,0 +1,9 @@
+{
+  "id": "W3187073625",
+  "cites": 33,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper only uses Boruta (\"comparing the importance of candidate variables in a random forest to a corresponding set of shadow variables\") purely as a pre-model variable-selection filter to decide which of 29 candidates enter the final 10-variable RSF; it never states this is Gini/impurity/variance-reduction importance, and Boruta's canonical construction compares each variable's own score against its own shuffled shadow copy (identical cardinality/distribution), which specifically neutralizes the cross-variable magnification bias impurity importance suffers from. The \"most important variables\" claim (lymph nodes, pT stage, R status) is not derived from the raw importance-score magnitude but is independently corroborated in the Results/Discussion via restricted mean survival time, life-expectancy-difference and life-expectancy-ratio analyses computed directly on the model's predicted survival curves (e.g., 17.1-month LED, LER 0.63 for N0 vs N3b) and per-variable survival-curve plots (Fig. 3) with time-varying LER trends (Fig. S6) showing persistent effect sizes -- this is effect-size/PDP-style corroboration of the ranking, independent of the selection statistic. Since criteria (1) and (3) are not satisfied, the flag is refuted even though the ranking is discussed as a finding."
+}

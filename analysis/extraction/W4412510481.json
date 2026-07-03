@@ -1,0 +1,18 @@
+{
+  "id": "W4412510481",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses minimal depth of the maximal subtree (a tree-structure measure, not impurity-based importance) to show which variables split early: \"Chemotherapy, antibiotics and CRP features are selected at first splits for models using all outcome levels, while binary and survival models favor TPN at early splits.\" Main conclusions focus on performance metrics (AUROC 0.74-0.77, calibration, E:O ratios) and model complexity trade-offs, not on magnitude or ranking of variable importance. Since minimal depth is not impurity-based, the impurity-importance bias does not apply."
+}

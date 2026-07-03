@@ -1,0 +1,19 @@
+{
+  "id": "W7160558155",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses \"mean decrease in Gini impurity\" to rank features, stating \"Pre-pregnancy BMI, BMI at sample collection visit, and pre-pregnancy weight ranked among the top 5 most important features\" and identifies Peptostreptococcus and Mycoplasma as \"highest importance scores.\" However, authors corroborate top-ranked taxa through ANCOM-BC2 differential abundance (FDR q=0.049 for Mycoplasma; within-fold p<0.10 for Peptostreptococcus across all 5 folds) and explicitly acknowledge \"cross-validation stability within a single 43-subject cohort does not substitute for external validation,\" framing findings as hypothesis-generating."
+}

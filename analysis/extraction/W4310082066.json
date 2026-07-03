@@ -1,0 +1,17 @@
+{
+  "id": "W4310082066",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: 'The Random Forest machine learning algorithm with permutation parameter importance was used to develop the model.' It does rank features by importance, noting 'The most important value was fundamental frequency F1 (Hz) and the next five most important values were also related to frequency.' Validation uses 70-30 train-test splits repeated 100 times. Since permutation importance (not impurity/Gini/MDI) is used, the bias affecting impurity importance does not apply."
+}

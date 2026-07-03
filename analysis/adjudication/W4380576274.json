@@ -1,0 +1,9 @@
+{
+  "id": "W4380576274",
+  "cites": 5,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "Two independent problems with the flag. First, the paper's own label for its importance metric — \"Variable importance plot of the 8 simulation parameters by mean squared error\" (Fig. 2 caption) — matches the standard description of permutation-based importance (percent increase in OOB MSE when a variable is shuffled), the conventional robust alternative to impurity/Gini importance, not the raw node-impurity (variance-reduction) measure the bias targets; the text gives no indication ranger's importance mode was set to \"impurity.\" Second, even setting that aside, the ranking is heavily corroborated independently of the importance plot: because this is a full-factorial simulation (17,280 parameter combinations x 50 reps) with a fully known generative process, the authors directly plot raw simulated detection probability against each candidate variable (Figs. 3-6, Supp. Figs. S1-S2), explicitly showing e.g. that site shape/size produce little change in detection probability and that gains from step size plateau after ~43 m, i.e., a PDP-equivalent direct sensitivity analysis on ground-truth outcomes, not merely fitted model predictions. A GLM (Supp. Table S1) additionally confirms significance and direction of trap arrangement, lure attractiveness, and origin effects. So even if some flavor of impurity-adjacent importance were involved, the magnitude/ranking claims are independently validated by exhaustive grid visualization plus GLM significance testing, satisfying the adequate-corroboration bar."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4409784076",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: \"The top important features were identified using permutation importance\" (Methods) and \"Variable importance was assessed using permutation importance, which measures the decrease in model accuracy when the values of each variable are randomly shuffled\" (Results). Clinical conclusions rest on ranking: \"RRT, use of TPN, and longer duration of mechanical ventilation after implantation emerged as the top 3 predictors of C-BSI and may indicate those LVAD recipients at the highest risk for candidemia who may benefit from targeted antifungal prophylaxis\" (Discussion). Since the paper uses permutation importance (a robust method), the impurity-importance bias does not apply."
+}

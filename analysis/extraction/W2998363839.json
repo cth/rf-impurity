@@ -1,0 +1,19 @@
+{
+  "id": "W2998363839",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper claims to use permutation importance for LVI calculation and does not employ impurity importance (Gini/MDI). Since the impurity bias is specific to impurity-based importance measures, it does not apply here. The paper does heavily interpret magnitude and ranking of importance scores (e.g., \"variables related to Infrastructures were more important in REF\"), but without impurity importance, the documented impurity bias mechanisms are not a threat to validity. Weak corroboration includes only correlations and Wilcoxon/Cliff's Delta testing; SHAP, PDP/ALE, and held-out validation are absent."
+}

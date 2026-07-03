@@ -1,0 +1,16 @@
+{
+  "id": "W3136336738",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper selects features 'using Gini importance ranking' (Methods 4.6) and states that 'features associated with...ACTA2, HSPA8, H2A, and HSPD1 had the highest relevance' (Results 2.6). The discussion identifies specific proteins as predictive markers based on importance magnitude (e.g., H1.2 as 'highly discriminative'). However, only held-out test-set AUC validation is provided; the paper lacks permutation importance, SHAP, PDP/ALE, or conditional importance to corroborate the importance ranking."
+}

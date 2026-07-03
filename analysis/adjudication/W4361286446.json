@@ -1,0 +1,9 @@
+{
+  "id": "W4361286446",
+  "cites": 23,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": false,
+  "adequate_corroboration": false,
+  "reason": "The ranger/vip based \"top 15\" and \"top seven\" feature selection is a self-contained, supplementary exercise (Supplemental Fig. S5) used only to show that the upregulated phosphosites as a set can classify groups with AUC >90%, not to name the paper's biomarker conclusions, and the authors themselves flag it as unvalidated: \"these analyses were performed on a limited number of sample sizes... it is important to evaluate the model's performance on a separate validation or test set.\" The actual named candidate biomarkers driving the paper's conclusions (PAK1 T185, BRAF S365, and the low grade panel TRIM28, NDRG2, SDCBP, HERC6, UEVLD, SHANK2, PAK4, DENND4C, SOWAHC) are explicitly sourced from Figure 5A, described as selected by Welch/Wilcoxon two sample tests (p less than or equal to 0.1), not by the ranger importance ranking. Because the RF importance ranking is not what produces the specific biomarker list that anchors the conclusions, criterion 2 (ranking central to a conclusion) fails, so the flag is refuted regardless of whether \"impurity\" or \"permutation\" importance was used in ranger (the text never specifies the importance type) and regardless of the fact that the same-sample AUC would not have been adequate corroboration anyway."
+}

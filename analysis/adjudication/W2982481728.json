@@ -1,0 +1,9 @@
+{
+  "id": "W2982481728",
+  "cites": 45,
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "verdict": "refuted",
+  "reason": "The paper does use node impurity based importance (Gini index/variance explained) as the basis for edge weights in iRF LOOP, and the ranking (top 10 percent, 5 percent, 1 percent, 0.1 percent thresholded edges) is central to the paper's biological conclusion. However, the authors do provide an independent, held out validation of exactly the SELECTED edge set: they build a Gene Ontology co annotation network from data never used to fit the forests, then generate 1000 random node permutation null networks and compute t statistics showing each thresholded PEN's GO intersect score is far above chance (p effectively zero), and they further show the RF based network beats a Pearson correlation network on the same enrichment metric. This is a held out predictive validation of the selection using an independent ground truth, which the rubric explicitly counts as adequate corroboration (distinct from bare test set accuracy/AUC). Because criterion 3 (ranking not adequately corroborated) is not met, the flag does not hold under the stated ALL three conditions rule."
+}

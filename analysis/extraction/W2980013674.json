@@ -1,0 +1,17 @@
+{
+  "id": "W2980013674",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses RF-based impurity importance from three separate algorithms (randomForest, randomForestSRC, ranger packages) for feature selection. The Discussion prominently ranks features by importance: \"By far the most important descriptor in our work, identified by multiple feature selection algorithms, was SpMax4_Bh(m)\" and \"The second most important descriptor for our data set was DECC.\" The Results section emphasizes that \"the first five [descriptors] explained the largest part of the variability in the training and testing datasets.\" The features are heterogeneous across 19 descriptor types (1596 features for 2D atom pairs alone) with mixed numerical scales. While the paper used permutation importance as one of 17 selection algorithms and external model validation (docking, PubChem/ChEMBL), it does not validate the RANKING or MAGNITUDE of feature importance via permutation-based or SHAP methods to confirm the RF-based importance rankings hold robustly."
+}

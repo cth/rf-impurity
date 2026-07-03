@@ -1,0 +1,18 @@
+{
+  "id": "W3083643364",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses out-of-bag permutation importance (OOB MSE after random permutation), explicitly stated as \"increase in mean squared error (MSE), calculated from out-of-sample predictions, after randomly permuting the values of the respective predictors.\" Permutation importance is not subject to impurity-based bias. The paper corroborates importance rankings with partial dependence plots and accumulated local effects plots across multiple robustness checks."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4400936429",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper includes random forest importance rankings (1-10) in Tables 8-9 but explicitly does not base conclusions on magnitude or ranking. Instead: \"we assumed that if an independent variable contributes substantially to an outcome, it should become in all or at least in most of them significant.\" For PGIC-1Y random forest, they state \"This classification method provided by far the best results. However, we must assume that this is a so-called overfitting due to the relatively small dataset.\" Conclusions report variables significant across traditional statistical models (ANCOVA, logistic regression, Lasso), not RF-ranked variables."
+}

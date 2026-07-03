@@ -1,0 +1,17 @@
+{
+  "id": "W2923961976",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Feature importance was evaluated using an impurity measure based on standardized response variance in prediction of AUDIT across trees, with rankings presented in Table 2. The core conclusion that Network connectivity features between salience network, default mode network, executive control network, and sensory networks explained 33% of the variance depends entirely on these impurity-based importance scores and rankings. No permutation importance, SHAP, PDP/ALE, or conditional importance analysis validates the feature ranking, although the model generalizes to held-out validation data."
+}

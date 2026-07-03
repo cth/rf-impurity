@@ -1,0 +1,18 @@
+{
+  "id": "W4403689587",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The authors used ranger random forest with splitrule set to \"gini\" or \"extratrees\" and explicitly report: \"For the best performing model, the ten most important features were microbial taxa, with Prevotella loescheii having the highest importance score.\" They interpret this ranking as identifying the taxa that best distinguish PD cases (e.g., \"oral microbiome OTU abundances...provided the best discrimination between PD cases and controls\"). Critically, they do not validate this importance ranking through permutation importance, SHAP, PDP/ALE, or other corroboration methods. The features include high-dimensional, high-cardinality OTU abundances with naturally skewed distributions characteristic of microbiome data."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "W4410950841",
+  "cites": 4,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper uses the Liaw-Wiener randomForest R package and reports a single \"importance ranking...presented as percentages\" (Fig 8) with no mention anywhere in the text of \"permutation,\" \"%IncMSE,\" \"mean decrease accuracy,\" SHAP, PDP/ALE, or conditional importance — the complete absence of permutation-specific language, combined with the default behavior of randomForest() (IncNodePurity/impurity importance is computed automatically; %IncMSE requires explicitly setting importance=TRUE and is never referenced), makes it most likely this is impurity-based (IncNodePurity, i.e., Gini/MDI-analog) importance. This ranking is unambiguously central: the paper's headline finding \"Precipitation emerged as the most influential variable affecting SOC\" (based on 39.32% vs 17.83%/16.88%/13.03%) is repeated in Results, Discussion 4.1, and directly underwrites the policy recommendations in section 4.4 (\"governments should carefully consider...support sustainable land management\"). The only corroboration offered is bivariate Spearman correlation (which happens to reproduce the same rank order but is not on the accepted list of adequate methods — it doesn't test the RF's non-linear/interaction-based ranking or feature-selection validity) and overall test-set R²=0.78 (model accuracy, not ranking validation). No permutation importance, SHAP, PDP/ALE, or conditional importance analysis of the RF's own feature ranking is reported anywhere in the text, so the ranking is not adequately corroborated per the stated bar, and the flag survives adversarial review."
+}

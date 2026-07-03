@@ -1,0 +1,17 @@
+{
+  "id": "W2970271155",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The authors quantify feature contribution using \"variable importance (Gini index)\" to rank evolutionary information types as Family, Target, and PFAM (high importance) versus TS-SMART, TS-TIGR, TS-PRINT, and TS-Gene3D (low importance). They directly interpret this ranking to explain model performance differences (\"probably due to the low model performance and target coverage\") without permutation importance, SHAP, PDP/ALE, or conditional importance validation. Features are heterogeneous in type (sequence-based domains vs structure-based superfamilies) and coverage (PFAM/Family/Superfamily annotate >74% of targets; SMART/TIGRFAM/PRINT/Gene3D <50%), conditions under which Gini importance is biased upward for high-coverage features regardless of true predictive contribution. While held-out AUC test sets validate overall model performance, they do not validate the importance ranking itself."
+}

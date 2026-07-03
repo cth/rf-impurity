@@ -1,0 +1,17 @@
+{
+  "id": "W4281780900",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper builds Random Forest models for metabolic pathway prediction but explicitly does not compute variable importance from them. The authors state: \"Therefore, it would be interesting to compute variable importance or to apply different techniques to explain the model in order to increase its interpretability.\" The variable rankings reported (PGAM>ENO>PPDK for glycolysis) derive from linear correlation coefficients and flux control coefficients from a prior knowledge-based gray-box model, not from RF impurity-based importance. The paper's main conclusions about model suitability are based on prediction error metrics (RMSE, R2), not on variable importance."
+}

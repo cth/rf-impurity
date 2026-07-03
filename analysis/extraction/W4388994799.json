@@ -1,0 +1,17 @@
+{
+  "id": "W4388994799",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses ranger and randomForestSRC random forest packages (which default to permutation importance, not impurity importance) to rank genes by feature importance scores in pathway-based breast cancer prediction models. The paper explicitly states: \"The 'Top Gene' corresponds to the gene with the highest feature importance score in each pathway\" and makes central claims like \"genes...with the highest importance scores were unique to PFOCR.\" However, the importance calculation method is not explicitly specified in the text. Since the bias documented in the task only affects impurity-based importance (Gini/MDI/variance), and the paper most likely used permutation importance based on package defaults and standard practice with gene expression data, the impurity bias does not apply here."
+}

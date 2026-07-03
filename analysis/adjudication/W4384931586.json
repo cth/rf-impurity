@@ -1,0 +1,9 @@
+{
+  "id": "W4384931586",
+  "cites": 2,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The RF model reports \"Inc Node Purity\" values (Table 3) — classic impurity/Gini-type importance from the ranger implementation — with no permutation importance computed despite ranger trivially supporting it. This ranking is stated as a headline finding and repeated verbatim in the paper's conclusion: \"In order of importance, the variables affecting the body length in donkeys were Province, WH, and HR for the RF Algorithm,\" so the ranking is central to a stated conclusion. No permutation importance, SHAP, PDP/ALE, or conditional importance was applied to the RF model to validate this ranking. The only other evidence is comparison to different algorithms' own (also uncorroborated) importance metrics, and these actually disagree in a way that is consistent with the classic impurity-importance cardinality bias: CHAID, which uses adjusted-p-value significance tests for splits, never selects Province (a 13-level categorical) as a splitting variable at all, whereas the RF impurity metric ranks the same high-cardinality Province variable as the single most important predictor — exactly the pattern the impurity bias predicts (inflated importance for high-cardinality categoricals and highly correlated continuous traits like WH/HR, r=0.951). This disagreement across models is evidence of instability rather than corroboration, and none of the paper's cross-algorithm comparisons meet the required corroboration bar (permutation, SHAP, PDP/ALE, conditional importance, or held-out validation of the selected feature set)."
+}

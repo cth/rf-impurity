@@ -1,0 +1,16 @@
+{
+  "id": "W4301179875",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly defines variable importance as \"the increase in mean error across trees when a predictor is permuted\" (Figure 5 caption), indicating permutation importance rather than impurity-based importance. They interpret rankings with statements like \"All models for Atriplex, Helianthus, and Opuntia shared MAT and soil cation concentration as the highest contributing variables\" and corroborate with response curves. They acknowledge multicollinearity concerns citing Strobl et al. (2007) and log-transform Na concentrations due to skewness."
+}

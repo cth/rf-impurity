@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"we computed variable importance based on the mean decrease in accuracy metric\" and \"The six most important predictor variables included change in SWI (2000\u20132016), annual mean soil temperature (1 m depth), and SWI in the early 2000s, elevation, change in minimum summer soil moisture (2000\u20132016), and change in annual mean soil temperature (2003\u20132016).\" However, this ranking is corroborated by partial dependency plots (Figure 5b caption): \"Partial dependency plots illustrate how each predictor variable affects class probability while accounting for the mean effect of other predictors in the model.\" The main paper conclusion concerns the warming-greening link (title: \"Summer warming explains widespread but not uniform greening\"), which is supported primarily by direct correlations (r_s=0.76 for NDVI-SWI) and field validation against graminoid ANPP, shrub growth, and ecosystem GPP - not dependent on the importance ranking itself.",
+  "id": "W3088997255",
+  "set": "survivor"
+}

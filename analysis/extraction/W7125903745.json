@@ -1,0 +1,20 @@
+{
+  "id": "W7125903745",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses permutation importance (not impurity importance): \"we used permutation importance to identify which variables were most influential\" and Figure 1 displays \"Scaled Permutation Importance Scores.\" Although the paper ranks and interprets importance magnitudes extensively, conclusions are well-corroborated by accumulated local effects, 10-fold cross-validation on held-out test folds, bivariate group comparisons, and local ceteris-paribus profiles examining how changes in variables affect individual predictions. Impurity-importance bias cannot affect permutation-importance-based conclusions."
+}

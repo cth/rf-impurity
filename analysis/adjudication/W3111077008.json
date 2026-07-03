@@ -1,0 +1,9 @@
+{
+  "id": "W3111077008",
+  "cites": 281,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper builds its headline claims directly on Random Forest (ranger) variable-importance plots (\"The combined variable importance plots derived using Random Forest... reveal that... climatic images such as SM2RAIN... and CHELSA bioclimatic images... are the most important covariates\" and \"Sentinel-2 B11, B09 and B12, DTM vertical depth and Landsat SWIR1 are overall the most important\"), with no mention anywhere in the text of permutation, SHAP, conditional, or PDP-based importance -- only ranger's default (impurity/variance-reduction) importance is described. This ranking is explicitly load-bearing for the abstract's conclusion, the stated 25% budget allocation to Sentinel-2 processing, and forward-looking recommendations (e.g., anticipating the LSTM mission based on MODIS LST importance, prioritizing peatland/nutrient sampling). The only corroborating evidence offered is (a) overall model accuracy/CCC/R2 improving when 30m covariates are added, which per the rubric does not validate a ranking, and (b) a preliminary univariate/few-band correlation-based R2 screening (Fig. 1) that only partially overlaps with the eventual RF-derived top bands (e.g., B04 tops the correlation analysis but not the final RF list; B09 tops RF importance but not the correlation screen) and does not cover the climatic-covariate ranking claim at all. No formal permutation, SHAP, PDP/ALE, or held-out validation of the specific selected/ranked feature set is presented, so the flag survives: impurity importance is used, its magnitude/ranking is central to stated conclusions, and corroboration is inadequate."
+}

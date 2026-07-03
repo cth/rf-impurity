@@ -1,0 +1,18 @@
+{
+  "id": "W4200394334",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports \"the p-value of the impurity variable importance of a permutation test with 15,000 permutations\" (Section 2.4-2.5) but does not interpret magnitude or ranking of importance scores. Figure 3 plots \"significance of p-values of each predictor,\" not importance rankings. The key finding on basophils—\"increased basophil counts were associated with increased odds of responding within three months\" (p=0.0027, OR 1.3258)—derives from univariate logistic regression effect sizes, not from importance-based rankings. Random forest impurity importance results are supplementary and \"not significant after multiple testing correction\" (Table 2). Corroboration comes from logistic regression, Wilcoxon test (p=0.0014), and cut-off analysis, all measuring pairwise associations rather than variable selection by importance rank."
+}

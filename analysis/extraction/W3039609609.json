@@ -1,0 +1,15 @@
+{
+  "id": "W3039609609",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest models solely for generating cross-validated prevalence predictions that are aggregated into a single covariate for downstream geostatistical modeling: \"Out-of-sample predictions from the random forest are then included as a single covariate in the geostatistical model.\" The paper never reports, ranks, or interprets individual variable importances. The primary conclusions concern the superiority of adaptive sampling versus random sampling for hotspot identification, not the importance of environmental covariates."
+}

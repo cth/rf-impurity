@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper focuses on comparing splitting algorithms for categorical predictors and reports findings based on prediction performance (MSE, misclassification rate, integrated Brier score). While the Methods section notes that \"impurity reduction is maximized\" during tree splitting, the paper never reports variable importance metrics, ranks features, or selects predictors based on importance. All statistical comparisons use nested cross-validation prediction error between splitting methods, not importance significance tests.",
+  "id": "W2914279003",
+  "set": "survivor"
+}

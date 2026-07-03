@@ -1,0 +1,17 @@
+{
+  "id": "W4311575488",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The authors explicitly interpret importance magnitude and ranking: \"Governance effectiveness is the most important governance indicator in fixed gear, longliner and tuna purse seiner DWF, for the latter two it is the most informative across all variables\" and \"Tuna purse seiners are the only gear type in which governance indicators dominantly exceed biophysical variables in their Variable Importance scores.\" They use this ranking to argue that governance performance is unexpectedly important relative to traditional fisheries productivity theory. Corroboration is limited to ALE plots showing directional effects, with no permutation importance, SHAP, conditional importance, or held-out validation to confirm the ranking. Features combine six heterogeneous governance ordinals with continuous biophysical variables at different depths, all z-score standardized but inherently incommensurate."
+}

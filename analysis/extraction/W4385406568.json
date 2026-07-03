@@ -1,0 +1,18 @@
+{
+  "id": "W4385406568",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "janitza",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses AIR (Actual Impurity Reduction), a corrected impurity importance, and proposes MIR which combines impurity reduction with relation parameters. They explicitly acknowledge the bias: \"The impurity importance is biased in favour of features with many possible split points... features with...different category frequencies are biased as well...SNPs with high minor allele frequencies (MAFs) are favoured.\" For p-values, they state: \"the non-zero values are mirrored to obtain the respective negative values of the distribution, as proposed by Janitza et al. (2018).\" Critically, selection uses p-value thresholds (p<0.01), not raw importance magnitude: \"MIR with...P-value threshold of .01\". Validation is held-out: \"The other dataset was subsequently used as validation set and the mean classification error was calculated for each pair.\" MIR explicitly handles feature correlations/relations, implementing a conditional approach through surrogate variables."
+}

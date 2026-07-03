@@ -1,0 +1,19 @@
+{
+  "id": "W7130659195",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forest with SHAP importance analysis: \"the SHAP-beeswarm plot highlighted the significant roles of baseline MDS-UPDRS III score, albumin, BMI, and mean striatum volume.\" No explicit mention of Gini/MDI/variance importance. Primary findings established via multinomial logistic regression with covariate adjustment: \"The analysis revealed that baseline MDS-UPDRS III score, albumin, BMI (per 5-unit increase), and DaTscan striatum were significantly associated with the trajectories\" (all p<0.05). Machine learning presented as confirmatory: \"Machine learning analysis confirmed the predictive importance of these factors, with the Random Forest model achieving an AUC of 0.950.\" Features include mixed types (continuous, binary, multi-category scales) with scale mismatch (raw measurements vs. ordinal scores)."
+}

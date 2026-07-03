@@ -1,0 +1,16 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper uses Boruta wrapper algorithm for feature selection: \"while the Boruta algorithm implemented in the Boruta R package (Lagani et al., 2017) was used as a wrapper-based method. This way, for each cardiotoxicity form, we identify two subsets of genes.\" Figure 3 shows \"Similarities in the list of selected genes\" and Cohen's Kappa agreement between methods, not importance rankings. Conclusions focus on prediction accuracy (AUC 0.79 on validation, 0.66 on testing) and chain-of-classifiers performance, not on feature importance magnitude or ranking.",
+  "id": "W3026957706",
+  "set": "survivor"
+}

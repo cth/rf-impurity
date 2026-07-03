@@ -1,0 +1,20 @@
+{
+  "id": "W4288490388",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "For the Random Forest stacked model, the authors explicitly apply CPI (Conditional Permutation Importance) and SHAP (Shapley Additive exPlanations) rather than impurity-based importance: \"To identify which modalities contributed strongly to the prediction of the stacked (i.e., Random Forests) model, we applied two methods: (1) CPI...and (2) SHAP...CPI and SHAP provided similar results. N-back task-based fMRI by far had the highest importance score.\" For the Elastic Net modality-specific models, they use eNetXplorer's permutation-based empirical p-values. They corroborate findings across multiple methods and validate predictive performance on held-out test sets across sites and time. The abstract states: \"We found fronto-parietal networks during a working-memory task to drive childhood-cognition prediction,\" making this finding central to conclusions. Because they do not use impurity-based importance (Gini/MDI), the documented bias against this specific approach does not apply to their work."
+}

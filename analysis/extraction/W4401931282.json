@@ -1,0 +1,16 @@
+{
+  "id": "W4401931282",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "\"Further variable selection was achieved by first running each RF model with all remaining predictors which allowed us to determine variable importance for each model predictor. We could then run a series of models starting with just the two most important predictors and iterating through all variables in order of importance.\" The paper explicitly structures conclusions around rankings: \"Lake depth is the top predictor for TN by a large margin\" and \"TN and TP are by far the most important predictors of chlorophyll-a.\" These rankings support core findings presented as \"the results of the RF models can be leveraged...to provide actionable information for management on predominant drivers of nutrient pollution.\" However, corroboration is limited to partial dependence plots showing directional relationships, with no permutation or SHAP validation of the rankings themselves."
+}

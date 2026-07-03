@@ -1,0 +1,18 @@
+{
+  "id": "W4415960373",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses Gini impurity importance via ranger: \"Node impurity was measured by the Gini index embedded within the R package ranger to determine variable importance.\" It interprets magnitude and ranking without corroboration: \"The most important predictor of adjustment to civilian life was life satisfaction\" and \"the top ten most important predictors...in order of importance, were life satisfaction, mastery, mental health, age, BMI, social support, satisfaction with one's main activity, general health, income, and financial satisfaction.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation is used; multinomial logistic regression tests class differences on selected predictors but does not validate the importance rankings themselves."
+}

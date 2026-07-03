@@ -1,0 +1,9 @@
+{
+  "id": "W4308970071",
+  "cites": 12,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper's sole variable-selection/ranking mechanism is XGBoost's built-in feature-importance heat map (Figure 3), a gain/split-based (impurity-analog) measure, not permutation importance or SHAP. The ranking is explicitly central: the Conclusions list \"we found the strongest predictors of running velocity\" as a headline finding, and Section 4.1 builds an extended physiological narrative directly on the ranking magnitudes (\"VO2 at RCP and maximal VO2 were the most important parameters...a lower impact of VO2 at AT was noted\"; \"[La-] ... more impact from sub-maximal levels ... than maximal values\"; \"HR was one of the variables with the lowest impact\"). The only validation offered is 10-fold cross-validation, Bland-Altman analysis, and RMSE/MAE of the final regression equations' overall predictive accuracy; this validates the fitted model's fit, not the magnitude or ordering of the XGBoost importance scores themselves, and overall test-set accuracy does not validate a ranking. No permutation importance, SHAP, PDP/ALE, or conditional importance is reported anywhere in the text, so all three confirmation conditions are met."
+}

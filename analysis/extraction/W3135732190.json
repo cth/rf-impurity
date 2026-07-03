@@ -1,0 +1,19 @@
+{
+  "id": "W3135732190",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly screens predictors using Gini importance: \"the best predictors were screened using Gini index by adding predictors one at a time in the order of decreasing importance.\" It interprets ranking directly: \"Transposase gene for insertion sequence-like element IS 1216 was the best predictor\" and \"was the driver for the clustering result,\" leading to the conclusion that \"growth promotion with Zn and Cu might cause more alterations\" than other treatments. While the paper uses partial dependence plots, these are derived from the same Gini importance model and lack independent corroboration via permutation importance, SHAP, or held-out validation. The heterogeneous features (OTUs, ARGs, MGEs at different scales; right-skewed microbiome data) create high risk for magnitude and ranking corruption under impurity-based importance."
+}

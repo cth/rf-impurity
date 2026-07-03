@@ -1,0 +1,9 @@
+{
+  "id": "W3126801790",
+  "cites": 5,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper's two feature-selection engines do not use impurity/Gini importance. VarSelRF (backward elimination) explicitly ranks and eliminates genes using permutation-based importance ('based on the decrease of classification accuracy when values of a variable ... are permuted randomly', i.e. mean decrease accuracy), not mean decrease Gini. GALGO's gene 'selection frequency' (Table 3, Fig 2) comes from a wrapper genetic-algorithm search whose fitness function is cross-validated classification accuracy of gene subsets, not any RF impurity statistic - genes are counted by how often they appear in high-fitness chromosomes, unrelated to Gini/MDI magnitude. So while the gene ranking (LY6E, IFI27, CD177, etc.) is indeed central to the paper's conclusions, it is not derived from impurity importance at all, meaning the impurity-magnification bias described does not apply to this pipeline. Additionally, the paper provides held-out cross-manufacturer predictive validation of the selected gene panels (Fig 5, Section 3.4) and independent literature/functional-enrichment concordance (overlap with Andres-Terre et al.'s 27-gene signature), which would count as corroboration of the selected set. The first-pass screen's premise that rankings are 'derived entirely from RF impurity importance via VarSelRF and GALGO' is factually incorrect."
+}

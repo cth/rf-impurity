@@ -1,0 +1,17 @@
+{
+  "id": "W4410402724",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper states 'The two essential variables for predicting multiclass outcomes using GB and RF were MCHC and MCV' (based on Figure 2 importance plots) and discusses biological mechanisms explaining why these features matter (e.g., MCHC is drastically reduced in IDA but not in Thal due to iron deficiency vs. globin production defects). However, the paper does not employ permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation to corroborate this ranking. Nine features with heterogeneous scales (RDW in %, MCV in fL, RBC in millions, age in years) are used with no normalization mentioned."
+}

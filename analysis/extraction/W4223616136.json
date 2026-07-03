@@ -1,0 +1,17 @@
+{
+  "id": "W4223616136",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks features by impurity importance during optimization and removes all clinical features, concluding they \"added no additional benefit.\" This ranking-based feature selection decision is central to the final \"combined model\" result. However, they validate only the FINAL MODEL's performance on held-out data (AUC 0.78-0.80), not the importance ranking itself. Without corroboration via permutation importance, SHAP, PDP/ALE, or conditional importance, the impurity-importance bias could have inflated variability feature importance (especially across 71 highly correlated metrics) while depressing clinical feature importance, leading to overcorrected feature removal."
+}

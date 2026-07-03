@@ -1,0 +1,17 @@
+{
+  "id": "W4361286446",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Feature selection used ranger random forest importance to identify \"the top 15 from each comparison\" visualized in \"variable importance plots\" and discussed as key biomarkers. While \"ROC analyses for the top seven phosphosites showed excellent area under the ROC curve (AUC) scores, which were more than 90%\", this validates predictive performance but not the impurity-based ranking itself. The paper concludes with specific phosphosites (TRIM28, NDRG2, SDCBP, etc.) identified via ranger ranking without comparing to alternative importance methods like permutation importance or SHAP."
+}

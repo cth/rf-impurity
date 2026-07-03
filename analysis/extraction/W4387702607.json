@@ -1,0 +1,17 @@
+{
+  "id": "W4387702607",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Gini-Index importance from VariantSpark random forest for initial feature selection, but explicitly states: \"While this score can rank variants by importance, it is unable to determine significantly associated variants.\" Instead, selected variants are passed through RFlocalfdr (empirical Bayes method) for significance testing. Final conclusions about discovered loci (SASH1, SH3BP4) rely on RFlocalfdr threshold-based significance, replication in an independent cohort (ADNI), and functional validation via TWAS/MAGMA/GTEx, not on importance magnitude or ranking."
+}

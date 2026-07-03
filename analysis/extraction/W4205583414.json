@@ -1,0 +1,17 @@
+{
+  "id": "W4205583414",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses RF-RFE (Random Forest Recursive Feature Elimination) where \"at each iteration feature importance is calculated based on the overall effect on the residual error and then the least important predictors are removed.\" It identifies important variables as \"SPC, NTU, C, CHL, and f DOM were found to be the most influential variables for the prediction of E. coli in the studied ponds.\" However, it validates these findings through held-out testing: \"model performances did not substantially change when the 2017 and 2018 datasets were held at a lower number of predictors,\" confirming the identified variables are actually useful for prediction despite potential impurity-importance bias."
+}

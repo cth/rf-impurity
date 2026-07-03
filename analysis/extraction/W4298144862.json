@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks microbiome features by importance and selects which to highlight based on rank position. Key passages: (1) \"Based on the median calculated permutated variable importance, a ranking of which features contributed most to the prediction...the relative abundance of P. salivae is the most important predictor\" and \"ranked higher than both patient age and BMI\"; (2) \"Decreased P. salivae abundance was the strongest and most general predictor\"; (3) Conclusion claims species with high importance \"contribute to COVID-19 respiratory symptoms\" and \"the decreased abundance of some organisms, primarily P. salivae, is predictive.\" No corroboration via permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of the ranking itself.",
+  "id": "W4298144862",
+  "set": "survivor"
+}

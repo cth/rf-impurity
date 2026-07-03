@@ -1,0 +1,17 @@
+{
+  "id": "W4407394598",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses permutation variable importance (PVI), explicitly stating \"Finally, the permutation variable importance (PVI) was plotted for the random forest model\" and reporting \"Market size was most important for classification (PVI: 0.109)...approximately 5 times larger than the second-largest value.\" Models were validated using holdout methods (80% training/20% test split). Since permutation importance is not subject to the impurity-bias magnification mechanism, the paper's interpretation of importance magnitude and ranking is robust despite being central to conclusions."
+}

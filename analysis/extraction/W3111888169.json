@@ -1,0 +1,19 @@
+{
+  "id": "W3111888169",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses permutation variable importance (\"variables were ranked according to their permutation variable importance\"), not impurity importance. Ranking of biomarkers is corroborated by Cox regression in both identification and external validation cohorts, with the criterion for \"confirmed association\" requiring both high RSF ranking (top 20) AND significant Cox regression association in both cohorts. Permutation importance is robust to impurity-importance bias."
+}

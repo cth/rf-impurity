@@ -1,0 +1,9 @@
+{
+  "id": "W4410563089",
+  "cites": 5,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "Table 6 reports \"Inc. node\" (IncNodePurity) from R's randomForest package, the classic RSS-decrease impurity importance for regression, an MDI analog known to be biased toward wide-range/high-cardinality and correlated predictors (HW itself spans 6.5 to 68, an outlier range among the measurements, and predictors are highly intercorrelated, e.g., BH-CH r=0.862). The paper states this ranking as a headline conclusion (\"Using the RF algorithm, the variables affecting body weight the most were CC, CH, and CD\") and ties it to a practical recommendation for producers selecting predictors/genotypes. No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of this specific selection is performed; the only cross-checks are Pearson correlation and PCA, which are not on the accepted corroboration list and in fact conflict with the fine-grained RF order (HW ranks 4th in RF importance despite having the lowest correlation with SW, r=0.187, contradicting the impurity-based ranking). Since the ranking is genuinely impurity-derived, is central to a stated conclusion, and lacks the required type of corroboration, the flag holds."
+}

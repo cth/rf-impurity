@@ -1,0 +1,14 @@
+{
+  "id": "W4378172244",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests and analyzes \"features with the highest Gini importance\" to validate that known targeting motifs (DPLG) rank among the top 50 n-gram features. However, this importance ranking analysis is supplementary to exploratory validation of feature quality. The central conclusions concern model performance metrics (kappa, accuracy, AU1U) and practical tool availability, not the magnitude or ranking of feature importance. No permutation importance, SHAP, or other statistical corroboration validates the importance rankings."
+}

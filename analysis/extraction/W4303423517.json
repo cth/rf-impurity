@@ -1,0 +1,20 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Gini impurity for feature importance ranking (Eq. 6-7, lines 476-481) and interprets magnitude/ranking when discussing ATP6V1C2 as \"especially important for survival prediction\" (line 1106). However, this ranking is corroborated by TreeSHAP (lines 577-603, Supplementary Fig. 9 validates ATP6V1C2 via SHAP), held-out test validation (80-20 split in Tables 2-4), and GO enrichment (p<0.001 biological validation in Tables 5-6). Critically, the paper's main conclusions center on module detection and predictive performance, not individual gene rankings. As stated: \"feature selection based on features organized in modules may perform superior on unseen test data\" (lines 1100-1102). Multiple comparison methods (GNN-SubNet, RF, Boruta) show \"similar accuracy\" (Table 5), suggesting the module structure matters more than Gini ranking precision.",
+  "id": "W4303423517",
+  "set": "survivor"
+}

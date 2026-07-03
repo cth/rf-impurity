@@ -1,0 +1,9 @@
+{
+  "id": "W4410344657",
+  "cites": 1,
+  "verdict": "refuted",
+  "uses_impurity_importance": false,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper's Methods section explicitly defines the random-forest \"variable importance\"/\"relative importance\" metric it uses as \"a measure of the extent to which model error changes if a variable is replaced with a randomly permutated set of numbers [22,23]\" — this is the textbook definition of permutation importance, not Gini/impurity (MDI) importance. The word \"impurity\" does not appear anywhere in the full text (0 hits), while \"permutated\" appears exactly in this defining sentence. So while the ranking (life satisfaction, negative social interactions, primary stress source, age) is indeed central to the paper's conclusions and drives the variable selection for the linear regressions, the importance metric itself is not the impurity/Gini/MDI type that carries the magnitude/ranking bias this audit targets. Since criterion (1), genuine use of impurity importance, is not established by the text (and the text affirmatively describes permutation importance instead), the flag fails and should be refuted; the ranking is also cross-validated for stability across three sensitivity-analysis subsamples (age-restricted, coping-excluded, mental-illness-excluded), which additionally shows the top-4 ranking is robust to sample perturbation."
+}

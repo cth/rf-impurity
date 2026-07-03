@@ -1,0 +1,17 @@
+{
+  "id": "W4392639248",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses XGBoost's Gini importance to rank phoneme importance, identifying five key features. However, this ranking is robustly corroborated by Random Forest's Altmann permutation importance (Table 5), which shows identical top-5 ordering: /i/, /m/, /a/, /o/, /k/ (all p < 0.001). The specific directionality (e.g., /i/ with masculinity, /k/ with femininity) is further corroborated by post-hoc Poisson regression revealing the phonesthemic explanation (sequences /iʧi/ predict male, /ko/ predict female). The paper does not make claims about relative magnitude of Gini scores; conclusions rest on the ranking, which permutation importance validates."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4283271862",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "skewed",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states that Gini-based variable importance \"is known to attribute higher importance to predictors with more splitting points\" and that \"alternative approaches, for example, based on permutations of the individual predictors, are preferred.\" The study reports permutation-based importance (Figure 2, Table S1) rather than Gini/MDI importance. Variable importance is descriptively shown but not used to derive conclusions about predictor ranking or magnitude; conclusions instead focus on model calibration performance across five variable selection strategies (M1-M5) evaluated using AUROC, Brier score, calibration slope, and cross-entropy."
+}

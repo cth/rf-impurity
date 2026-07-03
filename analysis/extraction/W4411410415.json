@@ -1,0 +1,16 @@
+{
+  "id": "W4411410415",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "\"We assessed predictor importance using model-agnostic permutation methods from the iml package [41], based on models trained on MICE-imputed data and validated with repeated stratified 10-fold cross-validation.\" The paper states: \"Across all models, neuroticism emerged as the most important predictor, followed by sex and age, which also contributed to the performance of each of the four models.\" Results section emphasizes: \"Neuroticism stands out as the single most important predictor across all models. Additionally, sex and age are key predictors consistently contributing to the performance of all four models.\""
+}

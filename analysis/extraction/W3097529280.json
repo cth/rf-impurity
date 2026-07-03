@@ -1,0 +1,17 @@
+{
+  "id": "W3097529280",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper quantifies feature importance as \"decrease in node impurity at each split across all decision trees\" and ranks 92 features by magnitude (Table 3). The abstract and clinical conclusions explicitly rank medications and diseases by these importance scores to guide treatment decisions: \"The use of Sertraline, Fentanyl, Aripiprazole, Lamotrigine, and Tramadol were strong indicators for no SREs\" while \"The use of Haloperidol, Trazodone and Citalopram... predicted the onset of SREs.\" The paper acknowledges that \"impurity-based feature importance can be misleading for high cardinality features and continuous variables\" but provides no alternative corroboration (permutation, SHAP, PDP/ALE, or conditional importance). Clinical recommendations for medication substitution and risk stratification rest entirely on these unvalidated importance rankings."
+}

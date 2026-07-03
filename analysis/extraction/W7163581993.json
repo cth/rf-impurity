@@ -1,0 +1,17 @@
+{
+  "id": "W7163581993",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The Random Forest model extracted impurity-based importance directly (ranger$variable.importance), and the paper ranks features prominently: \"Left atrial volume index (LAVI) consistently emerged as the most important predictor in all models\" and identifies P-wave parameters among top-ranked features. However, this ranking received adequate validation through SHAP analysis (\"supports the thesis that all three models consistently use a similar set of clinically predictors\") and permutation feature importance with cross-validated SHAP stability checks showing \"median importances for the leading features are stable with relatively narrow interquartile ranges.\""
+}

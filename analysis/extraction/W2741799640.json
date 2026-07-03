@@ -1,0 +1,12 @@
+{
+  "id": "W2741799640",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper mentions that \"The features that are included in a Random Forest model can be assessed by checking which features are assigned variable importance values greater than 0\" (Section 2.3), but does not actually employ random forest impurity importance for feature selection or interpretation. The analysis focuses exclusively on stability measures of selected feature sets across resampling iterations, using filter methods (Variance, AUC, MRMR) and embedded selection in classification algorithms, not impurity-based importance rankings."
+}

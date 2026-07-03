@@ -1,0 +1,19 @@
+{
+  "id": "W4413984065",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest importance to 'identify highly influential ECs' and ranks variables as 'among the most important explanatory variables'. However, the core conclusions about environmental drivers of GEI (iClasses) rest on factor analytic model loadings, not importance magnitude. Importance is used secondarily: 'Key associated ECs were identified by comparing correlations...in addition to importance scores.' The predictive framework is validated by leave-one-environment-out cross-validation (r = 0.67) with correlations corroborated by permutation testing (1,000 replicates of null sampling). The paper concludes that variables 'act in combination' rather than emphasizing ranking by importance."
+}

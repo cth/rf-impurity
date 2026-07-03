@@ -1,0 +1,9 @@
+{
+  "id": "W3168219035",
+  "cites": 6,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper ranks genes purely from the RF-construction process itself (\"we calculated the number of times each gene was selected in the 500 trees\" / \"Frequency of the 20 top genes selected in 500 trees\"), i.e. a tree-internal, impurity-driven selection-frequency measure rather than permutation importance or SHAP; at each node the winning split among mtry candidates is the one with the largest impurity decrease, so this count inherits the same super-linear/interaction-charging distortions as classic MDI. This ranking is squarely central to the paper's substantive claims: ATP6V0D2 is declared \"the main gene used to classify the cases,\" a top-20 list is presented as the disease-relevant gene set, and the paper explicitly concludes \"knowledge-slanted RF could be more easily interpreted by users because the prediction can be attributed mainly to associated genes.\" The only checks offered are (a) post-hoc univariate ANOVA of expression differences on the already-selected top genes (conditional on selection, not an independent ranking validation) and (b) comparing median RWR-network rank of the two methods' top-20 lists (357.5 vs 564.5), neither of which is permutation importance, SHAP, PDP/ALE, conditional importance, or held-out predictive validation of the selected feature subset; overall model accuracy/AUC (59.3-92.6%) is reported but that validates classification performance, not the gene ranking. Hence all three CONFIRMED criteria are met."
+}

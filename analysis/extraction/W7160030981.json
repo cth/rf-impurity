@@ -1,0 +1,16 @@
+{
+  "id": "W7160030981",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states \"RF was executed via the ranger package using impurity-based importance (Gini impurity criterion)\" and \"For RF and SVR, loci were prioritized using feature-importance scores above the 95th percentile.\" They rescale importance to a 0-100 scale for ranking, establishing that magnitude/ranking interpretation is central to their locus selection. The conclusions emphasize novel candidate genes identified by SVR importance ranking alone: \"the SVR model identified a WD40-domain locus Glyma.20G173100...making it a novel candidate for investigating ubiquitin-mediated metabolic reprogramming.\" While they validate candidate genes through GO enrichment and functional annotation post-selection, the importance scores themselves receive no corroboration via permutation, SHAP, PDP/ALE, conditional importance, or held-out validation. Cross-validation applied is for model performance metrics (MSE, RMSE, R2), not for validating the importance ranking."
+}

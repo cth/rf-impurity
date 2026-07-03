@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"unscaled permutation importance measures\" calculated from random forests, not impurity-based importance (Gini/MDI). The methods state: \"Each predictor variable is randomly permuted in turn and change in accuracy of the predictions is calculated.\" The authors acknowledge limitations: \"We used the permutation importance measure and this is not ideal for our purposes given the imbalance between pathogenic and benign variants.\" They plan to add AIR (actual impurity reduction) in future work but do not use it in this study.",
+  "id": "W2989793717",
+  "set": "survivor"
+}
