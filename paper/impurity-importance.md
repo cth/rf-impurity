@@ -295,6 +295,10 @@ accordingly.
 | &nbsp;&nbsp;Refuted | 65 |
 | &nbsp;&nbsp;Uncertain | 5 |
 
+*Note: the 544 screened papers comprise all 524 filter matches plus 20
+non-matching papers screened in earlier passes before the filter was finalised,
+including the random recall sample; all 524 filter matches were screened.*
+
 Taking the confirmed count at face value, 55 of the 544 screened papers — about
 10% of the importance-using full-text literature, and roughly 7% of all full-text
 ranger-citing work — state a central conclusion that could have been distorted by
