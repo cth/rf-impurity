@@ -52,7 +52,8 @@ pitfall in roughly 10\% of importance-using papers, including heavily-cited work
 For a random forest, the impurity importance of a feature is the total decrease
 in node impurity attributable to splits on that feature, summed over all splits
 and all trees. For classification the impurity is Gini; for regression there is
-no class label at a node, so \code{ranger} (and most implementations) use
+no class label at a node, so \code{ranger}~\cite{wright2017} (and most
+implementations) use
 \textbf{response variance} as the impurity proxy --- a split is scored by how
 much it reduces the sum of within-child variances. This substitution is the
 source of every effect studied here.
@@ -287,7 +288,7 @@ importance without the corroboration that would guard against the biases of
 Sections~\ref{sec:linear}--\ref{sec:confound}.
 
 \paragraph{Corpus.} We took every work recorded by OpenAlex as citing the ranger
-reference publication (Wright \& Ziegler 2017; OpenAlex work \code{W2157395790}),
+reference publication~\cite{wright2017} (OpenAlex work \code{W2157395790}),
 $3{,}189$ works in total. For each we retrieved bibliographic metadata from
 OpenAlex and, where an open-access full text was available, the full text from
 Europe PMC; $773$ works had retrievable open-access full text. Screening was
