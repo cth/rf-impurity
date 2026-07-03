@@ -381,16 +381,18 @@ central conclusion that could have been distorted by the biases of
 Sections~\ref{sec:linear}--\ref{sec:confound} and did not cross-check it.
 
 Two features of the confirmed set are worth drawing out. First, exposure is
-concentrated in papers that use no significance machinery: the large majority of
-flagged papers report no importance $p$-value or Boruta selection and simply rank
-features by impurity importance. Papers that do use those methods are, if
-anything, more careful, and the share of importance-using papers that pair the
-importance with a corroborating analysis rises steadily across the 2016--2026 span
-of the corpus. The problem is thus most acute in --- though not limited to ---
+concentrated in papers that use no significance machinery: $51$ of the $55$
+confirmed papers ($93\%$) report no importance $p$-value or Boruta selection and
+simply rank features by impurity importance. Papers that do use those methods
+are, if anything, more careful; and corroboration is now common --- the share of
+importance-using papers pairing the importance with a corroborating analysis rose
+from near zero in the earliest years to roughly two-thirds by 2019--2020 and has
+held there since. The problem is thus most acute in --- though not limited to ---
 applied work that treats a built-in importance ranking as a finished result.
 Second, the confirmed papers are not confined to low-visibility venues: their
-citation counts span the full range of the corpus, so the potentially-affected
-conclusions include work of substantial reach.
+citation counts span the full range of the corpus (median $11$, matching the
+corpus median of $10$), and $12$ of the $55$ exceed $50$ citations, so the
+potentially-affected conclusions include work of substantial reach.
 
 These figures are screening estimates from language-model judgements, not audits
 of the underlying analyses. A confirmed flag means a conclusion \emph{could} have
@@ -406,10 +408,10 @@ scale-invariant nor able to separate an effect's shape from a feature's
 distribution. Consequently it magnifies effect sizes super-linearly, attributes
 interaction effects to marginally-null variables, and --- most importantly ---
 returns identical scores for genuinely non-linear effects and for linear effects
-on skewed features. Every claim in the 2022 note reproduces cleanly, and a
+on skewed features. A
 literature screen (Sections~\ref{sec:prevalence-method}--\ref{sec:prevalence-results})
 confirms the pitfall is not merely theoretical: about $10\%$ of importance-using
-ranger papers --- including heavily-cited work --- lean on impurity rankings
+ranger papers (including heavily-cited work) lean on impurity rankings
 without the corroboration that would catch it. Used as a \emph{screening} tool and paired with
 partial-dependence plots to interrogate the shortlist, impurity importance is
 valuable; read as a substitute for effect sizes, it will mislead.
