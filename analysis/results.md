@@ -18,33 +18,33 @@ Two filters were run against the 773 full-text papers:
 2. **Broadened filter** (any impurity/Gini/MDI or variable/feature-importance
    mention): 524 papers.
 
-Screened by Haiku so far: **543 papers** (the union; 1 paper failed to return
-structured output). The ~230 unscreened full-text papers did not mention
+Screened by Haiku: **544 papers** (the union). The ~230 unscreened full-text
+papers did not mention
 importance at all (they cite ranger for speed or prediction only) and are treated
 as near-zero flag rate.
 
-## Headline numbers (543 screened)
+## Headline numbers (544 screened)
 
 | | count | of screened | of impurity-users |
 |---|---|---|---|
-| Use impurity importance | 306 | 56% | — |
-| **Flagged** (`p_affected ∧ central`) | **124** | **23%** | **41%** |
+| Use impurity importance | 307 | 56% | — |
+| **Flagged** (`p_affected ∧ central`) | **125** | **23%** | **41%** |
 
 - **95% CI on the screened flag rate: 20–27%.**
 - As a share of **all 773 full-text papers: ~16%.**
-- **63 of 124** flagged papers have **no corroboration at all** (no permutation
+- **63 of 125** flagged papers have **no corroboration at all** (no permutation
   importance, SHAP, PDP/ALE, conditional importance, or held-out validation) —
   the strongest flags. The rest carry partial corroboration and are weaker.
 
 ## Why the p-value framing missed most of them
 
 The original narrow, p-value-centric fingerprint (your initial target) caught
-**27** flagged papers. The broadened screen finds **124**. The reason is stark in
-the method breakdown of the 124 flagged:
+**27** flagged papers. The broadened screen finds **125**. The reason is stark in
+the method breakdown of the 125 flagged:
 
 | `pvalue_method` | flagged papers |
 |---|---|
-| **none** | **107** |
+| **none** | **108** |
 | boruta | 7 |
 | altmann | 5 |
 | janitza | 3 |
@@ -63,7 +63,7 @@ higher-confidence stratum, but it is a small minority of the exposed literature.
 
 ## Flagged candidates
 
-`analysis/candidates.csv` — **124 flagged papers** with `pvalue_method`,
+`analysis/candidates.csv` — **125 flagged papers** with `pvalue_method`,
 corroboration, feature-heterogeneity, title/DOI (joined from
 `corpus/manifest.csv`), and the evidence quote behind each flag. Sorted with the
 `pvalue_method != none` (higher-confidence) papers first.
@@ -79,5 +79,3 @@ corroboration, feature-heterogeneity, title/DOI (joined from
 - **Flag ≠ wrong conclusion** — it means the conclusion *could* have been affected
   and wasn't corroborated; proving impact requires re-running the study's model
   (plan §6, out of scope).
-- 1 paper (`analysis/broad_remaining.json` index 258) failed to return a record;
-  re-runnable individually if needed.
