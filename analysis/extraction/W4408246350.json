@@ -1,0 +1,12 @@
+{
+  "id": "W4408246350",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": ["pdp_ale", "heldout_validation"],
+  "feature_heterogeneity": ["mixed_types", "skewed", "scale_mismatch"],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses 'mean decrease in node impurity, using the Gini index as the splitting rule.' It reports specific rankings: intraspecific NND as '7th most important predictor', interspecific interactions as '14th, 16th and 26th most important predictors,' and groups factors into 'primary' (7 factors) and 'secondary' (10 factors) groups. The main conclusions lean on these rankings: 'Vegetation and topographic features (first-order factors) were the primary ecological drivers...Secondary factors included intraspecific interactions...third-order factors were relatively less influential.' While PDPs and test-set validation (F1=87.5%, Accuracy=85%) are provided, these do not independently corroborate importance RANKINGS—they show model performance and marginal effects but not whether Gini rankings correctly reflect relative variable importance. No permutation importance, SHAP, or conditional importance analysis validates the rankings."
+}
