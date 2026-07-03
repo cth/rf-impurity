@@ -208,15 +208,36 @@ literature that uses the tool most associated with these importances — the
 `ranger` R package. Full method and numbers are in
 [`../analysis/results.md`](../analysis/results.md); the short version:
 
-- **Corpus.** All 3,189 works citing ranger (OpenAlex `W2157395790`), of which
-  773 have open-access full text. A broadened text filter kept the 524 that
-  actually mention variable/feature/impurity importance; 544 were screened.
-- **Two-stage LLM screen.** A cheap first pass flagged papers that lean on the
-  *magnitude or ranking* of impurity importance for a central conclusion without
-  corroboration; an independent adversarial pass then tried to *refute* each flag.
-- **Result: 55 papers confirmed** (of 125 flagged; the adversarial pass overturned
-  ~56%). That is **~10% of the importance-using full-text papers** — roughly
-  7% of all full-text ranger-citing work.
+- **Corpus.** All 3,189 works citing ranger (OpenAlex `W2157395790`), fetched via
+  the OpenAlex and Europe PMC APIs; 773 have open-access full text. A versioned
+  regex filter (`analysis/fingerprint.py`) kept the 524 that mention
+  variable/feature/impurity importance (dropping papers that cite ranger only for
+  speed or prediction); 544 were screened in total.
+- **Stage 1 — screening (Claude Haiku 4.5, low effort).** One agent per paper read
+  the full text and emitted a structured record. It was told the specific bias
+  under audit — *impurity importance corrupts the magnitude and ranking of an
+  effect, not the yes/no verdict of whether a variable is used; a significant
+  importance p-value (Altmann/Janitza/Boruta) tests only that importance ≠ 0,
+  which is robust* — and instructed to set the flag (`p_affected ∧
+  central_to_conclusions`) true only when a paper leans on the **magnitude or
+  ranking** of impurity importance for a central conclusion **without** adequate
+  corroboration, where adequate corroboration = permutation importance, SHAP,
+  PDP/ALE, conditional importance, or held-out validation of the *selected feature
+  set* (overall model accuracy does not count). Every judgement had to quote
+  supporting passages. 125 papers were flagged.
+- **Stage 2 — adjudication (Claude Sonnet 5, high effort).** A second, independent
+  agent re-read each flagged paper under an explicitly **adversarial** instruction:
+  *your job is to refute this flag.* It confirmed only when all three held — the
+  paper genuinely uses impurity (not only permutation/SHAP) importance, the
+  ranking is central to a conclusion, and the ranking is not adequately
+  corroborated — and was told to reach its own verdict rather than defer to
+  stage 1. It returned `confirmed` / `refuted` / `uncertain` with reasons.
+- **Result: 55 confirmed, 65 refuted, 5 uncertain** — the adversarial pass
+  overturned ~56% of the screening flags (so stage-1 precision ≈ 44%). The 55
+  confirmed are **~10% of the importance-using full-text papers** — roughly 7% of
+  all full-text ranger-citing work. The full prompts, per-paper records, and
+  verdicts are in `analysis/` (`extract_broad_workflow.js`,
+  `adjudicate_workflow.js`, `extraction/`, `adjudication/`).
 - **The exposure is not in the careful literature.** 86% of flagged papers use no
   significance machinery at all (no `importance_pvalues`, Altmann, Janitza, or
   Boruta) — they simply rank features by impurity importance. Papers that *do*
