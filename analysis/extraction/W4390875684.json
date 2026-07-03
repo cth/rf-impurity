@@ -1,0 +1,18 @@
+{
+  "id": "W4390875684",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks 3054 EBV peptide antibodies using mean decrease in Gini index and selects features by adding top-ranked antibodies until reaching 85% accuracy, yielding a 26-antibody diagnostic classifier. It interprets magnitude (\"overall average antibody importance was around 0.018\" vs. highest at 0.36) and ranking explicitly, stating \"antibodies against this candidate antigen were not among the top most important antibodies for disease prediction,\" using this ranking interpretation to downplay molecular mimicry's pathogenic role. Corroboration is limited to held-out test accuracy (90%), without permutation importance, SHAP, conditional importance, or alternative feature selection methods to verify whether MDI ranking identifies optimal biomarkers or whether magnitude/ranking would persist under different importance measures."
+}

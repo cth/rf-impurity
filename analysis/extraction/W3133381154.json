@@ -1,0 +1,16 @@
+{
+  "id": "W3133381154",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states: \"the computation of the variable 'importance' mode is based on 'permutation'\" (in Methods section, referring to ranger package configuration). The sole mention of \"importance\" in the entire paper specifies permutation importance, not impurity. Model conclusions focus on classification accuracy (OOB error 1.3%, AUC 0.99) and biological findings about phage-plasmid identification and distribution, not on feature importance magnitudes or rankings."
+}

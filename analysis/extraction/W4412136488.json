@@ -1,0 +1,16 @@
+{
+  "id": "W4412136488",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper identifies significant predictors using Gini importance thresholds: \"The predictor variables were considered significant only if they exceeded the absolute values of the variable with the lowest Gini impurity.\" Three variables are ranked by importance magnitude (wing chord 0.494 > trash 0.38 > tables 0.375) and interpreted as \"the most significant variables for predicting infection risk.\" The core conclusion states: \"biotic factors—rather than abiotic environmental conditions—may play a more significant role in increasing infection risk.\" No independent validation method (permutation, SHAP, PDP/ALE, conditional importance) corroborates these importance rankings."
+}

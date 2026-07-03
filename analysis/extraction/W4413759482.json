@@ -1,0 +1,18 @@
+{
+  "id": "W4413759482",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"To evaluate each model, we calculated two variable importance metrics—ranger's default permutation-based importance metric, which compares the cross-tree average accuracy of out-of-bag sample predictions to the accuracy after permuting covariate values, and the absolute SHAP values summed across all predictions in a model's training dataset.\" They explicitly avoid impurity-based importance, using permutation-based importance and SHAP values instead. While they interpret ranking (\"Two forms of asynchronous seasonality consistently emerged as the primary drivers\" and \"PA is the clear driver\"), this ranking is supported by both permutation importance and SHAP values, neither of which is susceptible to the impurity-importance bias. The identification of drivers is not central to the paper's main narrative about allochrony by allopatry and phenological asynchrony patterns."
+}

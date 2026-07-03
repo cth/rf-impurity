@@ -1,0 +1,17 @@
+{
+  "id": "W7123354029",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Boruta algorithm for variable selection (a robust RF-based method that tests against shadow features) and SHAP for magnitude/ranking interpretation: \"Ultimately, the most optimal model was selected for SHAP further.\" The magnitude/ranking of importance comes from SHAP values, not impurity importance: \"Shapley values identified the most informative features as DC, NIHSS_add, NG, and Age, while SDANN, SDNN, VLF, CA125, HF, CRP, bleeding, FT3, DR, LF, and RMSSD only had a marginal impact.\" SHAP is a valid corroboration method unaffected by impurity importance bias."
+}

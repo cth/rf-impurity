@@ -1,0 +1,16 @@
+{
+  "id": "W4392714236",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly ranks features by \"mean decrease in accuracy—an overall feature importance measure across all eight primary source classes (MeanDecreaseAccuracy)\" and concludes: \"For both the RF1 and RF1—no DT104 models, cgMLST locus STMMW_21601, which encodes multidrug transporter subunit MdtC, was the most important feature for distinguishing between isolates from different sources.\" This ranking interpretation lacks corroboration from permutation importance, SHAP, PDP/ALE, or conditional importance methods. The paper's feature selection involved filtering out 835 zero-variance loci and 333 near-zero-variance loci, indicating skewed feature distributions. The main conclusion that RF is valid for source attribution rests on epidemiological validation (96.5% of DT104 outbreak human isolates correctly attributed), not on the feature importance ranking."
+}

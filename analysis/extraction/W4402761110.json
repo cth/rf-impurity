@@ -1,0 +1,18 @@
+{
+  "id": "W4402761110",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "janitza",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forest with Mean Decrease Gini importance and Janitza's method for p-values, presenting rankings of the first 30 features. However, biomarker selection (49 differential lipids in males, 60 in females) is performed via OPLS-DA with VIP scores greater than 1.0, not via RF importance ranking. The abstract states: \"Multivariate statistical analyses (PCA and orthogonal partial least squares discriminant analysis (OPLS-DA)) of gender-differentiated SCH and C groups established forty-nine differential lipids.\" Permutation tests validate OPLS-DA results (p less than 0.001), while the RF analysis is explicitly used for stability assessment of feature rankings only."
+}

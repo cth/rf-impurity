@@ -1,0 +1,17 @@
+{
+  "id": "W3168330745",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "\"The paper states: 'the importance of each ASV for the prediction performance of the four classifiers...was estimated by the built-in random forest scores in the 100-fold cross-validation. For each body site or environmental site, we finally ranked all ASVs by their average ranking of importance scores.' The main contribution is identifying 'the top 100 ranked important ASV's' and reporting 'One ASV with an exact match to Rothia dentocariosa...was highly ranked as predictive across all four disparate sample types' and 'ASVs from the genera Actinomyces, Anaerococcus, Dialister, Gemella, and Schaalia were in the top 40 ranked predictive features.' These rankings drive their biological conclusions about which taxa are most associated with SARS-CoV-2.\""
+}

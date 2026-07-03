@@ -1,0 +1,15 @@
+{
+  "id": "W4402094791",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The authors explicitly state they calculated importance \"using the permutation method (Altmann et al., 2010)\"; they ranked SNPs by importance and identified TPI (\"The SNP with the highest importance value occurs on triosephosphate isomerase\"); they corroborated with F_ST analysis (\"TPI was highly differentiated between MON and NAP, F ST = 0.44\") and independent wild-caught validation (\"assigned 169 wild-caught adults back to their collection sites with high accuracy 88.57% and 94.95%\"). Since permutation importance lacks the impurity bias and all rankings are validated with conditional F_ST and held-out predictive tests, bias cannot affect the conclusions."
+}

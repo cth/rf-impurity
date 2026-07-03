@@ -1,0 +1,19 @@
+{
+  "id": "W4410521450",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses \"corrected impurity measure which estimates mean decrease in accuracy\" via ranger to rank importance of 32 predictors. The core conclusions depend on this ranking: \"Location variables, including longitude, latitude and country had high predictive power...Forest landscape characteristics tended to be very important...Factors relating directly to forms of human pressure...had little influence.\" These importance-based rankings drive policy recommendations that \"restoration efforts...should target areas with high surrounding forest landscape integrity.\" The feature space is vulnerable to impurity bias: data are \"heavily skewed towards younger forests\" (52% age ≤5 years), include mixed variable types (continuous environmental, high-cardinality categorical locations like country, landscape indices), and lack corroboration beyond partial dependence plots (which show shape, not relative importance)."
+}

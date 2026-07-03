@@ -1,0 +1,17 @@
+{
+  "id": "W4404506475",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states: \"To visualize the contributions of predictor variables to the outputs of machine-learning models, we utilized the Shapley additive explanations (SHAP) analysis for GBM algorithms.\" The main conclusions focus on model predictive performance (AUC values) rather than variable importance magnitude/ranking. The variable importance findings are secondary observations about feature contributions, not central drivers of the study's conclusions."
+}

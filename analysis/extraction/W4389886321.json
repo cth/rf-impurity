@@ -1,0 +1,17 @@
+{
+  "id": "W4389886321",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest regression with \"greedy forward feature selection approach\" where \"predictivity is calculated as R^2 in threefold cross-validation\" (not impurity-based importance). The ranking of features (EP300, SWI/SNF as most predictive) is independently validated through binding enrichment (3-fold enrichment), occupancy percentages (92.2%), Pearson correlations (0.65-0.70), and comparative assessment. The main conclusion is that 60.7% of CRISPRi-verified enhancers physically interact with promoters; mechanistic findings are secondary."
+}

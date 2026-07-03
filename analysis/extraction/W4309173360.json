@@ -1,0 +1,17 @@
+{
+  "id": "W4309173360",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"The variable importance was estimated as a mean change in the value of the loss function after variable permutations\" using DALEX/DALEXtra packages. The results show: \"The top three most influential variables were age at examination, birth control/hormone replacement, and race.\" In the discussion, authors note: \"the explainable ML revealed the most significant feature in the final model was the age at examination,\" and identify other influential factors including weight, breast self-examination, and symptom-related features. The paper uses only permutation importance with no alternative corroboration methods."
+}

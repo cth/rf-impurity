@@ -1,0 +1,18 @@
+{
+  "id": "W7126431102",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies Boruta (RF-based importance) for feature selection: \"included when the Boruta [28] algorithm was applied\" alongside DESeq2 testing. However, the main conclusions are: \"median required sample sizes were 480 (XGB)/190 (RF)/269 (NN)\" and \"Higher effect sizes, less class imbalance/dispersion, and less complex data were associated with lower required sample size.\" These conclusions rest on measured AUC from learning curves and regression coefficients of independently-measured dataset characteristics, not on importance magnitude or ranking. Boruta provides a robust yes/no feature selection call (not magnitude interpretation), corroborated by parallel DESeq2 and external validation on held-out datasets."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4381190638",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"We used the 'importance = permutation' option to extract OOB VIMPs for each of the 157 features.\" It uses permutation-based OOB importance, not impurity-based importance. Since impurity-importance bias is not present in this paper's methods, it cannot affect conclusions. The paper's central finding is methodological: comparing OOB versus knockoff VIMPs shows \"the top two OOB VIMPs (FEV and FVC) had the second highest pairwise correlation...( r = 0.94); however, neither feature stood out among the knockoff VIMPs. Bias towards correlated measures is a key limitation of OOB VIMPs.\""
+}

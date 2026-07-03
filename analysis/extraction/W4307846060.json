@@ -1,0 +1,16 @@
+{
+  "id": "W4307846060",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "\"We used the metaforest package for R to fit a random-effects weighted metaforest model with clustered bootstrap sampling to screen for potentially informative predictors using a variable importance metric... We used those predictors identified using the variable important metric for all 1438 effect sizes in our subsequent Bayesian meta-regression modelling workflow.\" The paper applies a binary threshold (variable importance > 10%) and then all conclusions rest on Bayesian GAMM results, with no interpretation of importance magnitude or ranking in the Results or Discussion sections."
+}

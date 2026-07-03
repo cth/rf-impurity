@@ -1,0 +1,18 @@
+{
+  "id": "W4403917195",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses permutation importance: \"The relative importance of predictor variables was estimated by permuting predictor variable values across records, rerunning the model, and measuring the decrease in predictive accuracy.\" The impurity-importance bias only applies to MDI/Gini importance, not permutation importance. Variable ranking and magnitude are corroborated with SHAP: \"Feature contributions (i.e., SHAP values) convey relative variable importance for individual predictions and illustrate both the magnitude and direction.\" The ranking is central to conclusions about drivers: \"Carbonate geology, impervious cover, forest cover, and snow depth were the most important variables\" and \"Urbanization and deicer applications in snowier regions were the leading drivers.\""
+}

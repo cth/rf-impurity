@@ -1,0 +1,18 @@
+{
+  "id": "W4407763554",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly employs permutation-based importance for the best-performing GBT model: \"we used a permutation-based test for predictors' importance with 1-AUC as the loss-function.\" For LLR, importance is based on logistic regression odds ratios. The findings state: \"The strongest predictors of HR were the total number of β-lactamase genes, β-lactamase gene variants and presence of IS elements flanking them. Genetic analysis of HR strains confirmed that HR is caused by an increased copy number of resistance genes via gene amplification or plasmid copy number increase.\""
+}

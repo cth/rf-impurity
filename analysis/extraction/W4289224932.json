@@ -1,0 +1,18 @@
+{
+  "id": "W4289224932",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The Methods section states importance was \"determined as the mean decrease of the Gini index (classification impurity)\" and the paper concludes \"The geospatial prediction model is dominated by climate parameters\" based explicitly on Gini rankings in Fig. 2a. While univariate Kendall correlations in Fig. 2b show relationships between individual predictors and fluoride prevalence, no permutation importance, SHAP, PDP/ALE, or conditional importance methods are employed to validate the importance magnitude or ranking. The authors acknowledge the bias directly: \"a categorical variable (such as lithology) is less likely than a continuous variable to have an effect on the model when its values are randomly sorted, due to having far fewer possible values,\" yet implement no correction. The predictor set mixes continuous (climate, topography, soil at 250m-1km resolution) and categorical (acidic igneous rocks) variables with inherently different cardinalities, creating conditions for impurity importance to magnify effects on high-cardinality continuous features."
+}

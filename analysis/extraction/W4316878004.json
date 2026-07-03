@@ -1,0 +1,15 @@
+{
+  "id": "W4316878004",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper proposes GxE interaction testing methods using bagging and random forests but explicitly does NOT report variable importance measures. In the Discussion, the authors state that \"the proposed methodology could be extended to be able to score which genetic loci influence the constructed model the most, e.g., by employing VIMs (variable importance measures)\" - indicating VIMs are only a potential future extension, not part of their current work. The actual results focus on p-values from different GxE interaction testing methods, comparing statistical power and type I error control across 7 testing approaches, with no reporting of impurity-based importance rankings or magnitudes."
+}

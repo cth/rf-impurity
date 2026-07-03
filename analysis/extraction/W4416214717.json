@@ -1,0 +1,17 @@
+{
+  "id": "W4416214717",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly specifies \"feature importance measure 'impurity'\" in ranger and interprets both magnitude and ranking: \"The factor with the highest MRI was the ASV Capnocheirides\" and discusses variables as \"second most important\" or below 1% threshold. However, substantive conclusions about Hymenopleella and Diaporthe are anchored to isolation frequencies (55% and 45% of symptomatic plants), relative abundance measurements (40.5% vs 19.7%, and 13.5% vs 4.6%), log2 fold changes, and comparison of symptomatic versus asymptomatic sections of individual plants. These biological measures are independent of impurity bias and validate that identified taxa are genuinely associated with symptoms."
+}

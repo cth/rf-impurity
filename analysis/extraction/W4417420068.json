@@ -1,0 +1,19 @@
+{
+  "id": "W4417420068",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "pdp_ale",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"As input for the machine learning models, we provided the mean centered and standardized expression of the 186 genes selected with the differential expression analysis\" using GLM p-values (threshold 0.05), not random forest importance. No mentions of variable/feature importance, Gini, impurity, MDI, or permutation importance appear in the paper. Gene selection was based on limma p-values and cross-validation, while validation relied on GSEA pathway analysis, molecular subtype association tests, and spatial transcriptomic compartment-specific differential expression analysis."
+}

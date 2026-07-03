@@ -1,0 +1,16 @@
+{
+  "id": "W4206200000",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Methods state \"Gini impurity was used to rank the variables in order of their importance.\" Results report \"The number of steps and the step length were the most decisive factors...The gait speed followed in third place.\" Discussion concludes \"the advanced modeling used in this study weighted stride length equally important as gait speed...in terms of their classification importance measured by the Gini impurity\" and recommends \"stride length in addition to gait speed might be a valuable clinical parameter to identify patients with physical frailty.\" No permutation, SHAP, PDP/ALE, or conditional importance validation provided."
+}

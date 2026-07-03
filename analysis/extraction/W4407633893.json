@@ -1,0 +1,18 @@
+{
+  "id": "W4407633893",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"SHAP scores are used to explain the output of our depression prediction model.\" Results show \"The SHAP feature importance plot ranks the features based on their average absolute SHAP values,\" identifying features like PIR, sex, and hypertension as top predictors. Random Forest's impurity importance is never discussed; feature ranking relies entirely on SHAP methodology, which is not subject to impurity importance bias."
+}

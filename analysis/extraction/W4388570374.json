@@ -1,0 +1,16 @@
+{
+  "id": "W4388570374",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper concludes: \"The top predictive features were found to be drug product quality attributes... Figure 2 A shows that the %LVV+ cells are the most predictive attribute of PB VCN at month 6 and subsequently TI\" and uses this ranking to establish clinical \"acceptance criteria for future release and clinical use of beti-cel.\" This critical ranking relies solely on ranger impurity importance; no permutation importance on validation set, SHAP values, PDP/ALE plots, or external cohort validation corroborate the ranking. The %LVV+ variable is a percentage measure with probable rightward skew, precisely where impurity importance magnifies effects, and multiple correlated transduction efficiency surrogates exist that could have had importance mis-attributed."
+}

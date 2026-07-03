@@ -1,0 +1,16 @@
+{
+  "id": "W4404738023",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: \"Within the final random forest, variable importance was set to 'impurity' within the ranger package, corresponding to the Gini index for classification.\" It interprets both ranking and magnitude: \"Soil depth was the most important driver of SOC density\" and \"temperature (both maximum and minimum) had similar relative variable importance as many other covariates.\" The authors acknowledge a key limitation: \"While the variable importance of the model indicates that temperatures partially drive the patterns of SOC, there is uncertainty in this assessment as underlying interactions between variables are not captured.\" No permutation importance, SHAP, partial dependence, conditional importance, or held-out validation is used to corroborate these rankings."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W2997528843",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "This paper proposes a weighted Random Forest method but does not compute feature or variable importance. The paper states: \"The results were calculated as average values based on k-cross validation. Each table first presents results for AUC measure and then for the Score obtained using standard Random Forest algorithm.\" All reported results focus on classification performance metrics (AUC and Challenge Score) for different arrhythmia types. References to \"variable importance\" appear only in the literature review when citing Winham et al.'s prior work, not in the authors' own analysis."
+}

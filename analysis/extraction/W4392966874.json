@@ -1,0 +1,18 @@
+{
+  "id": "W4392966874",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states \"The importance of each variable was assessed through permutation (Janitza et al., 2013)\" in Methods 2.4, using permutation importance rather than impurity-based methods. The paper ranks spectral bands (yellow and NIR most important for Pn prediction), corroborates this through held-out test performance (R² = 0.81) and mechanistic explanation linking yellow to chlorophyll content and photosynthetic rates (Adams et al. 1999). Since permutation importance is used, not impurity importance, the documented impurity bias does not apply to this work."
+}

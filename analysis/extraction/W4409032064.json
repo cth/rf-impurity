@@ -1,0 +1,17 @@
+{
+  "id": "W4409032064",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger's default impurity-based importance (Gini/variance) to select the top 5% of variables for measuring selection stability: \"higher values indicate more important variables, the selection matrix is derived by classifying the α variables with the highest importance estimates as 'selected' and the remaining variables as 'rejected' in each repetition.\" However, the paper makes no claims about variable importance rankings or magnitudes. The conclusions focus entirely on random forest stability as a function of tree count, not on interpreting importance values: \"we present a method that optimises the stability of random forest by determining the optimal number of trees\" and recommend publishing \"the stability of the random forest model whenever random forest is used for prediction, variable importance estimation, or decision-making processes.\""
+}
