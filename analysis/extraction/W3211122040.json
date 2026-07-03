@@ -1,0 +1,18 @@
+{
+  "id": "W3211122040",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses SHAP values only for feature selection in the causal forest model, not for substantive conclusions. \"We calculated SHapley Additive exPlanations (SHAP) values to estimate the relative importance of each predictor variable...The causal forest model was then re-estimated with only the top five and then the top 25 predictors defined by SHAP values.\" The core conclusions address heterogeneous treatment effects using interaction significance testing and conditional odds ratios; no HTE was detected (interactions non-significant in all three approaches: super learner, lasso, causal forest)."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4319037880",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states \"the use of permutation-based variable importance analysis allowed us to identify the importance of each predictor in our models,\" indicating adoption of permutation importance rather than impurity importance for the random forest. Variable importance rankings are central to conclusions, identifying top predictors like \"albumin, bicarbonate, change in creatinine, systolic blood pressure, non-CDI-related ICU admission, and concurrent non-CDI antibiotics.\""
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4403331554",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks features by MDI and claims \"the most important model feature, as assessed by decrease in MSE, was the phylum Firmicutes\" and \"Of the environmental predictors assessed, electrical conductivity (EC) appeared to be most influential.\" These importance-based rankings drive biological interpretation: \"Increases in Firmicutes and Clostridiales follow successional trends observed in internal microbial communities.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation corroborates these rankings on heterogeneous features (mixed types, 5000+ OTU-level taxa, skewed compositional data, scale mismatch with environmental parameters)."
+}

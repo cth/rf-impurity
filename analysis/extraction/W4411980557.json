@@ -1,0 +1,21 @@
+{
+  "id": "W4411980557",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly employs permutation importance and SHAP/Shapley values for variable importance assessment, stating these provide \"a more nuanced view of variable importance compared to traditional techniques, such as mean decrease in impurity or mean decrease in accuracy.\" The authors measure permutation importance by \"how much the model's predictive accuracy decreases when the values of that variable are randomly shuffled.\" Because the paper uses permutation importance and Shapley values rather than impurity-based importance, it is not vulnerable to the impurity-importance bias being audited, which applies only to Gini/variance/MDI methods."
+}

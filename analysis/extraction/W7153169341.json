@@ -1,0 +1,17 @@
+{
+  "id": "W7153169341",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"We assessed variable importance using the node impurity measures from the random forest model (fig. S16)\" in the Methods section but does not discuss or interpret these importance scores in the Results or Discussion. The main conclusions focus on temporal trends in ecological indicator values themselves (e.g., \"an increase in nitrogen values has emerged as the strongest and most common trend across European plant communities over the past 60 years\"), which derive from model predictions, not from variable importance rankings. The model's predictive accuracy was validated using cross-validation, held-out test sets, and independent ReSurveyEurope time series data (Pearson correlations 0.51-0.61)."
+}

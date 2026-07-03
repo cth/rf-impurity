@@ -1,0 +1,16 @@
+{
+  "id": "W3018023191",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper explicitly states: \"we computed a permutation based variable importance for regressions, defined as 'percentage increase of Mean Squared Error' (%incMSE)\". This is permutation-based, not impurity-based importance. Authors rank variables substantively (\"amount of 'dispersal habitat' had the highest variable importance for almost all model outputs\"), and corroborate via ALE plots and pedigree reconstruction. Since impurity importance is not used, the documented bias (which corrupts magnitude/ranking of Gini/MDI/variance importance) does not apply."
+}

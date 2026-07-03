@@ -1,0 +1,18 @@
+{
+  "id": "W4224278670",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "\"Random forest modeling identified the size of the field as the most important factor for passing or failing followed by algorithm\" and \"collimator was found to be among the least important parameters in predicting phantom performance.\" The paper concludes \"Field size had the largest impact in determining performance\" and recommends treatment parameters needing \"particular attention...include smaller field sizes and pencil beam algorithms,\" making the importance ranking the basis for clinical guidance. The authors note field size and collimator correlate (cone collimators used for majority of small fields), yet attribute the effect to field size as \"the driving force,\" which is vulnerable to impurity-importance bias that favors continuous over categorical variables."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W3187058898",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Paper explicitly reports feature importance rankings based on Gini impurity decrease: \"the most important feature was GATK's QD, followed by GQ\" and \"GATK had the highest summed feature importance, followed by VarDict and VarScan2.\" Uses these rankings to guide substantive methodological decisions—selecting which callers to include: \"Some of the variant callers did not provide features that contributed substantially to the classification accuracy, as indicated by the summed feature importances.\" No corroboration via permutation importance, SHAP, PDP/ALE, or conditional importance methods. Validation is limited to model performance (precision/recall) on held-out test data, which does not validate the feature importance rankings themselves."
+}

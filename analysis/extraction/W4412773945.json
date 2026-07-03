@@ -1,0 +1,17 @@
+{
+  "id": "W4412773945",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"feature importance measures, partial dependence plots, accumulated local effect plots, and the H-statistic\" with Figure 1 showing Gini importance rankings (\"item format and task emerged as the two most influential predictors\") and Figures 2-5 providing visual corroboration via PDP and ALE plots showing actual predicted-probability relationships. The empirical data has minimal predictor correlations (median 0.003), where their own Simulation Study 2 demonstrates importance rankings are relatively reliable; conclusions prioritize effect shapes from PDP/ALE visualizations over magnitude differences in importance scores."
+}

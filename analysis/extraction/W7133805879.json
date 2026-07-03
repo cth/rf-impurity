@@ -1,0 +1,14 @@
+{
+  "id": "W7133805879",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports that \"variable importance was determined based on the absolute difference in covariate z-scores\" across clusters, with a fixed threshold of 0.25 to identify effect modifiers. Random forests are used only for missing value imputation and as one ensemble component in SuperLearner outcome modeling, not for deriving the variable importance scores that characterize cluster differences. The variable importance serves an auxiliary descriptive role; the substantive conclusions rest on conditional average treatment effects and clustering patterns, not on importance magnitude or ranking."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4391839393",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"By default, the relative importance of variables in RF models is determined using estimates of the mean decrease in model accuracy if a variable was dropped from the analysis...However, because variable importance scores can be influenced by highly correlated predictors (which were present in this dataset), the conditional permutation importance (CPI) of each predictor variable was calculated.\" The authors explicitly replace default impurity importance with conditional permutation importance (CPI), which accounts for interactions and multicollinearity. While they interpret rankings (e.g., \"Depth and Froude number were the most important variables\"), their primary conclusions focus on model accuracy (67-79%), R² values (0.6-55%), and ecological patterns revealed by Wilcoxon tests comparing hotspots to non-hotspots, not on importance magnitudes."
+}

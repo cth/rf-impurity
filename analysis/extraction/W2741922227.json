@@ -1,0 +1,17 @@
+{
+  "id": "W2741922227",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"The variable importance plot (Fig. 11) further shows that the most influential predictors of the crop yield are: crop type, selection of nutrients and micro-nutrients (Mn, Zn, Al, B, Na)...This proves that producing maps of soil nutrients is indeed valuable for modeling agricultural productivity.\" For individual nutrients, they claim \"soil pH is clearly most important covariate for Na, K, Ca, Mg, Al\" and \"Precipitation distinctly comes as the most important covariate overall\" based entirely on ranger importance rankings reported in Table 2. The paper acknowledges post-hoc: \"although some micro-nutrients such as Mn and Zn come highest on the variable importance list, this does not necessarily makes them the most important nutrients in Africa...because soil nutrients are heavily cross-correlated relatively high importance of Mn and Zn could also indicate high importance of P, B, Fe and/or S.\""
+}

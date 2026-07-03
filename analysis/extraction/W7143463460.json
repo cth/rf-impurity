@@ -1,0 +1,16 @@
+{
+  "id": "W7143463460",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"The influence of each structural parameter was quantified through permutation feature importance.\" Permutation importance is not subject to impurity-bias. Variable importance ranks are validated empirically: \"frequency-dependent transmission formulation consistently associated with better-fitting models.\" Main conclusions about transmission pathways derive from posterior parameter estimates (60% farm-to-farm, 95% credible intervals), not from importance magnitude or ranking."
+}

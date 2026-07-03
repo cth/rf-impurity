@@ -1,0 +1,18 @@
+{
+  "id": "W4383711365",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Section 2.7: \"Feature importance was assessed using Gini importance.\" Results 3.3 identifies \"putative novel drug-resistance mutations\" based on high importance ranking (e.g., ethR 579G>C, embA Ala576Thr). Discussion acknowledges known limitation: \"the feature weighted model may be biased towards features with higher minor allele frequency. This is also a known existing limitation of RF models using Gini importance measures.\" The paper ranks mutations by Gini importance to distinguish causal drug-resistance drivers from confounded phylogenetic variants, but lacks permutation or SHAP corroboration."
+}

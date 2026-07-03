@@ -1,0 +1,18 @@
+{
+  "id": "W3008610133",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper used 17 feature selection methods including \"ranger_impurity\" (MDI-based) alongside permutation-based methods. For feature ranking, they state: \"In order to identify the most important features/descriptors associated with DILI, we examined the first five descriptors identified by each selection algorithm...computed the frequency with which descriptors occurred among the most important five features.\" They then rank features: \"Among the most important chemical descriptors associated with liver toxicity in our study were the mean atomic polarizability (Mp), the percentage of hydrogen atoms (H%), the Geary autocorrelation of lag 1 weighted by mass (GATS1m)...Moriguchi octanol water partition coefficient (MLOGP).\" However, they do not isolate results from impurity-based vs. permutation-based methods, nor do they use SHAP, PDP/ALE, or conditional importance to corroborate rankings. The 3839 molecular descriptors represent mixed continuous types at different scales (atom counts, autocorrelations, molecular properties)."
+}

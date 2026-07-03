@@ -1,0 +1,17 @@
+{
+  "id": "W3196757689",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Section 3.3.2 and Figures 4-5 show the impurity filter achieves mediocre predictive performance compared to variance and carss: it loses to variance on all 11 datasets and to carss on 8/11 datasets (Figure 4). The paper's main conclusion states \"the simple variance filter outperforms all other considered filter methods\" and recommends variance or carss as alternatives. Impurity importance is one of 14 methods evaluated solely on whether selected features predict well on held-out test sets, not on the validity of importance magnitude or ranking."
+}

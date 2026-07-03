@@ -1,0 +1,17 @@
+{
+  "id": "W4411950131",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest with permutation importance (not impurity importance) stated explicitly: \"The importance of each variable corresponds to the decrease in model performance upon shuffling of its values (permutation).\" They visualize effects with partial dependence plots using the pdp package. Core conclusions about oxygen trend mechanisms rely instead on HLM trend estimates, HGAM seasonal analysis, and explicit quantitative decomposition of drivers (Eq. 1), not RF importance ranking."
+}

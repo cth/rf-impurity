@@ -1,0 +1,19 @@
+{
+  "id": "W4302363550",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses permutation-based feature importance: \"permutation-based feature importance was estimated for the random forest\" with figure 2 defining it as \"the reduction in model predictive skill when permuting the values of that feature.\" Impurity-based importance is not reported or used. Main conclusions rest on predictive performance (balanced accuracy 0.85, AUROC 0.92 on holdout validation), not on importance ranking. Feature interpretation is corroborated by partial dependency plots and surrogate models validated against clinical knowledge."
+}

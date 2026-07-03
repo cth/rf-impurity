@@ -1,0 +1,19 @@
+{
+  "id": "W4415648248",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"Permutation variable importance and ALE were then probed for insights into the site-specific factors affecting SOC change following land-use change. Both variable importance and ALE were determined using tools from the mlr3 package.\" The key findings explicitly rank variables by importance: \"the WRB soil group was the most important site characteristic for determining the magnitude of SOC change for LUC across all LUC directions\" and \"After the reference soil group, mean annual precipitation and coarse content were the next most important drivers.\" Because permutation importance is robust to impurity bias and is corroborated by ALE conditional effect plots, the magnitude and ranking conclusions are not compromised by the bias."
+}

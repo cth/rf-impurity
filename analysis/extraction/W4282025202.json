@@ -1,0 +1,14 @@
+{
+  "id": "W4282025202",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses BART importance (split frequency) rather than random forest impurity importance. Figure 3b ranks predictors as important, identifying 'age and smoking status as the two most important predictors of response.' These rankings are presented alongside chi-squared tests from Table 2 to argue for confounding, but the statistical tests (e.g., tobacco use p<0.001, age 61-70 p<0.001) provide the primary evidence. The core contribution—validating a targeted learning-based nonresponse adjustment method—does not depend on magnitude or ranking of importance; it depends on demonstrating that confounders exist and that adjustment improves estimates relative to phone survey benchmarks."
+}

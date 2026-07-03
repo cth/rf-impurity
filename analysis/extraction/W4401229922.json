@@ -1,0 +1,20 @@
+{
+  "id": "W4401229922",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly employs \"permutation feature importance scores for each feature...by permuting the respective feature...and evaluating by how much the classification error increases on average.\" The authors interpret magnitude and ranking, stating \"Violent Action content, in addition to punctuation and word count, was the most important feature in distinguishing between those who had mobilized and those who had not.\" However, permutation importance is robust to the impurity bias that magnifies effect sizes and confuses linear/non-linear effects. The findings are corroborated through Shapley values showing effect direction, 5-fold cross-validation with user ID blocking, and qualitative content analysis from Part 1."
+}

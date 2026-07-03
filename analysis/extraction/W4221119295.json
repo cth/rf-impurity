@@ -1,0 +1,16 @@
+{
+  "id": "W4221119295",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "\"The importance of explanatory variables in Random Forest modeling was determined by the unbiased difference in mean squared error (ΔMSE). Psychosocial stress rating and percentage of physical performance following COVID-19 were found to affect the ANX, DPR, OMH, and QoL scoring to the greatest extent in the AT cohort. Psychosocial stress, acute concentration deficits, symptom burden, and physical performance impairment are the strongest single explanatory features both in univariate and multivariate Poisson modeling.\""
+}

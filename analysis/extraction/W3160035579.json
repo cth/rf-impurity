@@ -1,0 +1,18 @@
+{
+  "id": "W3160035579",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper analyzes Gini importance for the decision tree and GBT models, interpreting comparative feature importance rankings: characteristics such as retirement and number of children became relatively more important at later follow-up intervals (3-6 and 6-9 years) than at 0-3 years. These magnitude and ranking claims lack corroboration via permutation importance, SHAP, PDP/ALE, or conditional importance, leaving them vulnerable to impurity-importance bias which could misattribute interactions (captured by GBT) or magnify effects on skewed features (e.g., smoking: 67.7% vs 3.2% by sex)."
+}

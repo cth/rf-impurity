@@ -1,0 +1,17 @@
+{
+  "id": "W7125014716",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Feature importance scores extracted from classifiers ranked genes by aggregated importance across five algorithms; top 100 from each retained, consensus-filtered to 17 genes appearing in all algorithms. \"Priority genes\" identified by pathway enrichment counts (E2F3: 8 pathways, BRCA2: 7, MED1: 5) rather than importance magnitude. External validation on independent cohort achieved ROC AUC 0.78 with 0.86 sensitivity. Biological claims corroborated through Gene Ontology, KEGG, and Reactome pathway analysis across four databases."
+}

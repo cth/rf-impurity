@@ -1,0 +1,20 @@
+{
+  "id": "W4281778533",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "Paper uses Gini importance to rank variants: \"We used VariantSpark to determine the Gini-importance score for all genetic variants in the viral genome.\" Main claims lean on ranking: \"We found that the mutations clustering around the 3′-5′ exonuclease had the highest importance scores of all the significant pathogenic loci.\" Corroborated by logistic regression: \"The rank correlation for the top 20 LR hits was 0.90, indicating a good agreement on the dominant signal\" and robustness tested via balanced dataset replication showing \"clusters of mutations in S proteins were reproduced.\""
+}

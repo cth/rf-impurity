@@ -1,0 +1,16 @@
+{
+  "id": "W4400414696",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses the R package vip to extract variable importance from a ranger random forest model without specifying the importance type, defaulting to impurity-based (Gini) importance. The authors explicitly rank variables by importance magnitude: \"Delayed GES was the most important predictor by variable importance analysis, followed by absence of diabetes, BMI, and infectious prodrome\" and state clinical conclusions directly tied to these rankings such as \"increase in BMI was predictive of response\" while \"delayed GES, absence of diabetes, and infectious prodrome were predictors of nonresponse.\" They validate on a held-out test set but provide no permutation importance, SHAP, PDP/ALE, or conditional importance corroboration of the variable rankings."
+}

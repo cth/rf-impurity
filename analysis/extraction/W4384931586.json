@@ -1,0 +1,15 @@
+{
+  "id": "W4384931586",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The RF results section states: \"In the constructed model, the most significant factor affecting body length was province, withers height (WH), followed by HR and HL, respectively (Table 3 and Figure 4)\" using Inc Node Purity (impurity importance) values without p-value testing. The conclusion explicitly ranks variables by impurity importance: \"In order of importance, the variables affecting the body length in donkeys were Province, WH, and HR for the RF Algorithm.\" No corroboration methods (permutation, SHAP, PDP/ALE, conditional importance) are applied. Features are mixed (11 continuous morphological traits + categorical Province with 13 levels, Sex with 2 levels, Coat colour with 4 levels). High correlations exist among predictors (WH-HR: 0.951, WH-HL: 0.783), creating conditions for unstable importance rankings and bias toward high-cardinality categorical variables."
+}

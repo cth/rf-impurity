@@ -1,0 +1,17 @@
+{
+  "id": "W3126841944",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Paper explicitly uses mean decrease in node impurity and mean decrease Gini for RF feature importance. Authors interpret biological drivers from feature ranking: soil data show \"prediction is primarily driven by few OTUs of extreme pH ecosystems (e.g., genera Rubrobacter and Balneimonas)\"; pig data note \"great importance given by cLin to Desulfovibrio.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out predictive validation of feature ranking is provided to corroborate these importance magnitude and ranking claims."
+}

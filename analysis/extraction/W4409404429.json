@@ -1,0 +1,17 @@
+{
+  "id": "W4409404429",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Gini impurity alongside permutation importance for ranking: 'Importance ranking of agronomic traits for rice improvement between landraces and improved varieties, assessed through permutation-based accuracy reduction and Gini impurity decrease' (Figure 1A). The RF model 'identified plant height as the trait most significantly affected by rice improvement, followed by grain width, grain length-to-width ratio, spikelet number per panicle, secondary branch number, and grain yield per plant.' The permutation-based corroboration validates the ranking, preventing bias corruption of magnitude/ranking. The importance ranking guides candidate selection but the paper's primary conclusions center on specific TE variants and their expression/phenotypic effects, not on trait importance magnitudes."
+}

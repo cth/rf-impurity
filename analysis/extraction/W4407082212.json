@@ -1,0 +1,18 @@
+{
+  "id": "W4407082212",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses Random Forest with default MDI (mean decrease in impurity) importance via tidymodels, reporting \"variable importance of each model was scaled to be within [0,1].\" It explicitly ranks biomarkers: \"Among the eight common CVD-risk biomarkers, the top three predictive biomarkers in plasma were LRP1B (median importance = 0.876309), PLXNB2 (median importance = 0.352254), and CCL15 (median importance = 0.328339)\" and identifies LRP1B as \"the strongest CVD-risk predictive biomarker.\" Biomarker selection and clinical prioritization depend entirely on these importance rankings. However, the paper provides no permutation importance, SHAP, or held-out test validation of these ranking magnitudes only cross-validation AUC for overall model performance."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4382181694",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: \"for RF based on 50-fold permutation runs per feature.\" The authors rank trait importance (n_tiller highest, followed by Tmin, tPH_start, lrc) and use these rankings to inform conclusions about which physiological traits drive yield, stability, and protein content predictions. However, permutation importance is robust to impurity-importance bias, unlike Gini/MDI."
+}

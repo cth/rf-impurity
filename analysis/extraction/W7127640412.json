@@ -1,0 +1,16 @@
+{
+  "id": "W7127640412",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not compute or discuss random forest impurity importance. ARF uses random forests as discriminators in adversarial training for conditional density estimation, but no variable importance metrics are presented. Evaluation focuses exclusively on imputation quality (NRMSE, Brier score) and inference validity (coverage rate, CI width, coefficient RMSE). The study compares imputation methods by their downstream prediction and inference performance, not feature selection or importance ranking."
+}

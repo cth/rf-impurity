@@ -1,0 +1,16 @@
+{
+  "id": "W4386849628",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses permutation variable importance (VIMP), not impurity-based importance, with 155 VIMP references and zero references to Gini/MDI. Authors report KDPI as having \"second highest importance\" (ranking) and conclude it \"plays an important role in post-transplant survival, regardless of correlations with other predictors.\" They corroborate this ranking using conditional residual-based analysis. Since impurity importance bias does not apply to VIMP methods, p_affected is false."
+}

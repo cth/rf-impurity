@@ -1,0 +1,17 @@
+{
+  "id": "W4313511865",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states it \"determined the variable importance for each model based on the training set using the packages' built-in methods\" (impurity-based for ranger). The Discussion repeatedly interprets magnitude and ranking: \"the most important predictors\" (parallel program, application timing), \"the order of predictors reverses\" in year 2, and \"the third group of predictors...becomes important.\" These rankings drive all mechanistic claims about educational fit, study choice issues, and academic performance. No permutation importance, SHAP, PDP/ALE, or conditional importance validation is mentioned."
+}

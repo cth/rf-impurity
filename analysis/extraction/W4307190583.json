@@ -1,0 +1,17 @@
+{
+  "id": "W4307190583",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states in Methods section 2.6: \"Random forest regression using the R package ranger with variable importance being formally assessed via the R package vip (variable importance plot) was used to formally address this issue of variable selection. The most predictive of the covariates identified by this process were then entered into the regression modelling equations.\" The importance assessment is used only for yes/no covariate selection; the actual conclusions derive from IPW panel regression and geospatial regression with p-values (1.91 × 10^-5 to 7.84 × 10^-15) and E-value sensitivity analysis. No magnitude or ranking of importance scores is reported or discussed in the main text; importance tables are relegated to supplementary materials S3-S7 and never referenced in results or conclusions."
+}

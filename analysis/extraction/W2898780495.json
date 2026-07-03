@@ -1,0 +1,17 @@
+{
+  "id": "W2898780495",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses Gini Index for random forests importance: 'In random forests, the Gini Index importance of a feature was estimated based on the impurity of splitting testing samples on the tree node using the feature.' The authors select genes based on ranking: 'Both ensemble learning algorithms produced rankings on the importance of SNP contribution to the disease classification. By comparing the rankings provided by both algorithms, we identified a set of 44 top ranked SNPs from both coding and non-coding regions of DNA.' They identify and emphasize specific high-ranked SNPs: 'SNP rs3760948 from gene ARRDC5 was ranked the highest by both random forests and GBM.' The authors provide no permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of the importance rankings themselves, only permutation testing of gene-gene interactions among the selected 44 SNPs.\""
+}

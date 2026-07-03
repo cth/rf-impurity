@@ -1,0 +1,18 @@
+{
+  "id": "W3046447800",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger random forest and explicitly ranks features by impurity importance: \"checking the top model feature importance (where direct bilirubin, TLCA and HDCA are among the most important variables, whereas sex and TUDCA are of less influence).\" No permutation importance, SHAP, PDP/ALE, or other corroboration methods are applied. While the main conclusion emphasizes naive bayes as the best algorithm, the feature ranking is presented as a finding about model behavior without corroboration, risking misattribution of importance on the heterogeneous (mixed continuous/categorical, skewed distributions, scale mismatched) bile acid features."
+}

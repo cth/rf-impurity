@@ -1,0 +1,16 @@
+{
+  "id": "W4400951408",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains random forest ensemble models and explicitly states: \"Feature importances were determined separately for each SDG by permuting individual predictors and recording the drop in performance.\" They report ranking: \"Auckland, SDGO, and SDSN received higher feature importance relative to the Aurora, Elsevier, and SIRIS systems.\" Since permutation importance is used rather than impurity importance, the documented bias does not apply to this work."
+}

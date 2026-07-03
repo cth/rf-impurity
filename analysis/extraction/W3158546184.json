@@ -1,0 +1,18 @@
+{
+  "id": "W3158546184",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper evaluates variable selection performance by \"frequency of ranking top of the variable importance measures of the correct variables\" and concludes \"MSR-RF and CIF have higher selection rates\" than RSF, with \"MSR-RF possess practical value and is well worth popularizing.\" However, the authors themselves observe that \"higher correct variable selection frequency does not match better IBS or c-index value exactly in simulation study,\" indicating VIM-based ranking does not correlate with predictive validity. No permutation importance, SHAP, or conditional importance corroboration is provided, leaving method-ranking conclusions vulnerable to impurity-importance bias, especially for RSF which the paper acknowledges exhibits \"selection bias towards covariates with more possible split points.\""
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4391754065",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper used random forest variable importance calculated from splits: \"A variable importance measure is associated with each variable and calculated based on the number of splits in which a variable is involved,\" ranking BNP and NT-proBNP \"at the top but with very large CIs.\" However, the authors acknowledged this was unstable (\"The instability of the variable importances from the random forest was unsurprising, as such methods are notoriously data hungry\"). Critically, the main biomarker conclusions derive from Cox proportional-hazards models with discovery and external validation, not from random forest importance ranking."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "W4413644185",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "Study 1 used \"a permutation-based feature importance analysis\" that \"shuffled the values of each of the 594 predictors one at a time across all observations and assessed the extent to which the model's loss value changed due to this permutation.\" The top 60 items from this ranking form the ML-CVI. However, Studies 3a-4b validate the explanatory conclusions through mediation analysis: \"In study 3a, we found that among five prominent existing culture scales and 60 items of the ML-CVI, only ML-CVI item 26 was able to explain the difference between Americans' and Mexicans' behaviors in following Covid-19 lockdown orders.\" Similarly, final conclusions about perseverance explaining US-India environmental differences are corroborated via direct mediation testing, not feature importance magnitude."
+}

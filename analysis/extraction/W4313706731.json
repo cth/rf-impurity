@@ -1,0 +1,19 @@
+{
+  "id": "W4313706731",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses random forest with \"importance set to 'impurity,' which measures variance of the response\" to screen 1500+ pollution variables. It identifies diisocyanates as \"the top environmental exposure identified by univariate Poisson regression, by lasso selection across multiple years, and by random forest\" - a ranking-based conclusion. However, three lines of independent corroboration mitigate impurity bias: (1) lasso and Poisson regression independently confirm diisocyanates as most predictive, (2) \"partial dependence plots demonstrate a monotonic increase,\" and (3) clinical validation where \"areas with above-average levels of TDI had a nonsignificant increase in baseline severity but were more responsive to R. mucosa treatment.\""
+}

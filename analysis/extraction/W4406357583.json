@@ -1,0 +1,19 @@
+{
+  "id": "W4406357583",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses permutation importance (\"relative increase in MAE when an alternative random forest model was fitted using the predictor randomly permuted\"), not impurity importance. While the paper does interpret importance magnitude and ranking extensively to identify top drivers of radon variation, permutation importance is a robust method resistant to the documented impurity-bias effects on magnitude and ranking. Corroboration through partial dependence plots further validates findings."
+}

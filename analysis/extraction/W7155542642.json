@@ -1,0 +1,18 @@
+{
+  "id": "W7155542642",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper explicitly uses permutation-based variable importance via vip package with ranger, not impurity importance: 'averaging permutation-based importance scores across the five imputed datasets via the vip package'. Random Forest analysis is supplementary/exploratory in Supplementary Fig. S2 C, used to complement regression: 'Complementary Random Forest analysis confirmed the paramount predictive importance...reinforcing the key variables identified via regression'. Primary conclusions rest on multivariable logistic/Poisson regression with odds ratios, prevalence ratios, and p-values/confidence intervals."
+}

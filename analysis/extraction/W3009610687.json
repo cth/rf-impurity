@@ -1,0 +1,17 @@
+{
+  "id": "W3009610687",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses minimum depth from randomForestExplainer, not impurity-based importance (Gini/MDI/variance). Section 2.4 states: \"the minimum depth of each variable was calculated, which is frequently used as a measure of variable importance.\" Variable rankings are corroborated with Shannon entropy (round 3 drop for HCDR3, round 4 for LCDR3) and validated through independent phage ELISA, achieving 14 AR clones from the AR library versus 0 from the NR library. Main conclusions rest on held-out validation accuracy, not importance ranking."
+}

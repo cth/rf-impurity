@@ -1,0 +1,18 @@
+{
+  "id": "W7138434177",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses Random Forest RFE with Gini impurity for feature selection but explicitly pivots to SHAP for reporting magnitude and ranking: \"The global contribution of individual features was assessed by calculating the Mean Absolute SHAP Value (MASHV)...Among the most influential taxa, Micrococcaceae, Corynebacterium, and Kocuria stand out for their high predictive power.\" External validation on 57 HPAIV-infected samples confirmed the model \"correctly classified even under viral-induced conditions.\" This dual corroboration (SHAP plus held-out validation) is adequate despite RFE's reliance on impurity importance."
+}

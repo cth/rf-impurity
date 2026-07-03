@@ -1,0 +1,18 @@
+{
+  "id": "W4221015074",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"Variable importance was assessed by standardized logistic regression coefficients and ranger's random forest permutation importance.\" Ranger's permutation importance is distinct from impurity-based importance and is robust to the described bias. Although the paper interprets variable ranking (\"Emergent hospital admission was weighted more heavily than discharge diagnoses\"), these interpretations support model interpretability rather than drive the main conclusions, which focus on sensitivity/specificity improvements: \"machine learning algorithms...were sensitive and specific, and are likely an improvement over current state of classification.\""
+}

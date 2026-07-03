@@ -1,0 +1,17 @@
+{
+  "id": "W4411375851",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The authors report feature importance from random forest models (e.g., \"The most important feature in the decision trees was the largest syllable duration\") but explicitly ground their substantive conclusions in classification accuracy corroborated by multiple methods: \"While no single song feature reliably distinguishes the two species, machine learning models classified songs with relatively high accuracy (random forest: 89.5%, deep learning: 90%, gradient boosting machine: 88%, convolutional neural network: 88%).\" Their central claim is that \"combinations of these features could classify songs with high accuracy,\" validated across 5+ independent ML algorithms achieving 85-90% accuracy. They do not argue that ranking of importance values reveals biological drivers of speciation."
+}

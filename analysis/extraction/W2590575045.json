@@ -1,0 +1,16 @@
+{
+  "id": "W2590575045",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper identifies \"main geographic predictors\" (SBACC distance, latitude, shore distance) vs \"moderately important\" vs \"least important\" predictors based on impurity-importance rank. Core claims include: \"SSH, SST, log chl-a, station duration, wind speed, wind direction, depth, and wind stress were moderately important predictors of occurrence, whereas month and day/night were the least important.\" These rankings are computed by \"decrease in node impurity, as measured by the mean sum of squares, resulting from splitting of the variable of interest.\" No permutation, SHAP, or other robust importance corroboration is provided; cross-validation only validates predictive accuracy, not importance ranking. Features include log-transformed responses, derived distances, and count data vulnerable to impurity magnification."
+}

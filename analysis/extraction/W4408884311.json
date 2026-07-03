@@ -1,0 +1,17 @@
+{
+  "id": "W4408884311",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly interprets importance magnitude and ranking to identify \"drivers of microclimatic variability\": local macroclimatic data \"exerted the most substantial influence, with its influence ranging from 50 to 80%\"; TMIN at station is ranked #1 with 68.3% importance for soil temperature prediction; solar radiation, FAPAR, NDMI emerge as \"key predictors\" based on relative importance percentages. No alternative importance methods (permutation, SHAP, PDP/ALE, conditional) are used to corroborate these rankings."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4402333632",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses mutual information (MI) to score and select genomic features, then employs the iSource probabilistic attribution algorithm to assign infection sources to human cases. Feature selection prioritizes \"patterns with the greatest source-associated MI score (100,000 per source)\" and \"30 most accurate unitigs were selected for each species\" based on accuracy metrics, not random forest impurity importance. Random forest with ranger is used only to generate initial models; feature importance is neither reported nor cited. The main conclusions rank sources by attribution percentages (poultry 68%, cattle 28%, wild birds 3%, pork 1%) derived from probabilistic model predictions validated through hold-out testing achieving 90% accuracy."
+}

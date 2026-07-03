@@ -1,0 +1,19 @@
+{
+  "id": "W4367692695",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"permutation-based variable importance analysis\" (Fig. 1e) and SHAP for model interpretation. While they interpret magnitude of contributions (e.g., \"basic peptides and higher net charge variables had higher contributions\"), the main conclusions depend on experimental validation, not importance ranking: \"Engineered HR97 peptide demonstrated increased cell-penetrating properties...and simultaneously possessed high melanin binding capacity and low cytotoxicity\" with Pearson r=0.84 correlation for melanin binding and p<6.9×10−6 differences in cell uptake between predicted categories. Adversarial controls revealed importance instability, and predictions were experimentally validated before being used for biological conclusions."
+}

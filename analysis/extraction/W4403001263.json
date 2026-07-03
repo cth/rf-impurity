@@ -1,0 +1,17 @@
+{
+  "id": "W4403001263",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests (ranger package) to estimate ITEs and presents variable importance in Fig. 3A, ranking KS1 maths as \"the most important predictor of ITEs.\" This ranking is then corroborated by ICE plots (Fig. 3B) showing conditional relationships: \"Figure 3 B shows the expected influence of KS1 maths score on ITEs at an individual level...we can observe an interaction effect between FSM and k1m.\" The paper explicitly caveats the importance ranking: \"However, the variables ranked in the importance plot are observed covariates in the data, it does not mean that no other factors that were not observed in the study are at least as important as k1m.\""
+}

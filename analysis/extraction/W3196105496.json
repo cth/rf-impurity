@@ -1,0 +1,16 @@
+{
+  "id": "W3196105496",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper computes Gini index reduction (random forest) and information gain (XGBoost) importance on 228 physiologic and lab features, explicitly reporting top-20 rankings and noting certain features 'featured prominently.' However, substantive conclusions focus on model predictive performance (AUC >0.91, PPV >0.93, lead time 22.7-37 h, risk stratification accuracy), which do not require correct feature importance ranking. Feature importance discussion is exploratory, concluded with 'Future larger studies should be undertaken to understand the contribution of each of these features.' The authors acknowledge that 'these methods are prone to inconsistency in feature importance among correlated features' but provide no permutation, SHAP, PDP/ALE, conditional, or held-out validation of rankings."
+}

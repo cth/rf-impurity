@@ -1,0 +1,18 @@
+{
+  "id": "W4412488746",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper's core aim is to \"identify the most important predictors of risky alcohol use,\" presenting rankings where \"weekly drinking at the previous wave (mean weighted importance 0.999), lifetime cannabis use (0.446), lifetime parent financial stress (0.420)\" lead the list. These impurity-importance rankings directly drive clinical recommendations: \"Using the most important features in SuperLearner to improve prediction of risky alcohol use may enable earlier and more efficient alcohol prevention programs and messaging by targeting resources to those most at risk.\" The paper provides no permutation importance, SHAP, PDP/ALE, or conditional importance validation of these magnitudes and rankings, relying instead only on ensemble weighting as corroboration."
+}

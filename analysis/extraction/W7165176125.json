@@ -1,0 +1,16 @@
+{
+  "id": "W7165176125",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states Random Forest \"yields measures of variable importance\" in methods but never reports these measures. Results focus exclusively on AUC-based discrimination: \"Random Forest models using structural variables alone showed limited discrimination (AUC 0.56-0.66).\" Conclusions rest on predictive discrimination metrics, not importance magnitude or ranking. The conclusion that \"Structural variables alone were insufficient\" reflects that the model's AUC with structural variables was modest, not variable importance interpretation."
+}

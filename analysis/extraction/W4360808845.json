@@ -1,0 +1,17 @@
+{
+  "id": "W4360808845",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper reports: \"The following five serum metabolites and covariates were the most important features in the classifier; glycerol, cholesterol esters to total lipids ratio in very large HDL particles, acetoacetate, free cholesterol to total lipids ratio in large HDL and age.\" It then states \"In our model, glycerol was the most important predictor\" and uses these importance rankings to drive biological interpretation without corroboration. No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of rankings is provided."
+}

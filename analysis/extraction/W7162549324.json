@@ -1,0 +1,18 @@
+{
+  "id": "W7162549324",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses leave-one-feature-out (LOFO) importance on the ensemble, explicitly stating: \"A LOFO importance analysis was applied on ENS to identify features most predictive of resistance.\" This is a permutation-based method, not impurity-based. Feature importance ranking is validated through external testing (80.4% balanced accuracy on held-out CAMDA data) and biological corroboration: identified features (LAC-4 strain, tetracycline/aminoglycoside gene classes) align with established resistance mechanisms documented in the literature."
+}

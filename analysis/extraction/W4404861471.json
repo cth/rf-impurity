@@ -1,0 +1,16 @@
+{
+  "id": "W4404861471",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper ranks and selects variables using cross leverage scores (CLS), not random forest impurity importance. In Section 6.1, Random Forests are used only for predictive validation: \"We perform the variable selection on a training data set...and then test the predictive performance on the remaining test data.\" Variable importance measures in Section 6.2 are from logic regression (\"vim_type = 'logic'\"), not from tree impurity. CLS derivation (Equation 3) is based on leverage in the column space: c_ip = <Q_i, Q_p>, where Q comes from the QR decomposition of the design matrix, not from split-based importance."
+}

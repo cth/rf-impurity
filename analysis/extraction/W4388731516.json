@@ -1,0 +1,18 @@
+{
+  "id": "W4388731516",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper uses Shapley values, not impurity-based importance: 'These importances generated via Shapley values...show kinase inhibition states to be overwhelmingly more important.' Shapley values are permutation-based and robust to impurity bias. Features include ~800 continuous inhibition states, ~20,000 gene expression values, and additional omics types, with acknowledged scale mismatch. Main conclusions center on predictive accuracy (R^2 0.7) and experimental validation, not feature ranking."
+}

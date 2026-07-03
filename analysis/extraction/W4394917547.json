@@ -1,0 +1,17 @@
+{
+  "id": "W4394917547",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper employs random forest classification with the vip package as one of four independent differential-abundance detection methods. Critically, \"ASVs were only determined to have significantly differential abundance on either side of Wallace's line if they were identified by all four methods.\" The random forest is used solely for binary selection (variable inclusion), not for interpreting magnitude or ranking of importance. The paper concludes: \"Seven ASVs were found to be differentially abundant across Wallace's line by all four methods used,\" relying on consensus across beta-binomial, indicspecies, random forest, and Sloan Neutral Model rather than on forest-importance rankings."
+}

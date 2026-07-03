@@ -1,0 +1,18 @@
+{
+  "id": "W7140082457",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"We utilized the TreeExplainer algorithm to quantify the marginal contribution (Shapley value) of explicit features in XGBoost.\" The results section analyzes feature importance by examining SHAP values: \"XGBoost exhibits a highly discriminative and sparse decision logic, aggressively isolating the dominant error drivers (Figure 8a). It strictly prioritizes sensor geometry, with the trigonometric components of aspect (aspect_sin, aspect_cos) emerging as the paramount determinants (mean SHAP ~3.3).\" These magnitude-based SHAP rankings are central to explaining why explicit physical features outperform implicit geometry approaches."
+}

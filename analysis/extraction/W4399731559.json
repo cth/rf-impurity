@@ -1,0 +1,14 @@
+{
+  "id": "W4399731559",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Methods: \"Feature importance was calculated...finally 20 genes with the highest Gini importance were selected within each cluster (Fig. S6).\" Table 2 presents top genes by Gini importance. However, main substantive conclusions about pathotypes in clusters (e.g., \"A-A includes 86% of all STEC strains\") are based on actual frequency distributions shown in Figs. 2b and S3, not importance magnitudes."
+}

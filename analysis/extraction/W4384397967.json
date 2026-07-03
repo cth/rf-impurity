@@ -1,0 +1,18 @@
+{
+  "id": "W4384397967",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper reports: \"The highest ranking variables of importance for classification and all regression variables were irradiation year and PTV1 and PTV2 extent.\" However, univariate analysis contradicts this parity: extent predicts pass rate with R^2=0.71-0.85 (p=0.008-0.003), while year shows R^2=0.30 (p=0.20, non-significant). The ranking that year equals extent in importance is not corroborated by univariate regression. No permutation, SHAP, PDP/ALE, or conditional importance is provided to defend the ranked distinction between variables, leaving the ranking vulnerable to impurity bias magnification."
+}

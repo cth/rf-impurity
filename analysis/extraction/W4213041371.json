@@ -1,0 +1,16 @@
+{
+  "id": "W4213041371",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: \"In this study, permutation importance was selected as our measure of covariate importance\" and uses the Conditional Inference Forest \"to avoid the bias that results from favouring covariates that have many split points.\" Conclusions lean on ranking: \"Mother's education ranked first in 5 out of the 11 datasets, and wealth index ranked first in three out of the eleven datasets...these two factors are dominant in predicting U5MR.\" Validation occurs through 10-fold cross-validated C-indices on held-out test data and independent DeepSurv model confirmation (C-indices 67-80%) that \"these factors are still highly associated with U5MR.\""
+}

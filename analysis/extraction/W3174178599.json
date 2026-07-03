@@ -1,0 +1,17 @@
+{
+  "id": "W3174178599",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses \"permutation importance\" for RFR variable importance (Section 2.2.3), not impurity-based methods. It does interpret and rank band importance across all trait analyses: \"The waveband ranking for N conc in the full FS dataset showed the RE spectral region around 710 nm to be of high importance.\" Corroboration occurs through GPR-BAT and GSA as alternative methods. Feature heterogeneity exists with multiple crops, 172 spectral bands in the field spectrometer dataset, and data from different collection sources. Since impurity importance was not used, the documented bias does not affect this work's conclusions."
+}

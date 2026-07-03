@@ -1,0 +1,19 @@
+{
+  "id": "W4414059689",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses causal forest variable importance based on split-count frequency, reporting that \"Body mass index and age showed high variable importance of the causal forest model, followed by responses to some GDS questions.\" However, the substantive conclusions focus on treatment effect heterogeneity via CATE estimation and stratification, not on variable importance magnitude or ranking. While BMI received \"high variable importance\", the paper acknowledges its CATE patterns \"were not clear\"—a potential impurity-importance bias artifact. The main findings about which groups benefit most from social participation derive from CATE-driven stratification and treatment effect estimates, making variable importance ancillary rather than central."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "W4206724638",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper reports LURF models built with ranger (which uses impurity-based importance by default) and identifies \"most important predictors\" as \"traffic load for light vehicles and heavy and commercial vehicles and roads length\" at specific buffer scales. This ranking is presented without permutation importance, SHAP, PDP/ALE, conditional importance, or held-out importance validation. The importance-based identification of traffic dominance directly supports the paper's policy recommendations for \"more ambitious traffic calming policies,\" making the ranking central to conclusions."
+}

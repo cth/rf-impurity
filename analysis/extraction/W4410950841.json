@@ -1,0 +1,18 @@
+{
+  "id": "W4410950841",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper employs Random Forest with Liaw-Wiener Gini/MDI importance, explicitly reporting \"relative importance\" percentages (39.32% for PRE_SL, 17.83% for TMP_SL, 16.88% for NDVI_SL, 13.03% for NPP_SL) and concluding \"Precipitation emerged as the most influential variable affecting SOC.\" These importance magnitudes and rankings drive practical policy recommendations: \"governments should carefully consider...support sustainable land management...to promote long-term carbon sequestration.\" Corroboration is limited to Spearman correlation (r=0.330, -0.201, 0.107, 0.098) and test-set R²=0.78, neither of which validates importance magnitude/ranking against impurity bias. No permutation importance, SHAP, PDP/ALE, or conditional importance analysis is performed. With mixed-type features (continuous climate/vegetation, categorical land-use), likely precipitation skew, and resolution mismatches (1km, 250m, 30m resampled to 500m), impurity-bias mechanisms are plausible."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4396867613",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states \"importance scores based on permutation\" in the Methods section. Variable importance is used as a threshold filter (>1) to identify predictive taxa, validated by temporal abundance patterns in Figure 7G showing how selected ASVs vary across PMI. Main conclusions emphasize model predictive performance (MAE 1.36 weeks, R2 0.91) and the existence of a microbial clock in extreme cold environments, not variable importance ranking."
+}

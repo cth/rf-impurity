@@ -1,0 +1,17 @@
+{
+  "id": "W4289637285",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses \"permutation importance option in ranger\" to calculate variable importance values for Random Forest models predicting ant richness and rarity. They interpret both magnitude and ranking, stating \"vertebrate patterns, sampling intensity, and several climate variables rank high on the basis of variable importance\" and conclude that \"vertebrate patterns are the most informative variables...being more important than climate or biogeographic realm.\" Permutation importance is immune to the impurity importance bias because it directly measures predictive contribution rather than relying on impurity-based metrics. While magnitude/ranking interpretation is present, the method itself is robust."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W7154505907",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper identifies \"the most important variables (Fig. 3)\" from the quantile random forest, using importance ranking to characterize which predictors matter and to justify including/excluding climate variables (\"reflecting the low importance of some climate predictors\"). Figure 4 provides partial corroboration through marginal relationship plots for two variables, but systematic validation of the importance ranking is absent. The 29 predictors span mixed types (continuous and categorical), skewed distributions, and mismatched scales, making them vulnerable to impurity importance bias. However, the core contributions (global maps and phosphorus stocks) do not depend on the importance ranking itself."
+}

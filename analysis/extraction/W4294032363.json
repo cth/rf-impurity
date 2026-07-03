@@ -1,0 +1,18 @@
+{
+  "id": "W4294032363",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses DALEX's permutation-based algorithm rather than impurity-based importance: \"the DALEX package has a permutation-based algorithm that permutes the value of each variable and assesses the increase in error compared to the baseline prediction.\" Main conclusions center on prediction accuracy (\"We achieve a high correlation with chronological age\"), biological correlates (\"predicted cell age correlated with differentiation...mutation burden positively correlated with predicted cell age\"), and clinical applications, not on importance magnitude or ranking. Variable importance values are referenced only in supplementary data."
+}

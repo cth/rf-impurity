@@ -1,0 +1,14 @@
+{
+  "id": "W4417252057",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"Specifically, mean pitch, followed by the leader-lagger continuum emerge as the most important predictors of D1. Articulation rate, followed by mean pitch emerge as the most important predictors of D2.\" These ranking claims are corroborated by the GAMM analysis, which reports similar statistical significance and effect patterns (F=6.254 for articulation rate, F=6.232 for pitch, F=6.172 for leader-lagger), and by regression trees showing parallel structure. The conclusion that \"the perceptual salience of speed and pitch look to be greater than the leader-lagger continuum\" is supported by the GAMM's statement that speed and pitch impact is \"both stronger (differences lead to comparatively low similarity scores...)\" and by multiple statistical methods (MDS, GAMM, PERMANOVA) that all converge on the same variables and patterns."
+}

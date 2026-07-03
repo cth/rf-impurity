@@ -1,0 +1,17 @@
+{
+  "id": "W4412421058",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses permutation importance, not impurity importance. Methods state: \"We assessed the influence of each predictor variable using ranger to compute permutation variable importance scores for each predictor variable (Fig. 6). The score for each variable is the decrease in prediction performance when values for that predictor variable are randomly shuffled.\" The paper validates predictions via 10-fold cross-validation repeated 10 times, reporting out-of-sample mean absolute errors. Variable importance analysis (explaining mechanisms) is secondary to the main conclusions about production estimates (2525.7 million m3 wood fuel, 70.5 million tonnes charcoal)."
+}

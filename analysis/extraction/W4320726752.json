@@ -1,0 +1,19 @@
+{
+  "id": "W4320726752",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses permutation importance: \"Feature importance, measured as the factor by which the model's prediction error increases when the feature is shuffled,\" and Figure 3 labels results as \"Permutation feature importance measured as the factor by which the model's classification error (CE) increases when the feature is shuffled in the test data.\" This avoids the impurity bias entirely. Rankings are corroborated via ALE/PDP plots (\"Accumulated local effects (ALE) plots...were created\"), logistic regression (\"LR captures the same patterns as RF\"), and Cox regression. Since permutation importance is not subject to the documented impurity bias, conclusions about feature rankings are not affected."
+}

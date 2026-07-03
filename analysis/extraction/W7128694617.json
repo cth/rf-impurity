@@ -1,0 +1,17 @@
+{
+  "id": "W7128694617",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses permutation importance, not impurity importance. Methods state: \"The values of a single feature were shuffled in the test data. The model's drop in R^2 after shuffling the feature is an indication of its importance.\" Results show this method consistently identifies vulnerability factors across models (linear regression, random forest, XGBoost, SVM). Findings are corroborated by prior literature and the authors explicitly caution against causal interpretation: \"the feature importance present here cannot be given a causal interpretation.\""
+}

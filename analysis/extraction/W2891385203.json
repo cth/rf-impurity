@@ -1,0 +1,19 @@
+{
+  "id": "W2891385203",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "Methods section: \"Permutation variable importance mode was used.\" The paper ranks variables by importance and makes conclusions based on percentile rankings: \"rs9661059 in chromosome 1, was impressively ranked as the single top predictor\" and \"RF was able to identify causal CpG sites cg00000363 and cg10480950 (each ranked >97th percentile)\". Table 1 validates rankings against linear regression on known causal variables, showing correlation between importance ranks and true effects from regression models."
+}

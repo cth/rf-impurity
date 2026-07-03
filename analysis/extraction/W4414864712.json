@@ -1,0 +1,17 @@
+{
+  "id": "W4414864712",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"GARFIELD utilizes random forests for initial variant selection\" and references filtering \"variants in strong LD with each other. This prevented shared importance scores from masking potentially important variants,\" indicating impurity-based importance is used for selection. However, the entire results section reports LD r^2 values and evolutionary conservation scores; importance magnitudes and variable rankings are never mentioned. Main conclusions rest on conservation evidence and logic-gate-identified combinations, not on importance magnitude or ranking interpretation."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "W3206156826",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Uses impurity importance: \"For both fatal and nonfatal overdose, we ranked each feature by taking the mean of the important values from the 10 weak learners—determined by the variance of responses from each random forest.\" Interprets ranking comparatively: \"Notably, overlapping benzodiazepine prescriptions were more important in the prediction of fatal opioid-related overdose than nonfatal.\" However, substantive conclusions rest on model performance metrics: \"Risk concentration analyses consistently captured half the outcomes of interest in the top quantiles of risk\" and \"Both ensembles were miscalibrated when predicting nonfatal overdose, but the ridge regression ensemble was calibrated when predicting fatal overdose,\" not on feature-importance ranking magnitude or validity."
+}

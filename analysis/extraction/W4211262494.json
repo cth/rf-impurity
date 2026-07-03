@@ -1,0 +1,17 @@
+{
+  "id": "W4211262494",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses Gini impurity importance (ranger package, vip plots, Figure 7) to identify \"the most powerful covariates for entry into multivariable regression\" and states \"The cannabinoid parameter with the highest variable importance on random forest...was LMC_Herb_Daily.\" However, substantive conclusions about effect magnitude and ranking are drawn from inverse probability weighted (IPW) panel regression coefficients, E-values, and categorical analysis measures (relative risk, attributable fraction, PAR) rather than from importance scores themselves. The impurity importance was used for variable selection, while regression analysis with multiple corroborating statistical measures (P-values, confidence intervals, E-values) and epidemiological effect sizes provide the primary evidence for claims about which exposures are associated with congenital anomalies.\""
+}

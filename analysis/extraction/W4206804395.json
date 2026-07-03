@@ -1,0 +1,17 @@
+{
+  "id": "W4206804395",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests with **permutation importance** (not impurity-based) in Studies 1-2 to identify /r/ as the \"most strongly predictive phoneme.\" However, the main conclusions depend on Bayesian logistic regression models and effect sizes: \"63% of rough words contain an /r/, with a 95% credible interval of [51%, 75%]\" vs. 30% of smooth words. Studies 3-4 abandon random forests entirely, using only Bayesian regression. The random forest ranking is exploratory; hypothesis tests and cross-linguistic replication provide the substantive evidence."
+}

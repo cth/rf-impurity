@@ -1,0 +1,18 @@
+{
+  "id": "W4311586381",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses node impurity exclusively for feature selection, stating: \"We also averaged variable importance measures from these 10 random forest models based on node impurity... The 10% least contributing variables were excluded.\" For biological interpretation, they pivot to correlation-based functional enrichment analysis: \"FEA uses associations of all measured CSF proteins with MS severity outcomes (MS-DSS at baseline, MS-DSS at follow-up, and BVD severity): either captured by correlation coefficients (for STRING ordered analysis).\" Conclusions rest on independent cohort validation (17-26% variance explained) and functional pathway enrichment, not on importance magnitude or ranking."
+}

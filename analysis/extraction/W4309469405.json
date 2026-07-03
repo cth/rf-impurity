@@ -1,0 +1,17 @@
+{
+  "id": "W4309469405",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger Random Forest and reports variable importance rankings (e.g., \"Pitch, depth, change in depth...were the six most important variables for Adélie penguins\"). However, the main conclusions focus on transferability and accuracy: \"Our study revealed that behavioural classification obtained from big data recorded with accelerometers can be transferred across individuals within the same population and upscaled...high level of accuracy (>80%).\" No permutation importance, SHAP, or p-value methods (Altmann/Janitza/Boruta) are employed to validate these rankings, and the paper does not make claims about which variables are key drivers of performance."
+}

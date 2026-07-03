@@ -1,0 +1,16 @@
+{
+  "id": "W4375954757",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Gini impurity via 'mi_get_importance' function for feature filtering: \"Finally, low-weighted features are deleted using a threshold method based on covariance and importance.\" However, this is a binary keep/discard decision (low importance + low correlation = delete), not a ranking or magnitude interpretation. Impurity findings are corroborated with Pearson correlation analysis: \"estimating the feature covariance and Gini significance.\" No claims made about relative feature importance ranking or magnitude."
+}

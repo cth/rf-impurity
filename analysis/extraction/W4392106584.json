@@ -1,0 +1,17 @@
+{
+  "id": "W4392106584",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"we analyzed the importance of input features for the optimal model, and revealed that smoking status was strongly correlated with the prediction of COPD, as well as Townsend deprivation index at recruitment and current tobacco smoking (Fig. 5).\" The Discussion claims \"the importance analysis of the optimal model can provide interpretable features regarding the COPD risk, smoking, and socioeconomic status.\" However, no alternative importance methods (permutation, SHAP, PDP/ALE) are reported, no statistical tests of feature importance are conducted, and the features include mixed types (genetic, categorical behavioral, continuous biochemical)."
+}

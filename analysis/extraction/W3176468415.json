@@ -1,0 +1,18 @@
+{
+  "id": "W3176468415",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Ranger (RF-based importance) only as a binary feature selector with threshold importance>30: \"each band with an importance value of greater than 30 was reserved as a sensitive band.\" Conclusions depend entirely on held-out validation R^2/RMSE comparing predictive models (ANN vs RF), never on importance ranking or magnitude. No p-value testing of importance. Final recommendations state: \"Ranger algorithm...screen the hyperspectral data, and nonlinear algorithms, such as RF and ANN, should be applied for modeling\"—purely model-selection conclusions backed by cross-validated predictive metrics."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4224943843",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"we visualized the 128 top-ranked important features by built-in random forest importance scores\" and uses \"the R package ranger v0.12.1\" for variance importance regression. They interpret magnitude by stating \"The second most important OGU in the model was A. hadrus DSM 3319\" and \"Among these important features, a few gut microbial lineages increased in relative abundance with aging.\" They lack permutation/SHAP/conditional importance corroboration, relying only on cross-validated prediction error for model performance validation, not importance validation. The organism-level conclusions are vulnerable to impurity importance bias despite the method's main claim being prediction superiority."
+}

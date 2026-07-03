@@ -1,0 +1,15 @@
+{
+  "id": "W4388406308",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper uses elastic net regression with standardized beta coefficients for feature importance, explicitly stating: \"we decided to focus our interpretable machine learning analyses on this model and to use model-specific techniques exclusively for the elastic net model.\" No impurity-based importance mentioned anywhere in the text. Impurity-importance bias cannot affect papers that do not use impurity-based measures."
+}

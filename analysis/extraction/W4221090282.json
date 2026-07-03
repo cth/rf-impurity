@@ -1,0 +1,15 @@
+{
+  "id": "W4221090282",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"These findings are supported by the examination of the top predictor variables from the models using combined adult and pediatric data versus pediatric data alone, in which adult and pediatric populations were found to have different important predictors for the clinical outcomes of interest.\" Table 4 shows variable importance rankings from Random Forest models, but no permutation importance, SHAP, PDP/ALE, or conditional importance methods are used to validate these rankings. The predictors include 284 CPT code groupings and interact with age, both vulnerable to impurity-importance bias."
+}

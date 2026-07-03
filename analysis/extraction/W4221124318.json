@@ -1,0 +1,17 @@
+{
+  "id": "W4221124318",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states \"The most important predictors were all SVIs sensitive towards changes in leaf pigments...photochemical reflectance index (PRI)\" and \"The high importance of indices related to changes in leaf pigments...is in line with the effects of yellow rust infection.\" These conclusions rest entirely on RF importance ranking without permutation or SHAP validation. More critically, feature ranking directly influences practical recommendations: the authors retest models after excluding low-ranked imaging sensors, concluding \"it does suggest their use needs rethinking,\" making sensor-selection decisions based solely on impurity importance magnitude."
+}

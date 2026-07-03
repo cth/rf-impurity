@@ -1,0 +1,17 @@
+{
+  "id": "W4294904593",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Section 2.4 states: \"The importance of a predictor variable in the RF model can be determined by the increase in the prediction error, which results from a random permutation of the values of an explanatory variable.\" Section 3.3 interprets magnitude and ranking, stating \"predictor variables vehicle traffic intensity, time of day, wind direction and heavy-duty vehicle intensity had the strongest influence at the five study sites,\" but this ranking is based on permutation importance, not impurity importance. The main conclusions about lockdown impacts (21.9-22.3% NO2 reduction, 12.8% PM10 reduction) come from BAU versus observed concentration comparisons with held-out validation (R2=0.72 for NO2, R2=0.35 for PM10), not from variable importance magnitude."
+}

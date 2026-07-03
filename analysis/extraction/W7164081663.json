@@ -1,0 +1,18 @@
+{
+  "id": "W7164081663",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper claims age and Brunnstrom stage are the most influential predictors: \"Age and Brunnstrom stage (lower limb) were identified as the most influential predictors\" and \"age was the most critical predictor throughout the 15-day observation period.\" However, these magnitude and ranking claims are corroborated by permutation importance (Figure 2: \"One minus C-Index loss after permutations\"; Figure 3: \"Brier score loss after permutations\") and partial dependence analysis (Figure 4), both of which confirm the same ranking. The permutation-based corroboration validates that the importance ranking is robust."
+}

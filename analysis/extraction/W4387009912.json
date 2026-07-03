@@ -1,0 +1,19 @@
+{
+  "id": "W4387009912",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses MEIP (Mean Error Increase When Permuted), an unconditional permutation-based importance method, not impurity-based importance. Permutation importance is robust to the magnification and ranking biases of Gini/MDI. Although the paper interprets magnitude/ranking (\"soil and climatic properties were the most important factors\"), conclusions are substantiated by partial dependence plots showing specific optimal ranges, k-fold cross-validation, and Log-Response Ratio for effect direction. No impurity bias applies here."
+}

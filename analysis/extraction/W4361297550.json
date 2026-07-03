@@ -1,0 +1,16 @@
+{
+  "id": "W4361297550",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies random forest modeling but does not report variable importance scores or use importance-based variable selection. Instead, authors \"built [five different models] with varying combinations of variables\" and compared predictive accuracy across models. Discussion attributes performance differences to data sources included (e.g., \"AMS data slightly contributed\"), not to variable importance rankings. No tables, figures, or text report importance magnitudes or rank variables by predictive contribution."
+}

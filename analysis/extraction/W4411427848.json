@@ -1,0 +1,16 @@
+{
+  "id": "W4411427848",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses impurity importance in Methods: \"the relative importance of summary metrics to accuracy and predictive ability were determined based on the impurity variable importance mode.\" In Results, they interpret magnitude and ranking: \"Vectorial Dynamic Body Acceleration (VeDBA)... was a crucial predictor for both species, with higher importance for green turtles. Additionally... SD roll... was particularly important for loggerhead turtles.\" However, the Conclusions state only: \"Moving forward, the attachment and sampling protocols we present here may be adopted in future studies,\" focusing entirely on device placement and sampling frequency optimization, not on feature importance rankings."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4318755804",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger random forests (\"Random forests were fitted using the ranger R package on R 4.2...using default parameters with exception of number of trees\") which employ impurity-based importance. It interprets magnitude by reporting frequency: \"Of the 7 variable groups, 3 (energy, formants and signal quality) were used at least 20 times, 1 (fundamental frequency) was used 18 times and the remaining 3 (utterances, voicing, and frication) were used 8 times or less.\" However, main conclusions rest on model prediction performance (\"acoustic cry characteristics are associated with some 2-year developmental and behavioral deficits\"), not on feature importance ranking. Permutation likelihood-ratio tests provide partial corroboration that acoustic features improve model fit beyond covariates."
+}

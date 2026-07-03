@@ -1,0 +1,15 @@
+{
+  "id": "W3113435130",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses \"unbiased corrected Gini index\" for feature importance and states \"The most important model features for identifying high-risk vessels were engine power, maximum distance from port, number of voyages per year, and average daily fishing hours.\" It then interprets this ranking substantively: \"The importance of engine power, a proxy for vessel size, suggests that forced labor appears to cluster in similarly sized vessels\" and \"The importance of maximum distance from port and average daily fishing hours is consistent with expert opinion.\" No permutation, SHAP, PDP/ALE, conditional, or held-out validation methods are used to corroborate the importance ranking."
+}

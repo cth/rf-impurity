@@ -1,0 +1,15 @@
+{
+  "id": "W4212870729",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper mentions impurity importance only to explain why RF performs well for red over color (\"Random forest is known to assign higher importance to correlated predictor variables based on the amount of accuracy decrease when a variable is excluded during the decision tree construction\"). However, the paper does not extract, report, or rank variables by importance scores. The 70 GWAS results (not RF importance) provide the main genetic findings, using standard statistical p-values rather than impurity-based methods."
+}

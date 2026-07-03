@@ -1,0 +1,18 @@
+{
+  "id": "W3137588420",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper identifies \"the most important feature in predicting MCL1 dependency was BCL2L1 expression\" and \"the top predictive feature for MDM2 dependency was RNA expression of EDA2R, a known direct target of p53\" and \"Predictive feature modeling for HDAC2 highlighted RNA expression of its known target FUCA1.\" These ranking-based feature importance statements are used to make biological inferences, but the Methods section provides no description of how importance was calculated (scikit-learn default is Gini/MDI). No permutation importance, SHAP, PDP/ALE, conditional importance, or other robust validation of the feature importance rankings is reported; bivariate correlations shown (Fig 8b) do not validate the multivariate feature importance ranking."
+}

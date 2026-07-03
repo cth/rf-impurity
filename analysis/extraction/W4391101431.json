@@ -1,0 +1,18 @@
+{
+  "id": "W4391101431",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses Gini importance for Random Forest variable ranking, stating \"The most relevant variables controlling the spatiotemporal risk for tick attachment for companion animals were the monthly mean EVI, followed by monthly precipitation, minimal and maximal monthly temperature.\" However, this ranking is immediately corroborated with partial dependence plots: \"PDP showed that green, dense vegetation, particularly woodland (coniferous and broadleaf), best explained the areas at risk for tick attachment.\" Critically, the paper's Discussion focuses heavily on individual host factors (derived from conditional logistic regression, not variable importance), and the Conclusions make broad statements about animals and areas at risk without emphasizing the spatiotemporal variable ranking."
+}

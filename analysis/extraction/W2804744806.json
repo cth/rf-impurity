@@ -1,0 +1,19 @@
+{
+  "id": "W2804744806",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "conditional",
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: \"Selection of the most important predictors was based on the Gini index by adding predictors one by one in order of decreasing importance.\" It ranks variables as most important drivers, e.g., \"Water depth was the second most important variable explaining alpha-diversity; Redox potential, the third most important continuous variable.\" However, for each ranked variable, the authors provide partial dependence plots (\"estimated with partial dependence plots of the best models with the R package edarf\") showing functional relationships and use multiple independent validation methods: tSNE clustering identified pH as most important predictor (with OOB error rates), Mantel tests validated physicochemical correlations, and NMDS with envfit assessed relationships. They also provide ecological justification: \"The effect was similar in magnitude to [H 2 S] and was expected since sulfate reducers are active at low redox potentials.\" Conclusions about drivers are corroborated across methods rather than resting solely on Gini rankings."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "W4375955853",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper uses Random Forest with impurity importance to select top 10 TFs per domain (\"requesting 'impurity' importance scores. The importance scores for each TF were averaged over the five folds, and the 10 TFs with the highest average importance score were selected\"). However, conclusions about relative importance are drawn from multiple linear regression (MLM) with ANOVA variance decomposition: \"Using analysis of variance (ANOVA), we calculated the proportions of the type II sum of squares attributed to each of the predictors.\" The key claim that \"TF expression variation is the dominant regulatory determinant\" is based on ANOVA results showing TF expression accounts for the largest proportion of explained variance, validated across 343 individuals and with robustness checks including lab batch effects."
+}

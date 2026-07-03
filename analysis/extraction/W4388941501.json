@@ -1,0 +1,17 @@
+{
+  "id": "W4388941501",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states they determined \"relative importance of phyla in classification accuracy per factor, as well as ASVs that contributed considerably to classifier accuracy (i.e., high gini importance)\" and reports: \"Proteobacteria was the most important phylum making between 39.7 and 54.6% of the relative importance to the classifier and Actinobacteria was the second most important phylum with between 14 and 24.9% of the relative importance.\" However, the paper's stated conclusions focus on compartment-specific microbiota dynamics and site effects on root versus leaf/berry communities, all corroborated by PERMANOVA, linear models on phyla abundance, and PCoA analyses - not by the importance rankings."
+}

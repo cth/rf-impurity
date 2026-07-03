@@ -1,0 +1,18 @@
+{
+  "id": "W4415906465",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper proposes iVarPro, which \"directly estimates directional gradients at the level of the individual using only observed data\" (Discussion). Random forests are used only as an external estimator to obtain predictions; iVarPro importance is based on local linear regression gradients, not impurity. The method is validated against \"true gradient structures\" in simulations and against Kaplan-Meier survival curves, providing held-out and conditional corroboration that is independent of any impurity bias."
+}

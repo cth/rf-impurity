@@ -1,0 +1,19 @@
+{
+  "id": "W4401781028",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "Paper states: \"We assessed variable importance based on 3 methods. We used a model-generated impurity metric...a permuted loss function by randomizing the values of the target predictor variable...and accumulated local effects.\" They conclude \"Variable importance metrics summarized across ecoregions indicated that the amount of crop in the landscape and the distance to cities, ethanol plants, and poultry, hog, and beef cattle CAFOs had strong association with loss\" citing \"median value ranked across ecoregions\" (Figure 2). Impurity rankings are corroborated by permutation importance and ALE plots presented together; no conclusions depend solely on impurity magnitude or ranking."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4393192460",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains Random Forest using \"the Gini index for classification and the variance of the responses for regression as the impurity measure\" and explicitly tunes \"the variable importance in Random Forest\" to threshold detected SNPs. However, they validate this approach rigorously: \"All the models were able to correctly predict the causative SNP in the homoplasic simulation despite the level of h² and the different tuning of the parameters\" by checking overlap with known-causal variants. The paper's main conclusions focus on data encoding recommendations (\"treating the MICs differently depending on the number of concentration levels of antibiotic available was the most promising learning strategy\"), not on the magnitude or ranking of importance scores. Corroboration via GWAS/LMM, held-out test accuracy, and ground-truth validation in simulations ensures importance rankings are not used to make unvalidated substantive claims."
+}

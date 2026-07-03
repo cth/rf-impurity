@@ -1,0 +1,14 @@
+{
+  "id": "W4415545091",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states: \"While RF do provide variable importance measures, the RF framework we employ here...is explicitly designed for accurate risk prediction rather than for identifying causal SNPs...making variable importance scores difficult to interpret biologically. These scores can be unstable and may not reliably identify the true causal variants or interactions.\" Their SNP selection uses LD clumping and marginal GWAS p-value thresholding, not impurity importance. All conclusions are based on predictive accuracy (NR2, AUC), not importance rankings."
+}

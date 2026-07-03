@@ -1,0 +1,18 @@
+{
+  "id": "W4409324072",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses permutation-based variable importance: \"Variable importance metrics were then run on the tuned models and represented the mean increase in a model's RMSE after permuting a feature.\" This is corroborated with partial dependence plots: \"Partial dependence plots...further illustrate the different relationship that each species has to variables in the model.\" Since permutation importance is used rather than impurity-based importance, the documented bias does not apply."
+}

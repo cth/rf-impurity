@@ -1,0 +1,19 @@
+{
+  "id": "W4412446983",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper reports both Increase in Mean Squared Error (%IncMSE, permutation-based) and Increase in Node Purity (IncNodePurity, impurity-based) importance measures. The authors interpret magnitude and ranking to conclude: \"r.elevation emerged as the most predictive in %IncMSE, with high values in %IncMSE (~20%) and IncNodePurity (~0.9 × 10-4), highlighting its relevance in predicting the 87 Sr/ 86 Sr ratio.\" They then use this ranking to explain geological controls: \"For this reason, elevation becomes a predictive variable because it indirectly differentiates the type of sediments: fluvial and marine deposits of the Paraná Delta and the elevated plains with loessic/continental deposits.\" The disagreement between %IncMSE and IncNodePurity for r.dust (~15% permutation vs ~0.2 × 10-4 impurity) is not investigated and suggests potential non-linear effects or interactions where impurity bias operates. While permutation importance provides partial corroboration, the paper lacks SHAP, PDP/ALE, or conditional importance validation to confirm that importance rankings reflect actual variable effects rather than bias artifacts, especially given the presence of mixed-type features with scale mismatches and skewed distributions."
+}

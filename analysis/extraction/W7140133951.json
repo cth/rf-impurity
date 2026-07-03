@@ -1,0 +1,19 @@
+{
+  "id": "W7140133951",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses SHAP values exclusively for feature importance ranking: \"Aggregated SHAP values can be used to rank the importance of each predictor variable for classification, providing a global and abstract view of the model.\" The authors considered partial dependence plots as an alternative but \"focused on SHAP\" and validated their interpretations with PGI/PGU faithfulness metrics. Since the paper does not employ impurity-based importance (Gini/MDI), the impurity importance bias does not affect this study, and the magnitude/ranking conclusions are grounded in SHAP-based methods with corroboration through held-out validation and external real-world dataset testing."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W7164031193",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"RF regression with 50 trees and 5-fold cross-validation identified income, activity limitation, age, and chronic conditions as key predictors of medical expenditure\" and \"Across all specifications, chronic conditions consistently emerged as the most important variable of medical expenditure, confirming the stability, robustness, and reliability of the findings.\" The main conclusion is: \"Statistical and machine learning analyses of the MEPS consistently identify chronic disease burden as the strongest predictor of total medical expenditure.\" This ranking-based interpretation relies entirely on impurity-importance measures from RF/GBR without permutation, SHAP, PDP/ALE, conditional, or held-out importance validation."
+}

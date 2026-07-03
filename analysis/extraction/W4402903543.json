@@ -1,0 +1,19 @@
+{
+  "id": "W4402903543",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "shap",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses \"permutation-based feature importance\" for state-level Random Forest models (Methods: \"individual conditional expectance (ICE) plots were created...as identified by permutation-based feature importance\"). For the primary Eastern India analysis, it states: \"A SHapely Additive exPlanation (SHAP)-based methodology was further deployed.\" Both methods are robust alternatives that avoid impurity-importance bias. The paper does not rely on Gini/MDI/variance importance at any stage."
+}

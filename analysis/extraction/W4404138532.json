@@ -1,0 +1,18 @@
+{
+  "id": "W4404138532",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"variable importance and partial dependency plots were utilized to rank the predictors\" and identifies \"the percentage area harvested by combine, livestock stocking density, harvest date, and cultivated land size are the top four predictors of burn likelihood.\" Partial dependency plots (Figure 5) characterize relationships for these variables, and the authors state \"The random forest analysis, along with the qualitative interviews, showed a positive relationship between the probability of burning and combine harvester use,\" with qualitative data (36 household interviews) validating causal mechanisms. Although the importance ranking identifies which drivers to focus on, conclusions rest on validated causal sequences rather than magnitude claims."
+}

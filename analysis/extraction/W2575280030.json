@@ -1,0 +1,18 @@
+{
+  "id": "W2575280030",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"The most important variables predicting movements were farm type (downstream combinations from finishers and farrowing farms to market sites), sharing the same owner, and distance (Figure 6).\" This ranking is based entirely on impurity importance with no validation via permutation, SHAP, PDP/ALE, or conditional importance. The abstract and conclusion both emphasize which variables are \"most important,\" yet the paper provides no corroboration of these importance magnitudes or rankings."
+}

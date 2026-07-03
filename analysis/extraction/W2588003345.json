@@ -1,0 +1,17 @@
+{
+  "id": "W2588003345",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper displays \"Fitted variable importance plots\" (Figure 6) from ranger and xgboost and makes substantive claims about magnitude and ranking: \"spatial pattern of soil pH is primarily influenced by precipitation and surface reflectance,\" \"depth emerges as the most important covariate,\" and \"DEM-parameters...emerge as second-most dominant covariates.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or Boruta analysis is mentioned. Figure 7 shows individual scatter plots but not systematic corroboration. Expert knowledge validation (\"largely correspond with conventional soil survey knowledge\") is mentioned but does not qualify as statistical corroboration."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W7164987431",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses permutation importance exclusively: \"we used the 'permutation' method of calculating variable importance in the ranger package.\" Magnitude/ranking claims (\"fourth-most important feature overall,\" \"importance scores three- and 21-times smaller\") are based on this permutation method, which is robust to impurity bias. Since the paper does not employ impurity-based importance measures, the bias does not apply."
+}

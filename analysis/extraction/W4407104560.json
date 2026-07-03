@@ -1,0 +1,16 @@
+{
+  "id": "W4407104560",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"a subset of histological features emerged as top-ranked variables with the highest importance values in the combined RF approach (Dataset EV7). These features may thereby contribute to better performance in larger patient cohorts.\" The random forest was fitted using ranger with ~5300 continuous protein features and 7 categorical histological features, but no permutation importance, SHAP, or other corroborating importance methods are reported. The ranking-based interpretation lacks corroboration beyond predictive accuracy metrics."
+}

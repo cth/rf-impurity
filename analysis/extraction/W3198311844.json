@@ -1,0 +1,18 @@
+{
+  "id": "W3198311844",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: 'we calculated permutation variable importance for the RF and Maxent models and percentage contribution of each variable in the BRT models.' Permutation importance is not subject to the Gini/MDI bias. Rankings are corroborated by: (1) agreement across three independent model types (RF, BRT, Maxent), (2) partial dependence plots showing functional relationships, (3) 500 bootstrap replicates per model with held-out validation, and (4) discussion noting 'a high degree of agreement for the most important variables to those models' across methods. Conclusions identify which variables influence seal breeding but avoid overstating magnitude differences."
+}

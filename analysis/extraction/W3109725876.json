@@ -1,0 +1,18 @@
+{
+  "id": "W3109725876",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper presents Table 2 with Gini importance rankings (NDWI 5.39, elevation 2.41) and states \"NDWI was the most influential environmental variable.\" However, the main conclusions concern prediction accuracy validated via held-out tenfold cross-validation, sensitivity/specificity metrics, and independent random-sample validation (OR 8.0). The Discussion emphasizes that \"results were strongly influenced by the proximity to households with known infections\" and only modest AIC improvement from environmental variables, indicating the importance ranking is secondary to the actual spatial clustering effect that drives predictions."
+}

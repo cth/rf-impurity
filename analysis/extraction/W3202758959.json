@@ -1,0 +1,18 @@
+{
+  "id": "W3202758959",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses Random Forest regression via ranger package and states \"the importance of a variable to the regression task can be easily computed and provides insights about its role in predicting the target variable,\" then interprets magnitude and ranking: \"PSC ld, in particular, is slightly more important than concreteness and more important than most other predictors\" and \"PSC ld is more important than iconicity in predicting AoA and ranks just below concreteness.\" Features include binary morphological complexity, continuous measures, and count-based predictors (PND, frequency) that are typically right-skewed. No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out test validation is used; corroboration relies on linear regression (validating significance/direction, not importance magnitude) and GAMs (validating non-linearity check), neither of which address impurity importance bias to magnitude and ranking."
+}

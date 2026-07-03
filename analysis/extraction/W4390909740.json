@@ -1,0 +1,20 @@
+{
+  "id": "W4390909740",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly plans to evaluate feature importance \"through model agnostic techniques such as SHAP\" rather than impurity-based methods. Section 2.3.6 states interpretability will be achieved via SHAP evaluation, with no mention of Gini or MDI importance. External validation uses predictive accuracy metrics (C-index, AUC, sensitivity/specificity), not importance ranking, so conclusions focus on model discrimination ability rather than feature magnitude or ranking."
+}

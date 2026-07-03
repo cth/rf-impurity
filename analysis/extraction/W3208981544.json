@@ -1,0 +1,17 @@
+{
+  "id": "W3208981544",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses impurity-based importance (mean decrease in squared error) from RF and GBDT to select and list variables \"in the order of variable importance\" in the abstract. However, the core findings (that these variables are associated with contraceptive use) are substantiated by ordinal logistic regression (Table 2) providing independent odds ratios with 95% CIs and significance testing. The ranking from importance is presented but not emphasized as central to interpretation; conclusions focus on which variables matter (robust yes/no question) rather than their importance magnitude or relative ranking."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4410409353",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states \"We generated variable importance for each model to assess how the foliar traits rank amongst the other drought predictors.\" Key conclusions depend on importance rankings: \"Mortality at Soaproot was best predicted by mean height and LMA\" and \"Teakettle mortality was explained primarily by elevation and mean height.\" The paper compares importance across variables (\"LMA was a more important predictor for ponderosa pine, while elevation was a more important predictor for mixed conifer\") and identifies \"top predictors\" and variables \"showing the highest relative importance,\" all without validating these rankings via permutation importance, SHAP, conditional importance, or held-out validation. PDPs only corroborate directional relationships, not relative importance magnitude or ranking."
+}

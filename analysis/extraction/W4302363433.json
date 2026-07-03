@@ -1,0 +1,17 @@
+{
+  "id": "W4302363433",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"we used a custom R implementation of iterative random forest (iRF) machine learning to classify the cluster labels... The top ten most important genes for each cluster were extracted based on their Gini importance scores provided by the Ranger v0.12 R package.\" The authors then claim specific genes \"define\" each cluster (e.g., \"an ASD-SV in the CTNNA2 gene defines cluster 1\"), using the ranking of Gini importance to support precision medicine conclusions. Biological validation via GO enrichment, eQTL overlap, and RNA-seq validates plausibility but does not corroborate the importance ranking itself against permutation importance, SHAP, or other methods."
+}

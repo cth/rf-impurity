@@ -1,0 +1,17 @@
+{
+  "id": "W4220691690",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper ranks 7,279 proteins using random forest mean decrease in Gini index and identifies 5 candidates that rank in the top 50. However, primary candidate selection was linear regression, and AGPAT1 is substantiated through independent cohort validation (P = 0.009) and immunohistochemistry confirmation. Only 1 of 5 importance-supported candidates replicated, indicating importance ranking did not predict validation success. The core conclusion that AGPAT1 differentiates PSC-UC from UC relies on held-out validation and orthogonal methods, not on the magnitude or ranking of impurity importance scores."
+}

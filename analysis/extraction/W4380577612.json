@@ -1,0 +1,16 @@
+{
+  "id": "W4380577612",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests solely for call classification (distinguishing contact calls from noise in audio). All substantive conclusions about aging effects on vocal learning are tested via GLMMs with standard hypothesis testing, not feature importance. For example: vocal diversity age effect p = 0.025 from GLMM, vocal plasticity and convergence tested via GLMM interactions, social affiliation density tested via GLM logit regression. Conclusions rank vocal learning components by p-values from hypothesis tests, not by impurity importance ranking."
+}

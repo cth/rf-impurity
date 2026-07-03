@@ -1,0 +1,16 @@
+{
+  "id": "W2964485797",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports variable importance from ranger: 'the red (3), NIR (4) and SWIR (6 and 7) bands are the most important variables,' ranking them by impurity. This ranking is not corroborated with permutation importance, SHAP, PDP/ALE, or conditional methods. However, the paper's central conclusions address spatial-temporal erosion patterns, regional hotspots, and temporal trends (2002-2017), validated through high model accuracy (AUC 0.96-0.99) on held-out test data. Variable importance is a minor secondary observation, not load-bearing for any main finding; the accuracy validation is robust for whether variables are used, independent of impurity ranking bias."
+}

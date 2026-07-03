@@ -1,0 +1,16 @@
+{
+  "id": "W4393056793",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states 'the variable importance was determined by permutation' rather than using impurity-based importance. Feature selection applies only a binary threshold ('variable importance >0') without interpreting magnitude or ranking. The main conclusions focus on prediction accuracy (99.9% median balanced accuracy) and cross-cohort validation performance, not importance magnitude or variable ranking. Supplementary data tables list importance values but these are not discussed in the main text for substantive interpretations."
+}

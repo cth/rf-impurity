@@ -1,0 +1,19 @@
+{
+  "id": "W3046942402",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses blocked permutation importance (\"we constructed two blocked permutation importance measures also based on the R^2\"), measured on 60/40 held-out test splits. Results report magnitudes and rankings: \"M zyg = .110, M corr = .108\" and \"In 7 out of 13 appraisal dimensions, the zygomaticus channel showed the highest importance value.\" However, these conclusions are corroborated by ALE plots showing actual relationships, model comparison (RF>RIDGE indicating nonlinearity), and out-of-sample validation. Since the paper uses permutation importance rather than tree impurity importance, the impurity importance bias does not apply."
+}

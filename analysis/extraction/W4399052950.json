@@ -1,0 +1,17 @@
+{
+  "id": "W4399052950",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Although random forests are trained and Table 2 acknowledges RF \"feature importance: error improvement obtained from splits using certain feature\" (impurity-based MDI), the paper does not analyze or report impurity importance rankings. Instead, feature importance analysis (Figure 6B) uses elastic net coefficients: \"We chose elastic nets for this analysis due to the straightforward interpretation of their coefficients.\" Main conclusions concern ML/DR algorithm performance and model complexity trade-offs, not feature ranking: \"Elastic nets using features obtained through PCA yielded the smallest test MSE for 76 of 179 investigated drugs.\""
+}

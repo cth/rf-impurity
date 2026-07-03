@@ -1,0 +1,16 @@
+{
+  "id": "W7125897042",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: \"use ranger package...as the computational engine due to its high performance in handling large datasets and support for variable importance extraction using permutation\" and describes their goal as \"to rank the importance and interactions of features affecting the g_s response,\" making statements like \"VPD_leaf exhibited the highest importance\" and \"cultivar × rootstock interaction displayed the highest level of importance.\" Since they use permutation importance rather than impurity-based importance, the impurity importance bias does not apply to this work."
+}

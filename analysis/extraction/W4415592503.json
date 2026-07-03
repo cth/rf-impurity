@@ -1,0 +1,19 @@
+{
+  "id": "W4415592503",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses RF variable importance to claim LAR is \"the most informative biomarker, outperforming both the serum lactate concentration and the lactate-to-bicarbonate ratio.\" However, this ranking is robustly corroborated via unbiased individual biomarker AUC comparison: \"LAR exhibited superior discriminative performance, with an area under the curve (AUC) of 0.82, compared to serum lactate (AUC 0.72) and the lactate-to-bicarbonate (LB) ratio (AUC 0.68).\" The same ranking is independently confirmed by SHAP analysis: \"SHAP analysis was conducted, which revealed that LAR had the highest feature importance, followed by the LB ratio and serum lactate.\" The AUC comparison is unaffected by impurity bias."
+}

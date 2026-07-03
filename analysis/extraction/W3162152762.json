@@ -1,0 +1,16 @@
+{
+  "id": "W3162152762",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses SHAP (Shapley Additive Explanations) for model interpretation, not random-forest impurity importance. Authors state: \"Using a game theoretic approach based on Shapley Additive Explanations (Lundberg and Lee, 2017), we show that DeepLORI models are explainable.\" Although the paper compares against Random Survival Forests (RSF) as a baseline method, it does not report or interpret variable importance from those models. The primary interpretation method is SHAP values calculated on the DeepLORI neural network, which is model-agnostic and not subject to impurity bias."
+}

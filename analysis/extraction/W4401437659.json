@@ -1,0 +1,19 @@
+{
+  "id": "W4401437659",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"Variable importance measures were calculated from the fully fitted models, averaged across years, and standardized to obtain proportional contribution values\" and discusses \"the 15 most predictive features,\" ranking EMEP4UK outputs as most important followed by reanalysis features. However, the main conclusions focus on model performance (R2=0.690-0.820 across pollutants) and map quality for epidemiological research, not on importance rankings or causal drivers of pollution. Feature importance is used only descriptively and for one conservative decision (\"Despite their low predictive importance, we decided not to exclude [satellite data]\"), without driving substantive conclusions about variable importance."
+}

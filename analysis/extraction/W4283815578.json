@@ -1,0 +1,17 @@
+{
+  "id": "W4283815578",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest solely for covariate selection, stating \"the most predictive covariates from this process were entered into the regression modeling equations.\" All substantive conclusions come from regression models, E-values, and causal inference: \"Cannabis as a predictor of limb anomalies was more potent than tobacco or alcohol\" (conclusion derived from regression coefficients and E-values, not RF importance). The paper reports no importance p-values and does not interpret RF importance magnitude or ranking in its findings."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4397009901",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Methods state: \"The most important features were ranked based on their importance score and illustrated using variable importance plot (vip) function within the caret package.\" Results show ranked importance: \"age as the most important classifying feature for hypertension, followed by sex, BMI, TC, LDL, sedentary lifestyle, HDL, TC genetic liability, LDL genetic liability, and smoking status.\" Conclusions rest on this ranking: \"genetic liability for two lipid traits (TC and LDL) was found to improve the classification of hypertension.\" Discussion draws substantive biological inferences from the ranking: \"The observation that our machine learning feature selection approach did not prioritize diabetes as an important feature in classifying hypertension may align with the existing inquiries in the literature.\" No permutation importance, SHAP, PDP/ALE, or conditional importance methods are used to corroborate the ranking."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "W4409888028",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses ranger's impurity estimator to extract feature importance and reports that \"DNA concentration carried the strongest relative model weight, followed by the fraction of host reads in sequencing and prokaryotic alpha diversity,\" and states that sample storage type \"did not seem to have a strong impact.\" These ranking claims are made without corroboration from permutation importance, SHAP, or other independent methods. While the model's main conclusions about prediction accuracy and external generalization are well-validated, the feature importance ranking interpretation relies solely on impurity-based importance without verification."
+}

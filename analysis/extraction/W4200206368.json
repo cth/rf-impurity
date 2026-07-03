@@ -1,0 +1,16 @@
+{
+  "id": "W4200206368",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly ranks features by impurity importance: \"The most importance features for predicting pectinolytic genes in the RF model included co-expression with known pectinolytic genes, pI, the regulation by TFs AraR, GaaX and GaaR, and the gene expression profile during growth on pectin-related substrates.\" The only corroboration offered is Wilcoxon test comparing distributions between positive/negative cases, which does not validate the importance magnitude or ranking itself. With mixed-type features and interpretations leaning on importance rankings without robust corroboration, the magnitude bias could alter conclusions about which biological characteristics drive pectinase prediction."
+}

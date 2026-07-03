@@ -1,0 +1,21 @@
+{
+  "id": "W4220911108",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"The relative importance of predictor variables is based on permutation importance,\" explicitly avoiding impurity-based metrics. The authors validate importance rankings through partial dependence plots, held-out test sample evaluation (R^2 test=0.523), and demonstrate consistent training/test performance, indicating reliable patterns rather than spurious bias-inflated magnitudes."
+}

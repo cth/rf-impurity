@@ -1,0 +1,18 @@
+{
+  "id": "W4396688004",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses AUC-based filtering for variable importance, not impurity importance: \"The weight of each variable was measured individually through a filtering approach using the area under the receiving operating curve, scaled from 0 to 100.\" The authors explicitly state they rejected Ranger's built-in importance measures: \"Another option...would be to use Shapley values or built-in importance measures from Adabag or Ranger models.\" Although they rank and interpret VI magnitudes to construct their risk stratification, the impurity-importance bias is not relevant because they avoided impurity-based methods entirely."
+}

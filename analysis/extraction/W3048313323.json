@@ -1,0 +1,16 @@
+{
+  "id": "W3048313323",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks genomic variants by Gini-impurity importance scores and claims VariantSpark \"outperforms LR for epistatic and complex phenotypes,\" achieving detection rates \"up to 4.6 times higher than LR.\" These substantive conclusions rest entirely on importance ranking (top-k variant recovery), with no permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation to corroborate the ranking. The ranking-based findings are central to the paper's core message about VariantSpark's superiority."
+}

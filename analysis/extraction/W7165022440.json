@@ -1,0 +1,19 @@
+{
+  "id": "W7165022440",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation",
+    "conditional",
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains random forest models (I1_RF, I2_RF, I3_RF) with R Ranger but reports only performance metrics (Q2, RMSE, correlation) via cross-validation without extracting or interpreting feature importance. Feature interpretation comes exclusively from the Com_Epi epistasis model: \"From Com_Epi, we extracted per-mutation effects to identify RBD sites\" and region interactions. Conclusions rely on prospective experimental validation of model predictions, not importance magnitude/ranking."
+}

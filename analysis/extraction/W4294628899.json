@@ -1,0 +1,16 @@
+{
+  "id": "W4294628899",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses RF importance to rank and select biomarkers: \"on the basis of 21 metabolites, we screened the important variables in the models...five common variables were obtained by intersecting the important variables of three models...2-Hydroxypalmitic acid, L-carnitine and cyclic AMP were found to be potential targets and specific biomarkers for pSS.\" The main corroboration is SLE cohort validation for specificity, but this does not independently validate the importance ranking itself without permutation, SHAP, PDP/ALE, conditional, or held-out methods. The biomarker discovery is entirely dependent on RF/XGBoost importance magnitude and ranking."
+}

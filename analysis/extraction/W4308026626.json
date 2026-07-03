@@ -1,0 +1,17 @@
+{
+  "id": "W4308026626",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses variance-based random forest regression, stating \"the one minimizing the weighted variance is selected by the algorithm,\" and reports \"Overall Tmean, Tannual, and Pmean were the most important predictor variables.\" However, main conclusions focus on predicted GPP: \"forests on average have a 29% and 10% larger GPP than grasslands and croplands\" and \"global GPP reduction...around 4.4%.\" These depend on RF predictions, not importance rankings. The importance statement is supplementary, deferred to supplementary materials, and plays no role in driving the paper's scientific conclusions about land cover impacts on productivity."
+}

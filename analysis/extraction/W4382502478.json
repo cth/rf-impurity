@@ -1,0 +1,12 @@
+{
+  "id": "W4382502478",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest modeling for prediction only: \"a random forest...as the machine learning modeling method due to its predictive power.\" The Gini coefficient is mentioned as one of several extracted features describing the empirical correlation matrix (not Gini impurity), used as input to train the model. Model evaluation focuses exclusively on accuracy and bias metrics (correctly identifying the number of factors), not on feature importance rankings. Regarding interpretability, the authors explicitly defer this: \"Future research could investigate this rather strange behavior...by using interpretable machine learning methods.\""
+}

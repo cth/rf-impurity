@@ -1,0 +1,17 @@
+{
+  "id": "W4225939351",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: \"We selected the 15 top-ranked ASVs that gave the best discrimination between the HRT phases, based on higher than 1% of the mean decrease in Gini scores\" and ranks features \"based on their mean decrease in Gini scores.\" The main biological conclusion is: \"We thus hypothesize that species represented by these four ASVs determined the increased C6/C8 productivities\" - this claim rests entirely on the importance ranking. The paper validates function via metagenomics (showing these organisms CAN perform relevant reactions) but provides no permutation importance, SHAP, PDP/ALE, or conditional importance to corroborate that these four species have the stated ranking or are the most influential drivers."
+}

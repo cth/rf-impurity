@@ -1,0 +1,16 @@
+{
+  "id": "W4294990949",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses RF and XGBoost impurity importance for feature selection, ranking the top 10 variables from each model and intersecting to identify 5 common variables. However, the main conclusions that \"anti-MDA5 antibody and anti-Ro-52 antibody are vital risk factors\" are primarily supported by univariate logistic regression (anti-MDA5 OR=9.17, P<0.001; anti-Ro-52 OR=5.27, P<0.001), which is independent of impurity-importance bias. The paper validates the reduced 5-variable models on a held-out test set and external validation cohort (AUC 0.909), providing predictive confirmation that the selected variables are appropriate."
+}

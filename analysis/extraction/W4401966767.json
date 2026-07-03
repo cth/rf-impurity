@@ -1,0 +1,16 @@
+{
+  "id": "W4401966767",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper gathers variable importance data and identifies understudied kinases CSNK2A1/3, CAMKK2, and PIP4K2C as novel targets based on their high importance rankings: \"CSNK2A1/3 was identified as highly ranking in the P0422-T1 tumor line\" and \"CAMKK2...is a top feature found only in the P0119-T1 CAF.\" The validation study (Fig. 5) confirms predictive accuracy on held-out compounds but does not corroborate the relative importance rankings themselves, only the binary viability predictions. No alternative importance methods (permutation, SHAP, PDP/ALE, conditional) are applied to verify ranking stability."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "W4404038954",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses penalized logistic regression (SCAD + Ridge PLR) as its primary discriminative method, with variable importance derived from regression coefficients: \"The most important proteins selected in the CD versus UC model...as visualized in boxplots showing the coefficients of the model (Figure 3B).\" Random Forest is used only for sensitivity checking: \"probability scores were estimated using a Random Forest (RF) model using the R-package ranger to explore potential method dependency...results from RF and partial least squares analyses demonstrated a pattern consistent with the probability scores obtained using PLR.\" Protein rankings also come from univariate Welch t-tests with FDR correction on individual protein levels, not from RF impurity importance."
+}

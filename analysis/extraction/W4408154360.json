@@ -1,0 +1,17 @@
+{
+  "id": "W4408154360",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "Methods state: \"Then, we planned to explore the variable importance with the Brier score loss after covariate permutations.\" Results show: \"The variable importance plot (Figure 3) shows the consistent superiority of the age category and ward typology variables\" and \"the ward typology appeared to be more important than the HCW typology.\" Conclusions explicitly state: \"Based on the variable importance analysis, we concluded that the ward typology variable contribution is superior...our results suggest a prioritization policy based firstly on the unit typology followed by the job typology.\""
+}

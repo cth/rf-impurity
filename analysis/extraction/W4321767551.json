@@ -1,0 +1,17 @@
+{
+  "id": "W4321767551",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses a random forest model with ranger implementation to generate partial dependency plots, stating \"we investigated their impact by including them in the random forest regressions to calculate partial dependency plots.\" They explicitly rely on PDP visualization to conclude that \"farm size remained the major governing variable for daily incomes,\" drawing this ranking from qualitative observation of curve shapes rather than impurity importance metrics. No variable importance indices, Gini importance, MDI, or p-value methods are employed; only PDP and supplementary GAM/smoothing spline corroboration are used."
+}

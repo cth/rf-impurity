@@ -1,0 +1,18 @@
+{
+  "id": "W3102596410",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"The relative importance of the covariates in each Random Forest model was based on node impurity, a standard approach based on the reductions of the variance of the response variable each time that a covariate is used for a split.\" Results lean on ranking: \"Regional factors relating to habitat heterogeneity, including variation in shear stress, depth and substrate...were important predictors of diversity...This suggests that regional- to ecosystem-scale processes chiefly determined assemblage structure...with small-scale habitat characteristics, such as substrate playing an important but subordinate role\" and \"Chlorophyll, phosphate and differences in dissolved oxygen concentrations ranked the most important gradients associated with anthropogenic pressure.\" Partial dependence plots are the only corroboration offered, but the authors caution they \"may not be realistic and lead to misleading results in the case of strongly correlated variables.\" The ranking of variables (e.g., which factors are primary vs. subordinate drivers) directly supports their core conservation recommendation that regional-scale processes rather than local pressures should drive management priorities."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4293425738",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger random forests and reports importance metrics, ranking variables as \"most important,\" \"important,\" or \"marginal\" across countries (e.g., 'terms of trade... important in South Sudan but marginal in Somalia'). However, the paper explicitly states 'our study aim was not to explore associations' and focuses on 'accuracy' rather than interpreting variable effects. Main conclusions concern low predictive model performance ('disappointing performance and not usable for action'), not variable importance magnitude or ranking. These importance comparisons are secondary descriptive findings lacking validation from permutation importance, SHAP, or conditional methods, but do not drive the paper's substantive conclusions."
+}

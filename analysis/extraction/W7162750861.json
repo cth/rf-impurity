@@ -1,0 +1,15 @@
+{
+  "id": "W7162750861",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Section 4.4 states the RF model was constructed \"to calculate the permutation-based variable importance\" rather than impurity importance. Section 3.7 clarifies that RF was trained on GWAS-prioritized SNPs, functioning as \"a multi-step prioritization framework rather than an independent validation of association signals.\" Candidate genes in section 3.5 are primarily characterized by GWAS results across all five models, with RF importance serving a secondary role."
+}

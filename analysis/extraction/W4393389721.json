@@ -1,0 +1,16 @@
+{
+  "id": "W4393389721",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper identifies \"three most important variables affecting the habitat suitability\" for each species (Results section, Figure 5), ranking predictors like temperature, precipitation, and soil parameters. These importance rankings are central to restoration recommendations: \"Highly suitable habitats for A. pedunculata...are mostly predicted in degraded lands in Java\" based on variable importance. No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of importance ranks is provided. Only biological explanations for why variables should matter are offered, which does not correct for impurity bias magnifying effects on skewed features or confounding interactions with the named variables."
+}

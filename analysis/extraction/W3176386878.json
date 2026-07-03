@@ -1,0 +1,19 @@
+{
+  "id": "W3176386878",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses ranger random forest and reports importance rankings as central findings: \"The most important variables in our soil texture models are soil physical environment classes and soil parent material, followed by altitude and variables regarding climate\" (Discussion, Variable importance section). The conclusion depends on this ranking: \"Relative measures of variable importance in the models confirm that the characterization and delineation of soil characteristics by trained photo-interpreters are more relevant for soil texture mapping than climate and remote sensing covariates.\" No independent corroboration (permutation, SHAP, PDP/ALE, conditional, or held-out validation) is provided to validate these importance magnitude/ranking claims."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4296249018",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses \"mean decrease in the Gini index\" to measure feature importance and ranks features by magnitude: \"The top 10 most important features were eight radiomic features, Brinkman index, and sex... Among the radiomic features, the intratumoral 90th percentile was the most important, followed by peritumoral large area high gray level emphasis (LAHGLE).\" The Discussion interprets these importance rankings to support biological claims, stating \"the most important peritumoral feature for predicting EGFR mutations was LAHGLE, with high values correlating with mutations. This radiomic feature measures the extent of a large area with a high CT value and can be elevated when high-density structures, such as large pulmonary vessels, are present around tumors.\" No alternative importance measures (permutation, SHAP, PDP/ALE, conditional, or held-out validation) are provided to corroborate the ranking or magnitudes."
+}

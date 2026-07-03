@@ -1,0 +1,17 @@
+{
+  "id": "W4409408650",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"Variable importance was assessed using...the Gini importance measure\" and reports that \"The most important environmental predictor variables across all models were bathymetry, bottom temperature, and surface temperature.\" It explicitly interprets ranking (e.g., \"bottom temperature was the most important variable\" vs. \"second most important\"). However, the paper includes Partial Dependence Plots as corroboration, stating \"Partial dependence plots were created using 'DALEX' v. 2.4.3, which illustrate the relationships between model predictions and individual environmental variables.\" The main conclusions concern spatial habitat overlap (76% overlap with fishery) and the importance of spatial scale in modeling, not the importance rankings themselves."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W7122729583",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper develops random forest models but selects logistic regression for final interpretation: \"the spatial logistic regression models consistently performed the best overall...and spatial logistic regression outperformed spatial random forest models.\" Variable interpretation uses odds ratios from logistic regression, not impurity importance: \"The structure of logistic regression models allows for the computation of odds ratios (ORs), which quantify the association between the outcome variable...and a predictive variable.\" The only mention of Gini importance appears in citations to other researchers' work, not this study's methods."
+}

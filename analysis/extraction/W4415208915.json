@@ -1,0 +1,18 @@
+{
+  "id": "W4415208915",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper reports variable importance from Random Forest: \"Important trace elements for the classification based on variable importance were W, Ba, Mo, K and Cr.\" However, this ranking appears once in Results as a descriptive detail. Main conclusions center on predictive accuracy (94.5% within 100 km for combined method), spatial precision, and method complementarity—all supported by held-out test validation (25 random 41-tree test sets), not by feature importance rankings. Discussion explains multi-element success via mechanistic drivers (soil properties variation) and comparative performance metrics, never invoking the importance ranking. Conclusions would hold identically if importance were measured as permutation or SHAP."
+}

@@ -1,0 +1,20 @@
+{
+  "id": "W4384206370",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses Gini-index importance ranking for individual features (\"To rank the features of each model by their importance, we used the 'Gini-index'\") and interprets magnitude and relative ranking extensively (\"transcription is by far the most predictive feature... with average MPVs of 0.03\"). However, key conclusions are substantially corroborated through Kolmogorov-Smirnov tests comparing feature distributions in bound versus unbound tiles (p < 2.2e-16 for major findings), cross-validation AUROC metrics, enrichment analysis in Supplementary Figure S7, and biological validation showing important k-mers correlate with their frequency in lncRNA sequences (Figure 4 g) and repeat elements (Figure 4 m)."
+}

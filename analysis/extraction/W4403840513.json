@@ -1,0 +1,16 @@
+{
+  "id": "W4403840513",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports RF and GBM impurity importance (\"BMI percentile, age, and income had the highest variable importance in the random forest model, whereas domestic violence, previous FI, and age had the highest variable importance values in the gradient boosting model\") but does not rely on these rankings for conclusions. The main conclusion states \"Logistic regression modeling...showed the best performance in both the training and validation sets...with a C-statistic of 0.70\" based on discrimination and calibration metrics, not importance. The paper abandons the tree-based importance rankings in favor of logistic regression odds ratios and p-values."
+}

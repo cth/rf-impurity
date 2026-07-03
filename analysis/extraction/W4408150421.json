@@ -1,0 +1,15 @@
+{
+  "id": "W4408150421",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses permutation importance for variant selection: \"The most important SNVs are identified using a permutation test on the first run of RF model with optimized parameters that achieved the best accuracy.\" Confirmation: \"Thirty-two SNVs from the ADNI, 581 from the NCRAD, and 107 from the GenADA datasets were selected by the individual LOAD RF-RF models, considering the permutation importance of variants at 95% confidence.\" Since permutation importance is robust to MDI bias, the substantive conclusions about variant prioritization are not affected by the bias."
+}

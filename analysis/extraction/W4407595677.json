@@ -1,0 +1,17 @@
+{
+  "id": "W4407595677",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper identifies specific ASVs as \"key habitat predictors\" via random forest importance: \"An unidentified Cladosporium (ASV1) serves as the sole network hub in the co-occurrence network analysis and a key habitat predictor in the random forest model (mean decrease accuracy = 11.5)\" and \"Several ASVs emerged as strong predictors of specific habitats. For example, ASV36 (Salilomyza) and ASV6 (assigned to the family Mortierellaceae) were key predictors for soil.\" These rankings are unsupported by permutation importance, SHAP, PDP/ALE, conditional importance, or importance-focused validation; only overall model accuracy (OOB 10.4%, AUC 0.98) is reported. Main conclusions concern spatial-temporal patterns from GDM and NST rather than importance magnitude."
+}

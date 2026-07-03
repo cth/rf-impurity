@@ -1,0 +1,19 @@
+{
+  "id": "W3105682779",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger permutation importance only for threshold-based feature selection: \"genes with permutation importance value <0 were eliminated for the next iteration. The iterations ended when all the genes in the input matrix have permutation importance values ≥0.\" The 416 genes identified for conclusions are instead selected via \"DE and DAPC analyses revealed a gene expression signature that covaried with survival (n = 416 genes, unadjusted p < .01, FDR < 0.45).\" Substantive biological claims about mitotic cell cycle upregulation and disruptive selection on immune genes are grounded in GO enrichment (FDR < 0.05), PPI network enrichment (p < 1.0 × 10^-16), and classical selection analysis with standard errors and t-tests, not importance magnitude or ranking."
+}

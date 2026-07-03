@@ -1,0 +1,17 @@
+{
+  "id": "W3000856666",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forest with ranger and reports feature importance: \"Using accelerometer data only, the mean acceleration along the vertical and medio-lateral axes...were the top 10 best features for the general RF model\" and \"The top 10 important features that gained the highest frequency among all models include...\" However, main conclusions concern classification accuracy: \"Adding GPS data to the accelerometer data improved the classification performance for all models\" and \"The knee model performed best both when using accelerometer only and when using multi-sensor data.\" Primary validation is held-out: \"Testing the models on the real-life dataset of an unseen participant in the training data resulted in an overall accuracy of 83%.\" Feature importance discussion is secondary; no permutation, SHAP, PDP/ALE, or conditional importance corroboration of rankings."
+}

@@ -1,75 +1,83 @@
-# Extraction results — first pass (Haiku, unverified)
+# Extraction results — full-text screen (Haiku, unverified)
 
 Structured screening of the ranger-citing full-text corpus for papers whose
 conclusions could be affected by impurity-importance bias (see
 [`../plan/text-mining-plan.md`](../plan/text-mining-plan.md)). One Haiku 4.5
-subagent read each paper and emitted the `analysis/extraction/<id>.json` record;
-flagged = `p_affected ∧ central_to_conclusions`.
+subagent read each paper and emitted `analysis/extraction/<id>.json`; flagged =
+`p_affected ∧ central_to_conclusions`.
 
 **Status: first-pass, unverified.** These are Haiku judgements. The plan's
 Sonnet/Opus adversarial adjudication pass (future work) has not run — treat the
 counts as a screening estimate, not confirmed findings.
 
-## What was screened
+## Coverage
 
-| Set | n | use impurity importance | flagged |
-|-----|---|------------------------|---------|
-| Fingerprint **survivors** (full sweep) | 158 | 83 | **27 (17%)** |
-| Fingerprint **rejected** (random sample) | 40 | 24 | **11 (28%)** |
+Two filters were run against the 773 full-text papers:
 
-## The headline finding: the p-value fingerprint has poor recall
+1. **P-value fingerprint** (narrow — required a significance verdict): 158 papers.
+2. **Broadened filter** (any impurity/Gini/MDI or variable/feature-importance
+   mention): 524 papers.
 
-The false-negative check was designed to measure what the fingerprint misses.
-It found more than expected:
+Screened by Haiku so far: **543 papers** (the union; 1 paper failed to return
+structured output). The ~230 unscreened full-text papers did not mention
+importance at all (they cite ranger for speed or prediction only) and are treated
+as near-zero flag rate.
 
-- The **rejected** sample has a *higher* flag rate (28%) than the **survivors**
-  (17%). The p-value fingerprint is not just imperfect — it is roughly
-  **orthogonal to (even mildly anti-correlated with) actual affected-ness.**
-- Extrapolating the 28% (95% CI 16–43%) to the 615 rejected full-text papers:
-  **~169 flagged papers the fingerprint dropped** (CI ~99–263), versus 27 it
-  caught. Estimated **fingerprint recall ≈ 14%.**
-- Estimated total affected full-text papers: **~196 of 773 (~25%, CI 16–38%).**
+## Headline numbers (543 screened)
 
-**Why:** the target was defined (§1 of the plan) around a *significance verdict*
-— `importance_pvalues`, Altmann/Janitza, Boruta, corrected impurity. But the bias
-harms **magnitude and ranking**, and the papers most exposed are those that
-simply **rank features by impurity importance and build conclusions on the
-ranking, with no significance machinery at all.** Those papers don't contain the
-fingerprint strings. Indeed, 10 of the 27 flagged survivors have
-`pvalue_method: none` (they matched only via the importance-near-p-value
-proximity rule), and the flagged rejected papers are almost all bare
-impurity-ranking papers. If anything, papers that *do* use Altmann/Janitza/Boruta
-are slightly **more** methodologically careful.
+| | count | of screened | of impurity-users |
+|---|---|---|---|
+| Use impurity importance | 306 | 56% | — |
+| **Flagged** (`p_affected ∧ central`) | **124** | **23%** | **41%** |
 
-### Implication for the plan
+- **95% CI on the screened flag rate: 20–27%.**
+- As a share of **all 773 full-text papers: ~16%.**
+- **63 of 124** flagged papers have **no corroboration at all** (no permutation
+  importance, SHAP, PDP/ALE, conditional importance, or held-out validation) —
+  the strongest flags. The rest carry partial corroboration and are weaker.
 
-The p-value-centric framing produces a **high-precision, low-recall** slice — good
-for finding significance-claim papers, wrong as the primary net for "conclusions
-affected." To estimate true prevalence, the fingerprint should be **broadened** to
-"reports impurity/Gini/MDI importance AND ranks/selects on it" (drop the
-significance-verdict requirement), or replaced by a cheap Haiku relevance pass
-over the full 773-paper corpus (~$24 equivalent; on subscription, one workflow).
-The p-value subset remains worth reporting as its own high-confidence stratum.
+## Why the p-value framing missed most of them
+
+The original narrow, p-value-centric fingerprint (your initial target) caught
+**27** flagged papers. The broadened screen finds **124**. The reason is stark in
+the method breakdown of the 124 flagged:
+
+| `pvalue_method` | flagged papers |
+|---|---|
+| **none** | **107** |
+| boruta | 7 |
+| altmann | 5 |
+| janitza | 3 |
+| other | 2 |
+
+**86% of affected papers use no significance machinery at all** — they simply
+rank features by impurity importance and build conclusions on the ranking. The
+p-value fingerprint, by construction, could never see them. This confirms the
+false-negative finding from the earlier 40-paper sample: significance methods
+(Altmann/Janitza/Boruta) are markers of *more* careful practice, not of exposure
+to the bias. The high-recall net for "conclusions affected" is bare
+impurity-ranking, not p-values.
+
+The p-value subset (17 flagged with a method) remains worth reporting as its own
+higher-confidence stratum, but it is a small minority of the exposed literature.
 
 ## Flagged candidates
 
-`analysis/candidates.csv` — 38 flagged papers (27 survivors + 11 rejected-sample)
-with `pvalue_method`, corroboration, feature-heterogeneity, title/DOI (joined from
-`corpus/manifest.csv`), and the evidence quote behind each flag.
-
-`pvalue_method` among the 27 flagged survivors: none 10, boruta 7, altmann 5,
-janitza 3, other 2.
-
-Several flagged papers carry partial corroboration (`heldout_validation`,
-`pdp_ale`) — the weakest flags, and the first the adjudication pass should
-re-examine, since held-out predictive validation partly mitigates ranking bias.
+`analysis/candidates.csv` — **124 flagged papers** with `pvalue_method`,
+corroboration, feature-heterogeneity, title/DOI (joined from
+`corpus/manifest.csv`), and the evidence quote behind each flag. Sorted with the
+`pvalue_method != none` (higher-confidence) papers first.
 
 ## Caveats
 
-- **Unverified Haiku first pass** — precision unknown until adjudication.
-- **False-negative estimate rests on a 40-paper sample** — wide CI (16–43%).
+- **Unverified Haiku first pass** — precision unknown until the Sonnet/Opus
+  adjudication pass runs. Prioritize the 63 zero-corroboration flags.
 - **Full-text only** — the 2,416 abstract-only papers are a separate, lower-power
-  track not screened here.
+  track, not screened here. True corpus-wide prevalence is higher than the
+  full-text number alone implies only if abstracts surface additional cases;
+  abstracts rarely describe importance methodology, so expect lower recall there.
 - **Flag ≠ wrong conclusion** — it means the conclusion *could* have been affected
   and wasn't corroborated; proving impact requires re-running the study's model
   (plan §6, out of scope).
+- 1 paper (`analysis/broad_remaining.json` index 258) failed to return a record;
+  re-runnable individually if needed.

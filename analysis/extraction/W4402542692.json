@@ -1,0 +1,17 @@
+{
+  "id": "W4402542692",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states \"Variable importance values were calculated by the Gini method\" and uses RF to identify top discriminatory variables, explicitly concluding \"SD2, SDNN, TNN, the SD2/SD1 ratio and Total power showed the greatest discriminatory power.\" However, this ranking is corroborated by independent LDA: \"Both the RF and the LDA models confirmed that the variables with the greatest discriminatory power were SD2, SDNN, TNN, the SD2/SD1 ratio and Total power,\" with LDA loadings showing identical ordering. Train/test validation (3:1 split) confirms model stability with similar performance on both sets (RF test accuracy 0.9, LDA test accuracy 0.8)."
+}

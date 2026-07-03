@@ -1,0 +1,17 @@
+{
+  "id": "W4200494085",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: \"Permutation-based model-specific variable importance plots (VIPs) were used to examine the contribution of each predictor in the RF and GBM ML models using the vip package in R. These are determined by the normalized mean value of difference between the prediction accuracy of the out-of-the-bag estimation and that of the same measure after permuting each predictor.\" Since permutation importance, not impurity-based importance, was used, the documented bias mechanism does not apply to this study's variable importance rankings."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4389977364",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses \"average Gini impurity increase\" importance and ranks genes by it: \"Not only known marker genes, such as S100A12 and S100A9, but also genes encoding ribosomal components and mitochondrial genes (examples including COX6B1, MT-RNR2, RPS9) were among the top 10 most important genes (Table S19).\" For pathway enrichment, \"we used the top 50% cumulated importance genes as input and weighted those by feature importance.\" Critically, validation is limited to predictive performance on held-out cohorts; there is no permutation importance, SHAP, or conditional importance analysis to validate the feature ranking itself. The conclusions about which genes distinguish UC from PSC rely substantially on this unvalidated importance ranking."
+}

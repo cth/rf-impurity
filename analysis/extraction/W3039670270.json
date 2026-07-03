@@ -1,0 +1,18 @@
+{
+  "id": "W3039670270",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies random forest variable importance only as one intermediate dimensionality reduction method (\"pRF = Pearson correlation-based redundancy reduction with random survival forest variable importance\"), tested alongside hierarchical clustering, RIDGE, and no reduction. Model selection is based on held-out C-index: \"We selected the radiomics and combined models yielding the highest average C-index per each combination of study cohort...for further evaluation.\" Conclusions address predictive performance, not feature importance ranking: \"Pre-treatment PET/CT radiomics biomarkers may provide complementary prognostic value...beyond AJCC/UICC staging.\" Validation is robust (33 repeats of threefold cross-validation with proper information-leakage prevention, corrected paired t-tests), and they never report or interpret individual feature importance magnitudes or rankings."
+}

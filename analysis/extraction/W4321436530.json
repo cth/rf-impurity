@@ -1,0 +1,19 @@
+{
+  "id": "W4321436530",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Abstract states \"we identified a set of kinases, several of which are understudied, that are strongly influential in the cell viability prediction models.\" Results section: \"We next built the final random forest model with the full data set and collected variable importance metrics for each of the included features...the model also identifies several understudied kinases, CSNK2A2, PIP4K2C, CAMKK2 and DYRK1B, as being influential.\" Experimental validation (Fig 6) tests overall model predictions on held-out data but does not corroborate individual feature importances through permutation importance, SHAP, or conditional methods. Features span heterogeneous scales and cardinalities without importance-ranking corroboration."
+}

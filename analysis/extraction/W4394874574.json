@@ -1,0 +1,18 @@
+{
+  "id": "W4394874574",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"The Chi-Square statistics...and mean decrease accuracy...both ranked the importance of the five predictors identically, showing calving ease and parity to be the most influential predictors for PM, with calving ease showing a much higher importance for PM compared to parity. The brute-force model selection approach ranked parity as the most influential predictor, closely followed by calving ease and breed.\" However, these three methods show discrepant rankings (brute-force differs on whether parity or calving ease is #1), and no permutation importance, SHAP, PDP/ALE, or held-out validation is used. The abstract centrally claims: \"The difficulty of calving, breed and parity of the cow were found to be the most important factors, followed by farm size and season,\" driving breed-specific recommendations without robust corroboration of the importance magnitudes or rankings. The balanced random forest's sensitivity to class imbalance (unbalanced RF ranked breed second vs. third) is acknowledged but not addressed through robust methods.\""
+}

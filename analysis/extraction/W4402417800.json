@@ -1,0 +1,16 @@
+{
+  "id": "W4402417800",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"We used the importance='impurity' mode in the ranger package to get the feature ranking... The 'impurity' metric corresponds to the Gini index.\" However, the authors use importance rankings only to select SNP subsets; they do not interpret the magnitude of importance scores to support conclusions. Instead, they \"conducted a comparative analysis of SNP selection methods, including GWAS, RF, and XGBoost, using a 10-fold cross-validation approach\" where \"GEBV prediction accuracy was assessed using the Pearson correlation coefficient between predicted GEBV and actual phenotypes.\" Their main conclusions concern which selection METHOD works better (RF vs. GWAS vs. XGBoost), evaluated via held-out prediction accuracy, not SNP importance rankings."
+}

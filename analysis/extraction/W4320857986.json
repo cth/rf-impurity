@@ -1,0 +1,18 @@
+{
+  "id": "W4320857986",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper concludes: \"Patterns of land use were strongly associated with different clusters...By contrast, rainfall seasonality was not an important predictor of temporal dynamics and was in the least five important variables.\" And: \"Our analyses identified population per km2 as the most important predictor of cluster membership.\" These magnitude and ranking claims are drawn directly from Ranger variable importance plots (Fig. 2E) without corroboration from permutation importance or SHAP. The feature set mixes satellite variables at different scales with derived aggregate statistics, making the ranking vulnerable to cardinality-driven impurity bias."
+}

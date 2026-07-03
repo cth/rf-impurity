@@ -1,0 +1,14 @@
+{
+  "id": "W3198579878",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly computes variable importance as \"the percent increase in mean-squared error for a model with the variable over a model with a permuted version of that variable, scaled for comparability across variables\" (Methods 2.7) and reports: \"The random forest identified uniformity, entropy, and energy as the most important radiomic features for classifying lesions.\" It then interprets rankings: \"The radiomic features that were the most important in this context aimed to measure the variability of intensity within a lesion (entropy and uniformity) or quantify the magnitudes of the intensities themselves (energy)\" (Discussion). These conclusions about which features \"are most important\" and why they matter biologically are drawn from impurity importance without corroboration via permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation."
+}

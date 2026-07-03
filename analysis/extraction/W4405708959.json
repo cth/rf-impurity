@@ -1,0 +1,17 @@
+{
+  "id": "W4405708959",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper calculates variable importance via leave-one-out cross-validation on the full dataset (S4 Fig caption), not via tree impurity (Gini/MDI). It reports that certain variables are 'most important' (e.g., 'year being the most important predictor variable when included' in Scenario B), but this validation-based importance is robust to impurity bias. The importance findings support model interpretation but are not central to the core conclusion about dengue serotype prediction accuracy (76-81%), which is validated through held-out test sets (100 bootstrap samples, 90/10 train/test split)."
+}

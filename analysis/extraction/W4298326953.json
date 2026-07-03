@@ -1,0 +1,15 @@
+{
+  "id": "W4298326953",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly avoids impurity importance: \"Because the elastic-net model was comparable in terms of performance with the more complex algorithms and yields interpretable feature importance values as OR, the remaining results are presented using the elastic-net model.\" Variable importance is reported via elastic-net ORs (Table 4), with rankings by absolute coefficient value. The authors note \"OR P values were not presented, as they cannot be computed reliably for the elastic-net model.\" Central conclusions address model performance metrics (ROC AUC 0.912, PR AUC 0.547), not feature importance rankings."
+}

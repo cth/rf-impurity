@@ -1,0 +1,17 @@
+{
+  "id": "W4405642045",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"The RF, eNet, and pls models...were selected to calculate the mean importance of each marker...The variable importance of each model was scaled to be within [0,1].\" However, the actual results section completely bypasses importance values, using instead \"sparse Partial Least Squares Discriminant Analysis (sPLS-DA)\" with \"association matrices...kept all the protein-bacteria pairs with absolute association values exceeding 75% percentile.\" The reported \"top associated markers\" in Figure 4 are selected by sPLS-DA associations, and conclusions about biomarker signatures are based on differential abundance and sPLS-DA correlations, never on the calculated importance scores."
+}
