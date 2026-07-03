@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger for \"ranking of genes (sort_genes_RF function) and rules (sort_rules_RF function)\" and \"optionally filters the less informative rules via the Boruta package.\" However, the conclusions focus on prediction accuracy and package functionality: \"We found that the multiclassPairs outperformed DT in accuracy and training time\" with \"One-versus-rest and RF schemes showed similar accuracies.\" No claims about gene/rule importance magnitude, ranking, or biological drivers are made. The paper does not interpret which features are most important or rank them for interpretation.",
+  "id": "W3128152036",
+  "set": "survivor"
+}

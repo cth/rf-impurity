@@ -1,0 +1,21 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "Paper uses permutation-based importance, not impurity-based: \"The VI rankings of the optimized models were determined by a permutation-based approach using the iml package. By looking at the difference between the OOB error of the randomized model and the original model, the relative importance of each variable was determined.\" Ranking is central to conclusions: \"identify the most important predictors of poor SPGH status\" (abstract); \"the most important predictors were 'Control of own life', 'Physical activity', 'Loneliness' and 'Making ends meet'\" (results). Corroboration present: PD/ALE plots shown for top predictors; incremental validation confirms \"Including the first seven variables of the VI ranking within a RF gives a model with similar performance as the model containing all variables\" (Fig 4).",
+  "id": "W4378904535",
+  "set": "survivor"
+}

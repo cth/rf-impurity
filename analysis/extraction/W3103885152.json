@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "Random forest importance is used to rank and select taxa predictive of Enterococcus: \"We built a random forest regression model to identify taxa present on admission that were predictive of final Enterococcus relative abundance. In cases, only Blautia and Lactobacillus were significant after correcting for multiple testing and feature importance bias.\" However, reported effect magnitudes are validated via independent Mann-Whitney U testing: \"Blautia spp. (OTU 0092) on admission was predictive of decreased Enterococcus (\u221210.3% relative-abundance-adjusted P = 0.004 by Mann-Whitney U test)\". The paper explicitly corrects for importance bias: \"We corrected for feature importance bias in random forest models with a permutation importance (PIMP) heuristic developed by Altmann et al.\" Since magnitude claims rest on Mann-Whitney (not importance scores), impurity bias does not affect the conclusions.",
+  "id": "W3103885152",
+  "set": "survivor"
+}

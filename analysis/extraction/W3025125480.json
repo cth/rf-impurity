@@ -1,0 +1,18 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper acknowledges Gini importance bias: \"it has been shown that the Gini importance is biased if the predictor variables are of different scales or frequencies (Nicodemus, 2011; Strobl et al., 2007)\" and applies a corrected version (Nembrini et al. 2018). While methods like Hunting and LeFE do rank pathways by importance (\"A pathway importance score is calculated as the average of the importance scores of all genes belonging to the pathway\"), the paper's conclusions focus on methodology selection recommendations (e.g., \"PE should be applied when large numbers of relevant pathways are expected\") that are rigorously corroborated through simulation studies with known ground truth and held-out validation on nine real datasets, not on the reliability of importance magnitudes themselves.",
+  "id": "W3025125480",
+  "set": "survivor"
+}

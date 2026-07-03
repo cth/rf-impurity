@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states: \"Importance value were calculated with varImp function from caret package based on permutation.\" They employed permutation-based importance, not impurity/Gini/MDI. Regarding the magnitude/ranking interpretation: \"Ascorbic acid showed the greatest contribution to the accuracy of the GLMNET model (Fig. S 10 b) and the third largest contribution with RF (Fig. S 10 c) in permutation based estimates of feature importance, consistent with the significant correlation between the abundance of this metabolite and grain yield in both conditions (Fig. 6).\" Their conclusions center on genotype-by-environment interactions and the need for further validation: \"It may be possible to build predictive models using metabolite abundance to estimate which sorghum genotypes will exhibit greater or lesser decreases in yield in response to nitrogen deficit, however data from a larger number of genotypes grown across multiple sites will be necessary to train and evaluate such models.\"",
+  "id": "W4295086769",
+  "set": "survivor"
+}

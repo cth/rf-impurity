@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses Boruta for feature selection, explicitly described as permutation-based variable importance: \"It then randomly shuffles the values of each variable one by one to test whether the forest's classification performance declines...This method is also known as permutation-based variable importance.\" The paper does make ranking claims such as \"pain monitoring adherence was the most important predictor of clinical outcome\" and that \"sedation monitoring was more important to clinical outcome...than the APACHE II score.\" However, since Boruta uses permutation-based importance rather than impurity-based importance, the documented impurity-bias artifacts (magnitude corruption, ranking distortion from interactions) do not apply to their conclusions.",
+  "id": "W3082926880",
+  "set": "survivor"
+}

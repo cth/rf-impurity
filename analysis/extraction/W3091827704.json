@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses mean decrease in node impurity for variable importance assessment (Methods 2.5: \"Variable importance was assessed using mean decrease in node impurity\"). In the Discussion, it interprets the ranking and magnitude of importance: \"Drug sensitivity parameters were highly important for doxorubicin, vincristine, and rabacfosadine models, whereas flow cytometry variables were more important in the cyclophosphamide and lomustine models. However, the importance of IC50 vs maximum cytotoxicity varied depending on the model in question. Percentage of CD21+ cells was also commonly in the top three most important variables, and it was particularly important for the cyclophosphamide and lomustine models.\" These conclusions about relative importance are not corroborated by permutation importance, SHAP, PDP/ALE, or other bias-robust methods. The paper validates predictive accuracy with held-out test sets but not the importance ranking itself. The paper's primary conclusions concern predictive performance and clinical utility, making the importance ranking interpretation secondary rather than central.",
+  "id": "W3091827704",
+  "set": "survivor"
+}

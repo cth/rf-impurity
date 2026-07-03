@@ -1,0 +1,17 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states: \"For our work, we choose as default the permutation-based importance calculation described in the original RF paper...Permutation-based importance is robust.\" The paper acknowledges Gini impurity bias favoring high-cardinality variables but explicitly rejects it in favor of permutation-based importance. While the paper ranks features by relative contribution percentages (e.g., MLH1 at 26.7% contribution) and makes claims about identifying causal genes, these rankings derive from permutation importance, which is robust to cardinality bias. The paper includes ablation studies (adding/removing mutation features and measuring RMSE impact) providing held-out validation of feature importance.",
+  "id": "W3153405385",
+  "set": "survivor"
+}

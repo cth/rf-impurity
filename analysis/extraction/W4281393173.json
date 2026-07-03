@@ -1,0 +1,14 @@
+{
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"The Ranger package uses a method introduced by Janitza et al 29 to calculate feature importance. This method is built on a revised permutation variable importance inspired by cross-validation procedures.\" Janitza et al (2018) describes permutation-based importance, not impurity importance. While the paper does interpret feature rankings (e.g., \"In case 3, the SD of raw accelerometer data in the Y-axis is the most deciding predictor\"), this analysis is secondary and not central to the main conclusions about model accuracy (89-92.9% for Case 3). No significance testing is applied to the importance measures, and the findings are not corroborated by other methods.",
+  "id": "W4281393173",
+  "set": "survivor"
+}

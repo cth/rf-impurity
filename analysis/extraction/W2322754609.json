@@ -1,0 +1,15 @@
+{
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "skewed",
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper's core claims rest entirely on interpreting the magnitude and ranking of Gini importance: \"Of the single importance measures, the Gini importance ranked the interacting SNPs generally higher than the permutation importance\" and \"The Gini importance performs better than the permutation importance in identifying SNPs involved in an interaction.\" Central to the conclusions is the claim that \"in most of the cases, the interactions are masked by marginal effects and interactions cannot be differentiated from marginal effects\"\u2014a ranking-based finding that depends on comparing importance scores of interacting SNPs versus marginal-only SNPs. The paper shows comparative results against permutation importance (which ranks variables differently), but this is comparison rather than corroboration; no independent validation via SHAP, PDP/ALE, conditional importance, or held-out validation is provided to confirm that the Gini importance ranking truly reflects underlying variable roles.",
+  "id": "W2322754609",
+  "set": "survivor"
+}
