@@ -24,7 +24,7 @@ for effect sizes.
 
 | Path | What |
 |------|------|
-| [`paper/impurity-importance.md`](paper/impurity-importance.md) | The paper. |
+| [`paper/impurity-importance.tex`](paper/impurity-importance.tex) | The paper (LaTeX; PDF built by CI). |
 | [`notebook/impurity-importance.Rmd`](notebook/impurity-importance.Rmd) | Original 2022 R Markdown note. |
 | [`analysis/validate.R`](analysis/validate.R) | Reproduces every number cited in the paper. |
 | [`analysis/figures.R`](analysis/figures.R) | Regenerates the figures. |
