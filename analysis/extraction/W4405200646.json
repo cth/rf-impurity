@@ -1,0 +1,17 @@
+{
+  "id": "W4405200646",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses exclusively permutation-based variable importance: \"A common class of VIMs are permutation VIMs (Breiman, 2001). To this end, the values of a given covariate are permuted and the resulting loss in predictive performance is measured... Instead, I propose a custom permutation VIM for fabOF based on weighted Kappa.\" The paper interprets ranking (\"interest in higher education, mother's education, and study time are identified as important predictors of student performance\") but acknowledges limitations from correlated features: \"VIMs are known to be affected by high correlations between covariates (Strobl et al., 2008).\" Since no impurity importance is used, the documented impurity bias cannot affect this paper's conclusions."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4413304431",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper concludes: \"Sea surface height and sea surface temperature, either separately or in combination, were the most important predictors of whale acoustic occurrence, highlighting the influence of environmental conditions on the distribution, habitat selection, and ecology of these whales\" (abstract). This ranking-based conclusion is unsupported by independent corroboration methods. While Figure 6a shows partial dependence influence curves for the relationships, the paper relies on importance ranking from ranger's default Gini importance (scaled to percentages) to claim which predictors are \"most important\" versus \"moderately important\" versus \"least important\" (Results, Section 3.5). Statistical significance testing uses Altmann's permutation method, which only tests whether importance != 0, not whether the ranking is reliable or resistant to bias from skewed features (chlorophyll-a) or high-cardinality categorical features (hour with 24 levels)."
+}

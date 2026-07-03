@@ -1,0 +1,18 @@
+{
+  "id": "W4393053121",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies RF variable importance (Var Imp, Min Depth, Var Hunt) and ranks genes by weighted relative frequency from the ensemble. However, substantive conclusions depend on external predictive validation: the top 5 selected genes form a composite score that correctly stratifies survival groups (log-rank p<0.001), shows clinical utility via DCA, and maintains stable C-index/Brier scores across 5-fold CV. The pseudo-variable permutation approach provides control, ensuring selected genes exceed importance of known noise. Claims focus on ensemble method effectiveness, not individual importance magnitudes.\""
+}

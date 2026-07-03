@@ -1,0 +1,18 @@
+{
+  "id": "W4387949524",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states \"The Boruta algorithm in R interface, which is a Random Forest based wrapper method, was used for feature selection\" and displays Z-score boxplots ranked by Boruta showing level of experience, age, and work location as significant features. However, the main quantitative findings about variable relationships are backed by independent Pearson correlation analysis: \"Trust was found to be negatively correlated with age and with level of experience with a correlation coefficient (correlation = -0.67 and -0.82 respectively).\" The paper does not claim that one feature is \"more important\" than another or interpret the ranking magnitude; it only uses Boruta's yes/no feature filtering for downstream model development validated through 3-fold cross-validation achieving 93% AUC. The substantive conclusions about which variables matter are corroborated through both correlation analysis and cross-validated predictive performance."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4383724226",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper measures random forest impurity importance (sets importance='impurity_corrected' in ranger) but does not report or interpret feature importance rankings. Features selected by random forests are \"quite distinct from other methods\" due to \"previous use of univariate filters, due to their incapacity to deal with large dimensional inputs,\" not because of importance interpretation. Main conclusions compare methods by predictive performance (AUPR): \"Elastic Net...is the overall best method\" and \"CimpleG performed as accurately as Elastic Net while focusing on only one DNAm site per cell type.\""
+}

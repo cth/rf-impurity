@@ -1,0 +1,17 @@
+{
+  "id": "W4413489220",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "janitza",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"For creating a 'small' Random Forest model, the uncorrelated markers with high VI were incrementally added as model features, starting with the markers with the highest VI.\" Results show \"22 markers were detected for R8, 15 for Y and 9 for P\" at f>3 thresholds. The authors acknowledge that \"the VI can be biased\" but rely on Janitza et al. p-value adjustment via f-factor. However, they never corroborate the importance ranking with alternative methods (no SHAP, PDP/ALE, or conditional importance). While held-out validation confirms the selected 50 markers achieve \"similar predictive ability,\" this does not validate the ranking of importance among those markers, which the impurity bias could have distorted."
+}

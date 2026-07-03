@@ -1,0 +1,18 @@
+{
+  "id": "W4415724536",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly discusses feature importance methods in Section 2.2.4 but notably excludes impurity-based approaches (MDI/Gini importance) from implementation, discussing only Permutation Feature Importance (PFI), Conditional Feature Importance (CFI), and LOCO. While the application section (3.3.1) ranks features (\"progrec and pnodes are the two most important features...followed in magnitude by tgrade, horTh, and age\"), these rankings are extensively corroborated with PDP plots, H-statistics, and ALE analyses. This is a methodological review and tutorial; conclusions concern methods rather than feature importance-driven scientific claims."
+}

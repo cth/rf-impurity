@@ -1,0 +1,19 @@
+{
+  "id": "W4389274765",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper presents random-forest importance rankings in Tables 4-5 and interprets which predictors are \"most important\" and \"critical factors\": \"frequency of Turkish use emerged as a critical factor\" and \"The most important predictor, in this case, is the time a returnee spent in Germany.\" These magnitude/ranking claims directly answer the study's main research question (\"What external factors modulate the attainment in the (re-)activated HL?\") but lack independent validation via permutation importance, SHAP, conditional importance, or held-out validation. Partial dependence plots visualize the fitted model but do not corroborate the importance ranking."
+}

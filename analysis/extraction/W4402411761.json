@@ -1,0 +1,16 @@
+{
+  "id": "W4402411761",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Gini MDI via extended Boruta: \"the total of hits stored for each feature (H j) is tested using a two-sided test of equality based on the binomial distribution.\" Conclusions focus on feature selection (relevant/irrelevant) via significance testing, not importance magnitude. External validation: \"The performance of the models was measured in the test sample, through prediction error (PE), F1 score, sensitivity (S), and specificity (E)\" with leave-one-out CV on real data. RWR ranking cited is network-based, independent of RF importance: \"genes obtained from knowledge-slanted RF ranked better in RWR...with a median position ranging from 548 to 569 compared to 3820 from conventional RF.\""
+}

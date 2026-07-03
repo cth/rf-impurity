@@ -1,0 +1,16 @@
+{
+  "id": "W2768211711",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly applies permutation importance (\"random permutation of its values in out-of-the-bag samples\") not impurity importance. Primary conclusions derive from SVM-RFE (linear weights): \"The linear classifiers generally perform better than the non-linear classifier... we concluded that SVM-RFE is best suited for our data.\" Features are binary gene alteration indicators, highly skewed with most genes zero across most samples."
+}

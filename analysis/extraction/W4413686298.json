@@ -1,0 +1,14 @@
+{
+  "id": "W4413686298",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Boruta for variable selection, which relies on permutation importance comparing to shadow variables, not impurity importance. Random forests serve only as one possible base learner. The paper's conclusions focus entirely on prediction performance metrics (Brier Score, F-score, AUC) and framework design for late integration, with no interpretation of variable importance rankings."
+}

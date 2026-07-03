@@ -1,0 +1,17 @@
+{
+  "id": "W4408957844",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "\"The variable importance for the RF model was computed using the \"varImp\" function of the \"caret\" package\" and \"Band 11 (SWIR-1) emerged as the most crucial variable...The coastal aerosol band (B1) was found to be the most critical driver variable.\" Corroboration via ALE: \"Accumulated local effects (ALE) plots were used to demonstrate each predictor's impact on LST results...Because ALEs more accurately reflect interactions between predictors, they were used to evaluate main effects.\" Main conclusions focus on model performance: \"RF is an effective and adaptable strategy...The RF model provided the best predictability in terms of R2, RMSE\" (not on variable selection by importance ranking)."
+}

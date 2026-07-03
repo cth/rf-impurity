@@ -1,0 +1,17 @@
+{
+  "id": "W4413109329",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs random forest and gradient boosting for predictive performance comparison but explicitly states: \"One of the advantages of LOGIT is the transparency of the model...Therefore, we used it to interpret the relationship.\" All risk factor interpretation uses logistic regression adjusted odds ratios (Table 3), not RF variable importance. The authors deliberately chose LOGIT over ML methods for interpretation due to its interpretability. No impurity-importance measures are reported or used to draw conclusions about which variables drive TB mortality."
+}

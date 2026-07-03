@@ -1,0 +1,19 @@
+{
+  "id": "W7118262481",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks features by Gini score and emphasizes that Maskoriginal_VolumeNum \"had a Gini score significantly higher than all other features, underscoring its importance in the model.\" Feature selection is driven by ranking: \"The top features, ranging from the top 5 to 20, were then used as inputs.\" However, SHAP values are mentioned only in supplementary material without discussion of whether they corroborate the Gini ranking, and no permutation/conditional importance is provided. In a 65-patient cohort with 112+ radiomic features mixed with categorical clinical variables, impurity importance will be biased toward high-cardinality features, yet the ranking is treated as ground truth for interpretation."
+}

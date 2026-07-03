@@ -1,0 +1,15 @@
+{
+  "id": "W4405543717",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "\"Variable importance was estimated using corrected Gini importance [30] and corresponding permutation-based p-values were estimated.\" The authors report: \"The most important predictor was self-rated emotion dysregulation on the DERS-16 at baseline (Importance = 2.10, p < .01), followed by self-rated stress symptoms\" and conclude emotion dysregulation \"may be of importance in treatment planning.\" They provide no SHAP, PDP/ALE, conditional importance, or held-out validation, only permutation p-values (which test variable usage, not ranking). Notably, they state: \"We have previously found that emotion dysregulation and NSSI did not strongly predict treatment outcome when investigated separately in simple regression analyses\"—indicating Gini importance captures different structure than linear methods, possibly non-linearity or interactions rather than true relative importance."
+}

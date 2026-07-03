@@ -1,0 +1,18 @@
+{
+  "id": "W4393112007",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses permutation-based feature importance, not impurity-based: \"Within each fold, we calculated permutation-based feature importance scores implemented in 'ranger' package\" and \"We additionally applied the method introduced by Altmann et al. to assign a p-value for each feature.\" Random forest serves only as a baseline: they explicitly state it is \"a baseline of disease predictability.\" The main disease-associated features reported (e.g., Peptostreptococcus, Gemella, amino acids) derive from the CCA-based MintTea method, not from RF feature importance ranking."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4404489259",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses MDI (Gini importance): \"The Mean Decrease in Impurity (MDI, or Gini importance) (Breiman, 2002).\" They report MDI magnitude changes: \"MDI increased with both sample size and number of variables.\" However, their main conclusions focus on target-based encoding bias to OOB estimates, not MDI cardinality bias. Critically, they acknowledge: \"MDI is known to be biased in favour of variables with many possible split points (Strobl et al., 2007)\" and recommend using permutation importance (MDA) instead: \"calculate variable importance via MDA using an independent test set.\" They corroborate findings with permutation importance throughout and use held-out validation, so substantive conclusions do not depend on MDI magnitude/ranking."
+}

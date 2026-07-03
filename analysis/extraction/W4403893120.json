@@ -1,0 +1,17 @@
+{
+  "id": "W4403893120",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states: \"To assess feature importance, identify the most important variables associated with the HMGCoA reductase inhibition in the best models, and interpret those models, the DALEX and iml R packages were used.\" They explicitly describe results using \"partial dependence plots,\" stating: \"The activity relationship is described on the basis of the partial dependence plots; although such plots are useful for understanding the way in which a feature is associated with the response variable, they may not capture the full complexity of the interactions between the contributing features.\" Results are reported as qualitative activity relationships (e.g., \"inverted U-shape,\" \"negative values -> higher activity,\" \"positive association\") rather than importance scores or rankings. Boruta appears only as a feature-selection method in the model-building pipeline, not for post-hoc importance testing."
+}

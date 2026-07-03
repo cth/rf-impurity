@@ -1,0 +1,16 @@
+{
+  "id": "W4321851539",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper uses random forest via the ranger package as one classifier among three tested: \"The training of SVM and random forest classifiers was performed using the caret R package and utilizing the kernlab and ranger R packages, respectively.\" However, evaluation relies entirely on classifier performance metrics (Kappa, AUC, sensitivity, specificity) on held-out test data. No variable importance is extracted or interpreted: \"We used the Kappa statistic to evaluate performance on holdout data... In addition to the Kappa statistic, we used a composite one-vs-all approach to calculate several metrics...\" All conclusions concern normalization method suitability assessed via predictive performance, not feature importance."
+}

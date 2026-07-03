@@ -1,0 +1,19 @@
+{
+  "id": "W7134238250",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses permutation-based variable importance via ranger's 'permutation' option, not impurity-based importance: \"we used a permutation procedure that calculates the loss in predictive accuracy... We implemented this assessment using the option 'permutation' in the R package ranger.\" It corroborates variable rankings with partial dependence plots, bootstrap confidence intervals on environmental differences (Tables 2-3), and cross-validation accuracy. Sea surface temperature is identified as most important (100% relative importance across three models), supported by direct comparisons of used vs. unused habitat and cross-season model transferability testing."
+}

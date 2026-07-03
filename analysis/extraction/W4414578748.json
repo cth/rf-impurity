@@ -1,0 +1,16 @@
+{
+  "id": "W4414578748",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The methods section states \"From the trained random forest, we extracted the relative importance of each predictor variable\" using \"impurity mode to impurity_corrected\" and \"estimated a p-value for each predictor variable using the 'Altmann' method with 100 permutations.\" However, the results report only prAUC (0.5013 and 0.499) and state \"RF models based on known TFBS involved in temperature-related reactions were not able to predict DEGs with high accuracy.\" No importance magnitudes or rankings are reported; the RF analysis serves as an exploratory comparison, with conclusions about model performance, not feature importance."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4408669857",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"We evaluated feature importance (i.e., how informative each locus was for accurately predicting food source) by using permutation importance on 2-fold cross-validation.\" Feature importance is used only for feature selection; conclusions focus on predicted food sources (chicken 46%, vegetables 27% among confident predictions) derived from the trained model, not on interpreting feature importance magnitudes or rankings."
+}

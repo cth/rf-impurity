@@ -1,0 +1,17 @@
+{
+  "id": "W4381051893",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"permutation importance method to calculate the statistical significance and contribution of each feature\" with \"FDR-corrected p < 0.05\" values. This is not impurity importance (Gini/MDI) and thus not subject to the impurity importance bias. Main conclusions emphasize predictive validation: \"we made a substantial effort to validate obtained predictions via experimental data using an extensive collection of in vitro experiments, longitudinal clinical studies, and large-scale population cohorts\" rather than on feature importance ranking. Feature importance discussion explains model behavior but is not central to claims about drug-microbiome interactions."
+}

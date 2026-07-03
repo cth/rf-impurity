@@ -1,0 +1,18 @@
+{
+  "id": "W4415700826",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs Boruta algorithm and SVM-RFE with 1000 resampling iterations to identify 8 key genes (occurrence frequency >0.8), which tests whether features are used rather than interpreting their importance magnitude. Impurity importance from the Random Forest component is explicitly used only for \"providing interpretability for the ENS\" with SHAP analysis provided as corroboration. Main conclusions depend on ensemble model predictive performance validated via three independent test sets, cross-validation (10-fold and LOOCV), calibration curves, and DCA analysis, not on impurity importance ranking or magnitude."
+}

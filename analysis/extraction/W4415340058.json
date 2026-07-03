@@ -1,0 +1,16 @@
+{
+  "id": "W4415340058",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper mentions \"Variable importance plot is reported in Figure S5\" but never interprets or discusses importance values. Predictor selection uses ROC AUC (discard if < 0.75), Boruta test, and correlation analysis instead. All conclusions focus on habitat dynamics: \"88% of the area remaining unchanged over time\" and \"Grasslands experienced the most dramatic contraction, shrinking by 10.09 ha year-1\" with no reference to predictor importance rankings or magnitudes."
+}

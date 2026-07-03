@@ -1,0 +1,19 @@
+{
+  "id": "W4417238925",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Variable importance was computed based on the permutation method with 1000 shuffled replicates to build null distributions under no signal. For interpretability, they undertook Individual Conditional Expectation plots showing how predictions change with each variable and computed pairwise interactions based on the H-statistic. The environmental analysis (identifying significant predictors like chlorophyll a and PAR) is secondary; main conclusions focus on co-occurrence and phylogenetic distance driving HGT via logistic regression."
+}

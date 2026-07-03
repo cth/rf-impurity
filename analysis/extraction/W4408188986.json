@@ -1,0 +1,18 @@
+{
+  "id": "W4408188986",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses Random Forest impurity importance (via Ranger package) to rank features and states: \"Among the 18 features retained after the feature selection process, the average temperature and pressure in February (T2M_2 and PS_2), as well as the average wind speed in January (WS2M_1), emerged as the most significant predictors\" (Sect. 3.4). Figure 2 displays \"Feature importance based on Random Forest\" with explicit ranking. No permutation importance, SHAP, PDP/ALE, or held-out validation of importance is provided. Boruta is used for feature selection (zero/non-zero detection) but not to validate the ranking. Discussion and conclusions hinge on this ranking: \"Beekeepers can use pre-harvest weather parameters, such as winter temperature, humidity, atmospheric pressure, and wind speed, to inform management strategies\" (Conclusions). Dataset contains multiple correlated monthly variants (T2M_12, T2M_1, T2M_2, T2M_MAX_1/12/2, T2M_MIN_1/12/2; RH2M variants; WS2M variants in different months), EVI at 5 different months, and features spanning disparate scales (pressure ~99 kPa, temperature ~2-15°C, wind ~1 m/s, EVI ~0.4-0.55)."
+}

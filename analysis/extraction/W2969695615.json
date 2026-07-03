@@ -1,0 +1,16 @@
+{
+  "id": "W2969695615",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses ranger variable importance scoring to screen 12,806 DNA methylation probes down to 62 (discovery) and 38 (validation), and gene expression data down to 9 and 13 genes: \"Ranger screened out 62 DNA methylation probes in the discovery phase according to variable importance score (VIS).\" The core claim is \"we identified 7 cancer-related genes and 12 DNA methylation probes as potentially associated with early-stage LUAD survival,\" which depends on this importance-based ranking. While the selected biomarkers are validated with Cox regression (FDR-corrected in discovery, p<0.05 in validation) and tested in independent cohorts, the paper provides no permutation importance, SHAP, PDP/ALE, or conditional importance analysis to verify that the importance ranking itself is accurate."
+}

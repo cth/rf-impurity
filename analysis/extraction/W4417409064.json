@@ -1,0 +1,19 @@
+{
+  "id": "W4417409064",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses permutation importance for Random Survival Forests (importance = \"permutation\") and AORSF (importance = \"permute\"), not impurity-based methods. Feature ranking uses voting-theory-based SAV scores that aggregate binary selection indicators (1{i in S_k}) weighted by model performance (ρ_k), not importance magnitudes. The Pareto-based determination of biomarkers selects features by the knee point of the sparsity-performance trade-off, not by importance ranking. Conclusions focus on method properties: \"hEFS selected substantially fewer and more stable features than CoxLasso (~10 vs. ~60 per modality), while still maintaining comparable discrimination performance with clinical baselines (C-index ~0.54-0.60).\" No Altmann, Janitza, Boruta, SHAP, PDP/ALE, or importance magnitude-based claims appear in the paper."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W2982481728",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper calculates feature importance from \"node impurity, such as the Gini index...or variance explained for regression.\" For iRF-LOOP, \"the resulting importance scores are then combined into an edge matrix\" and networks are created by keeping \"the top 10%, 5%, 1%, and 0.1% of edge scores.\" Validation occurs only through Gene Ontology overlap (\"intersecting with the GO network\"), but the authors never employ permutation importance, SHAP, conditional importance, or held-out validation to corroborate whether the importance rankings themselves are accurate or resistant to impurity bias."
+}

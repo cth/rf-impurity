@@ -1,0 +1,17 @@
+{
+  "id": "W4416839624",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "janitza",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Paper states \"In the global model, anomalously cold and dry summers were the most important predictors of observed groupings...Fire impacts...and site-level/environmental conditions...had similar relative importance values (41-45%). Topographic position had a notably lower importance...We found pre-fire basal area (BA) was the third most important driver.\" Main conclusion: \"post-fire climate anomalies best predicted structural recovery.\" These ranking and magnitude interpretations are unsupported by permutation importance, SHAP, or held-out validation; Boruta only validates that variables are used (importance > noise), not their ranking."
+}

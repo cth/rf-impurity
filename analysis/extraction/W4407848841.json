@@ -1,0 +1,14 @@
+{
+  "id": "W4407848841",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses permutation feature importance (PFI) and Shapley values for post-hoc model interpretability, not impurity-based importance. Section 2.2.2 explicitly describes conditional inference trees as using \"a two-step process...selecting the optimal split variable by a set of statistical hypothesis tests before determining the corresponding split rule. In this way, a selection bias towards covariates with many possible splits is avoided.\" The application section computes PFI solely for descriptive visualization of a fitted model, with the statement that \"higher PFI_j values indicate a higher importance of the j-th covariate for estimating the RMST,\" but makes no causal or ranking-based claims that depend on importance magnitude."
+}

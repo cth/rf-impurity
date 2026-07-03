@@ -1,0 +1,18 @@
+{
+  "id": "W3126801790",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks genes by RF selection frequencies (Table 3), identifying 'LY6E, IFI27 and CD177 as important key genes' and biomarker panels based on which features were selected most often in backward elimination and genetic algorithm runs. These rankings are derived entirely from RF impurity importance via VarSelRF and GALGO. The paper validates predictive performance via cross-manufacturer held-out testing (Fig 5) and functional enrichment, confirming genes lie in immune-response pathways. However, no permutation importance, SHAP, PDP/ALE, or conditional importance analysis is reported to validate whether the magnitude and ranking of individual gene importance is accurate. The impurity-importance bias could distort which genes are ranked highest without invalidating model accuracy."
+}

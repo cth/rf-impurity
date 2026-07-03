@@ -1,0 +1,14 @@
+{
+  "id": "W4394722945",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"Feature importance scores for each residue position... were calculated based on the total decrease in node gini-impurity.\" Residues were \"ranked in descending order based on their importance scores\" and the final model contained \"the top 22 residue positions.\" The central finding is that \"the majority of highest scoring residues (17 out of 22 residues) reside within the N-terminal hot-dog structure,\" directly depending on which specific residues ranked highest. Cross-validation assessed model classification performance (recall 92%, MCC 0.87) but not importance magnitude validation. Only 6 of 22 residues had prior experimental validation; the remaining 16 were identified new by the importance ranking."
+}

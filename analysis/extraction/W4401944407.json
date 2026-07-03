@@ -1,0 +1,19 @@
+{
+  "id": "W4401944407",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The authors state \"We implemented the permutation-based approach to determine the variable importance of each predictor variable,\" explicitly using permutation-based rather than impurity-based importance. They heavily interpret magnitude and ranking: \"Fig. 7 a shows that maize yield is primarily influenced by the amount of nitrogen fertilizer applied, maximum temperature during the planting season, and exchangeable calcium content\" and \"In this study nitrogen fertilizer application emerged as the most important determinant of yield.\" The paper's major discussion section (4.2) is titled \"Implications of variable importances\" and makes agricultural recommendations based on importance rankings. Partial dependence plots provide secondary validation of top-ranked variables. The dataset exhibits multiple feature heterogeneity issues: mixed variable types (soil, climate, management), high-cardinality categorical variables (soil type, agro-ecological zone), highly skewed distributions (AE-P skewness 3.4, available P skewness 5.5), and severe scale mismatch (pH range 4.1-7.3 vs. CEC range 0.08-82.9)."
+}

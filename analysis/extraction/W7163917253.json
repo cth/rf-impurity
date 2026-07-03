@@ -1,0 +1,19 @@
+{
+  "id": "W7163917253",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly states: \"Feature importance was quantified using impurity-corrected importance scores, yielding a single importance value per feature.\" Biomarker prioritization is defined by \"supervised ML-derived reliability and importance scores\" computed via ranger random forests with Gini importance. The biomarker score is computed by multiplying \"differential score, regression score, significance score, supervised learning importance and significance scores, and unsupervised PCA rotation value.\" However, corroboration is provided through: (1) ROC benchmarking on 14 independent datasets achieving mean AUC 0.96 vs competitors 0.77-0.84 (held-out validation); (2) external IHC validation confirming top-ranked genes have differential protein expression; (3) Altmann et al. permutation-based p-value testing ensuring importance is statistically significant. Their conclusion that ExIR ranks biomarkers better than other methods is supported by these validations rather than by impurity importance magnitude alone."
+}

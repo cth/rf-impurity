@@ -1,0 +1,17 @@
+{
+  "id": "W4317939381",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"we identified 500 DEGs along a pseudotime trajectory by fitting a random forest regression model\" and in methods \"We calculated the importance of the genes at the pseudo-time and selected 500 most important genes.\" However, results report only normalized expression values along pseudotime, not importance scores. Genes are identified through temporal expression pattern classification (\"Pattern 1-6 genes\") and their dynamics, not importance ranking. Key findings on EDNRB2, ATOH1, LOXL1, and VIM are validated through qPCR, immunostaining, and functional experiments (TGFbR1 inhibition), not from importance magnitude or ranking."
+}

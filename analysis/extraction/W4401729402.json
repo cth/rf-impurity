@@ -1,0 +1,17 @@
+{
+  "id": "W4401729402",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"Feature importance was calculated using the varImp function in caret, which is computed according to the weighted sums of absolute coefficients for each input variable\" - this is PLSR-based importance, not RF impurity importance. While the paper discusses feature rankings (\"geometric traits ranked as having the greatest importance after recursive feature elimination\"), these are used primarily for feature selection. Main conclusions focus on prediction accuracy: \"Predictions had lower accuracy when models used only geometric variables or spectral traits compared to when they were combined.\" The study validates features through train/test splits and K-fold cross-validation."
+}

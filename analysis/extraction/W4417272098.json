@@ -1,0 +1,18 @@
+{
+  "id": "W4417272098",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper mentions random forest only once: \"Moreover, we employed two separate multivariate methods, namely sparse partial least squares regression (sPLS) and random forest, for investigating the relationship between the faecal anellovirus relative abundance at the species or subgenus level at age 1 year and the development of these atopic diseases. These methods did not yield sufficiently discriminatory results, with a median area under the curve (AUC) for the test set below 0.562.\" No variable importance metrics are reported. The main conclusions derive from \"Using a generalised linear model adjusted for technical covariates\" and PERMANOVA testing, with p-values and confidence intervals from these classical statistical approaches, not impurity-based methods."
+}

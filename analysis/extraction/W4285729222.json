@@ -1,0 +1,18 @@
+{
+  "id": "W4285729222",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses feature contributions from random forest models and explicitly interprets magnitude and ranking: \"For each of the six categories, the contribution of the sample to the target value was calculated, and then medians of feature contributions as a proxy for the 'standard level' of variable contributions were obtained with higher absolute values indicating a larger contribution.\" The entire Discussion (4.1) depends on interpreting these magnitudes to explain city-specific patterns: \"For Beijing (Figure 6a), the contribution of the company gradually declined from stage I to IV and recovered in stage V.\" No permutation importance, SHAP, or conditional importance validation exists; OOB validation only checks overall fit (R² ~0.52), not feature-ranking robustness. Conclusions state \"companies in all cities were resuscitated during stationary period, but Guangzhou's recovery was earlier\" - a ranking claim unsupported by alternative importance methods."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4402900565",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper proposes COMETs as algorithm-agnostic significance tests for multimodal data. While Table 1 shows variable importance ranks from random forests and elastic net (obtained from prior work), the paper explicitly states its conclusions are based on p-values from statistical tests: 'After correcting for multiple testing, the COMETs provide evidence that BRAF_V600E is associated with PLX4720 activity.' The paper's methodology and all substantive conclusions rely on conditional independence tests (GCM, PCM), not on impurity importance rankings or magnitude."
+}

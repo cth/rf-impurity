@@ -1,0 +1,17 @@
+{
+  "id": "W4322616741",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applied random forest with Altmann permutation testing in a binary feature selection framework (significant in at least 2 of 4 statistical tests), not for magnitude or ranking. The authors stated 'The results and variable importance from this step were further subjected to permutation testing using the altmann method.' Conclusions about the 39 identified biomarkers relied on Spearman correlations (Table S6), chemical plausibility screening, literature comparison, and stability validation across multiple time windows. The authors identified and explicitly excluded metabolites with high RF importance but negative correlations, demonstrating awareness of impurity importance limitations."
+}

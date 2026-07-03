@@ -1,0 +1,15 @@
+{
+  "id": "W4283834257",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses \"mean decrease of Gini coefficient\" for feature selection (Methods 2.3.2): \"To select the most critical variables, the 'mean decrease of Gini coefficient' was adopted.\" However, substantive conclusions are drawn from logistic regression, not Gini magnitude or ranking. For example: \"The presence of SUD was positively associated with a diagnosis of cluster B personality disorder (OR = 2.31 [95% CI = 1.26-4.23]; p = 0.006)\" and \"hypomania as the first affective episode (OR = 4.34 [95% CI = 1.42-13.31]; p = 0.01) and hetero-directed aggressivity (OR = 3.15 [95% CI = 1.48-6.74]; p = 0.003) were associated with AUD+SUD.\" All substantive inferences rest on logistic regression statistical significance and effect estimates, not on Gini importance rankings."
+}

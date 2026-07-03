@@ -1,0 +1,18 @@
+{
+  "id": "W4412720711",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses SHAP values for tree-based models: \"For random forests and gradient boosted trees, approximate SHAP values (SHapley Additive exPlanations) were calculated, identifying the most important predictor by highest SHAP value in each dataset\" (line 537-539). Corroboration includes separate logistic regression odds ratios: \"pooled odds ratios and confidence intervals were estimated in Stata to provide summary effect sizes across imputations\" (line 544-546), and repeated 5-fold cross-validation (lines 516-519). While the paper ranks biomarkers (TSH and DHEA-S as top predictors), this is based on SHAP and OR estimates, not impurity importance, and the primary conclusions emphasize overall model performance rather than importance magnitude."
+}

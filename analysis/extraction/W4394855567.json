@@ -1,0 +1,17 @@
+{
+  "id": "W4394855567",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses permutation-based variable importance, not impurity importance: \"Specifically, we consider the permutation-based variable importance measure to evaluate the importance of genes.\" Although the paper ranks genes by importance and selects top genes (\"Starting with all genes in the dataset, at each step, the network-guided RF is constructed and the 10% lowest ranking genes are discarded\"), the impurity-importance bias does not apply because permutation importance is used instead of impurity-based importance (Gini/MDI). Validation occurs through held-out test sets and cross-technology dataset validation."
+}

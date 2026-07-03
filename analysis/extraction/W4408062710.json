@@ -1,0 +1,16 @@
+{
+  "id": "W4408062710",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses SHAP exclusively for importance interpretation: \"Models predicted differential minimum QIDS scores...using pretreatment EHR measures and SHAP values identified prescriptive predictors\" (abstract). The results report \"SHAP variable importance scores for the 10 most predictive pretreatment measures\" and analyze \"SHAP interaction plots indicated that min-QIDS predictions varied as a function of treatment type for several important predictor variables.\" Since SHAP is a robust corroboration method not subject to impurity importance bias, the ranking and magnitude interpretations are not affected by the bias."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4408948506",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses permutation-based importance with Altmann p-values: \"Variable importance was measured by a permutation-based feature importance method and was used to compute a permutation-based p value as implemented in Altman and collaborators (2010).\" The main conclusions emphasize limitations: \"the identified predictors are not sufficiently representative to be considered proxies for functional language lateralization.\" Results rank predictors but findings are corroborated across linear regression, elastic net, and random forest models."
+}

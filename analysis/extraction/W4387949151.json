@@ -1,0 +1,18 @@
+{
+  "id": "W4387949151",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper explicitly uses ranger package impurity importance (variance-based) and reports values in Table 4-5. P-values calculated via permutation method (Altmann et al. 2010) with 6000 permutations and Bonferroni correction (p<0.0005 threshold for 88 variables). However, findings section (5.1-5.1.7) never references importance magnitude or ranking. Instead, substantive conclusions ground exclusively in partial dependence plots (Figs 6-10, referenced 2x in findings) and Friedman-Popescu H-statistics for interaction strength (referenced 1x in findings). Control variables with highest importance values (Historical GPA: 24584, SET score: 857.8) correctly identified as control and excluded from main conclusions. Feature mix includes binary, continuous, and ordinal variables with unscaled differences (0-1 binary vs 0-100 GPA scales), introducing potential scale bias, but this affects both impurity importance and corroborating methods similarly."
+}

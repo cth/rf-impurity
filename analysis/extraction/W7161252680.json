@@ -1,0 +1,16 @@
+{
+  "id": "W7161252680",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses a ranger random forest model only for imputation of missing pedoclimatic zone assignments (Section 2.2), reporting solely the out-of-bag error rate (0.057). All substantive conclusions about agricultural management effects on SOC derive from mixed linear models with backward stepwise elimination: 'Impact of agricultural practices on SOC was assessed using mixed linear models with pedoclimatic zones as a random effect and management indicators as fixed effects... Model simplification was performed using stepwise backward elimination of non-significant terms via the step() function from the lmerTest package.' No variable importance extraction, Gini impurity, or MDI metrics are mentioned anywhere in the text."
+}

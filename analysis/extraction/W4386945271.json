@@ -1,0 +1,17 @@
+{
+  "id": "W4386945271",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"The performance metrics included accuracy, Cohen's kappa, F1-score, area under the curves from receiver operating characteristic curve, precision recall curve or precision recall gain curve, and execution time.\" It lists as future work: \"It would also be interesting to implement highly recognized model interpretation analyses, such like permutation variable importance [108] and/or shapley additive explanations [109], in order to assess importance of descriptors.\" The study benchmarks six ML algorithms (BLR, ERT, RF, SGB, SVM, XGB) and five genomic feature types but evaluates them only by predictive accuracy on held-out test sets, not by feature importance."
+}

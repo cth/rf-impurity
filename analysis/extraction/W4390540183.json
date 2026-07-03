@@ -1,0 +1,17 @@
+{
+  "id": "W4390540183",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"Random forest modelling identified wind speed as the primary predictor of the occurrence of killer whale calls (with a negative correlation) while sea surface height, chlorophyll-a and sea surface temperature were moderately important\" and \"Wind speed was the most important predictor of the occurrence of echolocation clicks and social calls.\" The discussion interprets these rankings ecologically: \"Wind speed was the most important predictor... as their occurrence in October to December coincided with low wind speed.\" No alternative importance measures (permutation importance, SHAP, conditional importance) or held-out predictive validation support the magnitude and ranking."
+}

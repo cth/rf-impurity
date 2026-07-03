@@ -1,0 +1,16 @@
+{
+  "id": "W4414242061",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper mentions using \"Gini importance evaluation in tree models\" for embedded feature selection. However, all conclusions about feature magnitude and ranking are grounded in SHAP values, not Gini importance: \"we employed SHAP values, a game theory-based method for assessing feature importance... Ackermannviridae exhibited the largest absolute SHAP value, followed by Casjensviridae and Schitoviridae.\" SHAP provides robust corroboration against impurity-importance bias, ensuring that feature ranking conclusions about which viral families drive PMI prediction are not corrupted by the bias."
+}

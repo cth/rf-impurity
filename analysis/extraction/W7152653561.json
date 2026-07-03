@@ -1,0 +1,16 @@
+{
+  "id": "W7152653561",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper specifies importance = \"permutation\" for all wrapper-based feature selection models (RSF-logrank, RSF-maxstat, AORSF), explicitly avoiding impurity-based importance. Features are ranked by SAV voting scores to select the final biomarker panel, but the substantive conclusions focus on sparsity (\"hEFS selected substantially fewer and more stable features than CoxLasso\"), selection stability, and modality choice for predictive performance, validated on held-out test sets via C-index and AUC. Importance magnitude or ranking is not central to the main findings."
+}

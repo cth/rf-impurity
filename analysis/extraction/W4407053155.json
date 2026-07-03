@@ -1,0 +1,16 @@
+{
+  "id": "W4407053155",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs random forest classifiers with feature importance explicitly estimated using Altmann et al. (2010) permutation importance method: 'Feature importance (i.e. the importance of KOs) was estimated using the method developed by ref. 79' (Altmann, Toloşi, Sander, & Lengauer 2010, Permutation importance). They identify 408 significant KOs (p<0.05, importance quantile>0.95) and note that 'KOs associated with biofilm formation and cold adaptation were particularly prevalent.' Since permutation importance is robust to the impurity-importance bias, no corruption of magnitude/ranking occurs; the RF analysis serves as supporting mechanistic detail rather than a driver of the paper's core climate-impact conclusions."
+}

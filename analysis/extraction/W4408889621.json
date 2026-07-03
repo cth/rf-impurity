@@ -1,0 +1,19 @@
+{
+  "id": "W4408889621",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "altmann",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses \"the rf.blind function to obtain the Gini index and associated p value estimated by permutation using the Altmann method, allowing us to identify which ASVs were most important for classification.\" However, the Gini index is one of five methods used to calculate average association coefficients, alongside ANCOM-BC2, Maaslin2, LinDA, and ZicoSeq. The authors select taxa by \"highest average association scores\" from these five methods combined, effectively diluting any impurity bias. Crucially, they require agreement from \"at least two methods\" for taxa inclusion and validate predictions on held-out 2023 data with <6% error rate, demonstrating that the ranking reflects genuine predictive signal rather than bias."
+}

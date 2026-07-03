@@ -1,0 +1,12 @@
+{
+  "id": "W3207346302",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest classifiers (R/ranger v0.10.1) for brain tumor classification but does not report or interpret variable importance. \"For each sample, an ad hoc random forest classifier...was trained using the Heidelberg reference cohort...and a final report containing sequencing statistics and classification results was generated.\" All conclusions focus on classification accuracy (concordance with neuropathology: 89%), out-of-bag error rates (mean 5.81%), and clinical impact on surgical decision-making. No feature importance measures or rankings are presented or discussed."
+}

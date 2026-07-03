@@ -1,0 +1,16 @@
+{
+  "id": "W3022771385",
+  "set": "rejected_sample",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper describes a machine learning module that \"includes the ranger implementation of the random forest model to perform classification and regression tasks\" with RFE for feature selection. However, neither case study (cholangiocarcinoma nor endothelial cell data) presents random forest results. Feature ranking relies on differential expression statistics, product-based meta-analysis, and enrichment analysis instead."
+}

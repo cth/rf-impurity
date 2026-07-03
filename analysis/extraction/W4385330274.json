@@ -1,0 +1,18 @@
+{
+  "id": "W4385330274",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "\"We built our first model with the full set of 1844 acoustic and image features. We built a second model by performing automated feature selection and using the most important features from that analysis...Our second model outperformed the first model, so we used the second model with 114 features for final analyses.\" The paper used impurity-based feature selection for model training but did not interpret feature importance magnitude or rankings in conclusions. Instead, \"we extracted the resulting proximity matrix as the random forests similarity measurements\" and validated results using \"spectrographic cross-correlation (SPCC)\" as an independent method. All conclusions focus on acoustic convergence patterns at different social scales, not on feature importance: \"the individual scale was the social scale with the strongest acoustic convergence in native and introduced range monk parakeet contact calls.\""
+}

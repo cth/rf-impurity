@@ -1,0 +1,19 @@
+{
+  "id": "W4410479945",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper uses SHAP values, not impurity-based importance: \"SHAP values were estimated using the R package fastshap (version 0.1.0) from random forest models using ranger (version 0.14.1).\" Features are ranked by mean absolute SHAP value and visualized via partial dependence plots. Main conclusions concern GHG-yield trade-offs and regional adoption patterns; feature importance analysis is explanatory rather than central."
+}

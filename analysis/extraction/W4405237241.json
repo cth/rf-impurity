@@ -1,0 +1,14 @@
+{
+  "id": "W4405237241",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Paper explicitly states: \"We used an actual impurity reduction importance measure to estimate the relative importance of each explanatory variable.\" Main findings rest on ranking interpretation: \"The trip purpose was identified as the most important factor...Gender was the second most important determinant (with a relative importance score of 21%).\" This ranking directly informs policy: \"An important implication of the findings is that purpose-specific buffer sizes need to be employed in order to capture environmental attributes related to cycling.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation methods appear in the paper to corroborate these rankings."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4391092002",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses Boruta, which \"is built on random survival forest (RF), which determines an unbiased grading of the predictive importance.\" Results emphasize ranking: \"in descending order of importance: PlGF, MMP-12, LOX-1...\" and \"MMP-12 is highlighted as a promising predictive mid-pregnancy biomarker\" and \"BNP and IDUA were the two strongest biomarkers.\" The conclusion states the study \"found MMP-12 to be the most promising candidate.\" Logistic regression was applied only to examine \"the direction of the individual association\" and found significant associations only for late-onset, not validating the Boruta rankings through alternative methods."
+}

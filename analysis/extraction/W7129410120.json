@@ -1,0 +1,16 @@
+{
+  "id": "W7129410120",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs random forest models using randomForest and ranger packages to upscale CO2 and CH4 fluxes from MODIS spectral reflectance (7 bands: blue, green, red, NIR1, NIR2, SWIR1, SWIR2). It explicitly states: \"We also investigated the importance and effects of predictor covariates on individual models.\" However, no importance results are reported in the text or figures. The paper's conclusions about drivers instead derive entirely from PCA and SEM analysis of management indicators (freshwater marsh area, water depth, disturbance, habitat types), not from RF feature importance. Model validation relies on held-out RMSE and R2 metrics, not feature-importance-based claims."
+}

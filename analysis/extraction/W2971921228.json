@@ -1,0 +1,17 @@
+{
+  "id": "W2971921228",
+  "set": "rejected_sample",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states in methods: \"For all RF analyses, forests were grown to 1000 trees using node impurity to assess variable importance\" - confirming use of Gini/variance-based impurity importance. However, the results and conclusions focus entirely on model performance metrics (sensitivity, specificity, balanced accuracy) and do not report any variable importance scores, rankings, or magnitudes. Supplementary tables are described as containing \"Performance of predictive models\" not feature importance. Conclusions address sampling bias, resistance mechanism complexity, and model performance variation across drugs/species, with no discussion of which features/k-mers are most important."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4391353343",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Feature importance in RF is calculated based on the permutation importance that denotes the random permutation worked better than the original. After the first RF, features with an importance value smaller than 0.05 were selected for the following modeling step, then validated in a second RF using 5-fold cross-validation. The entropy approach performed in this study reveals the complex genetic interactions (3-way interactions via 3WII) that significantly contribute to LOAD risk, with permutation testing validating interactions across 1000-10000 iterations. RF feature selection is instrumental for dimensionality reduction, but conclusions target SNP triplet interactions, not feature importance ranking."
+}

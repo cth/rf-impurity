@@ -1,0 +1,15 @@
+{
+  "id": "W4410052144",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies random forests via the Boruta feature-selection algorithm to reduce k-mer features: \"Feature reduction was carried out on the matrix to reduce the number of k-mers in the final model using the caret package and the Boruta package. The Boruta algorithm was then applied to select important attributes in the matrix using a random forest classifier.\" However, the paper does not report or interpret variable-importance magnitudes or rankings. Instead, conclusions rest on predicted attribution probabilities: \"The final models predicted probabilities for each of the C. jejuni infections of infants to originate from each of the sources (Table 4). The results were similar for all models with most cases being attributed to chickens.\" Boruta tests only whether importance differs from zero (feature is used), not magnitude or ranking, making its p-values robust to impurity-importance bias."
+}

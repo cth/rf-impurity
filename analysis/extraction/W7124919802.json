@@ -1,0 +1,18 @@
+{
+  "id": "W7124919802",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper tested Random Forest for predictive performance but explicitly used SHAP analysis (\"Shapley Additive exPlanations (SHAP) for explanatory analysis\") on LightGBM for feature importance, not impurity-based importance. Logistic regression (odds ratios with p-values testing coefficients) corroborated rankings: \"the two methods showed high consistency in feature ranking and directionality.\" Feature importance rankings are secondary; the main conclusions address predictive model performance (AUC 0.928, sensitivity 0.809 for LightGBM at 90% specificity)."
+}

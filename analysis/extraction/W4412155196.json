@@ -1,0 +1,16 @@
+{
+  "id": "W4412155196",
+  "set": "survivor",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"Permutation importance measures explanatory variable importance by shuffling each covariate's values and measuring the impact on model fit, and is a better gauge of contributory effects than alternative methods relying on impurity.\" Results report: \"Overall, GC-content (Permutation Importance 95% CI intervals across all experiments: 21.0%-29.0%) and promoter regions (22.0%-32.0%) were the strongest predictors... permutation importance was highest for a measure of genetic divergence D_XY (6.40%-13.0%), followed by haplotype diversity (6.70%-11.0%).\" Because permutation importance is used instead of impurity-based importance, the magnitude and ranking interpretations avoid the documented bias."
+}

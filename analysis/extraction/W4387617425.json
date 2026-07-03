@@ -1,0 +1,14 @@
+{
+  "id": "W4387617425",
+  "set": "survivor",
+  "uses_impurity_importance": true,
+  "pvalue_method": "boruta",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Boruta variable selection with \"impurity_corrected\" importance measure (Table 2), but primary conclusions rely on SMD (Surrogate Minimal Depth) based on minimal depth, not impurity. Substantive findings concern \"groups of metabolites characteristic of specific species...linked to meaningful biological relationships\" (Conclusions). The paper does not rank or compare importance magnitudes; instead it focuses on binary variable selection and relationships between variables via \"mean adjusted agreement.\" Validation uses experimental methods (1H-1H TOCSY: \"We confirmed this finding by comparison to the 1H-1H TOCSY spectra\"; spike-in experiments confirming metabolite presence), not ML-specific corroboration."
+}
