@@ -49,9 +49,9 @@ pitfall in roughly 10\% of importance-using papers, including heavily-cited work
 
 \section{Background}
 
-For a random forest, the impurity importance of a feature is the total decrease
-in node impurity attributable to splits on that feature, summed over all splits
-and all trees. For classification the impurity is Gini; for regression there is
+For a random forest~\cite{breiman2001}, the impurity importance of a feature is
+the total decrease in node impurity attributable to splits on that feature,
+summed over all splits and all trees. For classification the impurity is Gini; for regression there is
 no class label at a node, so \code{ranger}~\cite{wright2017} (and most
 implementations) use
 \textbf{response variance} as the impurity proxy --- a split is scored by how
@@ -260,8 +260,8 @@ wide/heavy-tailed distribution.'' The measure alone cannot say which.
   effect, an interaction (Section~\ref{sec:interactions}), a non-linear effect
   (Section~\ref{sec:nonlinear}), or nothing but a skewed feature distribution
   (Section~\ref{sec:confound}).
-\item \textbf{Disambiguate with partial-dependence plots.} PDPs recover exactly
-  what importance discards: in Section~\ref{sec:confound} the skewed-feature
+\item \textbf{Disambiguate with partial-dependence plots.} PDPs~\cite{friedman2001}
+  recover exactly what importance discards: in Section~\ref{sec:confound} the skewed-feature
   model's PDPs are straight lines while the non-linear model's curve --- same
   importances, different shapes. PDPs also expose the checkerboard signature of
   the Section~\ref{sec:interactions} interaction that per-feature importance
@@ -331,13 +331,15 @@ interprets that importance's magnitude or ranking, which corroborating analyses
 have been affected by the biases described here. The instruction made the
 operative distinction explicit: the bias corrupts the magnitude and ranking of an
 importance, not the binary verdict of whether a variable is used, so a significant
-importance $p$-value (Altmann, Janitza, or Boruta) --- which tests only that
-importance $\neq 0$ --- does not by itself protect a conclusion. A paper was
-flagged only when it leaned on the magnitude or ranking of an impurity importance
-for a central conclusion \emph{and} did not corroborate that ranking.
-Corroboration was defined as any of: permutation importance, SHAP values, a
-partial-dependence or accumulated-local-effects analysis, conditional importance,
-or held-out predictive validation of the \emph{selected} feature set --- overall
+importance $p$-value (Altmann~\cite{altmann2010}, Janitza~\cite{janitza2018}, or
+Boruta~\cite{kursa2010}) --- which tests only that importance $\neq 0$ --- does
+not by itself protect a conclusion. A paper was flagged only when it leaned on the
+magnitude or ranking of an impurity importance for a central conclusion \emph{and}
+did not corroborate that ranking. Corroboration was defined as any of: permutation
+importance, SHAP values~\cite{lundberg2017}, a partial-dependence or
+accumulated-local-effects analysis~\cite{friedman2001,apley2020}, conditional
+importance~\cite{strobl2008}, or held-out predictive validation of the
+\emph{selected} feature set --- overall
 model accuracy on a test set does not qualify, since it validates prediction, not
 the ranking. Every flag had to be supported by a quoted passage.
 
@@ -441,19 +443,41 @@ full-text-retrieval pipeline, the relevance filter, the verbatim screening and
 adjudication prompts, and the per-paper structured records and verdicts behind
 Section~\ref{sec:prevalence-results}.
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
+\bibitem{breiman2001} Breiman (2001). \emph{Random Forests.} Machine Learning
+  45(1): 5--32.
+\bibitem{friedman2001} Friedman (2001). \emph{Greedy function approximation: a
+  gradient boosting machine.} Annals of Statistics 29(5): 1189--1232.
+\bibitem{strobl2007} Strobl, Boulesteix, Zeileis, Hothorn (2007). \emph{Bias in
+  random forest variable importance measures: illustrations, sources and a
+  solution.} BMC Bioinformatics 8: 25.
+\bibitem{strobl2008} Strobl, Boulesteix, Kneib, Augustin, Zeileis (2008).
+  \emph{Conditional variable importance for random forests.} BMC Bioinformatics
+  9: 307.
+\bibitem{altmann2010} Altmann, Tolo\c{s}i, Sander, Lengauer (2010).
+  \emph{Permutation importance: a corrected feature importance measure.}
+  Bioinformatics 26(10): 1340--1347.
+\bibitem{kursa2010} Kursa, Rudnicki (2010). \emph{Feature Selection with the
+  Boruta Package.} Journal of Statistical Software 36(11).
+\bibitem{lundberg2017} Lundberg, Lee (2017). \emph{A unified approach to
+  interpreting model predictions.} Advances in Neural Information Processing
+  Systems (NeurIPS) 30.
+\bibitem{wright2017} Wright, Ziegler (2017). \emph{ranger: A Fast Implementation
+  of Random Forests for High Dimensional Data in C++ and R.} Journal of
+  Statistical Software 77(1).
+\bibitem{janitza2018} Janitza, Celik, Boulesteix (2018). \emph{A computationally
+  fast variable importance test for random forests for high-dimensional data.}
+  Advances in Data Analysis and Classification 12: 885--915.
 \bibitem{nembrini2018} Nembrini, K\"onig, Wright (2018). \emph{The revival of the
   Gini importance?} Bioinformatics 34(21).
   \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6198850/}
-\bibitem{strobl2007} Strobl, Boulesteix, Zeileis, Hothorn (2007). \emph{Bias in
-  random forest variable importance measures.} BMC Bioinformatics.
+\bibitem{apley2020} Apley, Zhu (2020). \emph{Visualizing the effects of predictor
+  variables in black box supervised learning models.} Journal of the Royal
+  Statistical Society: Series B 82(4): 1059--1086.
 \bibitem{scheidel2018} Scheidel (2018). \emph{Be aware of bias in RF variable
   importance metrics.}
 \bibitem{lee2017} Lee (2017). \emph{Feature Importance Measures for Tree Models
   --- Part I.}
-\bibitem{wright2017} Wright, Ziegler (2017). \emph{ranger: A Fast Implementation
-  of Random Forests for High Dimensional Data in C++ and R.} Journal of
-  Statistical Software 77(1).
 \end{thebibliography}
 
 \end{document}
