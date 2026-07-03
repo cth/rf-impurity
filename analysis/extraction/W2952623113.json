@@ -1,0 +1,19 @@
+{
+  "id": "W2952623113",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses permutation importance for feature selection, defined as \"the difference in the prediction error on the out-of-bag data when a given feature was permuted and unpermuted,\" not impurity-based importance. They validate results using partial dependency plots (\"Figure 2 indicates how each variable influences the model predictions after we have accounted for the influence of the other four variables\") and held-out validation cohorts with survival analysis demonstrating clinical utility. Since permutation importance is unbiased, the impurity importance bias does not apply."
+}

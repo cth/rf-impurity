@@ -1,0 +1,17 @@
+{
+  "id": "W4399971014",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses recursive feature elimination (RFE) based on cross-validated R^2 from random forest models, not impurity-based importance measures. They report which variables were selected and show effect magnitudes from linear mixed models, but their main conclusions concern overall environmental explanatory power (20-30% for within-species, 30-45% for site-level variation) and model-comparison results rather than the specific ranking of individual variables. Since the paper does not employ impurity-based importance, the corresponding bias mechanism does not apply."
+}

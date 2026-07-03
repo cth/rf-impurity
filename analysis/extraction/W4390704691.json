@@ -1,0 +1,14 @@
+{
+  "id": "W4390704691",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses scikit-learn random forest with default impurity-based importance (not specified but standard Gini/MDI for classification). It ranks features explicitly: \"5-aminovaleric acid as the most important compound\" and \"5-(Carbamoylamino)pentanoic acid, which had the second highest contribution in the random forest model.\" The authors interpret these rankings biologically: \"The substance that contributed the most to the classification, 5-aminovaleric acid, is known to act as a weak GABA receptor agonist...may be associated with increased gene expression of Chrna4.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation was performed to corroborate the feature rankings."
+}

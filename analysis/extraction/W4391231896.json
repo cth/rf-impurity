@@ -1,0 +1,15 @@
+{
+  "id": "W4391231896",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"mean decrease in accuracy\" which is permutation importance, explicitly described as: \"for each tree, the prediction accuracy on the out-of-bag portion of the data was recorded. Then, after permuting each predictor variable, the prediction accuracy on the out-of-bag portion of the data was once again recorded\" (permutation importance is not subject to the impurity bias). Although they compute this importance for a preliminary analysis and observe \"several features had very low importance values (below 20% importance),\" they do not use importance ranking for feature selection. Instead: \"This led us to hypothesize that removing these features could improve the model's performance. Therefore, three distinct filter strategies for feature selection were used.\" Their conclusions rely on filter methods using statistical tests (Mann-Whitney-Wilcoxon, chi-squared dichotomization, Box-Cox transformation with parametric tests), not on impurity/permutation importance ranking."
+}

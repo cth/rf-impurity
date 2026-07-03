@@ -1,0 +1,18 @@
+{
+  "id": "W4307840950",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses SHAP (Shapley Additive Explanations) values exclusively for feature importance: \"we assessed feature importance using Shapley additive explanations (SHAP) values to identify a predictor's relative contribution.\" Eight features were selected via \"a SHAP feature importance of 0·01 or higher\" threshold. The findings were externally validated in ACCORD BP, internally validated on a 20% holdout test set from SPRINT, and tested via positive and negative control simulations that confirmed the method's ability to detect heterogeneity without overfitting noise."
+}

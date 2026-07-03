@@ -1,0 +1,19 @@
+{
+  "id": "W3168219035",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses selection frequency across trees to rank genes and identifies ATP6V0D2 as the \"main gene used to classify the cases\" and reports \"the 20 top genes.\" The substantive claim is that \"knowledge-slanted RF could be more easily interpreted by users because the prediction can be attributed mainly to associated genes.\" However, ranking is validated only via post-hoc univariate ANOVA on differential expression (conditional on prior selection), not via permutation importance, SHAP, PDP/ALE, or held-out validation of classification importance."
+}

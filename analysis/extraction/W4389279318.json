@@ -1,0 +1,19 @@
+{
+  "id": "W4389279318",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "shap",
+    "pdp_ale",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper describes a software package (survex) for explaining survival models. It explicitly states: \"The model_parts() function outputs variable importance scores for the model. It leverages permutation variable importance (Breiman 2001, Fisher et al. 2019)\". The package implements permutation importance, SHAP/SurvSHAP(t), partial dependence, and accumulated local effects—not impurity-based methods. The authors note correlated-variable limitations: \"techniques like permutation variable importance, individual conditional expectation and partial dependence plots should be used cautiously\". This is a methodology paper describing available methods, not an empirical study claiming variable rankings."
+}

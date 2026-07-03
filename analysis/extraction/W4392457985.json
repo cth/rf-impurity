@@ -1,0 +1,18 @@
+{
+  "id": "W4392457985",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses XGBoost gain metric for feature importance and ranks variables: \"Among the tested variables, entropy, median elevation and absolute elevation turned out to be the most significant for classification. Next ranked were standard deviation, convexity and openness, slope and multi-scale TPI.\" However, it corroborates these rankings with accumulated local effects plots: \"we also evaluated the interactions between the classification results and each geomorphometric variable using accumulated local effects plots,\" providing conditional effect analysis that independently validates which features matter and how they affect predictions."
+}

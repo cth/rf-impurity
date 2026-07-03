@@ -1,0 +1,18 @@
+{
+  "id": "W4282934782",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The paper calculates XGBoost feature importance and interprets both magnitude and ranking: \"The boiling points followed by vapor pressure showed high scores of 460 and 300, respectively\" while m/z values showed unclear patterns. Corroboration is limited to an RI-excluding ablation model showing performance degradation (RMSEs of 0.060, 63, 45 etc.) and domain-knowledge validation that \"boiling point and vapor pressure showed a direct relationship with GC retention times.\" No permutation importance, SHAP, PDP/ALE, or held-out predictive validation methods are employed. The main conclusions emphasize prediction accuracy rather than variable importance ranking, but the importance findings assert RI is far more influential than m/z without formal statistical substantiation beyond conditional exclusion testing."
+}

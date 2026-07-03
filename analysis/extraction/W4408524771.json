@@ -1,0 +1,18 @@
+{
+  "id": "W4408524771",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses SHAP values for neuroimaging features and Elastic Net coefficients for polygenic scores—methods not subject to impurity-based bias. While feature rankings are presented (e.g., ENBack task-fMRI contrasts and rs-fMRI as top neuroimaging contributors), the main conclusions concern overall predictive performance (r=0.36-0.54) and variance decomposition percentages from commonality analysis (neuroimaging 66%, PGS 21%), not the magnitude or relative importance of individual features."
+}

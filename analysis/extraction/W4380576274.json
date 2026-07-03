@@ -1,0 +1,17 @@
+{
+  "id": "W4380576274",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The authors report \"Lure attractiveness, release size, and trap density were the most important variables, and site shape, mean step size, and site size the least important\" from the random forest MSE importance plot. They explicitly state \"Lure attractiveness and trapping density had the greatest effect on pest detection\" and conclude \"These results were robust to the size and shape of the site\" — a robustness claim grounded entirely in those variables ranking least important. No comparative validation against other methods (permutation, SHAP, PDP/ALE, conditional importance) is presented; the GLM results mentioned in Supplementary Material are not compared to RF importance magnitudes or rankings."
+}

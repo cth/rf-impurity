@@ -1,0 +1,16 @@
+{
+  "id": "W4311702421",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper is a literature review that documents: \"Most papers (89%) reported variable importance scores and listed top predictors, although the individual predictors were not consistent across the models.\" However, the review itself does not train random forest models or derive conclusions from variable importance rankings. The paper's own conclusions address model performance ranges, data source gaps, and methodological recommendations without relying on impurity importance."
+}

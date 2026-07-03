@@ -1,0 +1,17 @@
+{
+  "id": "W7116963715",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper identifies drivers of fish species loss by ranking RF impurity importance: 'The most important predictor variables in the heavily modified and agricultural Sacramento-San Joaquin ecoregion are local, reach-scale hydrologic regulation...followed by upstream dam density.' and 'change in stream length...ranks highest in explaining declines in fish community composition.' These rankings guide conservation strategy recommendations (dam removal, habitat restoration). While PDPs are used to interpret relationships of top-ranked variables, they do not corroborate the rankings themselves; permutation importance or SHAP values would be required for that."
+}

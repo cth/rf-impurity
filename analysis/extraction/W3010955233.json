@@ -1,0 +1,16 @@
+{
+  "id": "W3010955233",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "Section 3.6 reports: \"The results revealed that TP53 and CSMD3 were the most important gene mutations associated with the mast cell-related risk score\" (Methods 2.8 uses ranger/randomforest packages without p-value testing). Figure 6 caption states \"TP53 was the most important mutation according to the importance of ranking.\" The Discussion concludes \"we further identified TP53 as the most critical mutation associated with the mast cell-related signature,\" making mechanistic claims about TP53-c-MYC-mast cell interactions based solely on impurity ranking without permutation, SHAP, PDP/ALE, or held-out validation corroboration."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "W2906317964",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper focuses exclusively on predictive performance evaluation using cross-validated C-index values. It states: \"Using 20 publicly available multi-omics data sets with survival outcome we compared the prediction performances of the block forest variants with alternatives\" and \"BlockForest performed significantly better than RSF (adjusted p-value: 0.027).\" The primary contribution is modifying random forest split selection for multi-omics data structure, not interpreting variable or feature importance."
+}

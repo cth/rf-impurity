@@ -1,0 +1,19 @@
+{
+  "id": "W4416801219",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly employs \"permutation variable importance (increase in error rate/inaccuracy for dropping the variable)\" rather than impurity-based importance. Results interpret relative influence: \"Across both the coastal and inland model sets, climate variables have greater influence than socio-political and demographic variables.\" Corroboration is provided through partial dependence plots: \"Partial response output is an estimation of the probability an individual with a given value of an independent variable will have or not have trauma\" and \"3D partial response plots for coastal and inland areas to show the interactive effects.\" Since permutation importance is not susceptible to impurity-importance bias (which corrupts magnitude/ranking through Gini/MDI magnification), p_affected is false despite magnitude/ranking interpretation."
+}

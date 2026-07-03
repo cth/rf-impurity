@@ -1,0 +1,17 @@
+{
+  "id": "W4387618433",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses Random Forest importance as \"reduction in sum of squared errors whenever a variable is chosen to split a node\" and states \"It is clear that for 2020 and 2021 G has a greater importance compared to the other features.\" It then concludes \"We demonstrate that human mobility data from Google...can be used to nowcast tourism demand,\" resting this claim on G's superior importance ranking. No permutation importance, SHAP, PDP/ALE, or alternative validation is provided. Features include continuous mobility (skewed by lockdowns) and categorical tourism/population variables."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W3047247070",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": false,
+  "evidence": "The authors calculated variable importance scores from the Random Forest model and directly ranked variables by importance: \"Temperature, wind, date variables as well as densities of stove and primary road were the most predictive of PM2.5 concentration in UB according to the RF model.\" They also interpreted the model's drivers from this ranking: \"Currently, our RF model prediction is mostly driven by temporal predictors such as weather and time variables as shown in Figure 4.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of variable rankings is reported to corroborate these impurity-based importance scores."
+}

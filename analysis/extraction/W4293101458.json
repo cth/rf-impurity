@@ -1,0 +1,16 @@
+{
+  "id": "W4293101458",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states it \"estimated the relative variable importance for the 22 topics as predictors in the random forests classification model\" which \"provided a global relative ranking of the topics,\" explicitly noting that \"cookie_1 was ranked as the most important predictor.\" The discussion emphasizes these as \"most influential\" predictors. While partial dependence profiles (PDP) are used via DALEX to examine individual topic contributions, the importance ranking itself drives which topics are deemed central for each story type, with limited statistical corroboration beyond PDP follow-up analysis."
+}

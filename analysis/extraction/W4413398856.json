@@ -1,0 +1,16 @@
+{
+  "id": "W4413398856",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Variable importance is shown in Figure 2 (\"The variable importance of the top 5 word stems for each concept predicted by the model is noted in Fig. 2\") but receives no further discussion. All substantive conclusions depend on classification accuracy metrics: AUC values across nine concepts (0.98, 0.94, 0.89, 0.92, 0.84, 0.96, 0.98, 0.97, 0.99), sensitivity/specificity ranges, and grading accuracy. The importance ranking is never interpreted to support any claim."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W7131822921",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses permutation-based importance rather than impurity importance: \"we obtained the importance of the variables using the agnostic approach and calculated the missing AUC by eliminating each variable from the models\" with \"50 resamples with the training data to obtain the average missing AUC.\" They define the agnostic approach as: \"The main idea is to assess how much the performance of a model changes when a given variable is neutralized.\" Corroboration is provided via accumulated local-effect plots: \"we obtained the accumulated local-dependence graphs to know the average probability of prediction.\" Since they use permutation-based importance rather than Gini/MDI importance, they are not vulnerable to impurity importance bias."
+}

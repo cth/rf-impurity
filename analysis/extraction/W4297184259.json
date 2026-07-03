@@ -1,0 +1,17 @@
+{
+  "id": "W4297184259",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger package for feature selection via random forest (impurity-based). They report model comparisons by AUC: \"DNAm-DEGs was the best performing model for CD with 31 features (AUC=1)\" versus \"models based on molecular signatures from individual omics layers (DEGs: AUC=0.97, #features=259, and DMPs: AUC=0.98, #features=65) outperformed the one based on DNAm-DEGs (AUC=0.9, #features=14) for UC samples.\" Critically, they validate these selected features with held-out validation: \"AUC and ROC curves under 10-fold cross-validation\" and external validation (\"accuracy of 0.85\" and \"AUC of 0.88\" in external cohort). Main conclusions are biological, not about feature importance: \"Integrative multi-omics analysis reveals early shifts of gene expression and DNA methylation as predictors for efficient response to anti-TNF treatment.\""
+}

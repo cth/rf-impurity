@@ -1,0 +1,17 @@
+{
+  "id": "W7134257751",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states in Methods: \"Variable importance, based on permutations, and adjusted cross-validation R 2 values from each selected model were retrieved.\" However, these permutation-based importance values are never reported or used in the Results or Discussion sections. Instead, conclusions rank genes by R^2 values (model predictive power) and rely on RDA ordination, PERMANOVA tests, and Fisher enrichment tests for interpretation. Since the paper explicitly uses permutation-based importance rather than impurity-based importance (Gini/MDI), the impurity-importance bias does not apply."
+}

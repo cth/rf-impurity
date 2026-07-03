@@ -1,0 +1,18 @@
+{
+  "id": "W4225788860",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The authors rank predictors using corrected Gini importance, declaring that \"worsening perceptions of agricultural conditions are the main predictor for climate change risk perception\" and state \"Local changes in climate conditions are among the most important predictors across all models. Overall, they are more important than access to news, political ideology, or demographics.\" While partial dependence plots show conditional direction and magnitude of effects, they do not independently validate the importance ranking itself. The entire narrative rests on interpreting the magnitude and ranking of importance scores without corroboration from permutation importance, SHAP, or other ranking-validating methods."
+}

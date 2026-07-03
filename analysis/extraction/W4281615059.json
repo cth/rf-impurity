@@ -1,0 +1,16 @@
+{
+  "id": "W4281615059",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper selects 5 miRNAs from 500 based on Gini importance ranking (appearing in top 10 in >90% of 100 models), which is ranking-based selection vulnerable to impurity bias. However, the main conclusions about diagnostic utility are validated on a held-out validation set: \"The same model was then used to predict the cancer samples in the validation set, resulting in an accuracy of 0.9652, sensitivity of 0.9773, specificity of 0.9413, and an AUC value of 0.9815.\" The paper does not claim these miRNAs are the most important drivers or rank them against each other by magnitude; instead it demonstrates their practical performance is high in independent validation data."
+}

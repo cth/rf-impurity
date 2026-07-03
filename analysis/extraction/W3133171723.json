@@ -1,0 +1,19 @@
+{
+  "id": "W3133171723",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"permutation based Random Forest variable importance (VIMP) with bootstrapped confidence intervals,\" not impurity importance. Results rank variables (\"lymph nodes as the most important single risk factor...followed by pT/ypT stage\"), but this ranking is supported by partial dependence plots, calibration curves, time-dependent AUC (83.9%), Brier score, decision curve analysis, and bootstrap validation. Main conclusions emphasize prediction accuracy and discrimination, not importance magnitude/ranking."
+}

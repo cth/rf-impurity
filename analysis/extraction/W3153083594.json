@@ -1,0 +1,17 @@
+{
+  "id": "W3153083594",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The authors explicitly use permutation-based variable importance, stating: \"Variable importance measures a feature's importance by calculating the degradation of the predictive accuracy of the model after randomly permuting the values of the feature.\" They corroborate rankings with partial dependence plots: \"PDPs hence help visualize the relationship, learned by a model, between a feature and the response\" and identify primary predictors as \"the top three most important predictors of the VIP.\""
+}

@@ -1,0 +1,19 @@
+{
+  "id": "W4206807535",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses random forest feature importance to \"select variables with the top 11 average feature importance in each multi-omics data\" (Section 2.2) and interprets biological meaning from rankings: \"Among the selected bacteria and metabolic pathways used for the 30-day mortality prediction, 6 pathways were related to purine nucleoside biosynthesis. Nucleotide biosynthesis has been reported to be critical for the growth of bacteria in human blood.\" No corroboration via permutation, SHAP, PDP/ALE, or conditional importance is provided, and the heterogeneous omics data (529 bacterial species, 472 pathways, 287 lipids, plus metabolites and clinical labs with different scales and distributions) amplifies impurity-importance bias risk."
+}

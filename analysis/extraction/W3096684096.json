@@ -1,0 +1,18 @@
+{
+  "id": "W3096684096",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports that \"The 2 most important variables in these models in all 3 algorithms included codes for either the correct organ transplant status...complications...or procedural codes,\" but this observation neither directs the algorithm nor affects conclusions. Main findings center on achieving \">90% positive predictive value and >88% sensitivity\" through code count thresholds and model comparison. Impurity importance plays no role in the paper's substantive decisions or outcome claims."
+}

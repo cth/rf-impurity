@@ -1,0 +1,16 @@
+{
+  "id": "W3021869532",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"In the random forest model, the cell data was by far the most useful in modeling visitation as seen by metrics of variable importance (see S1 File).\" However, model selection is based on held-out predictive validation: \"Of the candidate models, we chose the random forest as the preferred model, given its predictive performance indicated by the lowest RMSE, MAE, and low bias (ME) during cross validation.\" The ranking claim about cell data's utility is independently corroborated by this cross-validation, and variable importance is not central to the main conclusion about calibrating cell phone data for visitation estimation."
+}

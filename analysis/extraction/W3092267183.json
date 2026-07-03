@@ -1,0 +1,16 @@
+{
+  "id": "W3092267183",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"Probes used in these models as well as their feature importance for the regression model are shown in Table S1.\" However, no magnitude or ranking of impurity importance is discussed in the main text. The substantive conclusions concern predictive performance (AUC 0.99 in mice) and gene signature discovery via Wilcoxon test and forward search, not feature importance rank. For macaques and humans, the paper explicitly uses Regularized Logistic Regression, a linear model that does not produce impurity importance."
+}

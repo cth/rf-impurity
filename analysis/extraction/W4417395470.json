@@ -1,0 +1,17 @@
+{
+  "id": "W4417395470",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs Random Forest with SHAP (SHapley Additive exPlanations) for variable importance interpretation, explicitly avoiding impurity-based importance. Methods state: \"To interpret the RF results, we applied SHAP to isolate the marginal contributions of each environmental factor to the target variable. SHAP values, calculated as absolute weighted average marginal contributions, were used to rank variable importance.\" Implementation details: \"The RF models were fitted using the 'ranger' package, and SHAP values were extracted with the 'treeshap' package in R.\" Main β SOT conclusions derive from ridge regression, OLS, and log-log regression, with RF+SHAP used for spatial attribution analysis of environmental drivers."
+}

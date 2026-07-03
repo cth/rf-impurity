@@ -1,0 +1,21 @@
+{
+  "id": "W7161760042",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses permutation-based variable importance (not impurity importance): \"Feature relevance was quantified using permutation-based variable importance measures.\" Its magnitude and ranking interpretations are corroborated by length-matched conditional analysis (\"enabling assessment of the predictive contribution of other sequence features independently of length\") and complementary LASSO selection. The impurity-importance bias does not apply because permutation importance is used instead."
+}

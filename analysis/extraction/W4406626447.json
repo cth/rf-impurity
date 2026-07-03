@@ -1,0 +1,19 @@
+{
+  "id": "W4406626447",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses permutation-based variable importance: \"Permutation-based variable importance was used to identify the additional features responsible for improving model performance (library vip).\" They rank features (\"The strongest parameters in the decision-making algorithm were the centre, age and BMI\") and supplement with PDPs and ALEs for interpretation: \"To interpret the influence of the most important additional features...we utilised Partial Dependence profiles (PDPs) and Accumulated Local Effects (ALE) profiles.\" Feature importance is secondary to the main conclusions about ROC AUC performance comparisons."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4200472447",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"Random forest classification analysis was carried out following optimization of the random forest model parameters using the R libraries caret and ranger. The importance of variables was calculated and presented using the randomForestExplainer package,\" employing \"mean decrease in gini\" metrics. The results explicitly interpret the importance ranking: \"Importance analysis of the variables suggested that 6 of the 7 (86%) INA, 2 of the 4 (50%) NHLH2, and 2 of the 7 (29%) THBS4 annotated CpG loci were the most important predictors.\" The paper uses this ranking to identify \"a subset of 10 candidate loci from the total of 18\" as most informative for the biomarker signature. While test-set validation demonstrates 73% classification accuracy, the importance ranking itself lacks corroboration via permutation importance, SHAP, or other bias-robust methods."
+}

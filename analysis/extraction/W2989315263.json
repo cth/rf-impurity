@@ -1,0 +1,18 @@
+{
+  "id": "W2989315263",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The authors acknowledge the bias risk, citing Strobl et al. (2007) on \"Bias in random forest variable importance measures\" and stating: \"the presence of highly correlated predictors makes the interpretation of resulting variable importance measures challenging.\" Despite this, they use recursive feature elimination with random forest (which relies on impurity importance by default) and prominently feature the ranking: \"The difference between M derived from the modified chlorophyll absorption ratio index (MCARI2) and the SIPI was consistently the most informative spectral-temporal feature\" and \"This feature was retained as the last in all 30 resamples by the random forest.\" Their conclusion directly acts on this ranking, recommending \"Time-resolved measurements of the MCARI2 and the SIPI SVIs could allow to assess these traits at very high throughput.\" Validation (Pearson r=0.53, p<0.001 on independent data) confirms predictive power of the top feature but does not corroborate its ranking relative to other high-importance features; no permutation, SHAP, PDP/ALE, or conditional importance methods are employed."
+}

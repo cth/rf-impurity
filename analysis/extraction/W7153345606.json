@@ -1,0 +1,19 @@
+{
+  "id": "W7153345606",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states \"RF constructs a collection of decision trees and aggregates their predictions, providing both high predictive performance and feature importance scores for biological features\" and explicitly interprets feature ranking: \"Under drought stress, the most highly contributing features were predominantly flavonoids, including isoflavones (e.g. daidzin and its derivatives and genistin).\" The abstract concludes that \"SHAP indicated that the isoflavone derivative, daidzin, and the drought-tolerant Candidatus Nitrosocosmicus, were major contributors to phenotypic variation.\" The paper uses SHAP for post-hoc interpretation of an RF importance-ranked model, not permutation importance or other magnitude-corroborating methods prior to drawing conclusions about feature ranking and magnitude."
+}

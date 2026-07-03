@@ -1,0 +1,17 @@
+{
+  "id": "W3086838972",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper computes Gini importance and ranks variables in Figure 3, stating \"GDI plays a much more important role.\" However, the main conclusions about reduced mobility in low-income and high-gender-inequality contexts rest on OLS regression coefficients (GDPpc_p, GDI_p/c) with p<0.001, not on importance ranking. External validation against UK/IPS data and US income confirms the direction of effects. Impurity bias does not corrupt the significance or direction of the regression-based conclusions, though it may overstate the relative importance of GDI vs. gender categorical variable."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "W3184928840",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs permutation variable importance from random forests rather than impurity-based importance: \"The permutation variable importance was calculated for each random forest and the final variable importance is the average of the 1,000 variable importance scores.\" This metric is used only to weight transitivity parameters and select among association measures. The main analysis and conclusions rely on mixed-effects logistic regression, not on importance-based variable ranking."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4414563311",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses VIP (Variable Importance in Projection) from a Partial Least Squares model, not random forest impurity importance. The methodology states: \"The importance of each SNP in the components (VIP) was retrieved using the function 'VIP' from the R package 'plsVarSel'... Predictors with a VIP < 1.5 were removed.\" The RF model is used only for forward stepwise selection based on prediction accuracy (r = 0.64), with validation via 5-fold cross-validation. The paper's conclusions focus on GWAS findings and prediction accuracy, not on magnitude or ranking of importance scores."
+}

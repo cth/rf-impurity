@@ -1,0 +1,17 @@
+{
+  "id": "W4413050844",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly utilizes the \"permutation feature importance method from ranger package\" rather than impurity-based methods. While the random forest models identified MAT and AI as \"the most important drivers,\" this ranking is derived from robust permutation importance, not the Gini/MDI bias. The mechanistic conclusions about climate-driven carbon loss are further validated through linear mixed-effects models showing significant interaction terms (MAT x forest type, AI x forest type) and partial dependence analyses in supplementary figures, providing adequate corroboration."
+}

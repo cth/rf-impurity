@@ -1,0 +1,16 @@
+{
+  "id": "W4413369753",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper evaluated random forest as one of five candidate models but selected LASSO as the optimal final model: \"Among the five machine learning algorithms evaluated (random forest, Cox regression, LASSO, generalized linear models, and support vector machines), the LASSO-based model demonstrated superior predictive performance.\" The paper reports \"regression coefficients of the 51 proteins in the LASSO-based model\" (L1-regularized weights, not forest impurity). Statistical inference relies on Cox regression p-values and held-out test set validation (AUC=0.835, C-index=0.829), not ranger importance p-values or impurity-based feature importance."
+}

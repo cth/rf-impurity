@@ -1,0 +1,16 @@
+{
+  "id": "W2921386860",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forest and explicitly mentions \"Mean Decrease in Gini values\" as a capability that influenced classifier selection (Discussion, Section 4: \"we recommend RF due to...informative generation of variable importance (i.e., Mean Decrease in Gini values)\"). However, no variable importance values are reported in Results. All substantive conclusions concern overall/per-class classification accuracy (OA, PA, UA) and classifier performance under varying ROI heterogeneity, assessed via 75/25 Monte Carlo cross-validation with 100 iterations. Conclusions do not depend on importance magnitude or ranking."
+}

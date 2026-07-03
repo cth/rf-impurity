@@ -1,0 +1,18 @@
+{
+  "id": "W2957116182",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper identifies top oncogenes by ranking Gini impurity indices: \"The four oncogenes whose mutational statuses are the most important variables...are TP53, BRAF, MYC, and CREBBP, which have Gini impurity indices of 108, 105, 96, and 86\" and selects features based on this ranking without permutation or SHAP validation of importance ranking. Although model performance is validated through cross-validation and the identified genes show biological plausibility, the magnitude and ranking of impurity importance are not corroborated by alternative importance methods."
+}

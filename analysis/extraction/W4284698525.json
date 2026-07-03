@@ -1,0 +1,15 @@
+{
+  "id": "W4284698525",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"This issue was formally addressed by the use of random forest regression using the R package ranger with variable importance being formally assessed via the R package vip. The most predictive covariates from this process were entered into the regression modelling equations.\" Crucially, the supplementary tables containing importance values (S5-S16) are mentioned but not interpreted. Instead, the discussion and conclusions focus on regression coefficients from linear models, p-values, and E-values: \"Study data indicate that 17 of the 23 congenital cardiac anomalies demonstrated strong bivariate relationships with different metrics of cannabis exposure. Twelve of these anomalies were selected for detailed study in inverse probability weight panel regression models and in spatiotemporal models.\""
+}

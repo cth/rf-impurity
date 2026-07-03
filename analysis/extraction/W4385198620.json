@@ -1,0 +1,16 @@
+{
+  "id": "W4385198620",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper trained both random forest (AUROC 0.778) and elastic net (AUROC 0.777) classifiers but explicitly states: \"because elastic net parameter estimates can provide both magnitude and direction, we selected the elastic net model to assign HFpEF and HFrEF a distinctive set of comorbidities.\" They perform forward selection on elastic net features, ranking 100 selected comorbidities by absolute elastic net coefficient values (Fig. 2D shows \"absolute fitted values of the coefficients\"), with cross-validated AUROC of 0.780. The distinctive comorbidity profiles based on this coefficient ranking are central to identifying HFpEF versus HFrEF and drive the downstream comorbidity network and gene prediction analyses."
+}

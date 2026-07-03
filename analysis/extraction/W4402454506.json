@@ -1,0 +1,18 @@
+{
+  "id": "W4402454506",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"For RFTS, the Gini index served as the impurity measure, subsequently permuted to derive the Importance values\" and discusses magnitude: \"Its importance was almost twice as high as the importance of the second most important predictor— DI at lag 1.\" However, the main conclusions address only forecasting accuracy: \"Firstly, across all three scrutinized forecasting methods...forecasting accuracy remained consistently low. Secondly, among these methodologies, RFTS...showcased statistically significant advancements in forecasting accuracy...However, this improvement...is rather modest.\" Variable importance ranking is used descriptively but is not central to the conclusions about predictive performance."
+}

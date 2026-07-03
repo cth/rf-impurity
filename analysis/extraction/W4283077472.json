@@ -1,0 +1,18 @@
+{
+  "id": "W4283077472",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses minimal depth for RSF feature selection, not impurity importance: \"Those with an average minimum depth of <6.5 (first round) and 5.4 (second round) were identified.\" Variable importance is not used for ranking or magnitude interpretation; conclusions rest on Cox regression HRs and held-out validation c-indices (0.811, 0.805)."
+}

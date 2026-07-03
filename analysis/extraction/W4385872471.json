@@ -1,0 +1,17 @@
+{
+  "id": "W4385872471",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Variable importance is estimated via mean decrease in accuracy (vip package) and ranked in Fig. 2a. Partial dependence plots (DALEX) provide PDP/ALE corroboration, showing marginal effects in the main text and supplementary materials. The central findings about temperature-independence and land-water control are supported by mechanistic understanding (e.g., slope increases gas exchange), activation energy calculations at site level, and literature comparison with lakes showing higher temperature dependence. While importance rankings organize the discussion, they are not the sole basis for conclusions."
+}

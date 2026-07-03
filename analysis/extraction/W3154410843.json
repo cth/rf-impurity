@@ -1,0 +1,15 @@
+{
+  "id": "W3154410843",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses the ranger R package (via rmweather wrapper) which computes impurity-based importance by default. They report variable importance rankings: \"The most important explanatory variables to predict hourly concentrations of NO2, O3 and Ox in Vienna were monitor dependent. On average, the importance for the NO2 models was given in the following ascending order: ws, wd, thour, tjd, Tair, RH, tweek, ttrend and Patm... the O3 models suggest that RH is, on average, more important than Tair.\" They interpret these rankings substantively to understand physical processes: \"The variables' importance agrees well with the chemical and physical processes expected to drive the dynamics of these pollutants, thereby demonstrating the random forest models' interpretability nature... these results on their own could be valuable to help better understand the sensitivity of O3 pollution to meteorology in future studies.\" No corroboration via permutation importance, SHAP, conditional importance, PDP/ALE, or held-out validation is provided."
+}

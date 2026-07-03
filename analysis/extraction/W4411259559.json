@@ -1,0 +1,20 @@
+{
+  "id": "W4411259559",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly uses permutation importance: \"The importance of each variable was assessed based on the command argument importance = 'permutation'\". This is robust to impurity bias. Main conclusions derive from Bayesian regression models; the random forest is a \"complementary method to further investigate associations\" to identify which taxa drive relationships established by the primary analysis. Features are 1597 mixed-type cASVs (bacteria, parasites, fungi) with some unclassified members."
+}

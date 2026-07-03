@@ -1,0 +1,16 @@
+{
+  "id": "W4293404603",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "\"Variable importance scores were calculated using unscaled permutation importance (Strobl et al., 2007) and converted to % contribution of the variance explained.\" The paper reports regional results with explicit rankings: \"Climatic changes explained 62%, 74%, and 45% of the variance in EMA during the last deglaciation period in Asia, Beringia, and North America, respectively,\" with \"humans and climate are likely to have been equally important drivers of abundance during the Holocene\" (7.8% vs 8.2% variance explained). Although the paper interprets magnitude and ranking of importance percentages prominently in Results section 3.3, it employs permutation importance rather than impurity-based importance, explicitly citing Strobl et al. (2007), which is the seminal paper on bias in impurity-based random forest importance and proposes permutation importance as a solution."
+}

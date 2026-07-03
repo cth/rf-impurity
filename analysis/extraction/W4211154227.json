@@ -1,0 +1,18 @@
+{
+  "id": "W4211154227",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The authors explicitly chose permutation-based variable importance: \"We chose the permutation-based method because it is not biased towards variables with high cardinality...it is generally a more accurate method than the standard mean-decrease-in-impurity importance.\" They interpret both magnitude and ranking of importance scores: \"Our random forest approach highlighted the important predictors...with climate and temperature seasonality being important for D R and shoot size and plant characteristics being the most important for L R...Climate descriptors such as MAE, mean annual temperature, temperature seasonality, and maximum temperature were the most important predictors of D R.\" Variable importance findings are central to their conclusions about which factors drive plant size, corroborated through partial dependencies: \"Partial dependencies showed that L R was greatest in woody plants, and in less seasonal climates.\""
+}

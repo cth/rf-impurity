@@ -1,0 +1,15 @@
+{
+  "id": "W4366815375",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest only for prediction accuracy (OOB metrics) and explicitly states \"variable importance was computed via permutation\" rather than impurity-based importance. Critically, the permutation importance is calculated but never reported in Results, Figures, or Discussion. The paper's core conclusions center on network topology from graphical lasso (\"The utilization of computational techniques for the reconstruction of co-expression networks facilitates the identification of key omic features\") and mixed-model associations, not on random forest feature importance ranking. Since permutation importance is used (if at all) rather than impurity importance, the Gini/MDI bias cannot affect their conclusions."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4293063191",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "\"The most important factor driving temporal variations in river width is the climate for natural rivers and soil condition for regulated rivers\" (stated 17 times throughout). The paper calculates importance as \"node impurity and calculated as the decrease in the residual sum of squares\" and directly interprets magnitude (e.g., \"Elevation is the most important parameter influencing river width variability\"). No permutation importance, SHAP, conditional importance, or held-out validation provided. ALE plots used only for visualization, not to validate rankings. Paper acknowledges results are exploratory and \"further investigations are needed to explain why/how climate and soil erosion impact river width.\""
+}

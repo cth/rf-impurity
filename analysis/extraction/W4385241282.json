@@ -1,0 +1,17 @@
+{
+  "id": "W4385241282",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper ranks variables by \"mean decrease in accuracy,\" concluding oil viscosity (0.59) is far more important than Ra (0.30) or K/Rp0.2 (0.05-0.06). These magnitude and ranking claims are central to conclusions like \"K and the other inputs...was the least important one.\" ALE plots and ANNs provide partial corroboration that viscosity and Ra drive friction, but permutation importance, SHAP, or held-out predictive validation are absent. Feature scales range over orders of magnitude (Ra: 0.3-1.25 µm; viscosity: 14-44 mm²/s; Rp0.2: 68-212 MPa; K: 242-370 MPa), creating conditions where impurity importance can magnify apparent effect size differences."
+}

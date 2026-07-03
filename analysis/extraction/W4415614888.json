@@ -1,0 +1,14 @@
+{
+  "id": "W4415614888",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"we used the 'vivid' package (Inglis et al. 2023) to estimate variable importance and its interaction effects for each predictor\" and concludes: \"photoperiod dominated at the perennial site, while DTW was the controlling factor at intermittent sites\" (Section 3.3). Figure 5 visualizes importance via node size, and the text emphasizes rank: \"photoperiod having the highest importance\" at perennial sites versus \"DTW...dominated\" at intermittent sites. No permutation, SHAP, PDP/ALE, conditional, or held-out validation of these importance rankings is provided; only a sensitivity analysis of model performance confirms precipitation lags offer \"no significant improvement.\""
+}

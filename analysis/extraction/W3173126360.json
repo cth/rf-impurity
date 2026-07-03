@@ -1,0 +1,17 @@
+{
+  "id": "W3173126360",
+  "set": "broad",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states it \"applied importance analysis to determine which protein clusters were most relevant for predicting viral hosts\" and uses the ranking to identify the \"most important predictor\" and \"50 most important proteins,\" arguing these findings prove \"RaFAH learned to predict virus-host associations based on proteins that are directly involved in virus-host molecular interactions.\" While the paper validates model performance on held-out test sets and notes these proteins are biologically known to determine host range, it lacks permutation importance, SHAP, PDP/ALE, or conditional importance analysis to validate whether the impurity-importance ranking itself is accurate."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W7160193933",
+  "set": "broad",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper employs Surrogate Minimal Depth (SMD), a non-impurity RF importance measure, for feature selection rather than magnitude/ranking interpretation. \"Important variables were selected based on the SMD importance score with lower value indicating greater importance. Consequently, variables with SMD values below the defined threshold were selected.\" Main conclusions concern biochemical changes in endolysosomes under ceramide stress, validated by RF classification accuracy (80%+ on test set), spectral analysis, and nanotomography imaging, not importance scores."
+}
