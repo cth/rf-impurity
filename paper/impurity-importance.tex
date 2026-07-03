@@ -39,8 +39,8 @@ reduction, and variance is not scale-invariant. We argue that impurity importanc
 should be read as a detector of \emph{structure worth investigating}, not as an
 effect-size estimate, and that partial-dependence plots recover the distinction
 that importance discards. A screen of the ranger-citing literature
-(Section~\ref{sec:prevalence}) finds the pitfall in roughly 10\% of
-importance-using papers, including foundational, heavily-cited work.
+(Sections~\ref{sec:prevalence-method}--\ref{sec:prevalence-results}) finds the
+pitfall in roughly 10\% of importance-using papers, including heavily-cited work.
 \end{abstract}
 
 \section{Background}
@@ -61,11 +61,11 @@ AIR, exposed by \code{ranger} as \code{importance = "impurity\_corrected"}). The
 question here is narrower and more practical: \textbf{if I line up impurity
 importances next to OLS coefficients, when will I be misled?}
 
-All experiments use \code{ranger} 0.18.0; the driver is
-\code{analysis/validate.R} and figures come from \code{analysis/figures.R}.
-Unless noted, importances are the plain \code{impurity} measure (the one the
-definition above describes); Section~\ref{sec:linear} compares it against
-\code{impurity\_corrected}.
+All experiments use \code{ranger} 0.18.0; the code that generates them and the
+figures is available with the rest of the supporting material
+(Section~\ref{sec:availability}). Unless noted, importances are the plain
+\code{impurity} measure (the one the definition above describes);
+Section~\ref{sec:linear} compares it against \code{impurity\_corrected}.
 
 \section{Linear effects: right order, wrong magnitude}
 \label{sec:linear}
@@ -260,69 +260,138 @@ wide/heavy-tailed distribution.'' The measure alone cannot say which.
   to detect, OLS is both more accurate and directly interpretable.
 \end{enumerate}
 
-\section{How often does this happen in practice?}
-\label{sec:prevalence}
+\section{Prevalence in the literature: method}
+\label{sec:prevalence-method}
 
-To gauge whether the pitfall is real in the wild, we audited the published
-literature that uses the tool most associated with these importances --- the
-\code{ranger} R package. Full method and numbers are in
-\code{analysis/results.md}; the short version:
+The preceding sections establish that the pitfall exists and reproduce it on
+demand; they say nothing about how often it affects a real conclusion. To
+estimate that, we screened the published literature that relies on the tool most
+closely associated with these importances --- the \code{ranger} R package --- for
+papers whose stated conclusions depend on the magnitude or ranking of an impurity
+importance without the corroboration that would guard against the biases of
+Sections~\ref{sec:linear}--\ref{sec:confound}.
 
-\begin{itemize}[leftmargin=1.4em]
-\item \textbf{Corpus.} All 3{,}189 works citing ranger (OpenAlex
-  \code{W2157395790}), fetched via the OpenAlex and Europe PMC APIs; 773 have
-  open-access full text. A versioned regex filter (\code{analysis/fingerprint.py})
-  kept the 524 that mention variable/feature/impurity importance (dropping papers
-  that cite ranger only for speed or prediction); 544 were screened in total.
-\item \textbf{Stage 1 --- screening (Claude Haiku 4.5, low effort).} One agent per
-  paper read the full text and emitted a structured record. It was told the
-  specific bias under audit --- \emph{impurity importance corrupts the magnitude
-  and ranking of an effect, not the yes/no verdict of whether a variable is used;
-  a significant importance p-value (Altmann/Janitza/Boruta) tests only that
-  importance $\neq 0$, which is robust} --- and instructed to set the flag
-  (\code{p\_affected} $\wedge$ \code{central\_to\_conclusions}) true only when a
-  paper leans on the \textbf{magnitude or ranking} of impurity importance for a
-  central conclusion \textbf{without} adequate corroboration, where adequate
-  corroboration = permutation importance, SHAP, PDP/ALE, conditional importance,
-  or held-out validation of the \emph{selected feature set} (overall model
-  accuracy does not count). Every judgement had to quote supporting passages.
-  125 papers were flagged.
-\item \textbf{Stage 2 --- adjudication (Claude Sonnet 5, high effort).} A second,
-  independent agent re-read each flagged paper under an explicitly
-  \textbf{adversarial} instruction: \emph{your job is to refute this flag}. It
-  confirmed only when all three held --- the paper genuinely uses impurity (not
-  only permutation/SHAP) importance, the ranking is central to a conclusion, and
-  the ranking is not adequately corroborated --- and was told to reach its own
-  verdict rather than defer to stage 1. It returned
-  \code{confirmed}/\code{refuted}/\code{uncertain} with reasons.
-\item \textbf{Result: 55 confirmed, 65 refuted, 5 uncertain} --- the adversarial
-  pass overturned ${\sim}56\%$ of the screening flags (so stage-1 precision
-  ${\approx}44\%$). The 55 confirmed are \textbf{${\sim}10\%$ of the
-  importance-using full-text papers} --- roughly 7\% of all full-text
-  ranger-citing work. The full prompts, per-paper records, and verdicts are in
-  \code{analysis/} (\code{extract\_broad\_workflow.js},
-  \code{adjudicate\_workflow.js}, \code{extraction/}, \code{adjudication/}).
-\item \textbf{The exposure is not in the careful literature.} 86\% of flagged
-  papers use no significance machinery at all (no \code{importance\_pvalues},
-  Altmann, Janitza, or Boruta) --- they simply rank features by impurity
-  importance. Papers that \emph{do} use those methods, and the rising share
-  (${\sim}0\% \rightarrow {\sim}70\%$ over 2016--2026) that pair importance with
-  SHAP/permutation/PDP, are markedly less exposed.
-\item \textbf{It reaches high-impact work.} The single most-cited confirmed case
-  is \textbf{SoilGrids250m} (Hengl et al., \emph{PLoS ONE} 2017; 4{,}684
-  citations), a global soil-property product whose covariate ranking is read
-  straight off ranger/xgboost built-in importance. Tellingly, the authors note
-  lithology visibly drives predictions yet falls outside the top-15 importance
-  list --- the exact signature of Sections~\ref{sec:variance}
-  and~\ref{sec:confound}, a low-cardinality categorical under-weighted against
-  fine-grained continuous covariates.
-\end{itemize}
+\paragraph{Corpus.} We took every work recorded by OpenAlex as citing the ranger
+reference publication (Wright \& Ziegler 2017; OpenAlex work \code{W2157395790}),
+$3{,}189$ works in total. For each we retrieved bibliographic metadata from
+OpenAlex and, where an open-access full text was available, the full text from
+Europe PMC; $773$ works had retrievable open-access full text. Screening was
+restricted to these, because the detail needed to judge exposure --- which
+importance measure is used, and whether it is corroborated --- is almost never
+present in an abstract.
 
-Caveats: these are LLM screening judgements, not audits of each study's data ---
-a confirmed flag means a conclusion \emph{could} have been distorted and was not
-cross-checked, not that it is wrong. Predictive accuracy, validated separately,
-is unaffected. Proving a specific ranking is altered requires re-running the
-study's model with an unbiased measure.
+\paragraph{Relevance filter.} Many papers cite ranger only for its speed or for
+prediction and never interpret a variable importance. To drop these without
+discarding relevant work, we required a textual mention of variable importance: a
+paper was retained if its full text matched, case-insensitively, any of the
+following regular-expression alternatives.
+\begin{verbatim}
+(variable|feature|permutation|gini|impurity)\s+importance
+importance\s+(score|value|ranking|measure)
+mean decrease
+decrease in (impurity|gini|accuracy)
+\bMDI\b   \bMDA\b   \bBoruta\b
+impurity[_\s]?corrected
+most important (variable|feature|predictor)
+\end{verbatim}
+$524$ of the $773$ full-text papers matched. This filter is deliberately broad. An
+earlier, narrower version that additionally required a significance-testing
+keyword (\code{importance\_pvalues}, Altmann, Janitza, or Boruta) had poor recall,
+because most exposed papers rank features by impurity importance with no
+significance machinery at all. To quantify the broad filter's own recall we drew
+a random sample of $40$ non-matching full-text papers and put them through the
+same screen; in total $544$ papers received the full screen.
+
+\paragraph{Two-stage screen.} Each paper was read by a large language model under
+a fixed instruction and asked to return a structured judgement; the verbatim
+prompts are in the supporting repository (Section~\ref{sec:availability}). The
+screen has two stages using different models, so that the second acts as an
+adversarial check on the first.
+
+\emph{Stage 1 --- screening.} A first model (Claude Haiku 4.5) read the full text
+and recorded whether the paper uses an impurity/Gini/MDI importance, whether it
+interprets that importance's magnitude or ranking, which corroborating analyses
+(if any) it reports, and a Boolean flag for whether a central conclusion could
+have been affected by the biases described here. The instruction made the
+operative distinction explicit: the bias corrupts the magnitude and ranking of an
+importance, not the binary verdict of whether a variable is used, so a significant
+importance $p$-value (Altmann, Janitza, or Boruta) --- which tests only that
+importance $\neq 0$ --- does not by itself protect a conclusion. A paper was
+flagged only when it leaned on the magnitude or ranking of an impurity importance
+for a central conclusion \emph{and} did not corroborate that ranking.
+Corroboration was defined as any of: permutation importance, SHAP values, a
+partial-dependence or accumulated-local-effects analysis, conditional importance,
+or held-out predictive validation of the \emph{selected} feature set --- overall
+model accuracy on a test set does not qualify, since it validates prediction, not
+the ranking. Every flag had to be supported by a quoted passage.
+
+\emph{Stage 2 --- adjudication.} Every flagged paper was independently re-read by
+a second, stronger model (Claude Sonnet 5) under an explicitly adversarial
+instruction: its task was to \emph{refute} the flag. It returned a verdict of
+\emph{confirmed}, \emph{refuted}, or \emph{uncertain}, and confirmed only when all
+three conditions held at once --- the paper genuinely uses an impurity (not solely
+a permutation or SHAP) importance, the ranking is central to a stated conclusion,
+and the ranking is not adequately corroborated --- reaching its own judgement
+rather than deferring to stage~1.
+
+\section{Prevalence in the literature: results}
+\label{sec:prevalence-results}
+
+Table~\ref{tab:prevalence} traces the corpus through the pipeline. Of the $544$
+papers screened, $306$ were judged to use an impurity importance and $125$ were
+flagged in stage~1. The adversarial adjudication confirmed $55$, refuted $65$, and
+could not decide for $5$, overturning roughly $56\%$ of the stage-1 flags. The
+implied stage-1 precision is therefore about $44\%$, and raw screening counts
+should be discounted accordingly.
+
+\begin{table}[htb]
+\centering
+\caption{The ranger-citing corpus traced through the screening pipeline. The
+final rows are counts of screened papers; percentages in the text are relative to
+the $544$ screened.}
+\label{tab:prevalence}
+\begin{tabular}{lr}
+\toprule
+Stage & Count \\
+\midrule
+Works citing ranger (OpenAlex) & $3{,}189$ \\
+With open-access full text & $773$ \\
+Matching the relevance filter & $524$ \\
+Screened (filter matches $+$ non-match sample) & $544$ \\
+\midrule
+Using an impurity importance (stage 1) & $306$ \\
+Flagged (stage 1, Haiku 4.5) & $125$ \\
+\quad Confirmed (stage 2, Sonnet 5) & $55$ \\
+\quad Refuted & $65$ \\
+\quad Uncertain & $5$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Taking the confirmed count in Table~\ref{tab:prevalence} at face value, $55$ of
+the $544$ screened papers --- about $10\%$ of the importance-using full-text
+literature, and roughly $7\%$ of all full-text ranger-citing work --- state a
+central conclusion that could have been distorted by the biases of
+Sections~\ref{sec:linear}--\ref{sec:confound} and did not cross-check it.
+
+Two features of the confirmed set are worth drawing out. First, exposure is
+concentrated in papers that use no significance machinery: the large majority of
+flagged papers report no importance $p$-value or Boruta selection and simply rank
+features by impurity importance. Papers that do use those methods are, if
+anything, more careful, and the share of importance-using papers that pair the
+importance with a corroborating analysis rises steadily across the 2016--2026 span
+of the corpus. The problem is thus most acute in --- though not limited to ---
+applied work that treats a built-in importance ranking as a finished result.
+Second, the confirmed papers are not confined to low-visibility venues: their
+citation counts span the full range of the corpus, so the potentially-affected
+conclusions include work of substantial reach.
+
+These figures are screening estimates from language-model judgements, not audits
+of the underlying analyses. A confirmed flag means a conclusion \emph{could} have
+been affected and was not corroborated, not that it is wrong; a model's predictive
+accuracy, validated separately, is unaffected either way. Establishing that a
+particular ranking is actually distorted requires re-running that study's model
+with an unbiased importance measure, which is beyond the scope of a text screen.
 
 \section{Conclusion}
 
@@ -332,22 +401,24 @@ distribution. Consequently it magnifies effect sizes super-linearly, attributes
 interaction effects to marginally-null variables, and --- most importantly ---
 returns identical scores for genuinely non-linear effects and for linear effects
 on skewed features. Every claim in the 2022 note reproduces cleanly, and a
-literature audit (Section~\ref{sec:prevalence}) confirms the pitfall is not merely
-theoretical: ${\sim}10\%$ of importance-using ranger papers --- including
-foundational, heavily-cited products --- lean on impurity rankings without the
-corroboration that would catch it. Used as a \emph{screening} tool and paired with
+literature screen (Sections~\ref{sec:prevalence-method}--\ref{sec:prevalence-results})
+confirms the pitfall is not merely theoretical: about $10\%$ of importance-using
+ranger papers --- including heavily-cited work --- lean on impurity rankings
+without the corroboration that would catch it. Used as a \emph{screening} tool and paired with
 partial-dependence plots to interrogate the shortlist, impurity importance is
 valuable; read as a substitute for effect sizes, it will mislead.
 
-\section*{Reproducing}
+\section{Data and code availability}
+\label{sec:availability}
 
-\begin{verbatim}
-brew install r
-R_LIBS_USER=./.rlib Rscript -e 'install.packages(c("ranger","tibble","pdp"),
-                                  repos="https://cloud.r-project.org")'
-R_LIBS_USER=./.rlib Rscript analysis/validate.R  # prints every number cited above
-R_LIBS_USER=./.rlib Rscript analysis/figures.R   # regenerates figures/
-\end{verbatim}
+All code and data supporting this paper are available at
+\url{https://github.com/cth/rf-impurity}: the R scripts that generate the
+controlled experiments and figures of
+Sections~\ref{sec:linear}--\ref{sec:confound} (with a one-line command to
+reproduce every number cited there), the corpus-construction and
+full-text-retrieval pipeline, the relevance filter, the verbatim screening and
+adjudication prompts, and the per-paper structured records and verdicts behind
+Section~\ref{sec:prevalence-results}.
 
 \begin{thebibliography}{9}
 \bibitem{nembrini2018} Nembrini, K\"onig, Wright (2018). \emph{The revival of the
@@ -359,8 +430,9 @@ R_LIBS_USER=./.rlib Rscript analysis/figures.R   # regenerates figures/
   importance metrics.}
 \bibitem{lee2017} Lee (2017). \emph{Feature Importance Measures for Tree Models
   --- Part I.}
-\bibitem{soilgrids2017} Hengl et al.\ (2017). \emph{SoilGrids250m: Global gridded
-  soil information based on machine learning.} PLoS ONE 12(2): e0169748.
+\bibitem{wright2017} Wright, Ziegler (2017). \emph{ranger: A Fast Implementation
+  of Random Forests for High Dimensional Data in C++ and R.} Journal of
+  Statistical Software 77(1).
 \end{thebibliography}
 
 \end{document}
