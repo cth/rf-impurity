@@ -2,7 +2,7 @@
 
 **Goal.** Systematically identify published papers whose conclusions could have
 been affected by the impurity-importance pitfalls documented in
-[`../paper/impurity-importance.md`](../paper/impurity-importance.md):
+[`../paper/impurity-importance.tex`](../paper/impurity-importance.tex):
 super-linear magnification of effect size, attribution of interactions to the
 interacting variables, and — most importantly — the inability to distinguish a
 genuinely non-linear effect from a linear effect on a skewed feature.
