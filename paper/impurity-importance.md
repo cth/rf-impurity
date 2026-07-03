@@ -201,17 +201,55 @@ measure alone cannot say which.
    buy you interaction- and non-linearity-detection; when there is nothing to
    detect, OLS is both more accurate and directly interpretable.
 
-## 8. Conclusion
+## 8. How often does this happen in practice?
+
+To gauge whether the pitfall is real in the wild, we audited the published
+literature that uses the tool most associated with these importances — the
+`ranger` R package. Full method and numbers are in
+[`../analysis/results.md`](../analysis/results.md); the short version:
+
+- **Corpus.** All 3,189 works citing ranger (OpenAlex `W2157395790`), of which
+  773 have open-access full text. A broadened text filter kept the 524 that
+  actually mention variable/feature/impurity importance; 544 were screened.
+- **Two-stage LLM screen.** A cheap first pass flagged papers that lean on the
+  *magnitude or ranking* of impurity importance for a central conclusion without
+  corroboration; an independent adversarial pass then tried to *refute* each flag.
+- **Result: 55 papers confirmed** (of 125 flagged; the adversarial pass overturned
+  ~56%). That is **~10% of the importance-using full-text papers** — roughly
+  7% of all full-text ranger-citing work.
+- **The exposure is not in the careful literature.** 86% of flagged papers use no
+  significance machinery at all (no `importance_pvalues`, Altmann, Janitza, or
+  Boruta) — they simply rank features by impurity importance. Papers that *do*
+  use those methods, and the rising share (~0% → ~70% over 2016–2026) that pair
+  importance with SHAP/permutation/PDP, are markedly less exposed.
+- **It reaches high-impact work.** The single most-cited confirmed case is
+  **SoilGrids250m** (Hengl et al., *PLoS ONE* 2017; 4,684 citations), a global
+  soil-property product whose covariate ranking is read straight off
+  ranger/xgboost built-in importance. Tellingly, the authors note lithology
+  visibly drives predictions yet falls outside the top-15 importance list — the
+  exact signature of §4/§6, a low-cardinality categorical under-weighted against
+  fine-grained continuous covariates.
+
+Caveats: these are LLM screening judgements, not audits of each study's data — a
+confirmed flag means a conclusion *could* have been distorted and was not
+cross-checked, not that it is wrong. Predictive accuracy, validated separately, is
+unaffected. Proving a specific ranking is altered requires re-running the study's
+model with an unbiased measure.
+
+## 9. Conclusion
 
 Impurity importance is a variance-reduction accounting, and variance is neither
 scale-invariant nor able to separate an effect's shape from a feature's
 distribution. Consequently it magnifies effect sizes super-linearly, attributes
 interaction effects to marginally-null variables, and — most importantly —
 returns identical scores for genuinely non-linear effects and for linear effects
-on skewed features. Every claim in the 2022 note reproduces cleanly. Used as a
+on skewed features. Every claim in the 2022 note reproduces cleanly, and a
+literature audit (§8) confirms the pitfall is not merely theoretical: ~10% of
+importance-using ranger papers — including foundational, heavily-cited products —
+lean on impurity rankings without the corroboration that would catch it. Used as a
 *screening* tool and paired with partial-dependence plots to interrogate the
-shortlist, it is valuable; read as a substitute for effect sizes, it will
-mislead.
+shortlist, impurity importance is valuable; read as a substitute for effect sizes,
+it will mislead.
 
 ## Reproducing
 
