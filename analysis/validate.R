@@ -50,21 +50,30 @@ cat("  R^2 linear fit vip~effect     :", round(r2lin, 3), "\n")
 cat("  R^2 quadratic fit vip~effect^2:", round(r2quad, 3), "\n")
 
 ## ---------------------------------------------------------------------------
-## Claim 2: pure (parity) interaction. OLS blind (R^2~0), RF captures it,
-##          and interaction variables outrank the independent variable c.
+## Claim 2: pure THREE-WAY parity interaction. OLS is blind even with all
+##          pairwise product terms (two-way parity would be bilinear and thus
+##          OLS-recoverable); RF captures it and the three interacting variables
+##          outrank the independent variable c.
 ## ---------------------------------------------------------------------------
-cat("\n=== Claim 2: parity interaction y = c/10 + (a+b) mod 2 ===\n")
+cat("\n=== Claim 2: three-way parity y = c/10 + (a+b+d) mod 2 ===\n")
 set.seed(42); n <- 10000
 ib <- function(n) round(runif(n))
-df <- tibble(a = ib(n), b = ib(n), c = ib(n), y = c/10 + (a + b) %% 2)
-ols <- lm(y ~ a + b + c, df)
-cat("  OLS R^2                 :", round(summary(ols)$r.squared, 3), "\n")
-cat("  OLS |coef| a,b,c        :", round(abs(coef(ols)[-1]), 3), "\n")
-mrf <- ranger(y ~ a + b + c, df, importance = "impurity", num.trees = 500)
+df <- tibble(a = ib(n), b = ib(n), d = ib(n), c = ib(n), y = c/10 + (a + b + d) %% 2)
+## sanity: two-way binary parity is exactly bilinear -> OLS+a:b fits it perfectly
+two_way <- tibble(a = ib(n), b = ib(n), c = ib(n), y = c/10 + (a + b) %% 2)
+cat("  [check] 2-way parity, OLS y~a+b+c+a:b R^2 :",
+    round(summary(lm(y ~ a + b + c + a:b, two_way))$r.squared, 3),
+    "(bilinear -> ~1, why we use 3-way)\n")
+ols_pair <- lm(y ~ (a + b + d)^2 + c, df)      # all main + pairwise terms
+ols_full <- lm(y ~ a * b * d + c, df)          # incl. the 3-way product
+cat("  OLS R^2 (main + all pairwise) :", round(summary(ols_pair)$r.squared, 3), "\n")
+cat("  OLS R^2 (incl. 3-way product) :", round(summary(ols_full)$r.squared, 3), "\n")
+cat("  OLS |coef| (pairwise model)   :", round(abs(coef(ols_pair)[-1]), 3), "\n")
+mrf <- ranger(y ~ a + b + d + c, df, importance = "impurity", num.trees = 500)
 cat("  RF  OOB R^2             :", round(mrf$r.squared, 3), "\n")
 v <- imp(mrf)
-cat("  RF  vip a,b,c           :", round(v, 1), "\n")
-cat("  interaction vars > c ?  :", (min(v["a"], v["b"]) > v["c"]), "\n")
+cat("  RF  vip a,b,d,c         :", round(v, 1), "\n")
+cat("  interaction vars > c ?  :", (min(v["a"], v["b"], v["d"]) > v["c"]), "\n")
 
 ## ---------------------------------------------------------------------------
 ## Claim 3: variance-splitting mechanics on sorted polynomials.
