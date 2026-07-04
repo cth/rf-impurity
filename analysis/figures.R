@@ -4,20 +4,25 @@ suppressMessages({ library(tibble); library(ranger) })
 dir.create("figures", showWarnings = FALSE)
 imp <- function(m) ranger::importance(m)
 
-## Fig 1: super-linear magnification of importance vs linear effect size
+## Fig 1: importance tracks variance contribution beta^2 * Var(X). Left: vs the
+## coefficient (curved). Right: vs beta^2 (near-linear) -- importance is denominated
+## in squared-coefficient (variance) units, not coefficient units.
 set.seed(43); n <- 1000
 eff <- 1:11
 X <- as_tibble(setNames(lapply(eff, function(i) runif(n)), letters[1:11]))
 X$y <- as.matrix(X) %*% eff
 v <- as.numeric(imp(ranger(y ~ ., X, importance = "impurity", num.trees = 1000)))
-fitq <- lm(v ~ eff + I(eff^2))
-png("figures/fig1_superlinear.png", 780, 560, res = 110)
-plot(eff, v, pch = 19, col = "grey20", xlab = "linear coefficient (effect size)",
-     ylab = "impurity importance", main = "Importance grows super-linearly in effect size")
-lines(eff, coef(lm(v ~ eff))[1] + coef(lm(v ~ eff))[2]*eff, col = "steelblue", lwd = 2, lty = 2)
-gx <- seq(1, 11, 0.1); lines(gx, predict(fitq, data.frame(eff = gx)), col = "firebrick", lwd = 2)
-legend("topleft", c("linear fit", "quadratic fit"), col = c("steelblue","firebrick"),
-       lty = c(2,1), lwd = 2, bty = "n")
+r2 <- summary(lm(v ~ I(eff^2)))$r.squared
+png("figures/fig1_superlinear.png", 900, 460, res = 110)
+par(mfrow = c(1, 2))
+plot(eff, v, pch = 19, col = "grey20", xlab = expression("coefficient  " * beta),
+     ylab = "impurity importance", main = "vs. coefficient")
+lines(eff, predict(lm(v ~ eff)), col = "steelblue", lwd = 2, lty = 2)
+legend("topleft", "linear fit", col = "steelblue", lty = 2, lwd = 2, bty = "n")
+plot(eff^2, v, pch = 19, col = "grey20", xlab = expression("variance contribution  " * beta^2),
+     ylab = "impurity importance",
+     main = bquote("vs. " * beta^2 * "  (" * R^2 == .(round(r2, 2)) * ")"))
+abline(lm(v ~ I(eff^2)), col = "firebrick", lwd = 2)
 dev.off()
 
 ## Fig 2: three-way parity interaction - OLS (even with all pairwise terms) blind,

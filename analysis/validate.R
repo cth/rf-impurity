@@ -11,7 +11,10 @@ set.seed(1)
 figdir <- "figures"
 dir.create(figdir, showWarnings = FALSE)
 
-cat("ranger version:", as.character(packageVersion("ranger")), "\n\n")
+cat("ranger version:", as.character(packageVersion("ranger")), "\n")
+cat("hyperparameters: num.trees as noted per experiment; mtry, min.node.size,\n",
+    "  and sample fraction at ranger defaults for regression (mtry = floor(p/3),\n",
+    "  min.node.size = 5, sample.fraction = 1 with replacement). Seeds set per block.\n\n")
 
 imp <- function(m) ranger::importance(m)
 rel <- function(v) v / v[1]   # relative to first element
@@ -33,8 +36,12 @@ cat("  impurity  vip a,b,c   :", round(imp(m_imp), 1), "\n")
 cat("  impurity  ratio /a    :", round(rel(imp(m_imp)), 2), "  (coef ratio 1,2,4)\n")
 cat("  corrected ratio /a    :", round(rel(imp(m_corr)), 2), "\n")
 
-## Super-linear growth: y = 1a + 2b + ... + 11k, fit vip ~ effect and ~ effect^2
-cat("\n=== Claim 1b: vip vs. linear effect size, linear vs quadratic fit ===\n")
+## Importance tracks variance contribution beta^2 * Var(X). With all X ~ U(0,1),
+## Var(X) is constant, so importance should be ~linear in beta^2. We regress
+## importance on beta and on beta^2 as SEPARATE (non-nested) single-predictor
+## models, so the comparison is not rigged by nesting.
+cat("\n=== Claim 1b: vip vs. effect size -- importance ~ beta vs ~ beta^2 ===\n")
+set.seed(43)   # matches figures.R Fig 1
 n <- 1000
 eff <- 1:11
 cols <- lapply(eff, function(i) runif(n))
@@ -42,12 +49,11 @@ names(cols) <- letters[1:11]
 X <- as_tibble(cols)
 X$y <- as.matrix(X) %*% eff
 m <- ranger(y ~ ., X, importance = "impurity", num.trees = 1000)
-v <- imp(m)
-d <- data.frame(x = eff, y = as.numeric(v))
-r2lin  <- summary(lm(y ~ x, d))$r.squared
-r2quad <- summary(lm(y ~ x + I(x^2), d))$r.squared
-cat("  R^2 linear fit vip~effect     :", round(r2lin, 3), "\n")
-cat("  R^2 quadratic fit vip~effect^2:", round(r2quad, 3), "\n")
+v <- as.numeric(imp(m))
+cat("  Var(X_j) (all U(0,1)) ~ 1/12 =", round(1/12, 4), "(constant across j)\n")
+cat("  R^2 imp ~ beta     :", round(summary(lm(v ~ eff))$r.squared, 3), "\n")
+cat("  R^2 imp ~ beta^2   :", round(summary(lm(v ~ I(eff^2)))$r.squared, 3),
+    " <-- single non-nested predictor; importance is ~linear in beta^2\n")
 
 ## ---------------------------------------------------------------------------
 ## Claim 2: pure THREE-WAY parity interaction. OLS is blind even with all
@@ -76,21 +82,30 @@ cat("  RF  vip a,b,d,c         :", round(v, 1), "\n")
 cat("  interaction vars > c ?  :", (min(v["a"], v["b"], v["d"]) > v["c"]), "\n")
 
 ## ---------------------------------------------------------------------------
-## Claim 3: variance-splitting mechanics on sorted polynomials.
-##   (a) minimum split-variance grows with polynomial order
-##   (b) argmin of split variance moves away from the centre for higher orders
+## Claim 3: split-mechanics on sorted polynomials. Two effects, cleanly separated
+##   by NORMALISING to the fraction of parent variance removed:
+##   (a) raw min split-variance grows with order -- but this is a RESPONSE-SCALE
+##       artifact: the normalised fraction removed is ~constant (~0.75) across
+##       y = x, x^2, x^3, so "large scale wins" does NOT survive normalisation;
+##   (b) what does survive is the argmin migrating toward the high-y tail
+##       (500 -> 697 -> 799): higher-order responses split unevenly, needing more
+##       splits down one branch.
 ## ---------------------------------------------------------------------------
-cat("\n=== Claim 3: split-variance mechanics on y=x, x^2, x^3 ===\n")
+cat("\n=== Claim 3: split mechanics on y=x, x^2, x^3 (normalised) ===\n")
 n <- 1000
 vos <- function(idx, y) var(y[1:idx]) + var(y[idx:length(y)])
 sweep_var <- function(y) sapply(2:(n-2), function(i) vos(i, y))
 x <- 1:n
-vy1 <- sweep_var(x); vy2 <- sweep_var(x^2); vy3 <- sweep_var(x^3)
-cat("  min split-variance y=x, x^2, x^3:",
-    format(c(min(vy1), min(vy2), min(vy3)), scientific = TRUE, digits = 3), "\n")
-cat("  argmin index (of", n, ") y=x,x^2,x^3:",
-    c(which.min(vy1), which.min(vy2), which.min(vy3)) + 1, "\n")
-cat("  -> min variance increases with order; argmin shifts left (unbalanced)\n")
+frac_removed <- function(y) {           # n-weighted within-child var at best split
+  sw <- sweep_var(y); i <- which.min(sw) + 1; p <- var(y)
+  1 - (i/n * var(y[1:i]) + (n - i)/n * var(y[i:n])) / p
+}
+for (pw in 1:3) {
+  y <- x^pw; sw <- sweep_var(y)
+  cat(sprintf("  y=x^%d: raw min split-var=%.2e  argmin idx=%d  frac parent var removed=%.3f\n",
+              pw, min(sw), which.min(sw) + 1, frac_removed(y)))
+}
+cat("  -> fraction removed ~constant; the real effect is argmin migration (imbalance)\n")
 
 ## ---------------------------------------------------------------------------
 ## Claim 4: genuine non-linear effects y = a + b^2 + c^3 -> vip(a)<vip(b)<vip(c)
@@ -130,5 +145,21 @@ sa <- sv("a"); sb <- sv("b"); sc <- sv("c")
 cat("  median split-var a,b,c:", round(c(median(sa), median(sb), median(sc)), 2),
     " (lower => picked earlier/more)\n")
 cat("  min split-var a,b,c   :", round(c(min(sa), min(sb), min(sc)), 2), "\n")
+
+## The confound is NOT specific to impurity: permutation importance gives the
+## SAME ratios for the non-linear (Claim 4) and skewed-feature (Claim 5) worlds,
+## and even standardised OLS coefficients spread -- because all three summarise
+## variance contribution, which is identical across the two worlds.
+cat("\n=== Claim 5b: is the spread specific to impurity importance? ===\n")
+imp_nl  <- imp(ranger(y ~ ., df_nl,  importance = "impurity",    num.trees = 500))
+per_nl  <- imp(ranger(y ~ ., df_nl,  importance = "permutation", num.trees = 500))
+imp_inc <- imp(ranger(y ~ ., df_inc, importance = "impurity",    num.trees = 500))
+per_inc <- imp(ranger(y ~ ., df_inc, importance = "permutation", num.trees = 500))
+cat("  impurity    ratio /a  nl:", round(rel(imp_nl), 2), " inc:", round(rel(imp_inc), 2), "\n")
+cat("  permutation ratio /a  nl:", round(rel(per_nl), 2), " inc:", round(rel(per_inc), 2),
+    " <-- permutation ALSO cannot separate the two worlds\n")
+std <- coef(lm_inc)[-1] * sapply(df_inc[, c("a","b","c")], sd) / sd(df_inc$y)
+cat("  standardised OLS coef ratio /a (inc):", round(rel(std), 2),
+    " <-- even standardised coefficients spread\n")
 
 cat("\nAll experiments completed.\n")
