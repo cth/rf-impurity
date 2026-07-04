@@ -64,9 +64,10 @@ Two strands of prior work bear on this. The first documents that MDI is
 correlated predictors~\cite{strobl2007,nembrini2018}; Nembrini et al.\ give the
 bias-corrected ``actual impurity reduction'' (AIR), exposed by \code{ranger} as
 \code{impurity\_corrected}. The second is theoretical: Louppe et
-al.~\cite{louppe2013} and Scornet~\cite{scornet2023} show that in additive models
-MDI recovers a \emph{variance-explained} decomposition, each feature's score
-tracking $\mathrm{Var}(f_j(X_j))$, which for a linear term is
+al.~\cite{louppe2013} decompose asymptotic MDI into per-variable contributions,
+and Scornet~\cite{scornet2023} proves that for additive regression with
+independent inputs MDI recovers a \emph{variance-explained} decomposition, each
+feature's score tracking $\mathrm{Var}(f_j(X_j))$, which for a linear term is
 $\beta_j^2\,\mathrm{Var}(X_j)$.
 
 Our experiments are consequences of that identity, not new biases. Their value is
@@ -509,8 +510,8 @@ Section~\ref{sec:prevalence-results}.
   importance in tree-based methods.} ACM Transactions on Knowledge Discovery from
   Data 15(2).
 \bibitem{scornet2023} Scornet (2023). \emph{Trees, forests, and impurity-based
-  variable importance in regression.} Annales de l'Institut Henri Poincar\'e
-  59(1): 21--52.
+  variable importance in regression.} Annales de l'Institut Henri Poincar\'e (B)
+  Probabilit\'es et Statistiques 59(1): 21--52.
 \bibitem{scheidel2018} Scheidel (2018). \emph{Be aware of bias in RF variable
   importance metrics.}
   \url{https://blog.methodsconsultants.com/posts/be-aware-of-bias-in-rf-variable-importance-metrics/}
