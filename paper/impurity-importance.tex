@@ -220,11 +220,12 @@ $\mathrm{vip}(a) < \mathrm{vip}(b) < \mathrm{vip}(c)$; the forest confirms it,
 $1780 < 8168 < 39570$ (a $1:4.6:22$ ratio). A linear model still returns non-zero
 coefficients, but they are uninterpretable: the residuals are visibly non-normal.
 
-\section{The central confound: non-linearity vs.\ feature scale are indistinguishable}
+\section{Non-linearity and feature scale are indistinguishable}
 \label{sec:confound}
 
-The result that should change how the measure is read. Construct data with equal
-linear effects but skewed feature \emph{distributions}:
+The identity of Section~\ref{sec:background-strands} has a jarring consequence,
+which the following construction makes concrete. Take equal linear effects but
+skewed feature \emph{distributions}:
 \[
   a = 1 + U, \quad b = (1 + U)^2, \quad c = (1 + U)^3, \quad y = a + b + c,
   \quad n = 10000.
