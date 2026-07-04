@@ -28,10 +28,10 @@ dev.off()
 ## Fig 2: three-way parity interaction - OLS (even with all pairwise terms) blind,
 ## RF importance loads on the three interacting variables
 set.seed(42); n <- 10000; ib <- function(n) round(runif(n))
-df <- tibble(a = ib(n), b = ib(n), dd = ib(n), c = ib(n), y = c/10 + (a + b + dd) %% 2)
-ols <- lm(y ~ (a + b + dd)^2 + c, df)          # all main + pairwise terms
-v <- imp(ranger(y ~ a + b + dd + c, df, importance = "impurity", num.trees = 500))
-names(v) <- c("a","b","d","c")
+df <- tibble(a = ib(n), b = ib(n), c = ib(n), d = ib(n), y = d/10 + (a + b + c) %% 2)
+ols <- lm(y ~ (a + b + c)^2 + d, df)          # all main + pairwise terms
+v <- imp(ranger(y ~ a + b + c + d, df, importance = "impurity", num.trees = 500))
+names(v) <- c("a","b","c","d")
 png("figures/fig2_interaction.png", 900, 420, res = 110)
 par(mfrow = c(1,2))
 oc <- abs(coef(ols)[-1])

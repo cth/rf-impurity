@@ -137,24 +137,24 @@ for linear effects, but ``how much more'' is not comparable to a coefficient.
 
 Data: a pure three-way parity interaction with no marginal or pairwise effects,
 \[
-  y = c/10 + \big((a + b + d) \bmod 2\big), \qquad a,b,d,c \in \{0,1\}, \quad n = 10000.
+  y = d/10 + \big((a + b + c) \bmod 2\big), \qquad a,b,c,d \in \{0,1\}, \quad n = 10000.
 \]
-No single variable, and no pair, among $a,b,d$ carries information about $y$;
-only the joint parity of all three does. $c$ has a small independent effect.
+No single variable, and no pair, among $a,b,c$ carries information about $y$;
+only the joint parity of all three does. $d$ has a small independent effect.
 (Two-way parity would not do: for binary inputs $(a+b)\bmod 2 = a+b-2ab$ is
 bilinear, so OLS with an $a{\times}b$ term fits it exactly. Three-way parity is
 the smallest a standard interaction term cannot recover.)
 
 \begin{itemize}[leftmargin=1.4em]
 \item \textbf{OLS} stays blind even with all pairwise products: a model in
-  $a,b,d$ and $a{\times}b, a{\times}d, b{\times}d$ still reaches only
-  $R^2 = 0.01$, all coefficients ${\approx}0$ except $c$ (${\approx}0.10$). Only
-  the three-way product $a{\times}b{\times}d$ recovers the signal, which one
+  $a,b,c$ and $a{\times}b, a{\times}c, b{\times}c$ still reaches only
+  $R^2 = 0.01$, all coefficients ${\approx}0$ except $d$ (${\approx}0.10$). Only
+  the three-way product $a{\times}b{\times}c$ recovers the signal, which one
   rarely adds unprompted.
 \item \textbf{Random forest} captures it (OOB $R^2 = 0.73$), and impurity
   importance loads on the interacting variables: $\mathrm{vip}(a){=}346$,
-  $\mathrm{vip}(b){=}422$, $\mathrm{vip}(d){=}432$, $\mathrm{vip}(c){=}30$
-  (Fig.~\ref{fig:interaction}), outranking $c$, the only variable with a marginal
+  $\mathrm{vip}(b){=}422$, $\mathrm{vip}(c){=}432$, $\mathrm{vip}(d){=}30$
+  (Fig.~\ref{fig:interaction}), outranking $d$, the only variable with a marginal
   effect, by an order of magnitude.
 \end{itemize}
 
@@ -162,8 +162,8 @@ the smallest a standard interaction term cannot recover.)
 \centering
 \includegraphics[width=0.85\textwidth]{fig2_interaction.png}
 \caption{Same data, two views. OLS with all main and pairwise terms assigns
-$a,b,d$ (and every pairwise product) essentially zero coefficient, seeing only
-$c$; RF impurity importance ranks the three interacting variables highest.}
+$a,b,c$ (and every pairwise product) essentially zero coefficient, seeing only
+$d$; RF impurity importance ranks the three interacting variables highest.}
 \label{fig:interaction}
 \end{figure}
 
@@ -273,7 +273,7 @@ effect, or merely a heavy-tailed feature; no marginal importance can say which.
   recover exactly what importance discards: in Section~\ref{sec:confound} the skewed-feature
   model's PDPs are straight lines while the non-linear model's curve --- same
   importances, different shapes. For the Section~\ref{sec:interactions}
-  interaction, a one- or two-way PDP among $a,b,d$ is flat --- the parity pattern
+  interaction, a one- or two-way PDP among $a,b,c$ is flat --- the parity pattern
   only appears in the full three-way view --- which is itself the tell that the
   effect is a higher-order interaction that per-feature importance has flattened.
   Curvature (or a suspiciously flat low-order PDP over a high-importance variable)
