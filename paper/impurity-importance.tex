@@ -28,7 +28,7 @@ interactions, non-linearity, and feature scale}
 Mean-decrease-in-impurity (MDI) variable importance is the default, cheapest way
 to read a random forest, and it is routinely compared, informally, to the
 coefficients of a linear model. This paper examines when that comparison breaks
-down. Through five controlled experiments (all reproduced with \code{ranger}) we
+down. Through five controlled experiments we
 show that impurity importance (i) orders linear effects correctly but magnifies
 them super-linearly, (ii) charges interaction effects to the interacting
 variables, even when those variables have no marginal effect at all, and
@@ -42,8 +42,7 @@ split on variance reduction, and variance is not scale-invariant. We argue that
 impurity importance
 should be read as a detector of \emph{structure worth investigating}, not as an
 effect-size estimate, and that partial-dependence plots recover the distinction
-that importance discards. A screen of the ranger-citing literature
-(Sections~\ref{sec:prevalence-method}--\ref{sec:prevalence-results}) finds the
+that importance discards. A screen of the ranger-citing literature finds the
 pitfall in roughly 10\% of importance-using papers, including heavily-cited work.
 \end{abstract}
 
@@ -479,8 +478,9 @@ Section~\ref{sec:prevalence-results}.
   Statistical Society: Series B 82(4): 1059--1086.
 \bibitem{scheidel2018} Scheidel (2018). \emph{Be aware of bias in RF variable
   importance metrics.}
+  \url{https://blog.methodsconsultants.com/posts/be-aware-of-bias-in-rf-variable-importance-metrics/}
 \bibitem{lee2017} Lee (2017). \emph{Feature Importance Measures for Tree Models
-  --- Part I.}
+  --- Part I.} \url{https://blog.ceshine.net/post/feature-importance-part-1/}
 \end{thebibliography}
 
 \end{document}
