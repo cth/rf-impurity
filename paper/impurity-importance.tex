@@ -26,27 +26,29 @@ interactions, non-linearity, and feature scale}
 
 \begin{abstract}
 Mean-decrease-in-impurity (MDI) variable importance is the default, cheapest way
-to read a random forest, and it is routinely compared, informally, to the
-coefficients of a linear model. This paper examines when that comparison breaks
-down. Through five controlled experiments we
-show that impurity importance (i) orders linear effects correctly but magnifies
-them super-linearly, (ii) charges interaction effects to the interacting
-variables, even when those variables have no marginal effect at all, and
-(iii)~--- the central result --- \emph{cannot distinguish a genuinely non-linear
-effect from a linear effect acting on a skewed feature}. The two produce
-identical importances. Unlike the well-known bias toward high-cardinality,
-continuous, or correlated features, these distortions arise among features that
-are continuous, uncorrelated, and identically distributed, and concern the
-magnitude and ranking of genuine effects. The root cause is that regression trees
-split on variance reduction, and variance is not scale-invariant. We argue that
-impurity importance
-should be read as a detector of \emph{structure worth investigating}, not as an
-effect-size estimate, and that partial-dependence plots recover the distinction
-that importance discards. A screen of the ranger-citing literature finds the
-pitfall in roughly 10\% of importance-using papers, including heavily-cited work.
+to read a random forest, and it is routinely misread as a per-unit effect size,
+as if it were comparable to a linear-model coefficient. In additive settings MDI
+instead estimates each feature's \emph{variance contribution},
+$\mathrm{Var}(f_j(X_j))$ --- for a linear term, $\beta_j^2\,\mathrm{Var}(X_j)$. We
+make the practical consequences concrete through five controlled experiments:
+impurity importance (i) grows with the \emph{square} of a linear coefficient, not
+the coefficient; (ii) assigns an interaction's variance to the interacting
+variables; and (iii) gives \emph{provably identical} scores to a genuinely non-linear
+effect and to a linear effect on a skewed feature, because the two contribute
+identical variance. These are not artefacts of the well-known bias toward
+high-cardinality, continuous, or correlated features: they arise among features
+that are continuous, uncorrelated, and identically distributed, and they are not
+specific to impurity: permutation importance behaves the same way, and
+standardised regression coefficients spread similarly. No marginal importance
+measure separates an effect's \emph{shape} from a feature's \emph{distribution};
+partial-dependence plots do. Finally, an LLM-assisted screen of the ranger-citing
+literature, an unvalidated estimate rather than an audit, suggests that about one
+in six papers that interpret an impurity ranking rely on it without such
+corroboration, including heavily-cited work.
 \end{abstract}
 
 \section{Background}
+\label{sec:background-strands}
 
 For a random forest~\cite{breiman2001}, the impurity importance of a feature is
 the total decrease in node impurity attributable to splits on that feature,
@@ -57,24 +59,24 @@ implementations) use
 much it reduces the sum of within-child variances. This substitution is the
 source of every effect studied here.
 
-Impurity importance is known to be biased: it favours continuous and
-high-cardinality features and inflates the importance of correlated predictors
-(Strobl et al.\ 2007; Nembrini et al.\ 2018, \emph{The revival of the Gini
-importance?}, which introduces the bias-corrected ``actual impurity reduction'',
-AIR, exposed by \code{ranger} as \code{importance = "impurity\_corrected"}). That
-work characterises which \emph{types} of feature get inflated, largely in null or
-confounded settings. The distortions examined here are different in kind and, we
-argue, less widely appreciated: they arise among features that are all
-continuous, uncorrelated, and identically distributed, and they concern how the
-\emph{magnitude and ranking} of genuine effects are represented. 
-The practical framing question is:
-\textbf{if I line up impurity importances next to OLS coefficients, when will I be
-misled?}
+Two strands of prior work bear on this. The first documents that MDI is
+\emph{biased} toward continuous and high-cardinality features and inflates
+correlated predictors~\cite{strobl2007,nembrini2018}; Nembrini et al.\ give the
+bias-corrected ``actual impurity reduction'' (AIR), exposed by \code{ranger} as
+\code{impurity\_corrected}. The second is theoretical: Louppe et
+al.~\cite{louppe2013} and Scornet~\cite{scornet2023} show that in additive models
+MDI recovers a \emph{variance-explained} decomposition, each feature's score
+tracking $\mathrm{Var}(f_j(X_j))$, which for a linear term is
+$\beta_j^2\,\mathrm{Var}(X_j)$.
 
-Two conclusions follow: Importance grows super-linearly in a feature's linear
-effect size (Section~\ref{sec:linear}); and a genuinely non-linear effect and a
-linear effect on a skewed feature yield indistinguishable importances
-(Section~\ref{sec:confound}). 
+Our experiments are consequences of that identity, not new biases. Their value is
+to show, among features that are continuous, uncorrelated, and identically
+distributed (where the type-bias literature does not apply), how far a
+variance-contribution measure departs from a per-unit effect size, and that it
+\emph{provably cannot} separate an effect's shape from a feature's distribution.
+The new contribution is thus the sharp skew-versus-nonlinearity demonstration and
+an estimate (Sections~\ref{sec:prevalence-method}--\ref{sec:prevalence-results})
+of how often the misreading reaches published conclusions.
 
 All experiments use \code{ranger} 0.18.0; the code that generates them and the
 figures is available with the rest of the supporting material
@@ -82,12 +84,13 @@ figures is available with the rest of the supporting material
 \code{impurity} measure (the one the definition above describes);
 Section~\ref{sec:linear} compares it against \code{impurity\_corrected}.
 
-\section{Linear effects: right order, wrong magnitude}
+\section{Linear effects: importance is in squared-coefficient units}
 \label{sec:linear}
 
 Data: $y = a + 2b + 4c$, with $a,b,c \sim U(0,1)$, $n = 1000$. OOB
-$R^2 = 0.98$. Impurity importance ranks the features in the correct order, but
-the \emph{ratios} are distorted:
+$R^2 = 0.98$. Impurity importance (abbreviated ``vip'', variable importance)
+ranks the features in the correct order, but its \emph{ratios} do not match the
+coefficient ratios:
 
 \begin{center}
 \begin{tabular}{rccc}
@@ -101,25 +104,27 @@ c & 4 & 7.79 & 23.1 \\
 \end{tabular}
 \end{center}
 
-A coefficient ratio of $1:2:4$ becomes an importance ratio of $1:2.3:7.8$. The
-magnification is \textbf{super-linear}. Extending to
-$y = a + 2b + 3c + \dots + 11k$ (11 features, coefficients $1\ldots11$) and
-regressing importance on effect size, a linear fit gives $R^2 = 0.91$ while a
-quadratic fit gives $R^2 = 0.97$ (Fig.~\ref{fig:superlinear}). Importance scales
-roughly with the \emph{square} of the coefficient, because a feature with a
-larger coefficient contributes more variance per split \emph{and} is chosen for
-more splits.
+A coefficient ratio of $1:2:4$ becomes an importance ratio of $1:2.3:7.8$ ---
+close to $1:4:16$, the ratio of the \emph{squared} coefficients. This is not a
+distortion but the variance-contribution identity of Section~\ref{sec:background-strands}
+made visible: for a linear term the contributed variance is
+$\beta_j^2\,\mathrm{Var}(X_j)$, and here $\mathrm{Var}(X_j)=1/12$ is common to all
+features, so importance should track $\beta_j^2$. Extending to
+$y = a + 2b + 3c + \dots + 11k$ (11 features, coefficients $1\ldots11$) confirms
+it: regressing importance on $\beta^2$ --- a single, non-nested predictor --- gives
+$R^2 = 0.99$, versus $R^2 = 0.91$ on $\beta$ (Fig.~\ref{fig:superlinear}).
+Importance is denominated in squared-coefficient (variance) units, not
+coefficient units.
 
-Note the bias correction makes this \textbf{worse}, not better:
-\code{impurity\_corrected} de-biases null (no-effect) features but does not
-restore scale-invariance among real effects --- its ratios ($1:5.3:23$) are more
-extreme than plain impurity's.
+The bias correction does not help: \code{impurity\_corrected} is also
+variance-based, and its ratios ($1:5.3:23$) are if anything more spread.
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.72\textwidth]{fig1_superlinear.png}
-\caption{Impurity importance vs.\ linear coefficient. The quadratic fit (red)
-dominates the linear fit (blue dashed).}
+\includegraphics[width=0.95\textwidth]{fig1_superlinear.png}
+\caption{Impurity importance against the coefficient $\beta$ (left, curved) and
+against the variance contribution $\beta^2$ (right, linear, $R^2=0.99$).
+Importance is linear in $\beta^2$, not in $\beta$.}
 \label{fig:superlinear}
 \end{figure}
 
@@ -133,27 +138,23 @@ Data: a pure three-way parity interaction with no marginal or pairwise effects,
 \[
   y = c/10 + \big((a + b + d) \bmod 2\big), \qquad a,b,d,c \in \{0,1\}, \quad n = 10000.
 \]
-No single variable among $a,b,d$ carries information about $y$, and neither does
-any \emph{pair} of them --- only the joint parity of all three does. $c$ has a
-small independent effect. (Two-way parity would not do here: for binary inputs
-$(a+b) \bmod 2 = a + b - 2ab$ is exactly bilinear, so an OLS model with an
-$a{\times}b$ term fits it perfectly. Three-way parity is the smallest case a
-\emph{standard} interaction term cannot recover.)
+No single variable, and no pair, among $a,b,d$ carries information about $y$;
+only the joint parity of all three does. $c$ has a small independent effect.
+(Two-way parity would not do: for binary inputs $(a+b)\bmod 2 = a+b-2ab$ is
+bilinear, so OLS with an $a{\times}b$ term fits it exactly. Three-way parity is
+the smallest a standard interaction term cannot recover.)
 
 \begin{itemize}[leftmargin=1.4em]
-\item \textbf{OLS} is blind, and stays blind when given the standard interaction
-  terms: a model with all three variables \emph{and all pairwise products}
-  ($a{\times}b$, $a{\times}d$, $b{\times}d$) still reaches only $R^2 = 0.01$; the
-  fitted main-effect and pairwise-interaction coefficients are ${\approx}0$, and
-  only $c$ survives (coef ${\approx}0.10$). Recovering the signal requires the
-  full three-way product $a{\times}b{\times}d$, which one would rarely add
-  unprompted.
-\item \textbf{Random forest} captures it: OOB $R^2 = 0.73$. And the impurity
-  importance loads almost entirely on the interacting variables:
-  $\mathrm{vip}(a){=}346$, $\mathrm{vip}(b){=}422$, $\mathrm{vip}(d){=}432$,
-  $\mathrm{vip}(c){=}30$ (Fig.~\ref{fig:interaction}). The interacting variables
-  outrank the one variable with a genuine marginal effect by an order of
-  magnitude.
+\item \textbf{OLS} stays blind even with all pairwise products: a model in
+  $a,b,d$ and $a{\times}b, a{\times}d, b{\times}d$ still reaches only
+  $R^2 = 0.01$, all coefficients ${\approx}0$ except $c$ (${\approx}0.10$). Only
+  the three-way product $a{\times}b{\times}d$ recovers the signal, which one
+  rarely adds unprompted.
+\item \textbf{Random forest} captures it (OOB $R^2 = 0.73$), and impurity
+  importance loads on the interacting variables: $\mathrm{vip}(a){=}346$,
+  $\mathrm{vip}(b){=}422$, $\mathrm{vip}(d){=}432$, $\mathrm{vip}(c){=}30$
+  (Fig.~\ref{fig:interaction}), outranking $c$, the only variable with a marginal
+  effect, by an order of magnitude.
 \end{itemize}
 
 \begin{figure}[htb]
@@ -165,109 +166,107 @@ $c$; RF impurity importance ranks the three interacting variables highest.}
 \label{fig:interaction}
 \end{figure}
 
-\paragraph{Takeaway.} A high impurity importance does \textbf{not} imply a
-detectable marginal effect. This is a feature, not a bug: importance surfaces
-variables that matter only in combination --- precisely the ones a naive linear
-model drops. But it means importance and coefficients measure different things.
+\paragraph{Takeaway.} A high importance need not imply any marginal effect:
+importance surfaces variables that matter only in combination, exactly the ones a
+linear model drops. Importance and coefficients measure different things.
 
-\section{Why variance-splitting favours large-scale, non-linear structure}
+\section{What the split criterion sees, and what it discards}
 \label{sec:variance}
 
-Take a noise-free, sorted dataset and sweep every possible single split, scoring
-each by the sum of within-child variances. For $y = x$, $y = x^2$, $y = x^3$
-($x = 1\ldots1000$):
+Two properties of variance-based splitting explain the rest of the paper. Take a
+noise-free, sorted dataset and sweep every single split, scoring each by the sum
+of within-child variances, for $y = x$, $y = x^2$, $y = x^3$ ($x = 1\ldots1000$):
 
 \begin{center}
-\begin{tabular}{ccc}
+\begin{tabular}{cccc}
 \toprule
-response & min split-variance & argmin index (of 1000) \\
+response & raw min split-variance & frac.\ of parent variance removed & argmin index (of 1000) \\
 \midrule
-$x$   & $4.2 \times 10^{4}$  & 500 (centre) \\
-$x^2$ & $4.3 \times 10^{10}$ & 697 \\
-$x^3$ & $4.1 \times 10^{16}$ & 799 \\
+$x$   & $4.2 \times 10^{4}$  & $0.75$ & 500 (centre) \\
+$x^2$ & $4.3 \times 10^{10}$ & $0.76$ & 697 \\
+$x^3$ & $4.1 \times 10^{16}$ & $0.74$ & 799 \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-Two mechanisms compound:
+The raw minimum grows by orders of magnitude with the degree, but that is a
+\emph{response-scale artifact}: as a fraction of parent variance removed, all
+three splits are essentially equal (${\approx}0.75$). A ``large scale wins''
+story does not survive normalisation; two things do.
+
 \begin{enumerate}[leftmargin=1.6em]
-\item \textbf{Scale.} The achievable variance reduction grows by orders of
-  magnitude with the polynomial degree. Splits driven by high-order
-  (large-range) structure dominate the split-selection criterion, and each such
-  split books a larger impurity decrease.
-\item \textbf{Imbalance.} For a linear response the best split is central; for
-  higher orders the optimal split migrates toward the high-$y$ tail (index
-  $500 \rightarrow 697 \rightarrow 799$). Unbalanced splits leave more structure
-  in the large child, so \emph{more} splits are needed --- and every one of them
-  is charged to the same feature.
+\item \textbf{Trees discard feature-distribution shape.} A split compares only the
+  \emph{order} of a feature's values, so the tree is invariant to any monotone
+  transform and cannot see whether a feature is uniform or heavy-tailed,
+  information a per-unit effect size needs. This is the root cause of the confound
+  in Section~\ref{sec:confound}.
+\item \textbf{The optimal split migrates with response shape.} For a linear
+  response the best split is central; for higher orders it moves toward the
+  high-$y$ tail ($500 \rightarrow 697 \rightarrow 799$). The imbalance leaves more
+  structure in the large child, so more splits follow down that branch, each
+  charged to the same feature.
 \end{enumerate}
 
-Variance is not scale-invariant, so whatever varies on the largest scale wins
-twice.
+So importance summarises \emph{variance contribution over the feature ordering},
+blind to the metric the ordering lives on.
 
-\section{Non-linear effects (Section~\ref{sec:variance} confirmed on real forests)}
+\section{Non-linear effects: variance contribution predicts the ranking}
 \label{sec:nonlinear}
 
-Data: $y = a + b^2 + c^3$, features ${\sim}\,1+U(0,1)$, $n = 10000$. As predicted,
-$\mathrm{vip}(a) < \mathrm{vip}(b) < \mathrm{vip}(c)$:
-$1780 < 8168 < 39570$. Importance rises faster than the degree of the term. A
-linear model still estimates non-zero coefficients here, but they are
-uninterpretable --- the residuals are visibly non-normal, signalling the
-misspecification.
+Data: $y = a + b^2 + c^3$, with $a,b,c = 1 + U$ and $U \sim U(0,1)$, $n = 10000$.
+Each term's variance contribution grows with its degree, so
+Section~\ref{sec:background-strands} predicts
+$\mathrm{vip}(a) < \mathrm{vip}(b) < \mathrm{vip}(c)$; the forest confirms it,
+$1780 < 8168 < 39570$ (a $1:4.6:22$ ratio). A linear model still returns non-zero
+coefficients, but they are uninterpretable: the residuals are visibly non-normal.
 
 \section{The central confound: non-linearity vs.\ feature scale are indistinguishable}
 \label{sec:confound}
 
-This is the result that should change how the measure is read. Construct data
-with \textbf{exactly equal linear effects}, but skewed feature
-\emph{distributions}:
+The result that should change how the measure is read. Construct data with equal
+linear effects but skewed feature \emph{distributions}:
 \[
   a = 1 + U, \quad b = (1 + U)^2, \quad c = (1 + U)^3, \quad y = a + b + c,
   \quad n = 10000.
 \]
-Every feature enters $y$ with coefficient 1. OLS confirms it: fitted coefficients
-are $1.00, 1.00, 1.00$. Each unit increase in $a$, $b$, or $c$ moves $y$ by one
-unit --- there is nothing non-linear about the \emph{effects}.
+Every feature enters with coefficient 1, and OLS recovers $1.00, 1.00, 1.00$:
+nothing about the \emph{effects} is non-linear. Yet the forest reports
+\textbf{1780 / 8168 / 39570}, a $1:4.6:22$ spread \textbf{numerically identical},
+to the digit, to the non-linear model of Section~\ref{sec:nonlinear}
+(Fig.~\ref{fig:confound}). The identity is \emph{provable}: with the same $U$
+draws, $b=(1+U)^2$ under a linear effect is a monotone relabelling of the uniform
+feature under a $b^2$ effect, and $y$ is identical. Since a tree sees only feature
+\emph{order} (Section~\ref{sec:variance}), the splits, and every importance, must
+match. Trees discard exactly the distribution-shape information that would tell
+the two apart.
 
-Yet the random forest reports importances of \textbf{1780 / 8168 / 39570} --- a
-$1:4.6:22$ spread. These are not merely unequal; they are \textbf{numerically
-identical} to the non-linear-effects model of Section~\ref{sec:nonlinear}
-(Fig.~\ref{fig:confound}). The forest cannot tell the two generating processes
-apart, because both present the same \emph{marginal variance structure} to the
-splitting criterion: a feature whose values are spread over a cubic range
-delivers the same variance-reduction opportunities whether the cubic lives in the
-effect ($c^3$) or in the feature ($c \sim U^3$).
+This is \textbf{not specific to impurity}. Permutation importance gives the same
+ratios in both worlds ($1:9.0:49.3$ vs.\ $1:9.1:50.1$), and standardised OLS
+coefficients spread ($1:3.0:7.0$): all summarise variance contribution,
+identical across the two worlds. It is a property of any marginal importance;
+the only remedy is a shape-aware view such as a partial-dependence plot.
 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.85\textwidth]{fig3_confound.png}
-\caption{Identical importances from two different worlds. Left: genuinely
-non-linear effects. Right: linear effects on skewed features. Impurity importance
-cannot distinguish them.}
+\caption{Provably identical importances from two different worlds. Left: genuinely
+non-linear effects. Right: linear effects on skewed features. No marginal
+importance measure can distinguish them.}
 \label{fig:confound}
 \end{figure}
 
-A split-variance sweep on the skewed-feature data confirms the mechanism: median
-achievable split-variance is lowest for $c$ (4.4) and highest for $a$ (9.8), so
-$c$ is split earlier and more often --- matching the importance ranking, even
-though $c$'s effect on $y$ is no larger than $a$'s.
-
-\paragraph{Takeaway.} Impurity importance conflates \emph{effect non-linearity}
-with \emph{feature skew}. A tall importance bar can mean ``this feature has a
-strong/non-linear effect'' \textbf{or} merely ``this feature has a
-wide/heavy-tailed distribution.'' The measure alone cannot say which.
+\paragraph{Takeaway.} A tall importance bar can mean a strong or non-linear
+effect, or merely a heavy-tailed feature; no marginal importance can say which.
 
 \section{Practical guidance}
 
 \begin{enumerate}[leftmargin=1.6em]
-\item \textbf{Read impurity importance ordinally, and only among comparable
-  features.} Treat it as a ranked shortlist of variables worth investigating, not
-  as an effect size. Never place its magnitudes alongside OLS coefficients as if
-  they were the same currency.
-\item \textbf{Don't conflate variable importance with effect size.} A high bar may
-  reflect a marginal effect, an interaction (Section~\ref{sec:interactions}), a
-  non-linear effect (Section~\ref{sec:nonlinear}), or nothing but a skewed feature
-  distribution (Section~\ref{sec:confound}).
+\item \textbf{Read importance ordinally, not as an effect size.} Treat it as a
+  ranked shortlist among comparable features, never as a magnitude to line up
+  against OLS coefficients. A high bar may reflect a marginal effect, an
+  interaction (Section~\ref{sec:interactions}), a non-linear effect
+  (Section~\ref{sec:nonlinear}), or merely a skewed feature distribution
+  (Section~\ref{sec:confound}).
 \item \textbf{Disambiguate with partial-dependence plots.} PDPs~\cite{friedman2001}
   recover exactly what importance discards: in Section~\ref{sec:confound} the skewed-feature
   model's PDPs are straight lines while the non-linear model's curve --- same
@@ -281,7 +280,15 @@ wide/heavy-tailed distribution.'' The measure alone cannot say which.
 \item \textbf{\code{impurity\_corrected} fixes a different problem.} It removes
   the bias toward null / high-cardinality features (use it --- it is the right
   default), but it does not make importances scale-comparable across real
-  effects; if anything it widens the spread (Section~\ref{sec:linear}).
+  effects; if anything it widens the spread (Section~\ref{sec:linear}). Debiased
+  MDI variants exist~\cite{li2019,zhou2021} but target the same type-bias, not
+  the shape/scale reading examined here.
+\item \textbf{Switching to permutation importance does not fix the shape/skew
+  conflation.} Permutation and conditional~\cite{strobl2008} importances address
+  other problems (and are worth using), but as Section~\ref{sec:confound} shows
+  they too summarise variance contribution and cannot separate effect shape from
+  feature distribution. Only a shape-aware view (PDP/ALE~\cite{friedman2001,apley2020},
+  SHAP~\cite{lundberg2017}) does that.
 \item \textbf{If you know the structure is linear, use the linear model.} Random
   forests buy you interaction- and non-linearity-detection; when there is nothing
   to detect, OLS is both more accurate and directly interpretable.
@@ -289,15 +296,14 @@ wide/heavy-tailed distribution.'' The measure alone cannot say which.
 
 \section{Prevalence in the literature}
 
-The preceding sections establish some pitfalls that exists with variable importances.
-To estimate how prevalence of papers falling into hose pitfalls, we screened the published literature 
-that relies on the widely used \code{ranger} R package which provides variable importances.
-Many other packages provide random forest variable importances, \code{ranger} is both widely
-used and specialized.
-
-We screen for papers whose stated conclusions depend on the magnitude or ranking of an impurity
-importance without the corroboration that would guard against the biases of
-Sections~\ref{sec:linear}--\ref{sec:confound}.
+The preceding sections establish, in controlled settings, how a
+variance-contribution measure can be misread as an effect size. To estimate how
+often that misreading reaches published conclusions, we screened the literature
+that uses the \code{ranger} R package --- one of the most widely used
+random-forest implementations, and the one whose importances these results
+concern. We screen for papers whose stated conclusions depend on the magnitude or
+ranking of an impurity importance without the corroboration that would guard
+against the effects of Sections~\ref{sec:linear}--\ref{sec:confound}.
 
 \subsection{Method}
 \label{sec:prevalence-method}
@@ -325,13 +331,14 @@ decrease in (impurity|gini|accuracy)
 impurity[_\s]?corrected
 most important (variable|feature|predictor)
 \end{verbatim}
-$524$ of the $773$ full-text papers matched. This filter is deliberately broad. An
-earlier, narrower version that additionally required a significance-testing
-keyword (\code{importance\_pvalues}, Altmann, Janitza, or Boruta) had poor recall,
-because most exposed papers rank features by impurity importance with no
-significance machinery at all. To quantify the broad filter's own recall we drew
-a random sample of $40$ non-matching full-text papers and put them through the
-same screen; in total $544$ papers received the full screen.
+$524$ of the $773$ matched. The filter is deliberately broad: an earlier version
+that also required a significance keyword (\code{importance\_pvalues}, Altmann,
+Janitza, Boruta) missed most exposed papers. Of $40$ sampled papers it rejected,
+$24$ still used an impurity importance and $11$ met the flag criterion below,
+because many papers rank features by impurity importance with no significance
+test. In total $544$ papers were screened: the $524$ matches plus $20$ from
+earlier passes (including that probe) that the broadened filter misses. Its recall
+was not separately re-estimated (see limitations).
 
 \paragraph{Two-stage screen.} Each paper was read by a large language model under
 a fixed instruction and asked to return a structured judgement; the verbatim
@@ -339,24 +346,20 @@ prompts are in the supporting repository (Section~\ref{sec:availability}). The
 screen has two stages using different models, so that the second acts as an
 adversarial check on the first.
 
-\emph{Stage 1 --- screening.} A first model (Claude Haiku 4.5) read the full text
-and recorded whether the paper uses an impurity/Gini/MDI importance, whether it
-interprets that importance's magnitude or ranking, which corroborating analyses
-(if any) it reports, and a Boolean flag for whether a central conclusion could
-have been affected by the biases described here. The instruction made the
-operative distinction explicit: the bias corrupts the magnitude and ranking of an
-importance, not the binary verdict of whether a variable is used, so a significant
-importance $p$-value (Altmann~\cite{altmann2010}, Janitza~\cite{janitza2018}, or
-Boruta~\cite{kursa2010}) --- which tests only that importance $\neq 0$ --- does
-not by itself protect a conclusion. A paper was flagged only when it leaned on the
-magnitude or ranking of an impurity importance for a central conclusion \emph{and}
-did not corroborate that ranking. Corroboration was defined as any of: permutation
-importance, SHAP values~\cite{lundberg2017}, a partial-dependence or
-accumulated-local-effects analysis~\cite{friedman2001,apley2020}, conditional
-importance~\cite{strobl2008}, or held-out predictive validation of the
-\emph{selected} feature set --- overall
-model accuracy on a test set does not qualify, since it validates prediction, not
-the ranking. Every flag had to be supported by a quoted passage.
+\emph{Stage 1 --- screening.} A first model (Claude Haiku 4.5) read each paper and
+recorded which importance measure it uses, whether it interprets that importance's
+magnitude or ranking, which corroborating analyses it reports, and a flag for
+whether a central conclusion could have been affected. The instruction was
+explicit that the bias corrupts magnitude and ranking, not the binary verdict
+that a variable is used, so a significant importance $p$-value
+(Altmann~\cite{altmann2010}, Janitza~\cite{janitza2018}, Boruta~\cite{kursa2010})
+does not by itself protect a conclusion. A paper was flagged only if it leaned on
+the magnitude or ranking of an impurity importance for a central conclusion
+\emph{without} corroboration, defined as permutation importance,
+SHAP~\cite{lundberg2017}, partial-dependence/ALE~\cite{friedman2001,apley2020},
+conditional importance~\cite{strobl2008}, or held-out validation of the
+\emph{selected} features (overall test accuracy does not count, as it validates
+prediction, not the ranking). Every flag required a quoted passage.
 
 \emph{Stage 2 --- adjudication.} Every flagged paper was independently re-read by
 a second, stronger model (Claude Sonnet 5) under an explicitly adversarial
@@ -364,9 +367,12 @@ instruction: its task was to \emph{refute} the flag. It returned a verdict of
 \emph{confirmed}, \emph{refuted}, or \emph{uncertain}, and confirmed only when all
 three conditions held at once: 1) the paper genuinely uses an impurity (not solely
 a permutation or SHAP) importance, 2) the ranking is central to a stated conclusion,
-and 3) the ranking is not adequately corroborated.
+and 3) the ranking is not adequately corroborated. Both models were accessed in
+July 2026. Using two models from a single vendor means the adjudication is a
+precision filter, not an independent validation --- a different-vendor or human
+check would be stronger; we return to this in the limitations.
 
-\section{Prevalence in the literature: results}
+\subsection{Results}
 \label{sec:prevalence-results}
 
 Table~\ref{tab:prevalence} traces the corpus through the pipeline. Of the $544$
@@ -407,43 +413,47 @@ filter matches were screened.}
 \end{table}
 
 Taking the confirmed count in Table~\ref{tab:prevalence} at face value, $55$ of
-the $544$ screened papers --- about $10\%$ of the importance-using full-text
-literature, and roughly $7\%$ of all full-text ranger-citing work --- state a
-central conclusion that could have been distorted by the biases of
-Sections~\ref{sec:linear}--\ref{sec:confound} and did not cross-check it.
+the $544$ screened papers state a central conclusion that could have been
+distorted by the effects of Sections~\ref{sec:linear}--\ref{sec:confound} and did
+not cross-check it. That is about $10\%$ of the screened papers. Measured against
+the $306$ that actually interpret an impurity importance, it is $18\%$, roughly
+one in six. As a share of all $773$ full-text ranger-citing works it is about
+$7\%$.
 
 Two features of the confirmed set are worth drawing out. First, exposure is
 concentrated in papers that use no significance machinery: $51$ of the $55$
 confirmed papers ($93\%$) report no importance $p$-value or Boruta selection and
-simply rank features by impurity importance, suggesting that awareness of these
-methods correlate with awareness or caution about interpreting variable importances 
-and their relative ranks. 
-Second, the confirmed papers are not confined to low-visibility venues: their
-citation counts span the full range of the corpus (median $11$, matching the
-corpus median of $10$), and $12$ of the $55$ exceed $50$ citations, so the
-potentially-affected conclusions include work of substantial reach.
+simply rank features by impurity importance, suggesting that familiarity with
+significance testing goes with more cautious interpretation of a ranking. Second,
+the confirmed papers are not confined to low-visibility venues: citation counts
+span the full range of the corpus (median $11$, versus a corpus median of $10$),
+and $12$ of the $55$ exceed $50$ citations.
 
-These figures are screening estimates from language-model judgements, not audits
-of the underlying analyses. A confirmed flag means a conclusion \emph{could} have
-been affected and was not corroborated, not that it is wrong; a model's predictive
-accuracy, validated separately, is unaffected either way. Establishing that a
-particular ranking is actually distorted requires re-running that study's model
-with an unbiased importance measure, which is beyond the scope of a text screen.
+\paragraph{Limitations.} These are model judgements, not audits: a flag means a
+conclusion \emph{could} have been affected and was uncorroborated, not that it is
+wrong, and predictive accuracy is unaffected. The $10\%$ is an unvalidated
+estimate; stage 2 raises precision but is not independent validation, and there
+is no human ground truth. Only $773$ of $3{,}189$ works had open-access full
+text, and open access correlates with field and venue, so the sample may not
+generalise. The broadened filter's recall was not re-estimated. The repository
+lists flagged papers by identifier; we treat this as a claim about corroboration
+practice, not correctness, with each flag backed by a quoted passage.
 
 \section{Conclusion}
 
-Impurity importance is a variance-reduction accounting, and variance is neither
-scale-invariant nor able to separate an effect's shape from a feature's
-distribution. Consequently it magnifies effect sizes super-linearly, attributes
-interaction effects to marginally-null variables, and 
-returns identical scores for genuinely non-linear effects and for linear effects
-on skewed features. A
-literature screen (Sections~\ref{sec:prevalence-method}--\ref{sec:prevalence-results})
-confirms the pitfall is not merely theoretical: about $10\%$ of importance-using
-ranger papers (including heavily-cited work) lean on impurity rankings
-without the corroboration that would catch it. Used as a \emph{screening} tool and paired with
-partial-dependence plots to interrogate the shortlist, impurity importance is
-valuable, but misleads if read as a substitute for effect sizes.
+Impurity importance estimates a feature's variance contribution, not its per-unit
+effect. Read that way its behaviour is unsurprising: it scales with the square of
+a linear coefficient, assigns an interaction's variance to the interacting
+variables, and gives identical scores to a non-linear effect and to a linear
+effect on a skewed feature. That last identity is provable, and it holds for
+permutation importance too, so it is a property of variance-based measures rather
+than a defect of MDI. The mechanisms are largely established; our contribution is
+the sharp skew-versus-nonlinearity demonstration and an estimate of how far the
+misreading reaches. In the screened literature, $18\%$ of the papers that
+interpret an impurity ranking, including heavily-cited work, lean on it without
+corroboration. Impurity importance is a useful screening tool when read as a
+ranked shortlist and paired with partial-dependence plots. It misleads when read
+as an effect size.
 
 \section{Data and code availability}
 \label{sec:availability}
@@ -471,6 +481,12 @@ Section~\ref{sec:prevalence-results}.
 \bibitem{altmann2010} Altmann, Tolo\c{s}i, Sander, Lengauer (2010).
   \emph{Permutation importance: a corrected feature importance measure.}
   Bioinformatics 26(10): 1340--1347.
+\bibitem{louppe2013} Louppe, Wehenkel, Sutera, Geurts (2013). \emph{Understanding
+  variable importances in forests of randomized trees.} Advances in Neural
+  Information Processing Systems (NeurIPS) 26.
+\bibitem{li2019} Li, Wang, Basu, Kumbier, Yu (2019). \emph{A debiased MDI feature
+  importance measure for random forests.} Advances in Neural Information
+  Processing Systems (NeurIPS) 32.
 \bibitem{kursa2010} Kursa, Rudnicki (2010). \emph{Feature Selection with the
   Boruta Package.} Journal of Statistical Software 36(11).
 \bibitem{lundberg2017} Lundberg, Lee (2017). \emph{A unified approach to
@@ -488,6 +504,12 @@ Section~\ref{sec:prevalence-results}.
 \bibitem{apley2020} Apley, Zhu (2020). \emph{Visualizing the effects of predictor
   variables in black box supervised learning models.} Journal of the Royal
   Statistical Society: Series B 82(4): 1059--1086.
+\bibitem{zhou2021} Zhou, Hooker (2021). \emph{Unbiased measurement of feature
+  importance in tree-based methods.} ACM Transactions on Knowledge Discovery from
+  Data 15(2).
+\bibitem{scornet2023} Scornet (2023). \emph{Trees, forests, and impurity-based
+  variable importance in regression.} Annales de l'Institut Henri Poincar\'e
+  59(1): 21--52.
 \bibitem{scheidel2018} Scheidel (2018). \emph{Be aware of bias in RF variable
   importance metrics.}
   \url{https://blog.methodsconsultants.com/posts/be-aware-of-bias-in-rf-variable-importance-metrics/}
