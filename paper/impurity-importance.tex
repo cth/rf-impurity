@@ -129,30 +129,39 @@ for linear effects, but ``how much more'' is not comparable to a coefficient.
 \section{Interactions are charged to the interacting variables}
 \label{sec:interactions}
 
-Data: a pure parity interaction with no marginal effects,
+Data: a pure three-way parity interaction with no marginal or pairwise effects,
 \[
-  y = c/10 + \big((a + b) \bmod 2\big), \qquad a,b,c \in \{0,1\}, \quad n = 10000.
+  y = c/10 + \big((a + b + d) \bmod 2\big), \qquad a,b,d,c \in \{0,1\}, \quad n = 10000.
 \]
-$a$ and $b$ individually carry no information about $y$; only their parity does.
-$c$ has a small independent effect.
+No single variable among $a,b,d$ carries information about $y$, and neither does
+any \emph{pair} of them --- only the joint parity of all three does. $c$ has a
+small independent effect. (Two-way parity would not do here: for binary inputs
+$(a+b) \bmod 2 = a + b - 2ab$ is exactly bilinear, so an OLS model with an
+$a{\times}b$ term fits it perfectly. Three-way parity is the smallest case a
+\emph{standard} interaction term cannot recover.)
 
 \begin{itemize}[leftmargin=1.4em]
-\item \textbf{OLS} is blind: $R^2 = 0.01$, and the fitted coefficients for $a$
-  and $b$ are exactly 0 (only $c$ survives, coef $\approx 0.10$). A standard
-  $a{\times}b$ product term does not rescue it --- the interaction is non-linear
-  (parity), not the bilinear form OLS interaction terms assume.
-\item \textbf{Random forest} captures it: OOB $R^2 = 0.63$. And the impurity
+\item \textbf{OLS} is blind, and stays blind when given the standard interaction
+  terms: a model with all three variables \emph{and all pairwise products}
+  ($a{\times}b$, $a{\times}d$, $b{\times}d$) still reaches only $R^2 = 0.01$; the
+  fitted main-effect and pairwise-interaction coefficients are ${\approx}0$, and
+  only $c$ survives (coef ${\approx}0.10$). Recovering the signal requires the
+  full three-way product $a{\times}b{\times}d$, which one would rarely add
+  unprompted.
+\item \textbf{Random forest} captures it: OOB $R^2 = 0.73$. And the impurity
   importance loads almost entirely on the interacting variables:
-  $\mathrm{vip}(a) = 483$, $\mathrm{vip}(b) = 503$, $\mathrm{vip}(c) = 16$
-  (Fig.~\ref{fig:interaction}). The interaction variables outrank the one
-  variable with a genuine marginal effect by ${\sim}30\times$.
+  $\mathrm{vip}(a){=}346$, $\mathrm{vip}(b){=}422$, $\mathrm{vip}(d){=}432$,
+  $\mathrm{vip}(c){=}30$ (Fig.~\ref{fig:interaction}). The interacting variables
+  outrank the one variable with a genuine marginal effect by an order of
+  magnitude.
 \end{itemize}
 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.85\textwidth]{fig2_interaction.png}
-\caption{Same data, two views. OLS assigns $a,b$ zero coefficient; RF impurity
-importance ranks them highest.}
+\caption{Same data, two views. OLS with all main and pairwise terms assigns
+$a,b,d$ (and every pairwise product) essentially zero coefficient, seeing only
+$c$; RF impurity importance ranks the three interacting variables highest.}
 \label{fig:interaction}
 \end{figure}
 
@@ -262,10 +271,13 @@ wide/heavy-tailed distribution.'' The measure alone cannot say which.
 \item \textbf{Disambiguate with partial-dependence plots.} PDPs~\cite{friedman2001}
   recover exactly what importance discards: in Section~\ref{sec:confound} the skewed-feature
   model's PDPs are straight lines while the non-linear model's curve --- same
-  importances, different shapes. PDPs also expose the checkerboard signature of
-  the Section~\ref{sec:interactions} interaction that per-feature importance
-  flattens. Curvature in a PDP is a concrete cue to add a polynomial or
-  interaction term back into an interpretable model.
+  importances, different shapes. For the Section~\ref{sec:interactions}
+  interaction, a one- or two-way PDP among $a,b,d$ is flat --- the parity pattern
+  only appears in the full three-way view --- which is itself the tell that the
+  effect is a higher-order interaction that per-feature importance has flattened.
+  Curvature (or a suspiciously flat low-order PDP over a high-importance variable)
+  is a concrete cue to add a polynomial or interaction term back into an
+  interpretable model.
 \item \textbf{\code{impurity\_corrected} fixes a different problem.} It removes
   the bias toward null / high-cardinality features (use it --- it is the right
   default), but it does not make importances scale-comparable across real

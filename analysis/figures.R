@@ -20,16 +20,20 @@ legend("topleft", c("linear fit", "quadratic fit"), col = c("steelblue","firebri
        lty = c(2,1), lwd = 2, bty = "n")
 dev.off()
 
-## Fig 2: parity interaction - OLS blind, RF importance loads on interaction vars
+## Fig 2: three-way parity interaction - OLS (even with all pairwise terms) blind,
+## RF importance loads on the three interacting variables
 set.seed(42); n <- 10000; ib <- function(n) round(runif(n))
-df <- tibble(a = ib(n), b = ib(n), c = ib(n), y = c/10 + (a + b) %% 2)
-ols <- lm(y ~ a + b + c, df)
-v <- imp(ranger(y ~ a+b+c, df, importance = "impurity", num.trees = 500))
+df <- tibble(a = ib(n), b = ib(n), dd = ib(n), c = ib(n), y = c/10 + (a + b + dd) %% 2)
+ols <- lm(y ~ (a + b + dd)^2 + c, df)          # all main + pairwise terms
+v <- imp(ranger(y ~ a + b + dd + c, df, importance = "impurity", num.trees = 500))
+names(v) <- c("a","b","d","c")
 png("figures/fig2_interaction.png", 900, 420, res = 110)
 par(mfrow = c(1,2))
-barplot(abs(coef(ols)[-1]), col = "grey70", main = "OLS |coefficient|", ylab = "|coef|")
-barplot(v, col = c("firebrick","firebrick","grey70"), main = "RF impurity importance",
-        ylab = "importance")
+oc <- abs(coef(ols)[-1])
+barplot(oc, las = 2, cex.names = 0.7, col = "grey70",
+        main = "OLS |coefficient|\n(all main + pairwise terms)", ylab = "|coef|")
+barplot(v, col = c("firebrick","firebrick","firebrick","grey70"),
+        main = "RF impurity importance", ylab = "importance")
 dev.off()
 
 ## Fig 3: the confound - non-linear effects vs linear-effects-skewed-features
