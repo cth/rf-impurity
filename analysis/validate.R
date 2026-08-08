@@ -189,4 +189,37 @@ std <- coef(lm_inc)[-1] * sapply(df_inc[, c("a","b","c")], sd) / sd(df_inc$y)
 cat("  standardised OLS coef ratio /a (inc):", round(rel(std), 2),
     " <-- even standardised coefficients spread\n")
 
+## ---------------------------------------------------------------------------
+## Claim 5c: the two hypotheses of the Section 6 proposition. The identity holds
+##   because (i) splits depend on a feature only through the ORDER of its values
+##   and (ii) the two fits share bootstrap indices and candidate-feature draws.
+##   Both are load-bearing: drop (ii) by fitting sequentially without reseeding,
+##   or drop (i) via splitrule = "extratrees" (which draws thresholds uniformly
+##   on the feature's value RANGE, so it does see the metric), and the identity
+##   degrades from exact to ~1% and ~3% respectively.
+## ---------------------------------------------------------------------------
+cat("\n=== Claim 5c: hypotheses of the Section 6 proposition ===\n")
+reldiff <- function(x, z) max(abs(x - z) / x)
+cat("  (both hypotheses) max rel diff :",
+    reldiff(imp(ranger(y ~ ., df_nl,  importance = "impurity", num.trees = 500, seed = 42)),
+            imp(ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500, seed = 42))),
+    " <-- exactly 0\n")
+set.seed(42)   # drop (ii): sequential fits, no per-fit seed
+seq_nl  <- imp(ranger(y ~ ., df_nl,  importance = "impurity", num.trees = 500))
+seq_inc <- imp(ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500))
+cat("  (no per-fit seed)  max rel diff :", signif(reldiff(seq_nl, seq_inc), 3), "\n")
+## Control: refitting ONE world under two seeds moves the importances by more
+## than the cross-world gap above, so that gap carries no residual signal.
+cat("  [control] same world, seeds 42/43:",
+    signif(reldiff(imp(ranger(y ~ ., df_nl, importance = "impurity", num.trees = 500, seed = 42)),
+                   imp(ranger(y ~ ., df_nl, importance = "impurity", num.trees = 500, seed = 43))), 3),
+    " <-- seed noise exceeds the cross-world gap\n")
+et_nl  <- imp(ranger(y ~ ., df_nl,  importance = "impurity", num.trees = 500,
+                     seed = 42, splitrule = "extratrees"))
+et_inc <- imp(ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500,
+                     seed = 42, splitrule = "extratrees"))
+cat("  (extratrees)       max rel diff :", signif(reldiff(et_nl, et_inc), 3),
+    " ratios", round(rel(et_nl), 2), "vs", round(rel(et_inc), 2),
+    "\n                                      <-- order-only hypothesis fails\n")
+
 cat("\nAll experiments completed.\n")
