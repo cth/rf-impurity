@@ -29,12 +29,39 @@ df <- tibble(a = runif(n), b = runif(n), c = runif(n), y = a + 2*b + 4*c)
 
 # Use plain "impurity" (the measure the prose describes) and the bias-corrected
 # "impurity_corrected" the notebook code actually calls, to compare both.
-m_imp  <- ranger(y ~ ., df, importance = "impurity",           num.trees = 500)
-m_corr <- ranger(y ~ ., df, importance = "impurity_corrected", num.trees = 500)
+m_imp  <- ranger(y ~ ., df, importance = "impurity",           num.trees = 500, seed = 1)
+m_corr <- ranger(y ~ ., df, importance = "impurity_corrected", num.trees = 500, seed = 1)
 cat("  OOB R^2 (impurity model):", round(m_imp$r.squared, 3), "\n")
 cat("  impurity  vip a,b,c   :", round(imp(m_imp), 1), "\n")
 cat("  impurity  ratio /a    :", round(rel(imp(m_imp)), 2), "  (coef ratio 1,2,4)\n")
 cat("  corrected ratio /a    :", round(rel(imp(m_corr)), 2), "\n")
+
+## The ratio above (1:2.3:7.8) falls short of the predicted 1:4:16. The cause is
+## the default mtry: with p = 3, ranger's regression default is floor(p/3) = 1,
+## so each node splits on the single feature it drew and weak features receive
+## forced splits. Sweeping mtry brackets the prediction. Averaged over seeds so
+## the comparison does not rest on one draw.
+## Also swept for impurity_corrected (AIR): unlike plain impurity it is nearly
+## mtry-insensitive and sits near 1:4:16 throughout, at the cost of much higher
+## seed-to-seed variance -- so its single-seed ratio in Claim 1 is not readable.
+cat("\n=== Claim 1a: mtry sweep, mean ratio over seeds 1-10 (target 1:4:16) ===\n")
+n <- 1000
+ratios <- function(meas, mt) t(sapply(1:10, function(s) {
+  set.seed(s)
+  d <- tibble(a = runif(n), b = runif(n), c = runif(n))
+  d$y <- d$a + 2*d$b + 4*d$c
+  rel(imp(ranger(y ~ ., d, importance = meas, num.trees = 500, mtry = mt, seed = s)))
+}))
+for (meas in c("impurity", "impurity_corrected")) {
+  cat("  ", meas, "\n", sep = "")
+  for (mt in 1:3) {
+    R <- ratios(meas, mt)
+    cat(sprintf("    mtry=%d%-30s: 1 : %.2f : %.2f   (c range %.1f-%.1f)\n", mt,
+                c(" (ranger default at p=3)", "", " (= p, no split randomisation)")[mt],
+                mean(R[, 2]), mean(R[, 3]), min(R[, 3]), max(R[, 3])))
+  }
+}
+cat("  -> default mtry compresses plain impurity; AIR is mtry-insensitive but noisy\n")
 
 ## Importance tracks variance contribution beta^2 * Var(X). With all X ~ U(0,1),
 ## Var(X) is constant, so importance should be ~linear in beta^2. We regress
@@ -48,7 +75,7 @@ cols <- lapply(eff, function(i) runif(n))
 names(cols) <- letters[1:11]
 X <- as_tibble(cols)
 X$y <- as.matrix(X) %*% eff
-m <- ranger(y ~ ., X, importance = "impurity", num.trees = 1000)
+m <- ranger(y ~ ., X, importance = "impurity", num.trees = 1000, seed = 43)
 v <- as.numeric(imp(m))
 cat("  Var(X_j) (all U(0,1)) ~ 1/12 =", round(1/12, 4), "(constant across j)\n")
 cat("  R^2 imp ~ beta     :", round(summary(lm(v ~ eff))$r.squared, 3), "\n")
@@ -75,7 +102,7 @@ ols_full <- lm(y ~ a * b * c + d, df)          # incl. the 3-way product
 cat("  OLS R^2 (main + all pairwise) :", round(summary(ols_pair)$r.squared, 3), "\n")
 cat("  OLS R^2 (incl. 3-way product) :", round(summary(ols_full)$r.squared, 3), "\n")
 cat("  OLS |coef| (pairwise model)   :", round(abs(coef(ols_pair)[-1]), 3), "\n")
-mrf <- ranger(y ~ a + b + c + d, df, importance = "impurity", num.trees = 500)
+mrf <- ranger(y ~ a + b + c + d, df, importance = "impurity", num.trees = 500, seed = 42)
 cat("  RF  OOB R^2             :", round(mrf$r.squared, 3), "\n")
 v <- imp(mrf)
 cat("  RF  vip a,b,c,d         :", round(v, 1), "\n")
@@ -113,7 +140,7 @@ cat("  -> fraction removed ~constant; the real effect is argmin migration (imbal
 cat("\n=== Claim 4: non-linear effects y = a + b^2 + c^3 ===\n")
 set.seed(42); n <- 10000
 df_nl <- tibble(a = 1+runif(n), b = 1+runif(n), c = 1+runif(n), y = a + b^2 + c^3)
-m_nl <- ranger(y ~ ., df_nl, importance = "impurity", num.trees = 500)
+m_nl <- ranger(y ~ ., df_nl, importance = "impurity", num.trees = 500, seed = 42)
 v <- imp(m_nl)
 cat("  vip a,b,c        :", round(v, 1), "\n")
 cat("  vip(a)<vip(b)<vip(c)?:", (v["a"] < v["b"] && v["b"] < v["c"]), "\n")
@@ -129,7 +156,7 @@ df_inc <- tibble(a = 1+runif(n), b = (1+runif(n))^2, c = (1+runif(n))^3,
                  y = a + b + c)
 lm_inc <- lm(y ~ ., df_inc)
 cat("  OLS coefs a,b,c  :", round(coef(lm_inc)[-1], 3), "  (all ~1)\n")
-m_inc <- ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500)
+m_inc <- ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500, seed = 42)
 v <- imp(m_inc)
 cat("  RF vip a,b,c     :", round(v, 1), "\n")
 cat("  RF vip ratio /a  :", round(rel(v), 2), "\n")
@@ -151,10 +178,10 @@ cat("  min split-var a,b,c   :", round(c(min(sa), min(sb), min(sc)), 2), "\n")
 ## and even standardised OLS coefficients spread -- because all three summarise
 ## variance contribution, which is identical across the two worlds.
 cat("\n=== Claim 5b: is the spread specific to impurity importance? ===\n")
-imp_nl  <- imp(ranger(y ~ ., df_nl,  importance = "impurity",    num.trees = 500))
-per_nl  <- imp(ranger(y ~ ., df_nl,  importance = "permutation", num.trees = 500))
-imp_inc <- imp(ranger(y ~ ., df_inc, importance = "impurity",    num.trees = 500))
-per_inc <- imp(ranger(y ~ ., df_inc, importance = "permutation", num.trees = 500))
+imp_nl  <- imp(ranger(y ~ ., df_nl,  importance = "impurity",    num.trees = 500, seed = 42))
+per_nl  <- imp(ranger(y ~ ., df_nl,  importance = "permutation", num.trees = 500, seed = 42))
+imp_inc <- imp(ranger(y ~ ., df_inc, importance = "impurity",    num.trees = 500, seed = 42))
+per_inc <- imp(ranger(y ~ ., df_inc, importance = "permutation", num.trees = 500, seed = 42))
 cat("  impurity    ratio /a  nl:", round(rel(imp_nl), 2), " inc:", round(rel(imp_inc), 2), "\n")
 cat("  permutation ratio /a  nl:", round(rel(per_nl), 2), " inc:", round(rel(per_inc), 2),
     " <-- permutation ALSO cannot separate the two worlds\n")
