@@ -1,4 +1,6 @@
 # Generate the figures used in paper/. Run after/with validate.R.
+# Each ranger() call carries an explicit seed, matching validate.R, so the
+# plotted values are the ones the paper quotes regardless of call order.
 # R_LIBS_USER=./.rlib Rscript analysis/figures.R
 suppressMessages({ library(tibble); library(ranger) })
 dir.create("figures", showWarnings = FALSE)
@@ -11,7 +13,7 @@ set.seed(43); n <- 1000
 eff <- 1:11
 X <- as_tibble(setNames(lapply(eff, function(i) runif(n)), letters[1:11]))
 X$y <- as.matrix(X) %*% eff
-v <- as.numeric(imp(ranger(y ~ ., X, importance = "impurity", num.trees = 1000)))
+v <- as.numeric(imp(ranger(y ~ ., X, importance = "impurity", num.trees = 1000, seed = 43)))
 r2 <- summary(lm(v ~ I(eff^2)))$r.squared
 png("figures/fig1_superlinear.png", 900, 460, res = 110)
 par(mfrow = c(1, 2))
@@ -30,7 +32,7 @@ dev.off()
 set.seed(42); n <- 10000; ib <- function(n) round(runif(n))
 df <- tibble(a = ib(n), b = ib(n), c = ib(n), d = ib(n), y = d/10 + (a + b + c) %% 2)
 ols <- lm(y ~ (a + b + c)^2 + d, df)          # all main + pairwise terms
-v <- imp(ranger(y ~ a + b + c + d, df, importance = "impurity", num.trees = 500))
+v <- imp(ranger(y ~ a + b + c + d, df, importance = "impurity", num.trees = 500, seed = 42))
 names(v) <- c("a","b","c","d")
 png("figures/fig2_interaction.png", 900, 420, res = 110)
 par(mfrow = c(1,2))
@@ -46,8 +48,8 @@ set.seed(42); n <- 10000
 df_nl  <- tibble(a = 1+runif(n), b = 1+runif(n), c = 1+runif(n), y = a + b^2 + c^3)
 set.seed(42)
 df_inc <- tibble(a = 1+runif(n), b = (1+runif(n))^2, c = (1+runif(n))^3, y = a + b + c)
-v_nl  <- imp(ranger(y ~ ., df_nl,  importance = "impurity", num.trees = 500))
-v_inc <- imp(ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500))
+v_nl  <- imp(ranger(y ~ ., df_nl,  importance = "impurity", num.trees = 500, seed = 42))
+v_inc <- imp(ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500, seed = 42))
 png("figures/fig3_confound.png", 900, 420, res = 110)
 par(mfrow = c(1,2))
 barplot(v_nl,  col = "grey40", main = "Non-linear effects\ny = a + b^2 + c^3", ylab = "importance", ylim = c(0, max(v_nl,v_inc)))

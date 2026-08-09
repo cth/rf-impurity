@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Recall-tuned regex fingerprint for the impurity-importance p-value target.
 
-Versioned pre-pass (§4/§5 of plan/text-mining-plan.md). Deterministic and free;
+Versioned pre-pass over the fetched corpus. Deterministic and free;
 its job is to produce an auditable candidate set, NOT to gate on cost. Tuned for
 recall — a missed true positive is gone forever, a false positive is discarded
 cheaply by the downstream Haiku extraction pass.

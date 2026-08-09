@@ -1,8 +1,7 @@
 # Extraction results — full-text screen (Haiku, unverified)
 
 Structured screening of the ranger-citing full-text corpus for papers whose
-conclusions could be affected by impurity-importance bias (see
-[`../plan/text-mining-plan.md`](../plan/text-mining-plan.md)). One Haiku 4.5
+conclusions could be affected by impurity-importance bias. One Haiku 4.5
 subagent read each paper and emitted `analysis/extraction/<id>.json`; flagged =
 `p_affected ∧ central_to_conclusions`.
 

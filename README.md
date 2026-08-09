@@ -49,4 +49,4 @@ R_LIBS_USER=./.rlib Rscript analysis/figures.R
 ```
 
 Validated with `ranger` 0.18.0 / R 4.6.1. The literature screen is documented in
-[`analysis/results.md`](analysis/results.md) and [`analysis/RESUME.md`](analysis/RESUME.md).
+[`analysis/results.md`](analysis/results.md).
