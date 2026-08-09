@@ -36,8 +36,10 @@ the coefficient; (ii) assigns an interaction's variance to the interacting
 variables; and (iii) gives \emph{provably identical} scores to a genuinely non-linear
 effect and to a linear effect on a skewed feature, because one is a monotone
 relabelling of the other and a tree sees only feature order. These are not artefacts of the well-known bias toward
-high-cardinality, continuous, or correlated features: they arise among features
-that are continuous, uncorrelated, and identically distributed, and they are not
+high-cardinality, continuous, or correlated features: within each experiment the
+features are uncorrelated and all of one kind (all continuous, or all binary),
+so that bias applies equally to all of them, and where their distributions differ
+that difference is the object of study rather than a confound. Nor are they
 specific to impurity: permutation importance behaves the same way, and
 standardised regression coefficients spread similarly. No marginal importance
 measure separates an effect's \emph{shape} from a feature's \emph{distribution};
@@ -71,9 +73,9 @@ feature's score tracking $\mathrm{Var}(f_j(X_j))$, which for a linear term is
 $\beta_j^2\,\mathrm{Var}(X_j)$.
 
 Our experiments are consequences of that identity, not new biases. Their value is
-to show, among features that are continuous, uncorrelated, and identically
-distributed (where the type-bias literature does not apply), how far a
-variance-contribution measure departs from a per-unit effect size, and that it
+to show, among uncorrelated features that are all of one kind --- all continuous,
+or all binary, so that a bias between feature types cannot separate them --- how
+far a variance-contribution measure departs from a per-unit effect size, and that it
 \emph{provably cannot} separate an effect's shape from a feature's distribution.
 The new contribution is thus the sharp skew-versus-nonlinearity demonstration and
 an estimate (Sections~\ref{sec:prevalence-method}--\ref{sec:prevalence-results})
@@ -165,8 +167,12 @@ Importance is linear in $\beta^2$, not in $\beta$.}
 \label{fig:superlinear}
 \end{figure}
 
-\paragraph{Takeaway.} Importance answers ``which feature matters more'' reliably
-for linear effects, but ``how much more'' is not comparable to a coefficient.
+\paragraph{Takeaway.} Among identically distributed features with linear
+effects, importance ranks correctly, though ``how much more'' is not comparable
+to a coefficient. An interaction lets a variable with no
+marginal effect outrank one that has (Section~\ref{sec:interactions}), and
+unequal feature distributions reorder the ranking on their own
+(Section~\ref{sec:confound}).
 
 \section{Interactions are charged to the interacting variables}
 \label{sec:interactions}
