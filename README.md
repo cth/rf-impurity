@@ -43,7 +43,8 @@ Experiments and figures:
 
 ```
 brew install r
-R_LIBS_USER=./.rlib Rscript -e 'install.packages(c("ranger","tibble","pdp"), repos="https://cloud.r-project.org")'
+R_LIBS_USER=./.rlib Rscript -e 'install.packages(c("ranger","tibble"), repos="https://cloud.r-project.org")'
+# optional: "treeshap" enables the SHAP check in validate.R; "pdp" for the notebook
 R_LIBS_USER=./.rlib Rscript analysis/validate.R
 R_LIBS_USER=./.rlib Rscript analysis/figures.R
 ```

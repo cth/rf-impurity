@@ -233,6 +233,17 @@ cat("  permutation ratio /a  nl:", round(rel(per_nl), 2), " inc:", round(rel(per
 std <- coef(lm_inc)[-1] * sapply(df_inc[, c("a","b","c")], sd) / sd(df_inc$y)
 cat("  standardised OLS coef ratio /a (inc):", round(rel(std), 2),
     " <-- even standardised coefficients spread\n")
+## Control for the Section 6 proposition: standardised OLS never sees the forest,
+## so it is NOT pinned across the two worlds -- it agrees only to ~1%, two orders
+## of magnitude looser than the forest-based measures.
+stdz <- function(d) {
+  m <- lm(y ~ ., d)
+  coef(m)[-1] * sapply(d[, c("a","b","c")], sd) / sd(d$y)
+}
+sA <- stdz(df_nl); sB <- stdz(df_inc)
+cat("  standardised OLS  nl:", round(rel(sA), 3), " inc:", round(rel(sB), 3), "\n")
+cat("  max rel diff across worlds:", signif(max(abs(sA - sB)/abs(sA)), 3),
+    " <-- control: not pinned by the proposition\n")
 
 ## ---------------------------------------------------------------------------
 ## Claim 5c: the two hypotheses of the Section 6 proposition. The identity holds
@@ -266,5 +277,31 @@ et_inc <- imp(ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500,
 cat("  (extratrees)       max rel diff :", signif(reldiff(et_nl, et_inc), 3),
     " ratios", round(rel(et_nl), 2), "vs", round(rel(et_inc), 2),
     "\n                                      <-- order-only hypothesis fails\n")
+
+## ---------------------------------------------------------------------------
+## Claim 5d: global mean |SHAP| is confounded across the two worlds too, and sits
+##   on the standardised-coefficient scale rather than the variance scale.
+##   Optional: needs the treeshap package. Path-dependent (observational) TreeSHAP
+##   reconstructs node weights from the data, so unlike impurity it is not exact
+##   -- the covers differ by at most 2 observations on ~0.3% of nodes.
+## ---------------------------------------------------------------------------
+if (requireNamespace("treeshap", quietly = TRUE)) {
+  cat("\n=== Claim 5d: mean |SHAP| across the two worlds ===\n")
+  sh <- function(d) {
+    m <- ranger(y ~ ., d, num.trees = 200, seed = 42)
+    u <- treeshap::ranger.unify(m, d[, c("a","b","c")])
+    colMeans(abs(treeshap::treeshap(u, d[1:300, c("a","b","c")],
+                                    verbose = FALSE)$shaps))
+  }
+  g_nl <- sh(df_nl); g_inc <- sh(df_inc)
+  cat("  mean|SHAP| ratio /a  nl:", round(rel(g_nl), 2),
+      " inc:", round(rel(g_inc), 2), "\n")
+  cat("  max rel diff between worlds:", signif(max(abs(g_nl - g_inc)/g_nl), 3),
+      " <-- SHAP cannot separate them either\n")
+  cat("  cf. standardised OLS ratio  :", round(rel(std), 2),
+      " <-- SHAP is on the sd scale, not the variance scale\n")
+} else {
+  cat("\n=== Claim 5d skipped (install 'treeshap' to run the SHAP check) ===\n")
+}
 
 cat("\nAll experiments completed.\n")

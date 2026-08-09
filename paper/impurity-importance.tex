@@ -331,11 +331,47 @@ Trees under (i) discard exactly the distribution-shape information that would
 tell the two apart.
 
 This is \textbf{not specific to impurity}. Permutation importance gives the same
-ratios in both worlds ($1:9.2:50.3$; it draws its own permutations, so it is not
-covered by the proposition, but the two agree to four significant figures), and
-standardised OLS coefficients spread ($1:3.0:7.0$): all summarise variance
-contribution, identical across the two worlds. It is a property of any marginal importance;
-the only remedy is a shape-aware view such as a partial-dependence plot.
+ratios in both worlds, and so does global mean $|\text{SHAP}|$:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+measure & ratio & cross-world agreement \\
+\midrule
+impurity (MDI)            & $1:4.7:22.6$   & exactly $0$ \\
+permutation               & $1:9.2:50.3$   & ${\sim}10^{-4}$ \\
+mean $|\text{SHAP}|$      & $1:3.06:6.98$  & $1.3 \times 10^{-4}$ \\
+\midrule
+standardised OLS          & $1:2.98:6.88$ (A), $1:2.99:6.98$ (B) & $1.4 \times 10^{-2}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The first three are pinned by the proposition, in descending strictness. MDI is a
+functional of the fitted trees alone, so it agrees identically. Permutation and
+path-dependent TreeSHAP also touch feature values at the thresholds --- one
+through the values it shuffles, the other through node weights it reconstructs
+from the data, which differ by at most two observations on $0.3\%$ of nodes ---
+and agree to four significant figures rather than exactly.
+
+Standardised OLS is the control. It never sees the forest, so the proposition
+gives it nothing, and the two worlds are genuinely different regressions:
+projecting $y$ onto $1+U$ is not projecting it onto $(1+U)^2$. It still lands in
+almost the same place, but two orders of magnitude less tightly than the others
+--- the agreement of a quantity that happens to be equal in the population,
+arriving with the slop that implies.
+
+That spread of agreement is what identifies the mechanism. Equal variance
+contribution alone would predict uniform approximate agreement, and cannot
+produce an exact zero. Nor is being a variance the operative property: MDI and
+permutation are denominated in variance, but mean $|\text{SHAP}|$ tracks the
+\emph{square root} of the variance contribution ($\sqrt{1:9.07:48.96} =
+1:3.01:7.00$), one power lower, and is confounded just the same. What the three
+share is that each is a functional of the fitted model and the feature ordering,
+which the proposition makes identical. Any marginal importance inherits this,
+whatever its units. The remedy is a shape-aware view: a partial-dependence plot,
+or a SHAP \emph{dependence} plot, which plots the same $\phi$ values against
+feature values that do differ between the two worlds.
 
 \begin{figure}[htb]
 \centering
@@ -368,6 +404,16 @@ effect, or merely a heavy-tailed feature; no marginal importance can say which.
   Curvature (or a suspiciously flat low-order PDP over a high-importance variable)
   is a concrete cue to add a polynomial or interaction term back into an
   interpretable model.
+
+  \emph{With one caveat.} A PDP averages the model over the marginal
+  distribution of the other features, which is exact here because our features
+  are independent. When features are dependent it evaluates the model on
+  combinations that do not occur in the data, and Hooker et
+  al.~\cite{hooker2021} show that the resulting curve can report the model's
+  extrapolation rather than any effect --- the same mechanism that inflates
+  permutation importance for correlated predictors. On correlated data, use
+  ALE~\cite{apley2020}, which accumulates local effects conditional on the
+  neighbouring feature distribution instead of marginalising across it.
 \item \textbf{\code{impurity\_corrected} fixes a different problem.} It removes
   the bias toward null / high-cardinality features (use it --- it is the right
   default), and it tracks the variance contribution more faithfully than plain
@@ -453,7 +499,13 @@ the magnitude or ranking of an impurity importance for a central conclusion
 SHAP~\cite{lundberg2017}, partial-dependence/ALE~\cite{friedman2001,apley2020},
 conditional importance~\cite{strobl2008}, or held-out validation of the
 \emph{selected} features (overall test accuracy does not count, as it validates
-prediction, not the ranking). Every flag required a quoted passage.
+prediction, not the ranking).\footnote{Counting SHAP as corroboration is
+generous: Section~\ref{sec:confound} shows that a global mean $|\text{SHAP}|$
+ranking carries the same shape/skew confound as impurity importance, while a
+SHAP \emph{dependence} plot does not. The screen does not distinguish the two
+forms, so papers reporting only a mean $|\text{SHAP}|$ ranking were credited
+with corroboration they do not have. This can only suppress flags, so it makes
+the confirmed count conservative.} Every flag required a quoted passage.
 
 \emph{Stage 2 --- adjudication.} Every flagged paper was independently re-read by
 a second, stronger model (Claude Sonnet 5) under an explicitly adversarial
@@ -600,6 +652,10 @@ Section~\ref{sec:prevalence-results}.
 \bibitem{nembrini2018} Nembrini, K\"onig, Wright (2018). \emph{The revival of the
   Gini importance?} Bioinformatics 34(21).
   \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6198850/}
+\bibitem{hooker2021} Hooker, Mentch, Zhou (2021). \emph{Unrestricted permutation
+  forces extrapolation: variable importance requires at least one more model, or
+  there is no free variable importance.} Statistics and Computing 31: 82.
+  \url{https://doi.org/10.1007/s11222-021-10057-z}
 \bibitem{apley2020} Apley, Zhu (2020). \emph{Visualizing the effects of predictor
   variables in black box supervised learning models.} Journal of the Royal
   Statistical Society: Series B 82(4): 1059--1086.
