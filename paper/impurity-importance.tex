@@ -54,12 +54,13 @@ corroboration, including heavily-cited work.
 
 For a random forest~\cite{breiman2001}, the impurity importance of a feature is
 the total decrease in node impurity attributable to splits on that feature,
-summed over all splits and all trees. For classification the impurity is Gini; for regression there is
-no class label at a node, so \code{ranger}~\cite{wright2017} (and most
-implementations) use
-\textbf{response variance} as the impurity proxy --- a split is scored by how
-much it reduces the sum of within-child variances. This substitution is the
-source of every effect studied here.
+summed over all splits and all trees. For regression, \code{ranger}~\cite{wright2017}
+(and most implementations) score a split by how much it reduces the sum of
+within-child \textbf{response variances}. For classification the impurity is the
+Gini index, which measures the same thing:
+$1 - \sum_k p_k^2 = \sum_k \mathrm{Var}(\mathbf{1}\{Y = k\})$, the total variance
+of the class indicators. Impurity importance is a variance-explained quantity in
+both settings, and that is the source of every effect studied here.
 
 Two strands of prior work bear on this. The first documents that MDI is
 \emph{biased} toward continuous and high-cardinality features and inflates
@@ -467,7 +468,7 @@ check would be stronger; we return to this in the limitations.
 \label{sec:prevalence-results}
 
 Table~\ref{tab:prevalence} traces the corpus through the pipeline. Of the $544$
-papers screened, $306$ were judged to use an impurity importance and $125$ were
+papers screened, $307$ were judged to use an impurity importance and $125$ were
 flagged in stage~1. The adversarial adjudication confirmed $55$, refuted $65$, and
 could not decide for $5$, overturning roughly $56\%$ of the stage-1 flags. The
 implied stage-1 precision is therefore about $44\%$, and raw screening counts
@@ -488,7 +489,7 @@ With open-access full text & $773$ \\
 Matching the relevance filter & $524$ \\
 Screened (filter matches $+$ non-match sample) & $544$ \\
 \midrule
-Using an impurity importance (stage 1) & $306$ \\
+Using an impurity importance (stage 1) & $307$ \\
 Flagged (stage 1, Haiku 4.5) & $125$ \\
 \quad Confirmed (stage 2, Sonnet 5) & $55$ \\
 \quad Refuted & $65$ \\
@@ -507,7 +508,7 @@ Taking the confirmed count in Table~\ref{tab:prevalence} at face value, $55$ of
 the $544$ screened papers state a central conclusion that could have been
 distorted by the effects of Sections~\ref{sec:linear}--\ref{sec:confound} and did
 not cross-check it. That is about $10\%$ of the screened papers. Measured against
-the $306$ that actually interpret an impurity importance, it is $18\%$, roughly
+the $307$ that actually interpret an impurity importance, it is $18\%$, roughly
 one in six. As a share of all $773$ full-text ranger-citing works it is about
 $7\%$.
 
@@ -526,7 +527,12 @@ wrong, and predictive accuracy is unaffected. The $10\%$ is an unvalidated
 estimate; stage 2 raises precision but is not independent validation, and there
 is no human ground truth. Only $773$ of $3{,}189$ works had open-access full
 text, and open access correlates with field and venue, so the sample may not
-generalise. The broadened filter's recall was not re-estimated. The repository
+generalise. The broadened filter's recall was not re-estimated. Our controlled
+experiments are all regressions, and the screen does not record which of the
+screened papers are classification and which regression; the variance reading of
+the Gini index in Section~\ref{sec:background-strands} is what carries the
+caution across to the classification papers, and we did not verify it there
+empirically. The repository
 lists flagged papers by identifier; we treat this as a claim about corroboration
 practice, not correctness, with each flag backed by a quoted passage.
 
