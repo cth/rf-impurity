@@ -82,6 +82,22 @@ cat("  R^2 imp ~ beta     :", round(summary(lm(v ~ eff))$r.squared, 3), "\n")
 cat("  R^2 imp ~ beta^2   :", round(summary(lm(v ~ I(eff^2)))$r.squared, 3),
     " <-- single non-nested predictor; importance is ~linear in beta^2\n")
 
+## Seed 43 alone is the seed Fig 1 plots. Report the spread over ten seeds so
+## the beta^2-beats-beta comparison does not rest on a single favourable draw.
+A <- t(sapply(1:10, function(s) {
+  set.seed(s)
+  cl <- lapply(eff, function(i) runif(n)); names(cl) <- letters[1:11]
+  Z <- as_tibble(cl); Z$y <- as.matrix(Z) %*% eff
+  vv <- as.numeric(imp(ranger(y ~ ., Z, importance = "impurity",
+                              num.trees = 1000, seed = s)))
+  c(summary(lm(vv ~ eff))$r.squared, summary(lm(vv ~ I(eff^2)))$r.squared)
+}))
+cat(sprintf("  over seeds 1-10: R^2 ~beta   mean %.3f  range %.3f-%.3f\n",
+            mean(A[, 1]), min(A[, 1]), max(A[, 1])))
+cat(sprintf("                   R^2 ~beta^2 mean %.3f  range %.3f-%.3f\n",
+            mean(A[, 2]), min(A[, 2]), max(A[, 2])))
+cat("  beta^2 is the better fit on every seed:", all(A[, 2] > A[, 1]), "\n")
+
 ## ---------------------------------------------------------------------------
 ## Claim 2: pure THREE-WAY parity interaction. OLS is blind even with all
 ##          pairwise product terms (two-way parity would be bilinear and thus
@@ -107,6 +123,35 @@ cat("  RF  OOB R^2             :", round(mrf$r.squared, 3), "\n")
 v <- imp(mrf)
 cat("  RF  vip a,b,c,d         :", round(v, 1), "\n")
 cat("  interaction vars > d ?  :", (min(v["a"], v["b"], v["c"]) > v["d"]), "\n")
+
+## a, b and c are exchangeable by construction, so any difference among their
+## importances is sampling noise. Its size is this paper's noise floor: no
+## importance gap smaller than it should be read as meaningful.
+P <- t(sapply(1:10, function(s) {
+  set.seed(s)
+  z <- tibble(a = ib(n), b = ib(n), c = ib(n), d = ib(n))
+  z$y <- z$d/10 + (z$a + z$b + z$c) %% 2
+  imp(ranger(y ~ a + b + c + d, z, importance = "impurity",
+             num.trees = 500, seed = s))
+}))
+sp <- apply(P[, 1:3], 1, function(u) 100 * (max(u) - min(u)) / min(u))
+cat(sprintf("  seeds 1-10: a,b,c mean %.0f (SD %.0f)   d mean %.0f   ratio %.1fx\n",
+            mean(P[, 1:3]), sd(as.vector(P[, 1:3])), mean(P[, 4]),
+            mean(P[, 1:3]) / mean(P[, 4])))
+cat(sprintf("  within-seed spread over exchangeable a,b,c: %.0f-%.0f%% (median %.0f%%)\n",
+            min(sp), max(sp), median(sp)))
+## Control: the spread above belongs to the parity design, not to MDI generally.
+## Same four features, equal marginal effects instead of parity -> much tighter.
+Q <- t(sapply(1:10, function(s) {
+  set.seed(s)
+  z <- tibble(a = ib(n), b = ib(n), c = ib(n), d = ib(n))
+  z$y <- z$d/10 + (z$a + z$b + z$c)/3
+  imp(ranger(y ~ a + b + c + d, z, importance = "impurity", num.trees = 500, seed = s))
+}))
+spq <- apply(Q[, 1:3], 1, function(u) 100 * (max(u) - min(u)) / min(u))
+cat(sprintf("  [control] same features, marginal effects: %.0f-%.0f%%",
+            min(spq), max(spq)), " <-- floor is design-specific\n")
+cat("  min(a,b,c) > d on every seed:", all(apply(P, 1, function(u) min(u[1:3]) > u[4])), "\n")
 
 ## ---------------------------------------------------------------------------
 ## Claim 3: split-mechanics on sorted polynomials. Two effects, cleanly separated

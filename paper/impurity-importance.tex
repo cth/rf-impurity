@@ -139,11 +139,12 @@ strongest feature wins the root split in every tree, and overshoots. The gap at
 the default is just a property of the split randomisation.
 
 Extending to
-$y = a + 2b + 3c + \dots + 11k$ (11 features, coefficients $1\ldots11$) demonstrates this:
-regressing importance on $\beta^2$  gives
-$R^2 = 0.99$, versus $R^2 = 0.91$ on $\beta$ (Fig.~\ref{fig:superlinear}).
-Importance is denominated in squared-coefficient (variance) units, not
-coefficient units.
+$y = a + 2b + 3c + \dots + 11k$ (11 features, coefficients $1\ldots11$) demonstrates
+this. Over seeds $1$--$10$, regressing importance on $\beta^2$ gives a mean
+$R^2$ of $0.98$ (range $0.96$--$0.99$) against $0.91$ on $\beta$ (range
+$0.88$--$0.94$), and $\beta^2$ is the better fit on every seed;
+Fig.~\ref{fig:superlinear} shows one of them. Importance is denominated in
+squared-coefficient (variance) units rather than coefficient units.
 
 The bias correction behaves differently. \code{impurity\_corrected} (AIR) is also
 variance-based, so it is no closer to being an effect size --- but it is nearly
@@ -187,11 +188,21 @@ the smallest a standard interaction term cannot recover.)
   the three-way product $a{\times}b{\times}c$ recovers the signal, which one
   rarely adds unprompted.
 \item \textbf{Random forest} captures it (OOB $R^2 = 0.73$), and impurity
-  importance loads on the interacting variables: $\mathrm{vip}(a){=}346$,
-  $\mathrm{vip}(b){=}422$, $\mathrm{vip}(c){=}432$, $\mathrm{vip}(d){=}30$
-  (Fig.~\ref{fig:interaction}), outranking $d$, the only variable with a marginal
-  effect, by an order of magnitude.
+  importance loads on the interacting variables. Averaged over seeds $1$--$10$,
+  $a$, $b$ and $c$ score $398$ (SD $51$) against $23$ for $d$
+  (Fig.~\ref{fig:interaction} shows one seed): the three variables with no
+  marginal effect outrank the only variable that has one by a factor of
+  ${\sim}17$, on every seed.
 \end{itemize}
+
+Since $a$, $b$ and $c$ are exchangeable by construction, any difference among
+their importances is sampling noise, and within a single seed they spread by
+$7$--$72\%$ (median $28\%$): only the $a,b,c \gg d$ gap carries information here.
+That figure belongs to this design, which is a noisy one --- the signal becomes
+available only once three nested splits line up, and OOB $R^2$ is $0.73$.
+Replacing the parity with equal \emph{marginal} effects on the same four features
+drops the spread to $3$--$11\%$, so the noise floor has to be established per
+experiment.
 
 \begin{figure}[htb]
 \centering
