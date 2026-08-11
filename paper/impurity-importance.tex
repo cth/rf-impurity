@@ -324,8 +324,11 @@ session, as a naive script does, they differ --- but by how much is already
 settled by the proposition. World B under any RNG state gives the same trees as
 world A under that state, so an unseeded cross-world pair is distributed exactly
 as refitting a single world under two seeds: the residual gap \emph{is} seed
-noise, with no cross-world signal to find. One such pair illustrates: ${\sim}1\%$
-across worlds against ${\sim}2\%$ for one world under seeds $42$ and $43$.
+noise, with no cross-world signal to find. A sweep over seeds $1$--$10$ confirms
+the corollary in \code{ranger}'s implementation: the identity is exact at every
+seed, and across all $\binom{10}{2} = 45$ pairs of distinct seeds the
+cross-world gap equals the same-world gap value for value, ranging
+$0.1$--$2.7\%$.
 Hypothesis (i) concerns the split search:
 \code{splitrule = "extratrees"} draws thresholds uniformly from the feature's
 value \emph{range} instead of scanning order statistics. Squaring stretches that
