@@ -230,6 +230,14 @@ per_inc <- imp(ranger(y ~ ., df_inc, importance = "permutation", num.trees = 500
 cat("  impurity    ratio /a  nl:", round(rel(imp_nl), 2), " inc:", round(rel(imp_inc), 2), "\n")
 cat("  permutation ratio /a  nl:", round(rel(per_nl), 2), " inc:", round(rel(per_inc), 2),
     " <-- permutation ALSO cannot separate the two worlds\n")
+## Debiasing does not help either: AIR subtracts the impurity a permuted copy of
+## each feature would earn, and permuting commutes with monotone transforms, so
+## under a shared seed the correction is pinned exactly like plain impurity.
+air_nl  <- imp(ranger(y ~ ., df_nl,  importance = "impurity_corrected", num.trees = 500, seed = 42))
+air_inc <- imp(ranger(y ~ ., df_inc, importance = "impurity_corrected", num.trees = 500, seed = 42))
+cat("  AIR         ratio /a  nl:", round(rel(air_nl), 2), " inc:", round(rel(air_inc), 2),
+    " max rel diff:", max(abs(air_nl - air_inc)/air_nl),
+    " <-- debiased impurity is pinned exactly too\n")
 std <- coef(lm_inc)[-1] * sapply(df_inc[, c("a","b","c")], sd) / sd(df_inc$y)
 cat("  standardised OLS coef ratio /a (inc):", round(rel(std), 2),
     " <-- even standardised coefficients spread\n")
