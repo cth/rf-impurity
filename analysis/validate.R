@@ -279,6 +279,26 @@ cat("  [control] same world, seeds 42/43:",
     signif(reldiff(imp(ranger(y ~ ., df_nl, importance = "impurity", num.trees = 500, seed = 42)),
                    imp(ranger(y ~ ., df_nl, importance = "impurity", num.trees = 500, seed = 43))), 3),
     " <-- seed noise exceeds the cross-world gap\n")
+## Sweep: the corollary says fitting world B under seed s gives the SAME trees as
+## world A under s, so (a) the identity should hold at every seed, and (b) the
+## cross-world gap under seeds (s1, s2) should equal the same-world gap under
+## (s1, s2) not just in distribution but pairwise, value for value. This is an
+## implementation check on ranger (tie handling, RNG consumption), not extra
+## evidence for the theorem.
+sweep_seeds <- 1:10
+impA <- sapply(sweep_seeds, function(s)
+  imp(ranger(y ~ ., df_nl,  importance = "impurity", num.trees = 500, seed = s)))
+impB <- sapply(sweep_seeds, function(s)
+  imp(ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500, seed = s)))
+cat("  [sweep] identity at each of seeds 1-10, max rel diff:",
+    max(sapply(sweep_seeds, function(i) reldiff(impA[, i], impB[, i]))),
+    " <-- exactly 0 at every seed\n")
+pairs <- combn(length(sweep_seeds), 2)
+d_same  <- apply(pairs, 2, function(p) reldiff(impA[, p[1]], impA[, p[2]]))
+d_cross <- apply(pairs, 2, function(p) reldiff(impA[, p[1]], impB[, p[2]]))
+cat("  [sweep] 45 seed pairs: cross-world == same-world pairwise?",
+    identical(d_cross, d_same),
+    "; seed-noise range", paste(signif(range(d_same), 2), collapse = "-"), "\n")
 et_nl  <- imp(ranger(y ~ ., df_nl,  importance = "impurity", num.trees = 500,
                      seed = 42, splitrule = "extratrees"))
 et_inc <- imp(ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500,
