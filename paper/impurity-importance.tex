@@ -356,10 +356,17 @@ and agree to four significant figures rather than exactly.
 
 Standardised OLS is the control. It never sees the forest, so the proposition
 gives it nothing, and the two worlds are genuinely different regressions:
-projecting $y$ onto $1+U$ is not projecting it onto $(1+U)^2$. It still lands in
-almost the same place, but two orders of magnitude less tightly than the others
---- the agreement of a quantity that happens to be equal in the population,
-arriving with the slop that implies.
+projecting $y$ onto $1+U$ is not projecting it onto $(1+U)^2$. The gap between
+the two has a closed form. With independent features, the standardised
+coefficient of $b$ is $\mathrm{sd}(b^2)/\mathrm{sd}(y)$ in world B and
+$\mathrm{Cov}(b^2, b)/(\mathrm{sd}(b)\,\mathrm{sd}(y)) =
+\mathrm{Corr}(b, b^2)\,\mathrm{sd}(b^2)/\mathrm{sd}(y)$ in world A, so the two
+worlds differ by exactly the factor $\mathrm{Corr}(b, b^2)$: the fraction of the
+squared feature that a linear projection captures. For $U(1,2)$ these
+correlations are $0.9963$ for the square and $0.9861$ for the cube, and the
+table reproduces them: $2.98/2.99 = 0.997$ and $6.88/6.98 = 0.986$. The
+discrepancy is the population correlation gap itself, two orders of magnitude
+larger than anything the proposition-pinned measures show.
 
 That spread of agreement is what identifies the mechanism. Equal variance
 contribution alone would predict uniform approximate agreement, and cannot
