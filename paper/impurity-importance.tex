@@ -333,7 +333,10 @@ Hypothesis (i) concerns the split search:
 \code{splitrule = "extratrees"} draws thresholds uniformly from the feature's
 value \emph{range} instead of scanning order statistics. Squaring stretches that
 range, so the same draw lands elsewhere in the data and the two worlds separate
-by ${\sim}3\%$ ($1:4.9:23.7$ against $1:5.0:24.6$).
+by ${\sim}3\%$ ($1:4.9:23.7$ against $1:5.0:24.6$). Galili and
+Meilijson~\cite{galili2016} document the same escape from monotone invariance at
+the level of predictions: any split rule that interpolates between observed
+values, rather than only partitioning them, sees more than the ordering.
 
 Trees under (i) discard exactly the distribution-shape information that would
 tell the two apart.
@@ -386,7 +389,11 @@ squared feature that a linear projection captures. For $U(1,2)$ these
 correlations are $0.9963$ for the square and $0.9861$ for the cube, and the
 table reproduces them: $2.98/2.99 = 0.997$ and $6.88/6.98 = 0.986$. The
 discrepancy is the population correlation gap itself, two orders of magnitude
-larger than anything the proposition-pinned measures show.
+larger than anything the proposition-pinned measures show. That a standardised
+coefficient ties a variable's apparent importance to the spread of its
+distribution is a long-standing complaint in the regression
+literature~\cite{bring1994}; the proposition is the tree-based version, with
+effect shape and feature spread made exactly indistinguishable.
 
 That spread of agreement is what identifies the mechanism. Equal variance
 contribution alone would predict uniform approximate agreement, and cannot
@@ -648,6 +655,8 @@ adjudication prompts, and the per-paper structured records and verdicts behind
 Section~\ref{sec:prevalence-results}.
 
 \begin{thebibliography}{99}
+\bibitem{bring1994} Bring (1994). \emph{How to standardize regression
+  coefficients.} The American Statistician 48(3): 209--213.
 \bibitem{breiman2001} Breiman (2001). \emph{Random Forests.} Machine Learning
   45(1): 5--32.
 \bibitem{friedman2001} Friedman (2001). \emph{Greedy function approximation: a
@@ -664,6 +673,9 @@ Section~\ref{sec:prevalence-results}.
 \bibitem{louppe2013} Louppe, Wehenkel, Sutera, Geurts (2013). \emph{Understanding
   variable importances in forests of randomized trees.} Advances in Neural
   Information Processing Systems (NeurIPS) 26.
+\bibitem{galili2016} Galili, Meilijson (2016). \emph{Splitting matters: how
+  monotone transformation of predictor variables may improve the predictions of
+  decision tree models.} arXiv:1611.04561.
 \bibitem{li2019} Li, Wang, Basu, Kumbier, Yu (2019). \emph{A debiased MDI feature
   importance measure for random forests.} Advances in Neural Information
   Processing Systems (NeurIPS) 32.
