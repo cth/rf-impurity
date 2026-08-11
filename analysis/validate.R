@@ -272,8 +272,9 @@ set.seed(42)   # drop (ii): sequential fits, no per-fit seed
 seq_nl  <- imp(ranger(y ~ ., df_nl,  importance = "impurity", num.trees = 500))
 seq_inc <- imp(ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500))
 cat("  (no per-fit seed)  max rel diff :", signif(reldiff(seq_nl, seq_inc), 3), "\n")
-## Control: refitting ONE world under two seeds moves the importances by more
-## than the cross-world gap above, so that gap carries no residual signal.
+## By the proposition, an unseeded cross-world pair is distributed exactly as
+## refitting ONE world under two seeds, so the gap above is pure seed noise;
+## this same-world pair illustrates the scale of that noise.
 cat("  [control] same world, seeds 42/43:",
     signif(reldiff(imp(ranger(y ~ ., df_nl, importance = "impurity", num.trees = 500, seed = 42)),
                    imp(ranger(y ~ ., df_nl, importance = "impurity", num.trees = 500, seed = 43))), 3),

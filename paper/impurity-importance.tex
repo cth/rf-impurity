@@ -320,9 +320,13 @@ Both hypotheses can fail in practice. Hypothesis (ii) concerns the random number
 generator: the two fits must draw the same bootstrap samples and candidate
 features (and, for the debiased variant in the table below, the same
 permutations). Reseeded, they agree exactly. Run one after the other in a single
-session, as a naive script does, they differ by ${\sim}1\%$ --- comfortably
-inside the ${\sim}2\%$ that refitting a single world under two seeds produces on
-its own. Hypothesis (i) concerns the split search:
+session, as a naive script does, they differ --- but by how much is already
+settled by the proposition. World B under any RNG state gives the same trees as
+world A under that state, so an unseeded cross-world pair is distributed exactly
+as refitting a single world under two seeds: the residual gap \emph{is} seed
+noise, with no cross-world signal to find. One such pair illustrates: ${\sim}1\%$
+across worlds against ${\sim}2\%$ for one world under seeds $42$ and $43$.
+Hypothesis (i) concerns the split search:
 \code{splitrule = "extratrees"} draws thresholds uniformly from the feature's
 value \emph{range} instead of scanning order statistics. Squaring stretches that
 range, so the same draw lands elsewhere in the data and the two worlds separate
