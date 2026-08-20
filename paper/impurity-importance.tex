@@ -54,7 +54,7 @@ corroboration, including heavily-cited work.
 
 For a random forest~\cite{breiman2001}, the impurity importance of a feature is
 the total decrease in node impurity attributable to splits on that feature,
-summed over all splits and all trees. For regression, \code{ranger}~\cite{wright2017}
+summed over all splits and all trees~\cite{breiman1984,louppe2013}. For regression, \code{ranger}~\cite{wright2017}
 (and most implementations) score a split by how much it reduces the sum of
 within-child \textbf{response variances}. For classification the impurity is the
 Gini index, which measures the same thing:
@@ -63,13 +63,15 @@ of the class indicators. Impurity importance is a variance-explained quantity in
 both settings, and that is the source of every effect studied here.
 
 Two strands of prior work bear on this. The first documents that MDI is
-\emph{biased} toward continuous and high-cardinality features and inflates
-correlated predictors~\cite{strobl2007,nembrini2018}; Nembrini et al.\ give the
+\emph{biased} toward continuous and high-cardinality
+features~\cite{strobl2007,nembrini2018}; Nembrini et al.\ give the
 bias-corrected ``actual impurity reduction'' (AIR), exposed by \code{ranger} as
 \code{impurity\_corrected}. The second is theoretical: Louppe et
-al.~\cite{louppe2013} decompose asymptotic MDI into per-variable contributions,
+al.~\cite{louppe2013} decompose asymptotic MDI into per-variable contributions
+(for totally randomised trees on categorical inputs),
 and Scornet~\cite{scornet2023} proves that for additive regression with
-independent inputs MDI recovers a \emph{variance-explained} decomposition, each
+independent uniform inputs, fitted with \emph{truncated} (not fully grown)
+trees, MDI recovers a \emph{variance-explained} decomposition, each
 feature's score tracking $\mathrm{Var}(f_j(X_j))$, which for a linear term is
 $\beta_j^2\,\mathrm{Var}(X_j)$.
 
@@ -91,7 +93,7 @@ Section~\ref{sec:linear} compares it against \code{impurity\_corrected}.
 \section{Linear effects: importance is in squared-coefficient units}
 \label{sec:linear}
 
-Data: $y = a + 2b + 4c$, with $a,b,c \sim U(0,1)$, $n = 1000$. OOB
+Data: $y = a + 2b + 4c$, with $a,b,c \sim U(0,1)$, $n = 1000$. OLS OOB
 $R^2 = 0.98$. Impurity importance (abbreviated ``vip'', variable importance)
 ranks the features in the correct order, but its \emph{ratios} do not match the
 coefficient ratios:
@@ -120,7 +122,7 @@ common to all features, so importance should track $\beta_j^2$.
 The difference to this expectation is due to the number of features drawn as
 candidates at each node (a configurable parameter called \code{mtry}), intended
 to decorrelate the trees. In \code{ranger} it defaults
-to $\lfloor p/3 \rfloor$, here $1$: each node must split on the
+to $\lfloor \sqrt{p} \rfloor$, here $1$: each node must split on the
 single feature it drew, so $a$ takes splits it would never win in competition and
 is inflated at the expense of $c$. Letting features compete removes the dilution
 (means over seeds $1$--$10$, $n=1000$, 500 trees):
@@ -138,8 +140,13 @@ is inflated at the expense of $c$. Letting features compete removes the dilution
 \end{center}
 
 At $\code{mtry}=p$ the
-strongest feature wins the root split in every tree, and overshoots. The gap at
-the default is just a property of the split randomisation.
+strongest feature wins the root split in every tree, and overshoots. Tree depth
+contributes as well: Scornet proves the identity for truncated trees and warns
+that fully grown trees yield positively biased MDI~\cite{scornet2023}, and the
+forests here are default-grown (\code{min.node.size} $=5$), which is consistent
+with the overshoot at $\code{mtry}=p$. The deviations in the table are
+properties of the fitting procedure --- split randomisation and tree depth ---
+not of the importance measure's units.
 
 Extending to
 $y = a + 2b + 3c + \dots + 11k$ (11 features, coefficients $1\ldots11$) demonstrates
@@ -170,10 +177,10 @@ Importance is linear in $\beta^2$, not in $\beta$.}
 
 \paragraph{Takeaway.} Among identically distributed features with linear
 effects, importance ranks correctly, though ``how much more'' is not comparable
-to a coefficient. An interaction lets a variable with no
-marginal effect outrank one that has (Section~\ref{sec:interactions}), and
-unequal feature distributions reorder the ranking on their own
-(Section~\ref{sec:confound}).
+to a coefficient. The ordinal reading is only \emph{a priori} valid under this assumption: 
+an interaction lets a variable with no marginal effect outrank one that has 
+(Section~\ref{sec:interactions}), and unequal feature distributions reorder 
+the ranking on their own (Section~\ref{sec:confound}).
 
 \section{Interactions are charged to the interacting variables}
 \label{sec:interactions}
@@ -372,7 +379,7 @@ $1:4.7:22.6$ toward the variance-contribution ratio $1:9.07:48.96$ (a single
 draw; Section~\ref{sec:linear}'s caveat against reading any single-seed AIR
 ratio closely applies here too), and moves the cross-world agreement not at
 all. Permutation and
-path-dependent TreeSHAP also touch feature values at the thresholds --- one
+path-dependent TreeSHAP~\cite{lundberg2020} also touch feature values at the thresholds --- one
 through the values it shuffles, the other through node weights it reconstructs
 from the data, which differ by at most two observations on $0.3\%$ of nodes ---
 and agree to four significant figures rather than exactly.
@@ -657,6 +664,8 @@ Section~\ref{sec:prevalence-results}.
 \begin{thebibliography}{99}
 \bibitem{bring1994} Bring (1994). \emph{How to standardize regression
   coefficients.} The American Statistician 48(3): 209--213.
+\bibitem{breiman1984} Breiman, Friedman, Olshen, Stone (1984).
+  \emph{Classification and Regression Trees.} Wadsworth, Belmont, CA.
 \bibitem{breiman2001} Breiman (2001). \emph{Random Forests.} Machine Learning
   45(1): 5--32.
 \bibitem{friedman2001} Friedman (2001). \emph{Greedy function approximation: a
@@ -684,6 +693,10 @@ Section~\ref{sec:prevalence-results}.
 \bibitem{lundberg2017} Lundberg, Lee (2017). \emph{A unified approach to
   interpreting model predictions.} Advances in Neural Information Processing
   Systems (NeurIPS) 30.
+\bibitem{lundberg2020} Lundberg, Erion, Chen, DeGrave, Prutkin, Nair, Katz,
+  Himmelfarb, Bansal, Lee (2020). \emph{From local explanations to global
+  understanding with explainable AI for trees.} Nature Machine Intelligence
+  2(1), 56--67.
 \bibitem{wright2017} Wright, Ziegler (2017). \emph{ranger: A Fast Implementation
   of Random Forests for High Dimensional Data in C++ and R.} Journal of
   Statistical Software 77(1).
@@ -691,7 +704,7 @@ Section~\ref{sec:prevalence-results}.
   fast variable importance test for random forests for high-dimensional data.}
   Advances in Data Analysis and Classification 12: 885--915.
 \bibitem{nembrini2018} Nembrini, K\"onig, Wright (2018). \emph{The revival of the
-  Gini importance?} Bioinformatics 34(21).
+  Gini importance?} Bioinformatics 34(21), 3711--3718.
   \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6198850/}
 \bibitem{hooker2021} Hooker, Mentch, Zhou (2021). \emph{Unrestricted permutation
   forces extrapolation: variable importance requires at least one more model, or

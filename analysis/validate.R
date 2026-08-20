@@ -13,7 +13,7 @@ dir.create(figdir, showWarnings = FALSE)
 
 cat("ranger version:", as.character(packageVersion("ranger")), "\n")
 cat("hyperparameters: num.trees as noted per experiment; mtry, min.node.size,\n",
-    "  and sample fraction at ranger defaults for regression (mtry = floor(p/3),\n",
+    "  and sample fraction at ranger defaults (mtry = floor(sqrt(p)),\n",
     "  min.node.size = 5, sample.fraction = 1 with replacement). Seeds set per block.\n\n")
 
 imp <- function(m) ranger::importance(m)
@@ -37,7 +37,7 @@ cat("  impurity  ratio /a    :", round(rel(imp(m_imp)), 2), "  (coef ratio 1,2,4
 cat("  corrected ratio /a    :", round(rel(imp(m_corr)), 2), "\n")
 
 ## The ratio above (1:2.3:7.8) falls short of the predicted 1:4:16. The cause is
-## the default mtry: with p = 3, ranger's regression default is floor(p/3) = 1,
+## the default mtry: with p = 3, ranger's default is floor(sqrt(p)) = 1,
 ## so each node splits on the single feature it drew and weak features receive
 ## forced splits. Sweeping mtry brackets the prediction. Averaged over seeds so
 ## the comparison does not rest on one draw.
