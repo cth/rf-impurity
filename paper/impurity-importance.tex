@@ -141,12 +141,19 @@ is inflated at the expense of $c$. Letting features compete removes the dilution
 
 At $\code{mtry}=p$ the
 strongest feature wins the root split in every tree, and overshoots. Tree depth
-contributes as well: Scornet proves the identity for truncated trees and warns
-that fully grown trees yield positively biased MDI~\cite{scornet2023}, and the
-forests here are default-grown (\code{min.node.size} $=5$), which is consistent
-with the overshoot at $\code{mtry}=p$. The deviations in the table are
-properties of the fitting procedure --- split randomisation and tree depth ---
-not of the importance measure's units.
+matters too, but not in the direction Scornet's truncated-tree condition might
+suggest. He proves the identity for truncated trees and warns that fully grown
+trees yield positively biased MDI~\cite{scornet2023}; that bias comes from
+fitting the noise term, and $y$ here is noiseless, so it cannot operate. A
+\code{max.depth} sweep (seeds $1$--$10$) shows the opposite, finite-sample
+effect: shallow trees starve weak features --- at depth $2$ with
+$\code{mtry}=p$ the weakest feature earns no splits at all --- and deepening
+converges the ratio downward toward $1:4:16$ at $\code{mtry}=p$
+($1:12.0:58.3$ at depth $4$, $1:4.45:19.1$ fully grown) while deepening the
+compression at the default ($1:3.38:12.1$ at depth $2$, $1:2.25:7.26$ fully
+grown). The deviations in the table are properties of the fitting procedure
+--- split randomisation and greedy split selection --- not of the importance
+measure's units.
 
 Extending to
 $y = a + 2b + 3c + \dots + 11k$ (11 features, coefficients $1\ldots11$) demonstrates

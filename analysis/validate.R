@@ -63,6 +63,30 @@ for (meas in c("impurity", "impurity_corrected")) {
 }
 cat("  -> default mtry compresses plain impurity; AIR is mtry-insensitive but noisy\n")
 
+## Scornet proves the variance identity for truncated trees and warns that
+## fully grown trees give positively biased MDI. That bias comes from fitting
+## the noise term, and y here is noiseless, so it cannot bite; what a depth
+## sweep shows instead is the opposite finite-sample effect: shallow trees
+## starve weak features (at max.depth = 2, mtry = 3, feature a earns no splits
+## at all and the ratio is infinite), and deepening converges the ratio
+## downward toward 1:4:16 at mtry = p while deepening the compression at
+## mtry = 1. The residual overshoot at fully grown mtry = p is greedy split
+## selection, not Scornet's depth bias.
+cat("\n=== Claim 1a-depth: max.depth sweep, mean impurity ratio over seeds 1-10 ===\n")
+for (mt in c(1, 3)) for (md in c(2, 4, 8, 0)) {
+  R <- t(sapply(1:10, function(s) {
+    set.seed(s)
+    d <- tibble(a = runif(n), b = runif(n), c = runif(n))
+    d$y <- d$a + 2*d$b + 4*d$c
+    rel(imp(ranger(y ~ ., d, importance = "impurity", num.trees = 500,
+                   mtry = mt, max.depth = md, seed = s)))
+  }))
+  cat(sprintf("    mtry=%d max.depth=%-9s: 1 : %.2f : %.2f\n",
+              mt, ifelse(md == 0, "unlimited", md), mean(R[, 2]), mean(R[, 3])))
+}
+cat("  -> truncation starves weak features; depth converges toward (mtry=p) or\n",
+    "     past (mtry=1) the target. Fully-grown bias needs noise; y is noiseless\n")
+
 ## Importance tracks variance contribution beta^2 * Var(X). With all X ~ U(0,1),
 ## Var(X) is constant, so importance should be ~linear in beta^2. We regress
 ## importance on beta and on beta^2 as SEPARATE (non-nested) single-predictor
