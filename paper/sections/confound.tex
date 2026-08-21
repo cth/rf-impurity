@@ -1,0 +1,140 @@
+\section{Non-linearity and feature scale are indistinguishable}
+\label{sec:confound}
+
+The identity of Section~\ref{sec:background-strands} has a jarring consequence,
+which the following construction makes concrete. Take equal linear effects but
+skewed feature \emph{distributions}:
+\[
+  a = 1 + U_a, \quad b = (1 + U_b)^2, \quad c = (1 + U_c)^3, \quad y = a + b + c,
+  \quad n = 10000,
+\]
+where $U_a, U_b, U_c$ are \emph{the same} draws used in
+Section~\ref{sec:nonlinear}. Every feature enters with coefficient 1, and OLS
+recovers $1.00, 1.00, 1.00$: nothing about the \emph{effects} is non-linear. Yet
+the forest reports \textbf{1751 / 8166 / 39632}, a $1:4.7:22.6$ spread
+\textbf{numerically identical}, to the digit, to the non-linear model of
+Section~\ref{sec:nonlinear} (Figure~\ref{fig:confound}).
+
+That is not a coincidence of this seed but a theorem about the construction.
+
+\paragraph{Proposition.} Fix draws $U_a, U_b, U_c$ and compare two worlds:
+\emph{(A)} features $(1{+}U_a,\; 1{+}U_b,\; 1{+}U_c)$ with response
+$y = a + b^2 + c^3$, and \emph{(B)} features
+$(1{+}U_a,\; (1{+}U_b)^2,\; (1{+}U_c)^3)$ with response $y = a + b + c$. Then the
+response vector is the same in both worlds, and each world-B feature is a
+strictly increasing transform of its world-A counterpart. If (i) split selection
+depends on a feature only through the \emph{ordering} of its values --- as it
+does for an exhaustive search over thresholds between consecutive order
+statistics, \code{ranger}'s default \code{splitrule = "variance"} --- and (ii)
+bootstrap indices and candidate-feature draws are held fixed across the two fits,
+then the two forests are identical tree for tree, and every importance derived
+from them coincides exactly.
+
+The mechanism is the monotone relabelling, not equality of variance
+contributions. Equal variance is a by-product of the same construction; the
+argument uses only that $y$ is the same vector and the features are in the same
+order.
+
+Both hypotheses can fail in practice. Hypothesis (ii) concerns the random number
+generator: the two fits must draw the same bootstrap samples and candidate
+features (and, for the debiased variant in the table below, the same
+permutations). Reseeded, they agree exactly. Run one after the other in a single
+session, as a naive script does, they differ --- but by how much is already
+settled by the proposition. World B under any RNG state gives the same trees as
+world A under that state, so an unseeded cross-world pair is distributed exactly
+as refitting a single world under two seeds: the residual gap \emph{is} seed
+noise, with no cross-world signal to find. A sweep over seeds $1$--$10$ confirms
+the corollary in \code{ranger}'s implementation: the identity is exact at every
+seed, and across all $\binom{10}{2} = 45$ pairs of distinct seeds the
+cross-world gap equals the same-world gap value for value, ranging
+$0.1$--$2.7\%$.
+Hypothesis (i) concerns the split search:
+\code{splitrule = "extratrees"} draws thresholds uniformly from the feature's
+value \emph{range} instead of scanning order statistics. Squaring stretches that
+range, so the same draw lands elsewhere in the data and the two worlds separate
+by ${\sim}3\%$ ($1:4.9:23.7$ against $1:5.0:24.6$). \citet{galili2016} document
+the same escape from monotone invariance at
+the level of predictions: any split rule that interpolates between observed
+values, rather than only partitioning them, sees more than the ordering.
+
+Trees under (i) discard exactly the distribution-shape information that would
+tell the two apart.
+
+This is \textbf{not specific to impurity}, and debiasing does not touch it.
+Bias-corrected impurity (AIR), permutation importance, and global mean
+$|\text{SHAP}|$ all give the same ratios in both worlds:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+measure & ratio & cross-world agreement \\
+\midrule
+impurity (MDI)            & $1:4.7:22.6$   & exactly $0$ \\
+impurity, debiased (AIR)  & $1:8.8:47.4$   & exactly $0$ \\
+permutation               & $1:9.2:50.3$   & ${\sim}10^{-4}$ \\
+mean $|\text{SHAP}|$      & $1:3.06:6.98$  & $1.3 \times 10^{-4}$ \\
+\midrule
+standardised OLS          & $1:2.98:6.88$ (A), $1:2.99:6.98$ (B) & $1.4 \times 10^{-2}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The first four are pinned by the proposition, in descending strictness. MDI is a
+functional of the fitted trees alone, so it agrees identically. AIR agrees
+identically for the same reason, one step removed: the correction subtracts the
+impurity a permuted copy of each feature would earn, and under hypothesis (ii)
+those permutation draws are fixed too, while permuting commutes with monotone
+transforms --- the permuted copy of $(1+U_b)^2$ is the square of the permuted
+copy of $1+U_b$ --- so the correction is a functional of the same trees and the
+same orderings. Debiasing moves the ratio from plain MDI's compressed
+$1:4.7:22.6$ toward the variance-contribution ratio $1:9.07:48.96$ (a single
+draw; Section~\ref{sec:linear}'s caveat against reading any single-seed AIR
+ratio closely applies here too), and moves the cross-world agreement not at
+all. Permutation and
+path-dependent TreeSHAP \citep{lundberg2020} also touch feature values at the
+thresholds --- one
+through the values it shuffles, the other through node weights it reconstructs
+from the data, which differ by at most two observations on $0.3\%$ of nodes ---
+and agree to four significant figures rather than exactly.
+
+Standardised OLS is the control. It never sees the forest, so the proposition
+gives it nothing, and the two worlds are genuinely different regressions:
+projecting $y$ onto $1+U$ is not projecting it onto $(1+U)^2$. The gap between
+the two has a closed form. With independent features, the standardised
+coefficient of $b$ is $\mathrm{sd}(b^2)/\mathrm{sd}(y)$ in world B and
+$\mathrm{Cov}(b^2, b)/(\mathrm{sd}(b)\,\mathrm{sd}(y)) =
+\mathrm{Corr}(b, b^2)\,\mathrm{sd}(b^2)/\mathrm{sd}(y)$ in world A, so the two
+worlds differ by exactly the factor $\mathrm{Corr}(b, b^2)$: the fraction of the
+squared feature that a linear projection captures. For $U(1,2)$ these
+correlations are $0.9963$ for the square and $0.9861$ for the cube, and the
+table reproduces them: $2.98/2.99 = 0.997$ and $6.88/6.98 = 0.986$. The
+discrepancy is the population correlation gap itself, two orders of magnitude
+larger than anything the proposition-pinned measures show. That a standardised
+coefficient ties a variable's apparent importance to the spread of its
+distribution is a long-standing complaint in the regression
+literature \citep{bring1994}; the proposition is the tree-based version, with
+effect shape and feature spread made exactly indistinguishable.
+
+That spread of agreement is what identifies the mechanism. Equal variance
+contribution alone would predict uniform approximate agreement, and cannot
+produce an exact zero. Nor is being a variance the operative property: MDI and
+permutation are denominated in variance, but mean $|\text{SHAP}|$ tracks the
+\emph{square root} of the variance contribution ($\sqrt{1:9.07:48.96} =
+1:3.01:7.00$), one power lower, and is confounded just the same. What the four
+share is that each is a functional of the fitted model and the feature ordering,
+which the proposition makes identical. Any marginal importance inherits this,
+whatever its units. The remedy is a shape-aware view: a partial-dependence plot,
+or a SHAP \emph{dependence} plot, which plots the same $\phi$ values against
+feature values that do differ between the two worlds.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.85\textwidth]{fig3_confound.png}
+\caption{Provably identical importances from two different worlds. Left: genuinely
+non-linear effects. Right: linear effects on skewed features. No marginal
+importance measure can distinguish them.}
+\label{fig:confound}
+\end{figure}
+
+\paragraph{Takeaway.} A tall importance bar can mean a strong or non-linear
+effect, or merely a heavy-tailed feature; no marginal importance can say which.

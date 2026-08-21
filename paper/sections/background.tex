@@ -1,0 +1,42 @@
+\section{Background}
+\label{sec:background-strands}
+
+For a random forest \citep{breiman2001}, the impurity importance of a feature is
+the total decrease in node impurity attributable to splits on that feature,
+summed over all splits and all trees \citep{breiman1984,louppe2013}. For
+regression, \code{ranger} \citep{wright2017}
+(and most implementations) score a split by how much it reduces the sum of
+within-child \textbf{response variances}. For classification the impurity is the
+Gini index, which measures the same thing: since $\mathbf{1}\{Y=k\}$ is
+Bernoulli with variance $p_k(1-p_k)$,
+$1 - \sum_k p_k^2 = \sum_k \mathrm{Var}(\mathbf{1}\{Y = k\})$, the total variance
+of the class indicators. Impurity importance is a variance-explained quantity in
+both settings, and that is the source of every effect studied here.
+
+Two strands of prior work bear on this. The first documents that MDI is
+\emph{biased} toward continuous and high-cardinality
+features \citep{strobl2007,nembrini2018}; \citet{nembrini2018} give the
+bias-corrected ``actual impurity reduction'' (AIR), exposed by \code{ranger} as
+\code{impurity\_corrected}. The second is theoretical: \citet{louppe2013}
+decompose asymptotic MDI into per-variable contributions (for totally
+randomised trees on categorical inputs), and \citet{scornet2023} proves that for
+additive regression with independent uniform inputs, fitted with
+\emph{truncated} (not fully grown) trees, MDI recovers a
+\emph{variance-explained} decomposition, each
+feature's score tracking $\mathrm{Var}(f_j(X_j))$, which for a linear term is
+$\beta_j^2\,\mathrm{Var}(X_j)$.
+
+Our experiments are consequences of that identity, not new biases. Their value is
+to show, among uncorrelated features that are all of one kind --- all continuous,
+or all binary, so that a bias between feature types cannot separate them --- how
+far a variance-contribution measure departs from a per-unit effect size, and that it
+\emph{provably cannot} separate an effect's shape from a feature's distribution.
+The new contribution is thus the sharp skew-versus-nonlinearity demonstration and
+an estimate (Sections~\ref{sec:prevalence-method}--\ref{sec:prevalence-results})
+of how often the misreading reaches published conclusions.
+
+All experiments use \code{ranger} 0.18.0; the code that generates them and the
+figures is available with the rest of the supporting material
+(Section~\ref{sec:availability}). Unless noted, importances are the plain
+\code{impurity} measure (the one the definition above describes);
+Section~\ref{sec:linear} compares it against \code{impurity\_corrected}.

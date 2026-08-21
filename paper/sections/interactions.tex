@@ -1,0 +1,50 @@
+\section{Interactions are charged to the interacting variables}
+\label{sec:interactions}
+
+Data: a pure three-way parity interaction with no marginal or pairwise effects,
+\[
+  y = d/10 + \big((a + b + c) \bmod 2\big), \qquad a,b,c,d \in \{0,1\}, \quad n = 10000.
+\]
+No single variable, and no pair, among $a,b,c$ carries information about $y$;
+only the joint parity of all three does. $d$ has a small independent effect.
+(Two-way parity would not do: for binary inputs $(a+b)\bmod 2 = a+b-2ab$ is
+bilinear, so OLS with an $a{\times}b$ term fits it exactly. Three-way parity is
+the smallest a standard interaction term cannot recover.)
+
+\begin{itemize}[leftmargin=1.4em]
+\item \textbf{OLS} stays blind even with all pairwise products: a model in
+  $a,b,c$ and $a{\times}b, a{\times}c, b{\times}c$ still reaches only
+  $R^2 = 0.01$, all coefficients ${\approx}0$ except $d$ (${\approx}0.10$). Only
+  the three-way product $a{\times}b{\times}c$ recovers the signal, which one
+  rarely adds unprompted.
+\item \textbf{Random forest} captures it (OOB $R^2 = 0.73$), and impurity
+  importance loads on the interacting variables. Averaged over seeds $1$--$10$,
+  $a$, $b$ and $c$ score $398$ (SD $51$) against $23$ for $d$
+  (Figure~\ref{fig:interaction} shows one seed): the three variables with no
+  marginal effect outrank the only variable that has one by a factor of
+  ${\sim}17$, on every seed.
+\end{itemize}
+
+Since $a$, $b$ and $c$ are exchangeable by construction, any difference among
+their importances is sampling noise, and within a single seed they spread by
+$7$--$72\%$ (median $28\%$): only the $a,b,c \gg d$ gap carries information here.
+That figure belongs to this design, which is a noisy one --- the signal becomes
+available only once three nested splits line up, and OOB $R^2$ is $0.73$.
+Replacing the parity with equal \emph{marginal} effects on the same four features
+drops the spread to $3$--$11\%$, so the noise floor has to be established per
+experiment.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.85\textwidth]{fig2_interaction.png}
+\caption{Same data, two views. OLS with all main and pairwise terms assigns
+$a,b,c$ (and every pairwise product) essentially zero coefficient, seeing only
+$d$; RF impurity importance ranks the three interacting variables highest. The
+ordering among $a,b,c$ is sampling noise --- they are exchangeable by
+construction.}
+\label{fig:interaction}
+\end{figure}
+
+\paragraph{Takeaway.} A high importance need not imply any marginal effect:
+importance surfaces variables that matter only in combination, exactly the ones a
+linear model drops. Importance and coefficients measure different things.
