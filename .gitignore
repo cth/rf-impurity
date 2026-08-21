@@ -15,6 +15,18 @@ paper/*.toc
 paper/*.bbl
 paper/*.blg
 paper/impurity-importance.pdf
+paper/tas/*.aux
+paper/tas/*.log
+paper/tas/*.out
+paper/tas/*.fls
+paper/tas/*.fdb_latexmk
+paper/tas/*.synctex.gz
+paper/tas/*.toc
+paper/tas/*.bbl
+paper/tas/*.blg
+paper/tas/*.run.xml
+paper/tas/impurity-importance-tas.pdf
 
 # Scratch review notes (not part of the record)
 ai-review.md
+.notes/
