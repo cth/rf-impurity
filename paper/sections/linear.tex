@@ -119,9 +119,11 @@ well separated, but not reliably when they are close: for
 $\beta = 1\ldots11$ at the default \code{mtry}, only $3$ of $10$ seeds rank
 all eleven correctly (mean Spearman $0.99$), and the inversions fall among the
 weak features that \code{mtry} compression pushes into near-ties. AIR does not
-rescue this. It separates the weak end far better ($16.4$ across
-$\beta = 1\ldots5$ against plain impurity's $2.45$, target $25$) and is
-noisier by as much, so it ranks no better (mean Spearman $0.99$). Even where
+rescue this. It spreads that weak end much further apart --- the $\beta = 5$
+feature scores $16.4$ times the $\beta = 1$ feature, against $2.45$ under
+plain impurity, where the variance identity predicts $25$ --- but it is also
+far noisier from seed to seed, and the two effects offset: it ranks no better
+(mean Spearman $0.99$). Even where
 the order holds, ``how much more'' is not comparable to a coefficient. The
 ordinal reading is only \emph{a priori} valid under this assumption:
 an interaction lets a variable with no marginal effect outrank one that has
