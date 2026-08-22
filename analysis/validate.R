@@ -145,6 +145,46 @@ cat(sprintf("                   R^2 ~beta^2 mean %.3f  range %.3f-%.3f\n",
             mean(A[, 2]), min(A[, 2]), max(A[, 2])))
 cat("  beta^2 is the better fit on every seed:", all(A[, 2] > A[, 1]), "\n")
 
+## Tracking beta^2 well (Claim 1b) is not the same as ranking correctly: an R^2
+## of 0.98 still leaves adjacent features free to swap. Count rank inversions
+## against the true beta order. Inversions concentrate at the weak end, where
+## mtry compression flattens the contributions into near-ties -- so we also
+## report the weak-end separation (beta=5 vs beta=1) that ranking depends on.
+## AIR is checked too: it separates the weak end much better but is far noisier
+## per seed, and the two effects roughly cancel, so it ranks no better.
+cat("\n=== Claim 1d: rank fidelity, 11 linear features, seeds 1-10 ===\n")
+rank_check <- function(meas, mt) {
+  M <- t(sapply(1:10, function(s) {
+    set.seed(s)
+    cl <- lapply(eff, function(i) runif(n)); names(cl) <- letters[1:11]
+    Z <- as_tibble(cl); Z$y <- as.matrix(Z) %*% eff
+    as.numeric(imp(ranger(y ~ ., Z, importance = meas, num.trees = 500,
+                          mtry = mt, seed = s)))
+  }))
+  inv <- apply(M, 1, function(v) {
+    r <- rank(v)
+    sum(outer(seq_along(eff), seq_along(eff), function(i, j) i < j & r[i] > r[j]))
+  })
+  sp <- apply(M, 1, function(v) cor(v, eff, method = "spearman"))
+  list(M = M, inv = inv, sp = sp)
+}
+for (meas in c("impurity", "impurity_corrected")) for (mt in c(3, 11)) {
+  z <- rank_check(meas, mt)
+  cat(sprintf("  %-19s mtry=%-2d: perfect %d/10  mean Spearman %.3f  inversions %s\n",
+              meas, mt, sum(z$inv == 0), mean(z$sp), paste(z$inv, collapse = " ")))
+  if (mt == 3) {
+    m <- colMeans(z$M)
+    cat(sprintf("      weak end (beta=1..5) %s  separation b5/b1 = %.2f (target 25)\n",
+                paste(sprintf("%.0f", m[1:5]), collapse = " "), m[5] / m[1]))
+    rsd <- apply(z$M, 2, function(x) 100 * sd(x) / mean(x))
+    cat(sprintf("      per-seed rel. SD, beta=1,2,3: %.1f%% %.1f%% %.1f%%\n",
+                rsd[1], rsd[2], rsd[3]))
+  }
+}
+cat("  -> ranking is near-perfect but not perfect; inversions sit at the weak,\n",
+    "     compressed end. AIR separates it better yet is ~20x noisier per seed,\n",
+    "     so switching measure does not make the ordinal reading safe\n")
+
 ## ---------------------------------------------------------------------------
 ## Claim 2: pure THREE-WAY parity interaction. OLS is blind even with all
 ##          pairwise product terms (two-way parity would be bilinear and thus
