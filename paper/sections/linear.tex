@@ -124,8 +124,10 @@ feature scores $16.4$ times the $\beta = 1$ feature, against $2.45$ under
 plain impurity, where the variance identity predicts $25$ --- but it is also
 far noisier from seed to seed, and the two effects offset: it ranks no better
 (mean Spearman $0.99$). Even where
-the order holds, ``how much more'' is not comparable to a coefficient. The
-ordinal reading is only \emph{a priori} valid under this assumption:
+the order holds, ``how much more'' is not comparable to a coefficient. And the
+two conditions assumed throughout --- comparable feature distributions,
+effects that are purely marginal --- are necessary rather than sufficient:
+both fail routinely, since
 an interaction lets a variable with no marginal effect outrank one that has
 (Section~\ref{sec:interactions}), and unequal feature distributions reorder
 the ranking on their own (Section~\ref{sec:confound}).
