@@ -1,12 +1,82 @@
-\section{Non-linear effects: variance contribution predicts the ranking}
+% ---------------------------------------------------------------------------
+% PREVIOUS VERSION, kept for comparison. Delete once the expansion below is
+% settled. It stopped at the ordinal claim and reported the default-mtry ratio
+% (1:4.7:22.6) without noting that it is roughly half the predicted
+% 1:9.07:48.96 --- a gap Section 7 later refers to as "compressed".
+%
+% \section{Non-linear effects: variance contribution predicts the ranking}
+% \label{sec:nonlinear}
+%
+% Data: $y = a + b^2 + c^3$, with $a = 1 + U_a$, $b = 1 + U_b$, $c = 1 + U_c$ and
+% $U_a, U_b, U_c$ independent $U(0,1)$ draws, $n = 10000$. (The draws are
+% \emph{separate} per feature: a single shared $U$ would make the three features
+% collinear and the experiment vacuous.)
+% Each term's variance contribution grows with its degree, so
+% Section~\ref{sec:background-strands} predicts
+% $\mathrm{vip}(a) < \mathrm{vip}(b) < \mathrm{vip}(c)$; the forest confirms it,
+% $1751 < 8166 < 39632$ (a $1:4.7:22.6$ ratio). A linear model still returns non-zero
+% coefficients, but they are uninterpretable: the residuals are visibly non-normal.
+% ---------------------------------------------------------------------------
+
+\section{Non-linear effects: variance contribution predicts the scores}
 \label{sec:nonlinear}
 
 Data: $y = a + b^2 + c^3$, with $a = 1 + U_a$, $b = 1 + U_b$, $c = 1 + U_c$ and
 $U_a, U_b, U_c$ independent $U(0,1)$ draws, $n = 10000$. (The draws are
 \emph{separate} per feature: a single shared $U$ would make the three features
 collinear and the experiment vacuous.)
-Each term's variance contribution grows with its degree, so
-Section~\ref{sec:background-strands} predicts
-$\mathrm{vip}(a) < \mathrm{vip}(b) < \mathrm{vip}(c)$; the forest confirms it,
-$1751 < 8166 < 39632$ (a $1:4.7:22.6$ ratio). A linear model still returns non-zero
-coefficients, but they are uninterpretable: the residuals are visibly non-normal.
+
+Here the prediction is exact rather than ordinal. Each feature is uniform on
+$[1,2]$, so with $E[X^m] = (2^{m+1}-1)/(m+1)$ the three variance contributions
+are $\mathrm{Var}(X) = 1/12$, $\mathrm{Var}(X^2) = 34/45$ and
+$\mathrm{Var}(X^3) = 457/112$, and
+Section~\ref{sec:background-strands} predicts importances in the ratio
+\[
+  1 : 9.07 : 48.96 .
+\]
+At \code{ranger}'s default the forest reports $1751 < 8166 < 39632$, a
+$1:4.7:22.6$ ratio: the order is right and the spread is about half what is
+predicted. That shortfall is the \code{mtry} dilution of
+Section~\ref{sec:linear}, not a failure of the identity, and letting the
+features compete removes it (means over seeds $1$--$10$):
+
+\begin{center}
+\begin{tabular}{clc}
+\toprule
+\code{mtry} & impurity vip (ratio) & \\
+\midrule
+1 (default at $p=3$) & $1:4.58:22.4$  & compressed \\
+2                    & $1:8.90:47.7$  & $\approx$ predicted $1:9.07:48.96$ \\
+3 ($=p$)             & $1:9.63:52.8$  & overshoots \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Truncation bites harder here than in Section~\ref{sec:linear}. At
+$\code{mtry}=p$ the weakest feature earns no splits at all out to depth $4$
+(against depth $2$ for the linear design), and the ratio only settles once the
+trees are grown out: $1:11.5:63.5$ at depth $8$, $1:9.63:52.8$ fully grown.
+The wider the true contributions are spread, the longer a shallow forest
+starves the weakest feature.
+
+\paragraph{What a non-linear term is worth.} Because importance tracks
+$\mathrm{Var}(f_j(X_j))$, the linear coefficient that would earn a feature the
+same importance follows in closed form,
+\[
+  \beta_j^{\mathrm{equiv}} =
+  \frac{\mathrm{sd}\big(f_j(X_j)\big)}{\mathrm{sd}(X_j)} ,
+\]
+which here gives $\beta = 3.01$ for the squared term and $\beta = 7.00$ for the
+cubic. On this data a cubic effect buys exactly as much impurity importance as
+a linear effect with a coefficient of $7$. Note that this is the coefficient
+matching the \emph{variance contributed}, which is not the best linear
+approximation to $f_j$: the two differ by the factor
+$\mathrm{Corr}(X_j, f_j(X_j))$, whose values for this design ($0.9963$ for the
+square, $0.9861$ for the cube) reappear in Section~\ref{sec:confound} as the
+gap between the two worlds under standardised OLS.
+
+A linear model still returns non-zero coefficients on this data, but they are
+uninterpretable: the residuals are visibly non-normal. The translation above is
+what importance offers instead --- and Section~\ref{sec:confound} shows it
+cannot be inverted, because a cubic effect and a linear effect on a cubed
+feature produce the same scores exactly.

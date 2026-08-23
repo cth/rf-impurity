@@ -277,6 +277,55 @@ v <- imp(m_nl)
 cat("  vip a,b,c        :", round(v, 1), "\n")
 cat("  vip(a)<vip(b)<vip(c)?:", (v["a"] < v["b"] && v["b"] < v["c"]), "\n")
 
+## Claim 4a: the prediction here is exact, not merely ordinal. Each feature is
+## U(1,2), so E[X^m] = (2^(m+1)-1)/(m+1) gives the variance contributions in
+## closed form and hence the predicted MDI ratio. The equivalent linear
+## coefficient -- what beta a linear term would need to earn the same
+## importance -- is sd(f(X))/sd(X), which equals the OLS slope of f(X) on X
+## divided by Corr(X, f(X)); those correlations are the same ones that separate
+## the two worlds under standardised OLS in Claim 5.
+cat("\n=== Claim 4a: closed-form variance contributions, X ~ U(1,2) ===\n")
+Em <- function(m) (2^(m + 1) - 1) / (m + 1)
+Vk <- function(k) Em(2 * k) - Em(k)^2
+v1 <- Vk(1); v2 <- Vk(2); v3 <- Vk(3)
+cat(sprintf("  Var(X)=%.6f (1/12)  Var(X^2)=%.6f (34/45)  Var(X^3)=%.6f (457/112)\n",
+            v1, v2, v3))
+cat(sprintf("  predicted MDI ratio        : 1 : %.2f : %.2f\n", v2/v1, v3/v1))
+cat(sprintf("  equivalent linear beta     : b^2 -> %.2f   c^3 -> %.2f\n",
+            sqrt(v2/v1), sqrt(v3/v1)))
+U <- 1 + runif(2e6)
+for (k in c(2, 3)) {
+  b_ols <- cov(U^k, U) / var(U); rho <- cor(U, U^k)
+  cat(sprintf("    check X^%d: OLS slope %.4f / corr %.4f = %.4f\n",
+              k, b_ols, rho, b_ols / rho))
+}
+
+## Claim 4b: mtry and truncation act here exactly as in Claim 1a/1a-depth, and
+## the default-mtry compression is what puts the headline ratio at ~1:4.7:22.6,
+## about half the predicted 1:9.07:48.96. Truncation starves the weak feature
+## for longer than in the linear design (no splits at all out to depth 4),
+## because the true contributions are spread wider.
+cat("\n=== Claim 4b: mtry and depth sweeps, y = a + b^2 + c^3 ===\n")
+mk_nl <- function(s) {
+  set.seed(s)
+  tibble(a = 1 + runif(n), b = 1 + runif(n), c = 1 + runif(n), y = a + b^2 + c^3)
+}
+for (mt in 1:3) {
+  R <- t(sapply(1:10, function(s)
+    rel(imp(ranger(y ~ ., mk_nl(s), importance = "impurity",
+                   num.trees = 500, mtry = mt, seed = s)))))
+  cat(sprintf("  mtry=%d            : 1 : %5.2f : %6.2f\n", mt,
+              mean(R[, 2]), mean(R[, 3])))
+}
+for (md in c(2, 4, 8, 0)) {
+  R <- t(sapply(1:10, function(s)
+    rel(imp(ranger(y ~ ., mk_nl(s), importance = "impurity", num.trees = 500,
+                   mtry = 3, max.depth = md, seed = s)))))
+  cat(sprintf("  mtry=3 depth=%-9s: 1 : %5.2f : %6.2f\n",
+              ifelse(md == 0, "unlimited", md), mean(R[, 2]), mean(R[, 3])))
+}
+cat("  -> Inf = weakest feature earns no splits at all at that depth\n")
+
 ## ---------------------------------------------------------------------------
 ## Claim 5 (the key one): linear effects but skewed FEATURES.
 ##   y = a + b + c with equal OLS coefficients, but b,c are squared/cubed uniforms.
