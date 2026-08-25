@@ -1,50 +1,69 @@
 \section{Interactions are charged to the interacting variables}
 \label{sec:interactions}
 
-Data: a pure three-way parity interaction with no marginal or pairwise effects,
+Importance and coefficients measure different things.
+A high importance need not imply any marginal effect: 
+rather, importance surfaces variables that matter only in combination. 
+Exactly the ones a linear model drops unless the interaction is specified in advance. 
+
+Consider a pure two-way parity interaction with no marginal effects:
 \[
-  y = d/10 + \big((a + b + c) \bmod 2\big), \qquad a,b,c,d \in \{0,1\}, \quad n = 10000.
+  y = c/10 + \big((a + b) \bmod 2\big), \qquad a,b,c \in \{0,1\}, \quad n = 10000.
 \]
-No single variable, and no pair, among $a,b,c$ carries information about $y$;
-only the joint parity of all three does. $d$ has a small independent effect.
-(Two-way parity would not do: for binary inputs $(a+b)\bmod 2 = a+b-2ab$ is
-bilinear, so OLS with an $a{\times}b$ term fits it exactly. Three-way parity is
-the smallest a standard interaction term cannot recover.)
+Neither $a$ nor $b$ carries information about $y$ on its own; only their joint
+parity does. $c$ is the only variable with an independent effect. We fit a
+random forest and a linear regression model against this data.
 
-\begin{itemize}[leftmargin=1.4em]
-\item \textbf{OLS} stays blind even with all pairwise products: a model in
-  $a,b,c$ and $a{\times}b, a{\times}c, b{\times}c$ still reaches only
-  $R^2 = 0.01$, all coefficients ${\approx}0$ except $d$ (${\approx}0.10$). Only
-  the three-way product $a{\times}b{\times}c$ recovers the signal, which one
-  rarely adds unprompted.
-\item \textbf{Random forest} captures it (OOB $R^2 = 0.73$), and impurity
-  importance loads on the interacting variables. Averaged over seeds $1$--$10$,
-  $a$, $b$ and $c$ score $398$ (SD $51$) against $23$ for $d$
-  (Figure~\ref{fig:interaction} shows one seed): the three variables with no
-  marginal effect outrank the only variable that has one by a factor of
-  ${\sim}17$, on every seed.
-\end{itemize}
+Main-effects \textbf{OLS} sees only $c$: the fitted coefficients on $a$ and $b$
+are $0.000$ and $0.000$ against $0.101$ for $c$, at $R^2 = 0.01$. 
+For binary inputs $(a+b) \bmod 2 = a + b - 2ab$ is bilinear, so adding an
+$a{\times}b$ term fits the target exactly ($R^2 = 1.000$). 
 
-Since $a$, $b$ and $c$ are exchangeable by construction, any difference among
-their importances is sampling noise, and within a single seed they spread by
-$7$--$72\%$ (median $28\%$): only the $a,b,c \gg d$ gap carries information here.
-That figure belongs to this design, which is a noisy one --- the signal becomes
-available only once three nested splits line up, and OOB $R^2$ is $0.73$.
-Replacing the parity with equal \emph{marginal} effects on the same four features
-drops the spread to $3$--$11\%$, so the noise floor has to be established per
-experiment.
+What follows is a
+claim about how impurity importance \emph{allocates} an interaction the model has
+already captured; the OLS fit is here only to establish that $c$ is the sole
+variable with a marginal effect to find.
 
+The \textbf{random forest} also capture the interaction fully ($R^2 = 1.000$)
+when $\code{mtry} = 3$. Capturing the interaction requires trees that split on both $a$ and $b$, 
+so the fit degrades only little at $\code{mtry} = 2$ (OOB $R^2 = 0.93$) 
+and a lot at $\code{mtry} = 1$ (OOB $R^2 = 0.59$). The interesting thing is 
+how the importance is allocated: the two interacting variables $a$ and $b$ get
+the lion's share, while $c$ is relegated to the bottom of the list. 
+(Figure~\ref{fig:interaction} demonstrates the stark contrast between 
+main-effects OLS and RF impurity importance.
+Credit for an interacting variable is conditional on tree topology. 
+A split on a reduces variance only inside subtrees where b has already been split. 
+
+Since $a$ and $b$ are exchangeable by construction, any difference between their
+importances is sampling noise, and within a single seed they spread by
+$2$--$20\%$ (median $10\%$): only the $a,b \gg c$ gap carries information here.
+Replacing the parity with equal \emph{marginal} effects on the same three
+features drops the spread to $1$--$6\%$.
+established per experiment.
+
+The root is $c$ in all trees as it holds the only marginal signal; the a-vs-b question is settled 
+at the two depth-1 nodes.
+There is no variance reduction in spliting on $a$ or $b$ by themselves. 
+Once, however, a tree has split on one of the two,
+the other is free to reduce variance: each tree hands the pair's 
+ variable importance contribution to whichever variable is split second, conditional
+ on the first having been split. 
+ 
+The default is $\code{mtry}=p$; every node compares both variables and splits on the larger empirical decrease, 
+so all trees re-derive the same choice from the same data 
+%--- with bagging disabled the pair's credit goes entirely to one variable ($99.9%$ on one draw, $0%$ on another) --- 
+and bootstrap resampling only partly decorrelates that choice, leaving an imbalance that more trees cannot average away 
+($31.7\%$ at 500 trees, $30.9\%$ at 4000). 
+ 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.85\textwidth]{fig2_interaction.png}
-\caption{Same data, two views. OLS with all main and pairwise terms assigns
-$a,b,c$ (and every pairwise product) essentially zero coefficient, seeing only
-$d$; RF impurity importance ranks the three interacting variables highest. The
-ordering among $a,b,c$ is sampling noise --- they are exchangeable by
-construction.}
+\caption{Same data, two views. Main-effects OLS assigns $a$ and $b$ essentially
+zero coefficient, seeing only $c$; RF impurity importance ranks the two
+interacting variables far above it. The ordering between $a$ and $b$ is sampling
+noise --- they are exchangeable by construction.}
 \label{fig:interaction}
 \end{figure}
 
-\paragraph{Takeaway.} A high importance need not imply any marginal effect:
-importance surfaces variables that matter only in combination, exactly the ones a
-linear model drops. Importance and coefficients measure different things.
+\paragraph{Takeaway.} 
