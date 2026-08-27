@@ -2,8 +2,7 @@
 \label{sec:interactions}
 
 A high importance does not need to imply any marginal effect.
-Variables that 
- that matter only in combination are credited disproportionately. 
+Variables that matter only in combination are credited disproportionately. 
 Consider a pure two-way parity interaction with no marginal effects:
 \[
   y = c/10 + \big((a + b) \bmod 2\big), \qquad a,b,c \in \{0,1\}, \quad n = 10000.
@@ -24,17 +23,29 @@ $a{\times}b$ term fits the target exactly ($R^2 = 1.000$).
 
 
 
-When the interaction is captured, the  the two interacting variables $a$ and $b$ 
-are allocated the most of variable importance.
-Over seeds
-$1$--$10$ at the default $\code{mtry} = 1$, $a$ and $b$ average $451$ (SD $29$)
-against $15$ for $c$ --- a factor of ${\sim}30$, on every seed.
-Figure~\ref{fig:interaction} shows the contrast against main-effects OLS.
+When the interaction is captured, the two interacting variables $a$ and $b$
+are allocated most of the variable importance. The size of their share follows
+from the variance decomposition. Impurity importance sums the reduction in node sum of squares over splits, and
+trees grown to purity remove $n\,\mathrm{Var}(y)$ between them, so the credit
+divides as the variance does. The target is additive in two independent pieces,
+$\mathrm{Var}(c/10) = 0.0025$ and $\mathrm{Var}\big((a+b) \bmod 2\big) = 0.25$: the
+coefficient $1/10$ gives $c$ one hundredth of the pair's variance, so $c$ is due
+$1\%$ of the credit and the pair $99\%$. At $\code{mtry} = 3$, where the trees are
+pure, the measured total is $2525.2 = n\,\mathrm{Var}(y)$ and $c$ receives $1.02\%$
+of it. Over seeds $1$--$10$ at the default $\code{mtry} = 1$, $a$ and $b$ average
+$451$ (SD $29$) against $15$ for $c$ --- a factor of ${\sim}30$ per variable, on
+every seed. That is below the ${\sim}50$ the decomposition predicts because
+$\code{mtry} = 1$ truncates trees: a node whose single candidate is already
+constant becomes terminal, so the total credit falls to $915$, and the loss
+falls harder on the pair, whose credit needs both $a$ and $b$ split on the same
+path, than on $c$, whose credit is banked by one split anywhere. $c$'s share
+rises to $1.7\%$ as a result. Figure~\ref{fig:interaction} shows the contrast
+against main-effects OLS.
 
 Since $a$ and $b$ are exchangeable by construction, any difference between their
 importances is sampling noise, and within a single seed they spread by
 $2$--$20\%$ (median $10\%$), against $1$--$6\%$ when the parity is replaced by
-equal \emph{marginal} effects on the same three features. Pnly the $a,b \gg c$
+equal \emph{marginal} effects on the same three features. Only the $a,b \gg c$
 gap carries information here.
 
 That spread is the wider one because credit for an interacting variable is
