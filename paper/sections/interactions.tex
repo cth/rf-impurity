@@ -1,11 +1,9 @@
 \section{Interactions are charged to the interacting variables}
 \label{sec:interactions}
 
-Importance and coefficients measure different things.
-A high importance need not imply any marginal effect: 
-rather, importance surfaces variables that matter only in combination. 
-Exactly the ones a linear model drops unless the interaction is specified in advance. 
-
+A high importance does not need to imply any marginal effect.
+Variables that 
+ that matter only in combination are credited disproportionately. 
 Consider a pure two-way parity interaction with no marginal effects:
 \[
   y = c/10 + \big((a + b) \bmod 2\big), \qquad a,b,c \in \{0,1\}, \quad n = 10000.
@@ -19,43 +17,59 @@ are $0.000$ and $0.000$ against $0.101$ for $c$, at $R^2 = 0.01$.
 For binary inputs $(a+b) \bmod 2 = a + b - 2ab$ is bilinear, so adding an
 $a{\times}b$ term fits the target exactly ($R^2 = 1.000$). 
 
-What follows is a
-claim about how impurity importance \emph{allocates} an interaction the model has
-already captured; the OLS fit is here only to establish that $c$ is the sole
-variable with a marginal effect to find.
+%What follows is a
+%claim about how impurity importance \emph{allocates} an interaction the model has
+%already captured; the OLS fit is here only to establish that $c$ is the sole
+%variable with a marginal effect to find.
 
-The \textbf{random forest} also capture the interaction fully ($R^2 = 1.000$)
-when $\code{mtry} = 3$. Capturing the interaction requires trees that split on both $a$ and $b$, 
-so the fit degrades only little at $\code{mtry} = 2$ (OOB $R^2 = 0.93$) 
-and a lot at $\code{mtry} = 1$ (OOB $R^2 = 0.59$). The interesting thing is 
-how the importance is allocated: the two interacting variables $a$ and $b$ get
-the lion's share, while $c$ is relegated to the bottom of the list. 
-(Figure~\ref{fig:interaction} demonstrates the stark contrast between 
-main-effects OLS and RF impurity importance.
-Credit for an interacting variable is conditional on tree topology. 
-A split on a reduces variance only inside subtrees where b has already been split. 
+
+
+When the interaction is captured, the  the two interacting variables $a$ and $b$ 
+are allocated the most of variable importance.
+Over seeds
+$1$--$10$ at the default $\code{mtry} = 1$, $a$ and $b$ average $451$ (SD $29$)
+against $15$ for $c$ --- a factor of ${\sim}30$, on every seed.
+Figure~\ref{fig:interaction} shows the contrast against main-effects OLS.
 
 Since $a$ and $b$ are exchangeable by construction, any difference between their
 importances is sampling noise, and within a single seed they spread by
-$2$--$20\%$ (median $10\%$): only the $a,b \gg c$ gap carries information here.
-Replacing the parity with equal \emph{marginal} effects on the same three
-features drops the spread to $1$--$6\%$.
-established per experiment.
+$2$--$20\%$ (median $10\%$), against $1$--$6\%$ when the parity is replaced by
+equal \emph{marginal} effects on the same three features. Pnly the $a,b \gg c$
+gap carries information here.
 
-The root is $c$ in all trees as it holds the only marginal signal; the a-vs-b question is settled 
-at the two depth-1 nodes.
-There is no variance reduction in spliting on $a$ or $b$ by themselves. 
-Once, however, a tree has split on one of the two,
-the other is free to reduce variance: each tree hands the pair's 
- variable importance contribution to whichever variable is split second, conditional
- on the first having been split. 
- 
-The default is $\code{mtry}=p$; every node compares both variables and splits on the larger empirical decrease, 
-so all trees re-derive the same choice from the same data 
-%--- with bagging disabled the pair's credit goes entirely to one variable ($99.9%$ on one draw, $0%$ on another) --- 
-and bootstrap resampling only partly decorrelates that choice, leaving an imbalance that more trees cannot average away 
-($31.7\%$ at 500 trees, $30.9\%$ at 4000). 
- 
+That spread is the wider one because credit for an interacting variable is
+conditional on tree topology. Splitting on $a$ or $b$ alone reduces no variance,
+so the root is $c$ in every tree; once a tree has split on one of the pair, the
+other separates the parity completely. Each tree therefore hands the pair's
+entire contribution to whichever variable it splits last, and only the division between
+$a$ and $b$ is random. At $\code{mtry} = 1$ that division is made by the
+candidate draw rather than by the data, 
+so the number of trees crediting each variable is binomial and the imbalance averages 
+away as trees accumulate.
+At
+$\code{mtry} = p$ both variables compete at each node and takes the larger
+empirical decrease, so every tree re-derives the same choice from the same data:
+with bagging disabled the pair's credit goes entirely to one variable, and
+bootstrap resampling only partly decorrelates that choice. What is left is the
+$\rho\sigma^2$ floor that averaging cannot cross, $\rho$ being the sampling
+correlation between pairs of trees \citep[\S15.2, \S15.4.1]{hastie2009} --- for
+a fixed sample the imbalance is effectively a bias, and therefore adding more trees does not affect 
+it ($31.7\%$ at $500$ trees, $30.9\%$ at $4000$). Lowering
+$\rho$ is the stated purpose of \code{mtry}: Breiman introduced the per-node
+random draw of $F$ candidate inputs (the parameter \code{mtry} implements) because
+``the randomness injected has to minimize the correlation $\bar\rho$ while
+maintaining strength'' \citep[\S3; Thm.~11.2 for regression]{breiman2001}. The
+setting that fits this target best is therefore also the one whose division of
+credit between $a$ and $b$ is least trustworthy. 
+AIR was not designed to remove \emph{this bias}, and though it has an incidental 
+effect, it does not rescue it fully.
+At $\code{mtry} = 1$ the two importance measures are indistinguishable, whereas
+the improvement it shows 
+at $\code{mtry} = p$ ($13.3\%$ against $29.1\%$) comes
+from its permuted pseudo-variables enlarging the candidate pool to $2p$, which
+lowers $\rho$ in the same vein as a smaller \code{mtry} would, degrading also 
+OOB $R^2$ to $0.946$.
+
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.85\textwidth]{fig2_interaction.png}
@@ -65,5 +79,3 @@ interacting variables far above it. The ordering between $a$ and $b$ is sampling
 noise --- they are exchangeable by construction.}
 \label{fig:interaction}
 \end{figure}
-
-\paragraph{Takeaway.} 
