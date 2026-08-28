@@ -14,16 +14,15 @@ random forest and a linear regression model against this data.
 Main-effects \textbf{OLS} sees only $c$: the fitted coefficients on $a$ and $b$
 are $0.000$ and $0.000$ against $0.101$ for $c$, at $R^2 = 0.01$. 
 For binary inputs $(a+b) \bmod 2 = a + b - 2ab$ is bilinear, so adding an
-$a{\times}b$ term fits the target exactly ($R^2 = 1.000$). 
+$a{\times}b$ term fits the target exactly ($R^2 = 1.000$) getting the 
+coefficient $FIXME$.
 
 %What follows is a
 %claim about how impurity importance \emph{allocates} an interaction the model has
 %already captured; the OLS fit is here only to establish that $c$ is the sole
 %variable with a marginal effect to find.
 
-
-
-When the interaction is captured, the two interacting variables $a$ and $b$
+When the interaction is captured in the Random Forest, the two interacting variables $a$ and $b$
 are allocated most of the variable importance. The size of their share follows
 from the variance decomposition. Impurity importance sums the reduction in node sum of squares over splits, and
 trees grown to purity remove $n\,\mathrm{Var}(y)$ between them, so the credit
@@ -48,18 +47,18 @@ $2$--$20\%$ (median $10\%$), against $1$--$6\%$ when the parity is replaced by
 equal \emph{marginal} effects on the same three features. Only the $a,b \gg c$
 gap carries information here.
 
-That spread is the wider one because credit for an interacting variable is
-conditional on tree topology. Splitting on $a$ or $b$ alone reduces no variance,
-so the root is $c$ in every tree; once a tree has split on one of the pair, the
+The interaction spread is the wider one because credit for an interacting variable is
+conditional on tree topology. Splitting on $a$ or $b$ alone reduces no variance; 
+once a tree has split on one of the pair, the
 other separates the parity completely. Each tree therefore hands the pair's
-entire contribution to whichever variable it splits last, and only the division between
-$a$ and $b$ is random. At $\code{mtry} = 1$ that division is made by the
+entire contribution to whichever variable it splits last. 
+At $\code{mtry} = 1$ that division between $a$ and $b$ is made by the
 candidate draw rather than by the data, 
 so the number of trees crediting each variable is binomial and the imbalance averages 
 away as trees accumulate.
 At
-$\code{mtry} = p$ both variables compete at each node and takes the larger
-empirical decrease, so every tree re-derives the same choice from the same data:
+$\code{mtry} = p$ both variables compete at each node and the one with the larger
+empirical decrease wins, so every tree re-derives the same choice from the same data:
 with bagging disabled the pair's credit goes entirely to one variable, and
 bootstrap resampling only partly decorrelates that choice. What is left is the
 $\rho\sigma^2$ floor that averaging cannot cross, $\rho$ being the sampling
@@ -73,7 +72,7 @@ maintaining strength'' \citep[\S3; Thm.~11.2 for regression]{breiman2001}. The
 setting that fits this target best is therefore also the one whose division of
 credit between $a$ and $b$ is least trustworthy. 
 AIR was not designed to remove \emph{this bias}, and though it has an incidental 
-effect, it does not rescue it fully.
+effect through tree decorrelation.
 At $\code{mtry} = 1$ the two importance measures are indistinguishable, whereas
 the improvement it shows 
 at $\code{mtry} = p$ ($13.3\%$ against $29.1\%$) comes
