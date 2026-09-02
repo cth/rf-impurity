@@ -186,59 +186,254 @@ cat("  -> ranking is near-perfect but not perfect; inversions sit at the weak,\n
     "     so switching measure does not make the ordinal reading safe\n")
 
 ## ---------------------------------------------------------------------------
-## Claim 2: pure THREE-WAY parity interaction. OLS is blind even with all
-##          pairwise product terms (two-way parity would be bilinear and thus
-##          OLS-recoverable); RF captures it and the three interacting variables
-##          outrank the independent variable c.
+## Claim 2: pure TWO-WAY parity interaction. a and b carry no marginal effect,
+##          c is the only variable that does; impurity importance is charged to
+##          the interacting pair regardless. Main-effects OLS sees only c.
+##          (Two-way binary parity IS bilinear, so OLS with an a:b term recovers
+##          it exactly -- reported below. The claim here is about how MDI
+##          allocates the interaction, not about a limit of linear models.)
 ## ---------------------------------------------------------------------------
-cat("\n=== Claim 2: three-way parity y = d/10 + (a+b+c) mod 2 ===\n")
+cat("\n=== Claim 2: two-way parity y = c/10 + (a+b) mod 2 ===\n")
 set.seed(42); n <- 10000
 ib <- function(n) round(runif(n))
-df <- tibble(a = ib(n), b = ib(n), c = ib(n), d = ib(n), y = d/10 + (a + b + c) %% 2)
-## sanity: two-way binary parity is exactly bilinear -> OLS+a:b fits it perfectly
-two_way <- tibble(a = ib(n), b = ib(n), d = ib(n), y = d/10 + (a + b) %% 2)
-cat("  [check] 2-way parity, OLS y~a+b+d+a:b R^2 :",
-    round(summary(lm(y ~ a + b + d + a:b, two_way))$r.squared, 3),
-    "(bilinear -> ~1, why we use 3-way)\n")
-ols_pair <- lm(y ~ (a + b + c)^2 + d, df)      # all main + pairwise terms
-ols_full <- lm(y ~ a * b * c + d, df)          # incl. the 3-way product
-cat("  OLS R^2 (main + all pairwise) :", round(summary(ols_pair)$r.squared, 3), "\n")
-cat("  OLS R^2 (incl. 3-way product) :", round(summary(ols_full)$r.squared, 3), "\n")
-cat("  OLS |coef| (pairwise model)   :", round(abs(coef(ols_pair)[-1]), 3), "\n")
-mrf <- ranger(y ~ a + b + c + d, df, importance = "impurity", num.trees = 500, seed = 42)
-cat("  RF  OOB R^2             :", round(mrf$r.squared, 3), "\n")
+df <- tibble(a = ib(n), b = ib(n), c = ib(n), y = c/10 + (a + b) %% 2)
+ols_main <- lm(y ~ a + b + c, df)
+cat("  OLS R^2 (main effects only)   :", round(summary(ols_main)$r.squared, 3), "\n")
+cat("  OLS coef a,b,c                :", round(coef(ols_main)[-1], 3), "\n")
+cat("  OLS R^2 (+ a:b product)       :", round(summary(lm(y ~ a + b + c + a:b, df))$r.squared, 3),
+    "(bilinear -> exactly recoverable, stated in the text)\n")
+mrf <- ranger(y ~ a + b + c, df, importance = "impurity", num.trees = 500, seed = 42)
 v <- imp(mrf)
-cat("  RF  vip a,b,c,d         :", round(v, 1), "\n")
-cat("  interaction vars > d ?  :", (min(v["a"], v["b"], v["c"]) > v["d"]), "\n")
+cat("  RF  OOB R^2 (default mtry=1)  :", round(mrf$r.squared, 3), "\n")
+cat("  RF  vip a,b,c                 :", round(v, 1), "\n")
+cat("  interacting pair > c ?        :", (min(v["a"], v["b"]) > v["c"]), "\n")
+## mtry: with p=3 the default mtry=floor(p/3)=1 starves the interaction, since
+## reaching it needs two specific splits to line up. Raising mtry recovers it.
+for (mt in 1:3) {
+  m <- ranger(y ~ a + b + c, df, importance = "impurity", num.trees = 500,
+              mtry = mt, seed = 42)
+  u <- imp(m)
+  cat(sprintf("  [mtry=%d] OOB R^2 %.3f  vip %s  ratio %.1fx  total %.1f  c share %.4f\n",
+              mt, m$r.squared, paste(round(u, 1), collapse = " "),
+              mean(u[1:2]) / u[3], sum(u), u[3] / sum(u)))
+}
+## Credit follows the variance decomposition: with pure trees (mtry=3) the total
+## equals n*Var(y) and c's share is Var(c/10)/Var(y) = 1%. At mtry=1 trees are
+## truncated (a node whose only candidate is constant becomes terminal), the
+## total drops, and the loss hits the pair harder than c (its share rises to ~1.7%).
+cat(sprintf("  n*Var(y) = %.1f   Var(c/10)/Var(y) = %.4f\n", n * var(df$y), var(df$c/10) / var(df$y)))
 
-## a, b and c are exchangeable by construction, so any difference among their
-## importances is sampling noise. Its size is this paper's noise floor: no
+## a and b are exchangeable by construction, so any difference between their
+## importances is sampling noise. Its size is this design's noise floor: no
 ## importance gap smaller than it should be read as meaningful.
 P <- t(sapply(1:10, function(s) {
   set.seed(s)
-  z <- tibble(a = ib(n), b = ib(n), c = ib(n), d = ib(n))
-  z$y <- z$d/10 + (z$a + z$b + z$c) %% 2
-  imp(ranger(y ~ a + b + c + d, z, importance = "impurity",
-             num.trees = 500, seed = s))
+  z <- tibble(a = ib(n), b = ib(n), c = ib(n))
+  z$y <- z$c/10 + (z$a + z$b) %% 2
+  imp(ranger(y ~ a + b + c, z, importance = "impurity", num.trees = 500, seed = s))
 }))
-sp <- apply(P[, 1:3], 1, function(u) 100 * (max(u) - min(u)) / min(u))
-cat(sprintf("  seeds 1-10: a,b,c mean %.0f (SD %.0f)   d mean %.0f   ratio %.1fx\n",
-            mean(P[, 1:3]), sd(as.vector(P[, 1:3])), mean(P[, 4]),
-            mean(P[, 1:3]) / mean(P[, 4])))
-cat(sprintf("  within-seed spread over exchangeable a,b,c: %.0f-%.0f%% (median %.0f%%)\n",
+sp <- apply(P[, 1:2], 1, function(u) 100 * (max(u) - min(u)) / min(u))
+cat(sprintf("  seeds 1-10: a,b mean %.0f (SD %.0f)   c mean %.0f   ratio %.1fx\n",
+            mean(P[, 1:2]), sd(as.vector(P[, 1:2])), mean(P[, 3]),
+            mean(P[, 1:2]) / mean(P[, 3])))
+cat(sprintf("  within-seed spread over exchangeable a,b: %.0f-%.0f%% (median %.0f%%)\n",
             min(sp), max(sp), median(sp)))
+cat("  min(a,b) > c on every seed:", all(apply(P, 1, function(u) min(u[1:2]) > u[3])), "\n")
+## same, at mtry = 3, where the forest fits the target exactly
+P3 <- t(sapply(1:10, function(s) {
+  set.seed(s)
+  z <- tibble(a = ib(n), b = ib(n), c = ib(n))
+  z$y <- z$c/10 + (z$a + z$b) %% 2
+  imp(ranger(y ~ a + b + c, z, importance = "impurity", num.trees = 500,
+             mtry = 3, seed = s))
+}))
+cat(sprintf("  seeds 1-10 at mtry=3: a,b mean %.0f   c mean %.0f   ratio %.1fx\n",
+            mean(P3[, 1:2]), mean(P3[, 3]), mean(P3[, 1:2]) / mean(P3[, 3])))
 ## Control: the spread above belongs to the parity design, not to MDI generally.
-## Same four features, equal marginal effects instead of parity -> much tighter.
+## Same three features, equal marginal effects instead of parity -> much tighter.
 Q <- t(sapply(1:10, function(s) {
   set.seed(s)
-  z <- tibble(a = ib(n), b = ib(n), c = ib(n), d = ib(n))
-  z$y <- z$d/10 + (z$a + z$b + z$c)/3
-  imp(ranger(y ~ a + b + c + d, z, importance = "impurity", num.trees = 500, seed = s))
+  z <- tibble(a = ib(n), b = ib(n), c = ib(n))
+  z$y <- z$c/10 + (z$a + z$b)/2
+  imp(ranger(y ~ a + b + c, z, importance = "impurity", num.trees = 500, seed = s))
 }))
-spq <- apply(Q[, 1:3], 1, function(u) 100 * (max(u) - min(u)) / min(u))
+spq <- apply(Q[, 1:2], 1, function(u) 100 * (max(u) - min(u)) / min(u))
 cat(sprintf("  [control] same features, marginal effects: %.0f-%.0f%%",
             min(spq), max(spq)), " <-- floor is design-specific\n")
-cat("  min(a,b,c) > d on every seed:", all(apply(P, 1, function(u) min(u[1:3]) > u[4])), "\n")
+
+## --- Why the floor is higher here: where the pair's credit lands -------------
+## A split on `a` above any split on `b` removes no variance; the split below
+## removes all of it. So within one tree the pair's credit is winner-take-all and
+## goes to whichever variable sits DEEPER. Measured on single trees at mtry=3.
+first_depth <- function(m) {
+  ti <- treeInfo(m, 1)
+  dep <- rep(NA_integer_, nrow(ti)); dep[1] <- 0
+  for (i in seq_len(nrow(ti))) {          # rows are in nodeID order, parents first
+    if (!is.na(ti$leftChild[i])) {
+      dep[ti$leftChild[i] + 1] <- dep[i] + 1
+      dep[ti$rightChild[i] + 1] <- dep[i] + 1
+    }
+  }
+  sapply(c("a", "b", "c"), function(v) {
+    d <- dep[which(ti$splitvarName == v)]
+    if (!length(d)) NA_integer_ else min(d)
+  })
+}
+set.seed(5)
+d5 <- tibble(a = ib(n), b = ib(n), c = ib(n))
+d5$y <- d5$c/10 + (d5$a + d5$b) %% 2
+R <- t(sapply(1:120, function(s) {
+  m <- ranger(y ~ a + b + c, d5, importance = "impurity", num.trees = 1,
+              mtry = 3, seed = s, keep.inbag = TRUE)
+  u <- imp(m); fd <- first_depth(m)
+  c(a = u[[1]], b = u[[2]], da = fd[["a"]], db = fd[["b"]], dc = fd[["c"]])
+}))
+R <- as.data.frame(R)
+sh <- R$a / (R$a + R$b)
+cat("\n  --- credit vs split depth (dataset seed 5, mtry=3, 120 single trees) ---\n")
+cat("  root split variable:", paste(names(table(ifelse(R$da == 0, "a", ifelse(R$db == 0, "b", "c")))),
+    table(ifelse(R$da == 0, "a", ifelse(R$db == 0, "b", "c"))), collapse = " "), "/120\n")
+cat(sprintf("  a shallower than b : %3d trees   mean a-share %.3f\n", sum(R$da < R$db), mean(sh[R$da < R$db])))
+cat(sprintf("  b shallower than a : %3d trees   mean a-share %.3f\n", sum(R$db < R$da), mean(sh[R$db < R$da])))
+cat(sprintf("  equal depth        : %3d trees   mean a-share %.3f\n", sum(R$da == R$db), mean(sh[R$da == R$db])))
+cat("  -> the pair's credit goes to whichever variable sits deeper; the one that\n",
+    "     opens the pair earns ~0. Only the DIVISION between a and b is random.\n")
+
+## Why mtry decides whether that division is noise or bias. At mtry=1 the tree
+## splits on the single candidate drawn, so which variable opens the pair is set
+## by the RNG and averages out. At mtry=p the node compares both and takes the
+## larger empirical decrease -- a function of the training sample, so every tree
+## re-derives the same choice. Switching bagging off (every tree sees the same
+## data) makes the allocation fully deterministic, which bootstrap only partly
+## decorrelates; hence an imbalance that more trees cannot remove.
+cat("\n  --- a's share of the pair's credit, 500 trees ---\n")
+cat("  data  mtry  bagging        a-share\n")
+for (s in c(5, 6, 3)) {
+  set.seed(s); z <- tibble(a = ib(n), b = ib(n), c = ib(n))
+  z$y <- z$c/10 + (z$a + z$b) %% 2
+  for (mt in c(1, 3)) for (bg in c(TRUE, FALSE)) {
+    m <- if (bg) ranger(y ~ a + b + c, z, importance = "impurity", num.trees = 500,
+                        mtry = mt, seed = s)
+         else    ranger(y ~ a + b + c, z, importance = "impurity", num.trees = 500,
+                        mtry = mt, seed = s, replace = FALSE, sample.fraction = 1)
+    u <- imp(m)
+    cat(sprintf("  %4d  %4d  %-12s   %.3f\n", s, mt, ifelse(bg, "on (default)", "OFF"),
+                u[1] / (u[1] + u[2])))
+  }
+}
+cat("  -> mtry=1 is unchanged by bagging (the coin was never data-driven);\n",
+    "     mtry=3 collapses to 0.999 / 0.000 without it, so the tilt is the data's,\n",
+    "     not the tree's -- and no number of trees averages it away:\n")
+for (mt in c(1, 3)) for (nt in c(500, 4000)) {
+  sp <- sapply(1:6, function(s) {
+    set.seed(s); z <- tibble(a = ib(n), b = ib(n), c = ib(n))
+    z$y <- z$c/10 + (z$a + z$b) %% 2
+    u <- imp(ranger(y ~ a + b + c, z, importance = "impurity", num.trees = nt,
+                    mtry = mt, seed = s))
+    100 * abs(u[1] - u[2]) / min(u[1], u[2]) })
+  cat(sprintf("     mtry=%d trees=%4d : median a-vs-b spread %5.1f%%\n", mt, nt, median(sp)))
+}
+
+## Bias, not noise: hold each dataset fixed and vary only the forest seed. If
+## the imbalance were noise, independent forests would fall on either side of an
+## even split and their mean would approach .5 with more trees. A bias shows as
+## every forest on the same side, with the forest-to-forest SD shrinking as
+## 1/sqrt(trees) while the mean stays put. The a-share is a/(a+b).
+par_data <- function(s) { set.seed(s); z <- tibble(a = ib(n), b = ib(n), c = ib(n))
+  z$y <- z$c/10 + (z$a + z$b) %% 2; z }
+cat("\n  --- a-share of the pair's credit, mtry=3, 8 forest seeds per dataset ---\n")
+cat("  data  trees  mean_a_share  sd_over_forests  all_same_side\n")
+ash <- expand.grid(seed = 1:6, nt = c(500, 4000))
+ash$mean <- ash$sd <- ash$same <- NA
+for (i in seq_len(nrow(ash))) {
+  z <- par_data(ash$seed[i])
+  v <- sapply(101:108, function(rs) {
+    u <- imp(ranger(y ~ a + b + c, z, importance = "impurity", num.trees = ash$nt[i],
+                    mtry = 3, seed = rs))
+    u[1] / (u[1] + u[2]) })
+  ash$mean[i] <- mean(v); ash$sd[i] <- sd(v); ash$same[i] <- all(v > .5) || all(v < .5)
+}
+ash <- ash[order(ash$seed, ash$nt), ]
+for (i in seq_len(nrow(ash)))
+  cat(sprintf("  %4d  %5d     %.4f         %.4f          %s\n",
+              ash$seed[i], ash$nt[i], ash$mean[i], ash$sd[i], ash$same[i]))
+## paired change in |mean - .5| from 500 to 4000 trees, one value per dataset
+dsh <- sapply(1:6, function(s) abs(ash$mean[ash$seed == s & ash$nt == 4000] - .5) -
+                                abs(ash$mean[ash$seed == s & ash$nt == 500] - .5))
+tt <- t.test(dsh)
+cat(sprintf("  |a-share - .5| change 500->4000: mean %+.4f, 95%% CI [%.4f, %.4f], p = %.2f\n",
+            mean(dsh), tt$conf.int[1], tt$conf.int[2], tt$p.value))
+cat(sprintf("  forest SD ratio 500/4000 (median over datasets): %.1fx  (1/sqrt(8) predicts 2.8x)\n",
+            median(ash$sd[ash$nt == 500] / ash$sd[ash$nt == 4000])))
+cat(sprintf("  datasets where all 8 forests fall on the same side of .5: %d/6 at 4000 trees\n",
+            sum(ash$same[ash$nt == 4000])))
+cat("  per-dataset spread at 4000 trees, %:",
+    paste(round(100 * abs(2 * ash$mean[ash$nt == 4000] - 1) /
+                pmin(ash$mean[ash$nt == 4000], 1 - ash$mean[ash$nt == 4000])), collapse = " "),
+    "\n  -> the sign is fixed by the data; more trees sharpen the imbalance, not remove it\n")
+
+## --- Does the bias-corrected measure (AIR) rescue any of this? ---------------
+## No. AIR corrects a bias BETWEEN VARIABLES OF DIFFERING TYPE (more split points
+## / more categories accumulate impurity by chance) by subtracting what permuted
+## pseudo-copies earn. Here both interacting variables are binary, and the problem
+## is how ONE interaction's credit is divided between them -- a within-tree
+## allocation, which the correction never touches.
+## mean-denominated, because AIR can be negative and a min-denominated ratio would
+## then be meaningless (the rest of this block uses min, as the paper does)
+sp_mean <- function(u) 100 * abs(u[1] - u[2]) / mean(c(u[1], u[2]))
+## 100 seeds, not 10: the mtry=1 comparison below is a NULL result, and a 10-seed
+## median of this statistic is worthless -- resampling 10-seed blocks out of 100,
+## it lands anywhere in 4.9-13.0 (plain) or 3.3-15.2 (AIR), and says AIR is the
+## better of the two on 48% of draws. Costs ~4 min of the script's runtime.
+S_AIR <- 100
+cat("\n  --- AIR vs plain impurity on the parity design (seeds 1-", S_AIR, ") ---\n", sep = "")
+cat("  measure              mtry   mean_a,b   mean_c   a,b>c always   spread: median   mean\n")
+for (mt in c(1, 3)) {
+  V <- lapply(c("impurity", "impurity_corrected"), function(meas)
+    t(sapply(1:S_AIR, function(s)
+      imp(ranger(y ~ a + b + c, par_data(s), importance = meas,
+                 num.trees = 500, mtry = mt, seed = s)))))
+  names(V) <- c("impurity", "impurity_corrected")
+  for (meas in names(V)) {
+    P <- V[[meas]]
+    cat(sprintf("  %-19s %4d %9.1f %8.1f       %-5s         %6.2f%% %6.2f%%\n", meas, mt,
+        mean(P[, 1:2]), mean(P[, 3]),
+        all(apply(P, 1, function(u) min(u[1:2]) > u[3])),
+        median(apply(P, 1, sp_mean)), mean(apply(P, 1, sp_mean))))
+  }
+  ## paired on the same datasets, so compare per seed rather than across summaries
+  dd <- apply(V$impurity_corrected, 1, sp_mean) - apply(V$impurity, 1, sp_mean)
+  ci <- t.test(dd)$conf.int
+  cat(sprintf("    paired diff (AIR - plain): median %+6.2f  mean %+6.2f  95%% CI [%+.2f, %+.2f]  Wilcoxon p = %.1e  AIR lower on %d/%d\n",
+      median(dd), mean(dd), ci[1], ci[2],
+      suppressWarnings(wilcox.test(dd)$p.value), sum(dd < 0), S_AIR))
+}
+cat("  -> the a,b >> c result is measure-independent. At the default mtry=1 the two\n",
+    "     measures are INDISTINGUISHABLE (the CI spans 0). AIR's real gap at mtry=p is\n",
+    "     large and reproducible, but it is NOT the correction: under IMP_GINI_CORRECTED\n",
+    "     ranger sets num_vars += getNumCols() (Tree.cpp), so the candidate pool is 2p\n",
+    "     and a node often does not see both a and b -- the same decorrelation a smaller\n",
+    "     mtry gives, and it costs fit the same way (OOB R^2 0.946 vs 1.000). Two checks:\n")
+
+cat("\n  a-share of the pair's credit, mtry=3, 500 trees:\n")
+cat("  measure              bagging     seed5    seed6\n")
+for (meas in c("impurity", "impurity_corrected")) for (bg in c(TRUE, FALSE)) {
+  o <- sapply(c(5, 6), function(s) { d <- par_data(s)
+    m <- if (bg) ranger(y ~ a + b + c, d, importance = meas, num.trees = 500, mtry = 3, seed = s)
+         else    ranger(y ~ a + b + c, d, importance = meas, num.trees = 500, mtry = 3, seed = s,
+                        replace = FALSE, sample.fraction = 1)
+    u <- imp(m); u[1] / (u[1] + u[2]) })
+  cat(sprintf("  %-19s %-10s %6.3f   %6.3f\n", meas, ifelse(bg, "on", "OFF"), o[1], o[2]))
+}
+cat("     (with identical data in every tree plain impurity collapses to winner-take-all;\n",
+    "      AIR does not, because its candidate draw is still random)\n")
+cat("\n  median a-vs-b spread, mtry=3, seeds 1-6:\n")
+for (meas in c("impurity", "impurity_corrected")) for (nt in c(500, 4000)) {
+  v <- sapply(1:6, function(s) sp_mean(imp(ranger(y ~ a + b + c, par_data(s),
+    importance = meas, num.trees = nt, mtry = 3, seed = s))))
+  cat(sprintf("     %-19s trees=%4d : %5.1f%%\n", meas, nt, median(v)))
+}
+cat("     (more trees help under AIR and do not under plain impurity: lower rho)\n")
 
 ## ---------------------------------------------------------------------------
 ## Claim 3: split-mechanics on sorted polynomials. Two effects, cleanly separated
