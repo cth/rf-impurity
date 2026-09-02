@@ -59,14 +59,12 @@ bootstrap resampling only partly decorrelates that choice.
 Conditional on the
 training sample the surviving imbalance therefore becomes a bias rather than noise:
 every tree re-derives the same tilt from the same data, so averaging converges
-to that tilt instead of to an even split. Holding each of six datasets fixed
-and varying only the forest seed shows this directly: at $\code{mtry} = p$ and
-$4000$ trees, all eight independent forests place $a$'s share of the pair's credit
-on the same side of $1/2$ for every dataset, and going from $500$ to $4000$ trees
-shrinks the forest-to-forest SD of that share from $0.02$ to $0.005$ while its
-mean stays where it was (largest shift $0.013$). More trees sharpen the
-imbalance rather than remove it. How far from even it lands is a property of the
-sample: the $a$-vs-$b$ spread runs from $3\%$ to $119\%$ across the six datasets.
+to that tilt instead of to an even split. Refitting each of six datasets with
+eight forest seeds at $\code{mtry} = p$ confirms this: all eight land on the
+same side of an even split for every dataset, and from $500$ to $4000$ trees the
+forest-to-forest SD falls from $0.02$ to $0.005$ while the mean does not move.
+The size of the imbalance is the sample's: the $a$-vs-$b$ spread runs from
+$3\%$ to $119\%$ across the six.
 %What is left is the
 %$\rho\sigma^2$ floor that averaging cannot cross, $\rho$ being the sampling
 %correlation between pairs of trees \citep[\S15.2, \S15.4.1]{hastie2009} --- for
