@@ -62,6 +62,20 @@ for (meas in c("impurity", "impurity_corrected")) {
   }
 }
 cat("  -> default mtry compresses plain impurity; AIR is mtry-insensitive but noisy\n")
+## Where AIR's noise sits: seed-to-seed relative SD per feature at the default
+## mtry. The subtraction nearly cancels for the weakest feature, so a's AIR is
+## ~3x noisier than plain impurity's; c, where little is subtracted, is not.
+for (meas in c("impurity", "impurity_corrected")) {
+  M <- t(sapply(1:10, function(s) {
+    set.seed(s)
+    d <- tibble(a = runif(n), b = runif(n), c = runif(n))
+    d$y <- d$a + 2*d$b + 4*d$c
+    imp(ranger(y ~ ., d, importance = meas, num.trees = 500, seed = s))
+  }))
+  cat(sprintf("  %-19s seed-to-seed rel. SD a,b,c: %.0f%% %.0f%% %.0f%%\n",
+              meas, 100 * sd(M[, 1]) / mean(M[, 1]), 100 * sd(M[, 2]) / mean(M[, 2]),
+              100 * sd(M[, 3]) / mean(M[, 3])))
+}
 
 ## Scornet proves the variance identity for truncated trees and warns that
 ## fully grown trees give positively biased MDI. That bias comes from fitting
@@ -207,7 +221,7 @@ v <- imp(mrf)
 cat("  RF  OOB R^2 (default mtry=1)  :", round(mrf$r.squared, 3), "\n")
 cat("  RF  vip a,b,c                 :", round(v, 1), "\n")
 cat("  interacting pair > c ?        :", (min(v["a"], v["b"]) > v["c"]), "\n")
-## mtry: with p=3 the default mtry=floor(p/3)=1 starves the interaction, since
+## mtry: with p=3 the default mtry=floor(sqrt(p))=1 starves the interaction, since
 ## reaching it needs two specific splits to line up. Raising mtry recovers it.
 for (mt in 1:3) {
   m <- ranger(y ~ a + b + c, df, importance = "impurity", num.trees = 500,

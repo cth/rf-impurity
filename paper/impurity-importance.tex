@@ -32,7 +32,7 @@ to read a random forest regression, and it is routinely misread as a per-unit ef
 as if it were comparable to a linear-model coefficient. In additive settings MDI
 instead estimates each feature's \emph{variance contribution},
 $\mathrm{Var}(f_j(X_j))$ --- for a linear term, $\beta_j^2\,\mathrm{Var}(X_j)$. We
-make the practical consequences concrete through five controlled experiments:
+make the practical consequences concrete through a sequence of controlled experiments:
 impurity importance (i) grows with the \emph{square} of a linear coefficient, not
 the coefficient; (ii) assigns an interaction's variance to the interacting
 variables; and (iii) gives \emph{provably identical} scores to a genuinely non-linear

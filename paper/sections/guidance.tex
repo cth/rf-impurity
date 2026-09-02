@@ -28,9 +28,11 @@
   ALE \citep{apley2020}, which accumulates local effects conditional on the
   neighbouring feature distribution instead of marginalising across it.
 \item \textbf{\code{impurity\_corrected} fixes a different problem.} It removes
-  the bias toward null / high-cardinality features (use it --- it is the right
-  default), and it tracks the variance contribution more faithfully than plain
-  impurity, which the default \code{mtry} compresses (Section~\ref{sec:linear}).
+  the bias toward null / high-cardinality features (use it when feature types
+  are mixed), and it tracks the variance contribution more faithfully than plain
+  impurity, which the default \code{mtry} compresses (Section~\ref{sec:linear})
+  --- at the price of far higher seed-to-seed variance on weak features, so
+  read its ratios only as averages over seeds.
   What it does not change is the \emph{units}: it is still a variance, not a
   per-unit effect, so nothing in
   Sections~\ref{sec:interactions}--\ref{sec:confound} goes away --- the table

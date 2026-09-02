@@ -27,8 +27,9 @@ depends on a feature only through the \emph{ordering} of its values --- as it
 does for an exhaustive search over thresholds between consecutive order
 statistics, \code{ranger}'s default \code{splitrule = "variance"} --- and (ii)
 bootstrap indices and candidate-feature draws are held fixed across the two fits,
-then the two forests are identical tree for tree, and every importance derived
-from them coincides exactly.
+then the two forests are identical tree for tree as partitions of the in-bag
+sample, and every importance that is a functional of those partitions (MDI,
+AIR) coincides exactly.
 
 The mechanism is the monotone relabelling, not equality of variance
 contributions. Equal variance is a by-product of the same construction; the

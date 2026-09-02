@@ -172,8 +172,8 @@ a partial year. The monotonic-looking decline from 2020 on is the reliable part.
 
 ## Caveats
 
-- **Unverified Haiku first pass** — precision unknown until the Sonnet/Opus
-  adjudication pass runs. Prioritize the 63 zero-corroboration flags.
+- **Haiku first pass is a screen** — Sonnet adjudication confirmed 55 of the
+  125 flags (~44% precision); sections above that quote raw flag counts predate it.
 - **Full-text only** — the 2,416 abstract-only papers are a separate, lower-power
   track, not screened here. True corpus-wide prevalence is higher than the
   full-text number alone implies only if abstracts surface additional cases;

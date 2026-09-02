@@ -1,7 +1,7 @@
 \section{Interactions are charged to the interacting variables}
 \label{sec:interactions}
 
-A high importance does not need to imply any marginal effect.
+A high importance need not imply any marginal effect.
 Variables that matter only in combination are credited disproportionately. 
 Consider a pure two-way parity interaction with no marginal effects:
 \[
@@ -28,18 +28,19 @@ trees grown to purity remove $n\,\mathrm{Var}(y)$ between them, so the importanc
 divides as the variance does. The target is additive in two independent pieces,
 $\mathrm{Var}(c/10) = 0.0025$ and $\mathrm{Var}\big((a+b) \bmod 2\big) = 0.25$: the
 coefficient $1/10$ gives $c$ one hundredth of the pair's variance, so $c$ gets importance 
-$1\%$ and the pair $99\%$. Note, this is exactly the explained
+$1\%$ and the pair $99\%$. Note that this is exactly the explained
 variance ($R^2 = 0.01$) of main effects OLS.
 At $\code{mtry} = 3$, the measured total is $2525.2 = n\,\mathrm{Var}(y)$ and $c$ receives $1.02\%$
 of it. Over seeds $1$--$10$ at the default $\code{mtry} = 1$, $a$ and $b$ average
-$451$ (SD $29$) against $15$ for $c$, and its importance 
-increases to $1.7\%$ rather than $1\%$. Figure~\ref{fig:interaction} shows the contrast
+$451$ (SD $29$) against $15$ for $c$, and its share rises to $1.6\%$, because
+$\code{mtry} = 1$ truncates trees and the loss falls harder on the pair, whose
+credit needs both variables on one path. Figure~\ref{fig:interaction} shows the contrast
 against main-effects OLS.
 
 Since $a$ and $b$ are exchangeable by construction, any difference between their
 importances is sampling noise, and within a single seed they spread by
 $2$--$20\%$ (median $10\%$), against $1$--$6\%$ when the parity is replaced by
-equal \emph{marginal} effects on the same three features ($y = c/10 + (a + b)/2$). 
+equal \emph{marginal} effects for $a$ and $b$ ($y = c/10 + (a + b)/2$).
 Only the $a,b \gg c$ gap carries information here.
 
 The interaction spread is the wider one because credit for an interacting variable is
@@ -58,8 +59,8 @@ with bagging disabled the pair's credit goes entirely to one variable, and
 bootstrap resampling only partly decorrelates that choice. 
 Conditional on the
 training sample the surviving imbalance therefore becomes a bias rather than noise:
-every tree re-derives the same tilt from the same data, so averaging converges
-to that tilt instead of to an even split. Refitting each of six datasets with
+every tree re-derives the same allocation from the same data, so averaging
+converges to that allocation instead of to an even split. Refitting each of six datasets with
 eight forest seeds at $\code{mtry} = p$ confirms this: all eight land on the
 same side of an even split for every dataset, and from $500$ to $4000$ trees the
 forest-to-forest SD falls from $0.02$ to $0.005$ while the mean does not move.
@@ -78,14 +79,15 @@ random draw of $F$ candidate inputs (what the parameter \code{mtry} implements) 
 maintaining strength'' \citep[\S3; Thm.~11.2 for regression]{breiman2001},
 $\bar\rho$ being the correlation between the predictions of pairs of trees.
 At $\code{mtry} = p$ none of that randomness is injected. The $\code{mtry}$
-setting that results in the best OOB generalization is therefore also the one whose division of
+setting that results in the best OOB generalization (OOB $R^2$ $1.00$ at
+$\code{mtry} = p$ against $0.59$ at the default) is therefore also the one whose division of
 importance between $a$ and $b$ is least trustworthy. 
 
 AIR was not designed to remove \emph{this bias}, but it has an incidental 
 effect through tree decorrelation.
 At $\code{mtry} = 1$ the two importance measures are indistinguishable, whereas
-AIR shows improvement 
-at $\code{mtry} = p$ ($13.3\%$ against $29.1\%$). This comes
+AIR shows improvement
+at $\code{mtry} = p$ (median $a$-vs-$b$ spread $13.3\%$ against $29.1\%$). This comes
 from its permuted pseudo-variables enlarging the candidate pool to $2p$, which
 lowers $\bar\rho$ in the same vein as a smaller \code{mtry} would, degrading also 
 OOB $R^2$ to $0.946$.

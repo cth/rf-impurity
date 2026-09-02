@@ -1,23 +1,3 @@
-% ---------------------------------------------------------------------------
-% PREVIOUS VERSION, kept for comparison. Delete once the expansion below is
-% settled. It stopped at the ordinal claim and reported the default-mtry ratio
-% (1:4.7:22.6) without noting that it is roughly half the predicted
-% 1:9.07:48.96 --- a gap Section 7 later refers to as "compressed".
-%
-% \section{Non-linear effects: variance contribution predicts the ranking}
-% \label{sec:nonlinear}
-%
-% Data: $y = a + b^2 + c^3$, with $a = 1 + U_a$, $b = 1 + U_b$, $c = 1 + U_c$ and
-% $U_a, U_b, U_c$ independent $U(0,1)$ draws, $n = 10000$. (The draws are
-% \emph{separate} per feature: a single shared $U$ would make the three features
-% collinear and the experiment vacuous.)
-% Each term's variance contribution grows with its degree, so
-% Section~\ref{sec:background-strands} predicts
-% $\mathrm{vip}(a) < \mathrm{vip}(b) < \mathrm{vip}(c)$; the forest confirms it,
-% $1751 < 8166 < 39632$ (a $1:4.7:22.6$ ratio). A linear model still returns non-zero
-% coefficients, but they are uninterpretable: the residuals are visibly non-normal.
-% ---------------------------------------------------------------------------
-
 \section{Non-linear effects: variance contribution predicts the scores}
 \label{sec:nonlinear}
 

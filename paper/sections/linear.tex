@@ -21,7 +21,7 @@ c & 4 & 7.76 & 25.9 \\
 
 A coefficient ratio of $1:2:4$ becomes an importance ratio of $1:2.4:7.8$: the
 ordering is correct and the growth is clearly super-linear, but the spread
-is not exactly the $1:4:16$, the ratio of the \emph{squared} coefficients that
+falls short of $1:4:16$, the ratio of the \emph{squared} coefficients that
 Section~\ref{sec:background-strands} predicts.
 
 For a linear term the contributed
@@ -63,7 +63,7 @@ both settings: at $\code{mtry}=p$ they approach the predicted $1:4:16$
 ($1:12.0:58.3$ at depth $4$, $1:4.45:19.1$ fully grown), and at the default
 $\code{mtry}=1$ they fall further below it ($1:3.38:12.1$ at depth $2$,
 $1:2.25:7.26$ fully grown). The residual overshoot at $\code{mtry}=p$ is a
-finite-sample effect: for increasing larger values $n$ the effect diminishes 
+finite-sample effect: it diminishes as $n$ grows
 ($1:4.15:17.1$ at $n=4000$, $1:4.01:16.1$ at $n=64000$; means over seeds
 $1$--$10$). This is aligned with Scornet's theorem about greedy CART splitting 
 being asymptotic in $n$. The compression at $\code{mtry}=1$, which the theorem does not
@@ -73,9 +73,8 @@ fitting procedure --- split randomisation and greedy split selection --- and
 shrink toward the squared-coefficient prediction as $n$ grows.
 
 Extending to
-$y = a + 2b + 3c + \dots + 11k$ (11 features, coefficients $1\ldots11$) and regressing 
-importance on $\beta^2$ also demonstrates 
-this. Over seeds $1$--$10$, regressing importance on $\beta^2$ gives a mean
+$y = a + 2b + 3c + \dots + 11k$ (11 features, coefficients $1\ldots11$)
+demonstrates the same. Over seeds $1$--$10$, regressing importance on $\beta^2$ gives a mean
 $R^2$ of $0.98$ (range $0.96$--$0.99$) against $0.91$ on $\beta$ (range
 $0.88$--$0.94$), and $\beta^2$ is the better fit on every seed;
 Figure~\ref{fig:superlinear} shows one of them. Importance is denominated in
@@ -127,11 +126,6 @@ far noisier from seed to seed, and the two effects offset: it ranks no better
 (mean Spearman $0.99$). Even where
 the order holds, ``how much more'' is not comparable to a coefficient. 
 
-Furthermore, 
-%the
-%two conditions assumed throughout --- comparable feature distributions,
-%effects that are purely marginal --- are necessary rather than sufficient:
-%both fail routinely, since
-an interaction lets a variable with no marginal effect outrank one that has
+Furthermore, an interaction lets a variable with no marginal effect outrank one that has
 (Section~\ref{sec:interactions}), and unequal feature distributions reorder
 the ranking on their own (Section~\ref{sec:confound}).
