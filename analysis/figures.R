@@ -27,19 +27,19 @@ plot(eff^2, v, pch = 19, col = "grey20", xlab = expression("variance contributio
 abline(lm(v ~ I(eff^2)), col = "firebrick", lwd = 2)
 dev.off()
 
-## Fig 2: three-way parity interaction - OLS (even with all pairwise terms) blind,
-## RF importance loads on the three interacting variables
+## Fig 2: two-way parity interaction - main-effects OLS sees only c,
+## RF importance loads on the two interacting variables (default mtry)
 set.seed(42); n <- 10000; ib <- function(n) round(runif(n))
-df <- tibble(a = ib(n), b = ib(n), c = ib(n), d = ib(n), y = d/10 + (a + b + c) %% 2)
-ols <- lm(y ~ (a + b + c)^2 + d, df)          # all main + pairwise terms
-v <- imp(ranger(y ~ a + b + c + d, df, importance = "impurity", num.trees = 500, seed = 42))
-names(v) <- c("a","b","c","d")
+df <- tibble(a = ib(n), b = ib(n), c = ib(n), y = c/10 + (a + b) %% 2)
+ols <- lm(y ~ a + b + c, df)                  # main effects only
+v <- imp(ranger(y ~ a + b + c, df, importance = "impurity", num.trees = 500, seed = 42))
+names(v) <- c("a","b","c")
 png("figures/fig2_interaction.png", 900, 420, res = 110)
 par(mfrow = c(1,2))
 oc <- abs(coef(ols)[-1])
-barplot(oc, las = 2, cex.names = 0.7, col = "grey70",
-        main = "OLS |coefficient|\n(all main + pairwise terms)", ylab = "|coef|")
-barplot(v, col = c("firebrick","firebrick","firebrick","grey70"),
+barplot(oc, las = 1, col = c("firebrick","firebrick","grey70"),
+        main = "OLS |coefficient|\n(main effects only)", ylab = "|coef|")
+barplot(v, col = c("firebrick","firebrick","grey70"),
         main = "RF impurity importance", ylab = "importance")
 dev.off()
 

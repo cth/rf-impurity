@@ -137,7 +137,7 @@ $$
   \end{cases}
 $$
 
-We generate 1000 random data instances where we randomly pick $a$, $b$ and $c$ from the set ${0,1}$ and calculate $y$ as above. Note that the variable $c$ has an independent effect on $y$, but that it's effect is smaller than interaction effect of $a$ and $b$.
+We generate 10000 random data instances where we randomly pick $a$, $b$ and $c$ from the set ${0,1}$ and calculate $y$ as above. Note that the variable $c$ has an independent effect on $y$, but that it's effect is smaller than interaction effect of $a$ and $b$.
 
 
 ```{r, results='hide',echo=FALSE}
@@ -169,7 +169,7 @@ theme(legend.position="none") +
 geom_vline(xintercept = 0, colour = "grey50", linetype = 2) + ggtitle("OLS model effect estimates + 95% CIs")}
 
 ```
-As a side-note - one could add an interaction term to the linear model, but this particular (non-linear) interaction is not of the type easily handled with a usual interaction term in linear models, since that is expected to be a *linear* interaction.
+As a side-note - one could add an interaction term to the linear model, and here that is enough: adding $a \times b$ recovers the parity exactly ($R^2 = 1$). For binary inputs $(a+b) \bmod 2 = a + b - 2ab$, so the two-way parity is bilinear and a usual interaction term fits it perfectly. A linear model can therefore represent this interaction, provided one knows in advance to ask for the $a \times b$ term. The random forest picks it up unprompted, and, as we see below, charges it to $a$ and $b$ - which is what this section is about.
 
 ```{r,echo=FALSE,results='hide'}
 ols_model <- lm(y ~ a + b + c + a*b, data = df) # Add a*b interaction, as usual
@@ -187,7 +187,7 @@ rf.model <- ranger::ranger(y ~ a + b + c,data = df, importance = "impurity_corre
 rf.model
 ```
 
-The random forest model gets a predictive power - summarized by out-of-bag $R^2 = 0.6$ - which is not fantastic, but a lot better than the $R^2=0.01$ achieved by the linear model. Hence, the random forest is to some degree capable of capturing the interaction.
+The random forest model gets a predictive power - summarized by out-of-bag $R^2 = 0.6$ - which is not fantastic, but a lot better than the $R^2=0.01$ achieved by the main-effects linear model. Hence, the random forest is to some degree capable of capturing the interaction.
 
 Since the learned model reflects the interaction, we are interested in knowing what emphasis it puts on the different variables. Using out variance/impurity variable importance measure we can see variable importances put more emphasis on $a$ and $b$ and less on $c$:
 
