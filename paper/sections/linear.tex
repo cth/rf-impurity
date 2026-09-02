@@ -113,21 +113,25 @@ Importance is linear in $\beta^2$, not in $\beta$.}
 \label{fig:superlinear}
 \end{figure}
 
-\paragraph{Takeaway.} Among identically distributed features with linear
+%\paragraph{Takeaway.} 
+Among identically distributed features with linear
 effects, importance recovers the coefficient order when the contributions are
 well separated, but not reliably when they are close: for
 $\beta = 1\ldots11$ at the default \code{mtry}, only $3$ of $10$ seeds rank
 all eleven correctly (mean Spearman $0.99$), and the inversions fall among the
 weak features that \code{mtry} compression pushes into near-ties. AIR does not
-rescue this. It spreads that weak end much further apart --- the $\beta = 5$
-feature scores $16.4$ times the $\beta = 1$ feature, against $2.45$ under
-plain impurity, where the variance identity predicts $25$ --- but it is also
+rescue this. It spreads that weak end much further apart
+% (the $\beta = 5$ feature scores $16.4$ times the $\beta = 1$ feature, against $2.45$ under plain impurity, where the variance identity predicts $25$),
+but it is also
 far noisier from seed to seed, and the two effects offset: it ranks no better
 (mean Spearman $0.99$). Even where
-the order holds, ``how much more'' is not comparable to a coefficient. And the
-two conditions assumed throughout --- comparable feature distributions,
-effects that are purely marginal --- are necessary rather than sufficient:
-both fail routinely, since
+the order holds, ``how much more'' is not comparable to a coefficient. 
+
+Furthermore, 
+%the
+%two conditions assumed throughout --- comparable feature distributions,
+%effects that are purely marginal --- are necessary rather than sufficient:
+%both fail routinely, since
 an interaction lets a variable with no marginal effect outrank one that has
 (Section~\ref{sec:interactions}), and unequal feature distributions reorder
 the ranking on their own (Section~\ref{sec:confound}).
