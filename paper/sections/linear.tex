@@ -134,6 +134,7 @@ the ranking on their own (Section~\ref{sec:confound}).
 among comparably distributed features, and expect inversions where
 contributions are close. Its ratios are in squared-coefficient units and
 further compressed by the default \code{mtry}, so a bar twice as tall does not
-mean an effect twice as large. \code{impurity\_corrected} follows the variance
-contribution more closely but varies far more from seed to seed on weak
-features; average it over seeds before reading a ratio from it.
+mean an effect twice as large. \code{impurity\_corrected} removes the bias
+toward null and high-cardinality features it was built for and follows the
+variance contribution more closely, but varies far more from seed to seed on
+weak features; average it over seeds before reading a ratio from it.

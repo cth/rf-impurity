@@ -17,7 +17,8 @@ Two strands of prior work bear on this. The first documents that MDI is
 \emph{biased} toward continuous and high-cardinality
 features \citep{strobl2007,nembrini2018}; \citet{nembrini2018} give the
 bias-corrected ``actual impurity reduction'' (AIR), exposed by \code{ranger} as
-\code{impurity\_corrected}. The second is theoretical: \citet{louppe2013}
+\code{impurity\_corrected}; further debiased MDI variants \citep{li2019,zhou2021}
+address the same type bias. The second is theoretical: \citet{louppe2013}
 decompose asymptotic MDI into per-variable contributions (for totally
 randomised trees on categorical inputs), and \citet{scornet2023} proves that for
 additive regression with independent uniform inputs, fitted with
