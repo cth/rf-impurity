@@ -15,9 +15,9 @@ Section~\ref{sec:background-strands} predicts importances in the ratio
   1 : 9.07 : 48.96 .
 \]
 At \code{ranger}'s default the forest reports $1751 < 8166 < 39632$, a
-$1:4.7:22.6$ ratio: the order is right and the spread is about half what is
-predicted. That shortfall is the \code{mtry} dilution of
-Section~\ref{sec:linear}, not a failure of the identity, and letting the
+$1:4.7:22.6$ ratio. The spread is about half what is
+predicted and the shortfall is the \code{mtry} dilution of
+Section~\ref{sec:linear}: letting the
 features compete removes it (means over seeds $1$--$10$):
 
 \begin{center}
@@ -32,8 +32,10 @@ features compete removes it (means over seeds $1$--$10$):
 \end{tabular}
 \end{center}
 
-Truncation bites harder here than in Section~\ref{sec:linear}. At
-$\code{mtry}=p$ the weakest feature earns no splits at all out to depth $4$
+%Truncation bites harder here than in Section~\ref{sec:linear}. 
+This is a trunction effect:
+At
+$\code{mtry}=p$ the weakest feature gets no splits at all out to depth $4$
 (against depth $2$ for the linear design), and the ratio only settles once the
 trees are grown out: $1:11.5:63.5$ at depth $8$, $1:9.63:52.8$ fully grown.
 The wider the true contributions are spread, the longer a shallow forest
@@ -47,7 +49,7 @@ same importance follows in closed form,
   \frac{\mathrm{sd}\big(f_j(X_j)\big)}{\mathrm{sd}(X_j)} ,
 \]
 which here gives $\beta = 3.01$ for the squared term and $\beta = 7.00$ for the
-cubic. On this data a cubic effect buys exactly as much impurity importance as
+cubic. On this data a cubic effect results in exactly as much impurity importance as
 a linear effect with a coefficient of $7$. Note that this is the coefficient
 matching the \emph{variance contributed}, which is not the best linear
 approximation to $f_j$: the two differ by the factor

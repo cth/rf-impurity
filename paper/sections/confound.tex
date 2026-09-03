@@ -1,8 +1,7 @@
 \section{Non-linearity and feature scale are indistinguishable}
 \label{sec:confound}
 
-The identity of Section~\ref{sec:background-strands} has a jarring consequence,
-which the following construction makes concrete. Take equal linear effects but
+Take equal linear effects but
 skewed feature \emph{distributions}:
 \[
   a = 1 + U_a, \quad b = (1 + U_b)^2, \quad c = (1 + U_c)^3, \quad y = a + b + c,
@@ -12,10 +11,14 @@ where $U_a, U_b, U_c$ are \emph{the same} draws used in
 Section~\ref{sec:nonlinear}. Every feature enters with coefficient 1, and OLS
 recovers $1.00, 1.00, 1.00$: nothing about the \emph{effects} is non-linear. Yet
 the forest reports \textbf{1751 / 8166 / 39632}, a $1:4.7:22.6$ spread
-\textbf{numerically identical}, to the digit, to the non-linear model of
+-- exactly the same as 
+%\textbf{numerically identical}, to the digit, to the 
+non-linear model of
 Section~\ref{sec:nonlinear} (Figure~\ref{fig:confound}).
 
-That is not a coincidence of this seed but a theorem about the construction.
+The agreement is exact because the two datasets present the forest with the
+same information: the same response vector, and each feature in the same
+order. The following proposition makes this precise.
 
 \paragraph{Proposition.} Fix draws $U_a, U_b, U_c$ and compare two worlds:
 \emph{(A)} features $(1{+}U_a,\; 1{+}U_b,\; 1{+}U_c)$ with response
