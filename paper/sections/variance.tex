@@ -36,6 +36,9 @@ properties that the table illustrates are:
   charged to the same feature.
 \end{enumerate}
 
+Neither property depends on \code{mtry}: the sweep has a single feature, and
+\code{mtry} decides which features compete at a node, not where a feature's
+best threshold falls or what the split can see.
 Impurity importance is a sum of those split scores over the fitted trees, so it
 inherits both properties: it summarises variance contribution over the feature
 ordering, but is blind to the metric the ordering lives on.
