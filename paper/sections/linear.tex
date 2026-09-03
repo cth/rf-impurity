@@ -129,3 +129,11 @@ the order holds, ``how much more'' is not comparable to a coefficient.
 Furthermore, an interaction lets a variable with no marginal effect outrank one that has
 (Section~\ref{sec:interactions}), and unequal feature distributions reorder
 the ranking on their own (Section~\ref{sec:confound}).
+
+\paragraph{Practical implications.} Read an impurity ranking as an ordering
+among comparably distributed features, and expect inversions where
+contributions are close. Its ratios are in squared-coefficient units and
+further compressed by the default \code{mtry}, so a bar twice as tall does not
+mean an effect twice as large. \code{impurity\_corrected} follows the variance
+contribution more closely but varies far more from seed to seed on weak
+features; average it over seeds before reading a ratio from it.
