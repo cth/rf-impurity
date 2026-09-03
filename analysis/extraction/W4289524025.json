@@ -1,0 +1,14 @@
+{
+  "id": "W4289524025",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper describes random forest classification as a methodological capability of Namco, stating that 'The most informative features that were used for classification can be extracted as biomarker candidates for hypothesis generation and further research.' However, the case study results section uses only differential abundance analysis (Wilcoxon test with Benjamini-Hochberg correction), Spearman correlation analysis, and functional profiling (PICRUSt2 with Aldex2). Random forest classification and feature importance are not applied or reported in the actual study, and no importance methodology or p-values for testing importance are specified in the Methods section."
+}

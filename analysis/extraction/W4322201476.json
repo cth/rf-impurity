@@ -1,0 +1,19 @@
+{
+  "id": "W4322201476",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses percent contribution (impurity importance) from BRT models, stating \"Song intensity showed the strongest relationship with month, which contributed 59%-77% of the explained deviance\" and \"all environmental predictors had relatively low contributions.\" However, these magnitude/ranking interpretations are adequately corroborated through partial dependence plots showing functional relationships. Main conclusions about seasonal song patterns are validated by independent whaling records documenting breeding timing; D call reductions during heatwaves are corroborated by measured krill density data; and the D call→song relationship is tested with linear mixed models (p=0.04), not solely on percent contribution rankings."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "W4224249118",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger random forest models \"weighted for class imbalance and tuned to 500 trees, up to 3 variables to split each node on and maximum tree depth of 20\" for imputation, evaluating performance through cross-validation confusion matrices: \"Model 2, constrained to the number of subdistricts predicted by model 1, correctly guessed ≈80% of the true subdistricts of origin and ≈63% of true subdistricts of arrival.\" No variable importance scores are reported or interpreted. All substantive conclusions concern population estimates (\"Yemen's population rose from about 26.3 M to 31.1 M during the seven-year analysis period\") derived from the imputed dataset and sensitivity analyses on key parameters."
+}

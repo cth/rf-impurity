@@ -1,0 +1,12 @@
+{
+  "id": "W4390990395",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper's primary analysis uses Generalized Additive Models (GAMs) with sequential backward elimination based on smoothing spline p-values, not random forest impurity importance. While Table 2 compares GAM performance to random forests using default settings, no random forest importance values are reported or interpreted. All effect estimates and interpretations (Table 4) derive from GAM partial dependence plots. The ablation study uses Wilcoxon signed rank tests for feature group validation, not impurity-based ranking."
+}

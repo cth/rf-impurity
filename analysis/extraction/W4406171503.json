@@ -1,0 +1,16 @@
+{
+  "id": "W4406171503",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Candidate variables were \"chosen based on availability, clinical relevance and use in published prediction models.\" The paper trains a random forest with Gini index splitting (Table 1) but does not extract or report variable importance values. Model comparison focuses on predictive performance metrics (Table 3: AUC, sensitivity, specificity) rather than feature importance rankings."
+}

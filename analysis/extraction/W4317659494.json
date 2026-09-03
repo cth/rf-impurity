@@ -1,0 +1,16 @@
+{
+  "id": "W4317659494",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "This paper uses an ensemble of Boosting, Random Forest, and Lasso to predict one-year mortality but does not examine or report variable importance. The analysis focuses solely on predicted mortality scores: \"The trained algorithm was used to predict one-year survival for the test sample of one third of the population, and the distribution of healthcare expenditure over the year of follow-up by predicted mortality at one year was examined.\" Conclusions concern spending patterns at different mortality probability thresholds (e.g., \"only 2.8% of total health care expenditure\" at >50% predicted mortality) and comparisons between matched cohorts, not feature importance rankings or magnitudes."
+}

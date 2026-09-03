@@ -1,0 +1,16 @@
+{
+  "id": "W4395117975",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper's abstract and methods section state: \"We use an extensive simulation study to systematically investigate various factors that influence survival forest performance – forest construction method, censoring, sample size, distribution of the response, structure of the linear predictor, and presence of correlated or noisy covariates.\" The error metrics used are \"absolute loss and Harrell's concordance index (C-index)\" for point prediction and \"integrated Brier score (IBS)\" for survival function estimation. No importance scores, variable selection, or ranking by variable importance are discussed anywhere in the paper—only comparisons of forest methods' predictive accuracy."
+}

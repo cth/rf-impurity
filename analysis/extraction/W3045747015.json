@@ -1,0 +1,12 @@
+{
+  "id": "W3045747015",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Random forests employed solely for classification: \"A random forest classifier was trained on merged CAP binding matrices at both motif and peak level to predict cis-regulatory elements (promoter or enhancer).\" Methods report only prediction accuracy and OOB error estimates with \"confusion matrix\" - no feature importance values extracted or discussed. Paper contains zero mentions of \"importance,\" \"impurity,\" or \"feature ranking.\""
+}

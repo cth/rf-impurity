@@ -1,0 +1,14 @@
+{
+  "id": "W3029868569",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies random forests only for multiple imputation via the missRanger package to handle 36 missing values in expired paracetamol measurements. No impurity importance scores, rankings, or p-values on variable importance are computed or reported. Main conclusions (household paracetamol prevalence 86.6%, 53% have ≥30 g, prescribed products 78.2% of total mass) derive from survey proportions and Wilson score confidence intervals, not importance-based analyses."
+}

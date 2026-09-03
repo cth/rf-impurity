@@ -1,0 +1,12 @@
+{
+  "id": "W4224144614",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"Models trained included logistic regression, XGBoost, decision tree, and random forest using Exploratory and ranger\" but reports only AUC, sensitivity, specificity, PPV, and NPV in results. No variable importance values or rankings are reported or discussed. Feature selection relied exclusively on collinearity: \"Data were trimmed manually by removing time points that had high collinearity with variable inflation factor >10 which resulted in the use of only six-time points.\" The conclusions address predictive performance: \"We show that simple machine learning can be used to develop an algorithm to predict clinical pregnancy rates with as few as 200 embryo outcomes with AUCs of 0.91 and 0.69\"—making no claims about variable importance magnitude or ranking."
+}

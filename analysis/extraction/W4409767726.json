@@ -1,0 +1,16 @@
+{
+  "id": "W4409767726",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper develops dynamic prediction models for CLABSI using random forest and XGBoost algorithms. While the RF-ALL model performs \"model-driven feature selection, as ranked by the depth in the trees for splitting,\" no variable importance scores or rankings are reported. All conclusions concern prediction performance: \"Among individual models, the XGB-ALL model had the highest AUROC on temporal evaluation, reaching a maximum of 0.748 at landmark 8\" and \"random forest models showed the best calibration.\" Clinical utility conclusions reference threshold-dependent decision curves and net benefit metrics, not feature importance rankings or magnitudes."
+}

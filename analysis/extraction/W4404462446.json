@@ -1,0 +1,14 @@
+{
+  "id": "W4404462446",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests (Ranger package) with Gini/Extratrees criteria for feature selection in a machine learning analysis. They state: \"the most relevant features as determined by RF were those with an importance greater than a cut-off obtained by looking for a plateau at the curve formed all features used within the forest, ordered by importance at the y-axis.\" However, the main substantive conclusions (192 differentially expressed circRNAs identified via DESeq2, 5 circRNAs correlated with symptom severity) are based on differential expression and correlation analyses, not RF importance ranking. The ML models use features selected by the union of LASSO, RF, and MiniPatch methods, and are evaluated via balanced accuracy on held-out test data (PPMI dataset). Impurity importance bias would not alter the paper's primary claims because they derive from DESeq2 p-values and effect sizes, not from RF importance magnitude or ranking."
+}

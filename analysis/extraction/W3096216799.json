@@ -1,0 +1,16 @@
+{
+  "id": "W3096216799",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Quick Permutation Test (QuiPT) for n-gram feature selection before random forest training: \"To select the informative n-grams, we performed Quick Permutation Test (QuiPT) [37]...with p-value threshold 0.0001. We obtained 1883 informative n-grams and used them for CancerGram training.\" Results report only classifier performance metrics (accuracy, AU1U, Kappa) on validation and independent test sets; no variable importance scores, rankings, or p-values appear in any table or figure. Conclusions discuss empirically observed amino acid composition differences, validated via held-out test performance, not random forest feature importance magnitudes."
+}

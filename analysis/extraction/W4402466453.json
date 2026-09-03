@@ -1,0 +1,12 @@
+{
+  "id": "W4402466453",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger random forests solely for temperature imputation: \"A random forest model was used to predict study date indoor conditions from the outdoor meteorological data when indoor measurement data were not available.\" No variable-importance metrics are extracted, reported, or interpreted. Inference relies on Wilcoxon tests and Spearman correlation."
+}

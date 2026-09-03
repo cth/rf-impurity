@@ -1,0 +1,14 @@
+{
+  "id": "W3109710640",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Gini index to rank 693 pathways and selects the top 80, stating: \"The pathway features were ranked by gini index at the same time.\" Critically, they validate with cross-validation: \"When top 80 pathways were used the overall classification accuracy (82.8%) was roughly at the same level as that achieved by all pathways.\" Main conclusions center on identifying 8 SSc subtypes with distinct pathway/cellular signatures and hub genes, not on importance magnitude/ranking. The Gini selection serves dimensionality reduction; biological interpretation relies on pathway enrichment patterns and network analysis, not importance values."
+}

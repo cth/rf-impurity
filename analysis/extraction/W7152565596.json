@@ -1,0 +1,15 @@
+{
+  "id": "W7152565596",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports only binary variable selection patterns by county, not importance magnitudes: \"Yellow indicates a variable was selected and blue indicates it was not\" (Fig. 5). Variable selection itself is derived from model performance optimization (\"optimizes model performance using global and local error along with number of parameters\"), not from impurity importance scores. The paper states this approach \"offers qualitative insight into geographic variation in model behavior\"—supplementary context, not a central finding."
+}

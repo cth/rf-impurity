@@ -1,0 +1,17 @@
+{
+  "id": "W4408331201",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses random forest analysis with the spatialRF package, which implements permutation importance rather than impurity-based importance (Gini/MDI). The methods state: \"The importance of each predictor was determined using the R package 'spatialRF', which reduces multicollinearity, identifies relevant variable interactions, and assesses model transferability via spatial cross-validation.\" The paper interprets rankings, reporting that random forest \"identified mean annual temperature as the primary factor\" and that climate factors accounted for \"44.45% of the variation...surpassing the individual contributions\" of other groups. Since this uses permutation importance, not impurity importance, it is not subject to the impurity-bias corruption of magnitude and ranking."
+}

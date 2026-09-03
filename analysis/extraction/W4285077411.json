@@ -1,0 +1,12 @@
+{
+  "id": "W4285077411",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "This paper focuses entirely on discrimination measures (C-index, concordance statistics) for evaluating survival prediction models. It does not discuss variable importance, feature importance, or impurity-based methods. The paper's methodology addresses transformations between distribution and risk predictions and avoiding C-hacking in reporting, with no engagement with feature selection or variable importance ranking."
+}

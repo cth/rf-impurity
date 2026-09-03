@@ -1,0 +1,18 @@
+{
+  "id": "W2787039411",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper builds a Random Forest prediction model with Ranger package on 37 immune markers from CyTOF data, achieving 95.5% training and 75% testing accuracy. However, biomarker identification comes exclusively from exploratory analysis: CyTOF differential analysis with Mann-Whitney U tests, NGS with DAVID pathway analysis (fold-change ≥2, p<0.01), qPCR validation, and Pearson correlations. Notably, the paper reports model performance and MANOVA comparison to clinical parameters but does not report variable importance scores or rankings from the Random Forest. Conclusions emphasize biomarker discovery through systematic immunophenotyping and model predictive accuracy, not importance magnitude or ranking. Biomarkers (PD-1+, Tim-3+, CCR5+, CXCR6+ CD8+ T cells) are corroborated across CyTOF, FlowJo manual gating, NGS, qPCR, and correlation analyses."
+}

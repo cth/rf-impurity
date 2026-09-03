@@ -1,0 +1,16 @@
+{
+  "id": "W3097231124",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger's random forest implementation (v.0.11.2) solely for classification accuracy testing: \"performance on the combined 16s rRNA gene and ITS testing data showed high accuracy in classifying samples to compartment but not to rootstock (98% and 35% accuracy, respectively).\" The authors conclude: \"These data corroborate other analyses that point to compartment as the primer determinant of microbiota diversity within a vine.\" No variable importance measures are reported or interpreted; instead, the paper relies on PERMANOVA (explaining 40.7% of bacterial and 55% of fungal variance), DESeq2 differential abundance analysis, and linear models for substantive conclusions."
+}

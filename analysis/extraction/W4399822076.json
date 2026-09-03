@@ -1,0 +1,16 @@
+{
+  "id": "W4399822076",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies Random Forest purely as a classification algorithm for species identification in UAV imagery. No feature importance, variable importance, or variable selection/ranking is discussed. Model evaluation relies exclusively on classification accuracy metrics: \"The overall accuracy and the F1 score on a class-wise basis are the two metrics used for this evaluation\" and validation through correlation with harvested dry matter yield: \"A positive and strong relationship was found between the predicted clover fraction and DMY proportion, with R² values exceeding 0.8.\" No interpretation of variable magnitude or feature ranking is presented."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4407780725",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not use impurity-based importance. Instead, it identifies important positions through neural network coefficients: \"model weights associated with m principal components were multiplied by the matrix of loaded eigenvectors, yielding weights for each of the 1323 positions in Gulo. Subsequently, we calculated the squared Mahalanobis distance...enabling us to compute a p-value for each position\" via Hotelling's T-squared test with Benjamini-Hochberg correction. Random Forests are implemented only for predictive comparison: \"we were unable to achieve perfect accuracy with any of the three alternative machine learning architectures, either with or without the species tree included as input (Tables S1 and S2)\" and cross-validation errors/TPR/FPR are reported in Tables S3–S4. Position importance conclusions come from statistical testing of model coefficients, not impurity importance."
+}

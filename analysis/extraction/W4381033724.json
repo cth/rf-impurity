@@ -1,0 +1,15 @@
+{
+  "id": "W4381033724",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper estimates network structures using Gaussian Markov random fields with EBICglasso regularization (Costantini et al., 2015; Lauritzen, 1996), not random forest algorithms. A random forest algorithm (missForest) is used only for missing data imputation preprocessing. The main analysis derives conclusions from network centrality measures (expected influence, betweenness, closeness) on psychiatric symptom nodes, not from impurity-based variable importance rankings."
+}

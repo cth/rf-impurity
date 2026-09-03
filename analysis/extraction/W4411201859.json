@@ -1,0 +1,18 @@
+{
+  "id": "W4411201859",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"RF has powerful feature selection capabilities, in identifying key genetic markers that influence target traits and uncovering non-linear relationships among genomic, transcriptomic, and phenomics data\" but does not report RF impurity importance values. Instead, it uses recursive feature elimination (a wrapper method) for feature ranking and SHAP analysis to show that SNPs vs phenotypic traits contribute differently by data type (Supplemental Figure 9A-B). The paper's conclusions focus on prediction accuracy of fusion strategies, not on feature importance magnitude or ranking."
+}

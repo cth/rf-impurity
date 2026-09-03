@@ -1,0 +1,12 @@
+{
+  "id": "W7134887421",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses targeted minimum loss-based estimation (TMLE) with SuperLearner combining generalized linear models, MARS, random forests, and XGBoost for causal effect estimation of physical activity interventions on knee replacement risk. Random forests appear as one algorithm in the ensemble, but the paper does not report, interpret, or make conclusions based on any variable importance measures. The analysis focuses on counterfactual outcomes under different hypothetical intervention strategies (e.g., \"reducing PASE scores to 200 for those above 242\"), not on ranking or explaining variable importance."
+}

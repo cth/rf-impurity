@@ -1,0 +1,17 @@
+{
+  "id": "W4298005739",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper builds random forest models (splitrule=gini) but does not report variable importance from them: \"We also assessed ROC-curves and the AUCs here.\" Feature rankings come instead from univariate ROC-AUC analysis (\"The most discriminatory marker for hepatitis was CD4+ T cell frequency (AUC=0.630)\") and FDR-corrected Wilcoxon tests, neither of which are impurity-based measures."
+}

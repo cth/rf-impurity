@@ -1,0 +1,14 @@
+{
+  "id": "W4403754357",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"We first used the least absolute shrinkage and selection operator (Lasso) regression technique to identify significant features in the training cohort...Then, the multivariable logistic regression model was constructed through sequentially selected candidate variables in the Lasso regression.\" All reported effect sizes and p-values derive from logistic regression coefficients, not from tree-based impurity importance. No random forest or impurity methods are employed."
+}

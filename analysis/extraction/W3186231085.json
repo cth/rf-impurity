@@ -1,0 +1,12 @@
+{
+  "id": "W3186231085",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses accumulated local effect (ALE) plots, not impurity importance: \"To understand how each NPI influenced the growth rate (according to the random forest regression model), accumulated local effect (ALE) plots were used. They show how the growth rate changes in relation to a specific NPI, from 2 weeks prior to implementation to 60 days after.\" ALE plots handle correlated features and are accompanied by bootstrap uncertainty. The paper's conclusions about NPI importance rest on ALE effect patterns over time, not on impurity-based rankings."
+}

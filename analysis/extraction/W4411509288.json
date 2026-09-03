@@ -1,0 +1,12 @@
+{
+  "id": "W4411509288",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs Random Forest only as one of five competing predictive models (RF, CPM, Ridge, TNFA, SVM) for comparison of prediction accuracy across fMRI conditions. The paper explicitly states: \"We implemented the RF model with 'ranger'...We optimized each model on the training set and evaluated performance by correlating predicted values with observed values on the test set.\" Biomarker identification relies entirely on LatentSNA covariance estimates: \"we selected the top 20 brain nodes...using the Shen-268 atlas, we mapped each brain node to the corresponding functional networks.\" No variable importance from Random Forest is reported, ranked, or used in conclusions."
+}

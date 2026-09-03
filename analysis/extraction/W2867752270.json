@@ -1,0 +1,14 @@
+{
+  "id": "W2867752270",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"Statistical classification analysis (random forests algorithm) showed that G. vaginalis clades could be best defined by the profiles of two phenotypic characteristics: sialidase activity and vaginolysin production.\" Features are ranked by cross-validation kappa (sialidase 0.37, VLY 0.23, biofilm <0.05), not by impurity importance. The paper applies log-transformation to handle skewed distributions: \"x' = log(x)... y' = log(y + 1), where y is either sialidase activity or VLY amount.\""
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W3092742846",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses rfeRF (recursive feature elimination with random forest) from the feseR package: \"iteration of random forest model generation and evaluation, followed by removal of least important feature, was carried out until a maximum area under the receiver operator curve (AUC) was reached.\" The selected 17 genes are described as simply \"span[ing] diverse functionalities including transcriptional and post-translational regulation, signal transduction, and cytoskeletal regulation\" with no ranking or interpretation of their relative importance. Main conclusions concern the progressive (vs. layered) nature of developmental transition and the unimodal distribution of individual cell scores, not the ranking or magnitude of gene importance."
+}

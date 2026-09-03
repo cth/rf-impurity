@@ -1,0 +1,17 @@
+{
+  "id": "W7133803742",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not use random-forest impurity importance. The only mentions of 'importance' concern the modeling approach: 'highlights the importance of adopting a two-step model that incorporates microbiome information into a phenotype prediction framework' and 'emphasizes the importance of isolating and analyzing intermediate omics traits from confounding environmental factors.' All analytical conclusions rely on prediction accuracy metrics (correlation coefficients from leave-one-out cross-validation) and statistical tests comparing model combinations (Wilcoxon signed-rank tests), not on variable importance rankings or magnitudes."
+}

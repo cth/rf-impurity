@@ -1,0 +1,16 @@
+{
+  "id": "W4415614899",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses only traditional epidemiological regression methods: \"The type of regression was determined by the outcomes: (1) generalized linear models with Poisson distribution using robust variance error estimation for binary outcomes; (2) linear regression for continuous outcomes; and (3) Cox proportional hazards regression for time-to-event outcomes.\" No random forests, tree-based methods, or impurity importance are mentioned. Conclusions rely on effect estimates from these regression models, not on variable importance rankings."
+}

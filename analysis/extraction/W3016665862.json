@@ -1,0 +1,12 @@
+{
+  "id": "W3016665862",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states its feature selection approaches explicitly: \"The method landmarkgenes reduced the features to the list of landmark genes that were determined as being informative to characterize the whole transcriptome. The method variance used the function var() of the stats package of R to calculate the variance of each gene...The method pvalue calculated a student's t-test...The option all considered all overlapping genes between the train- and test object without further feature selection.\" Random forests are used solely as prediction algorithms (\"The method rf used a random forest algorithm...to fit the training data with 500 trees\" and \"rf_ranger established a fast implementation of a random forest model\"), not as sources of variable importance scores."
+}

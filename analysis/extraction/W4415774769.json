@@ -1,0 +1,17 @@
+{
+  "id": "W4415774769",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forests to predict species richness but relies on H² statistics and partial dependence plots to evaluate variable interactions, not impurity-based importance. Methods section states: \"We also estimated the proportion of prediction variability explained by interactions between each pair of predictors... by calculating H² statistics\" and \"utilized the 'partial_dep' function... to visualize partial dependence plots.\" Results focus entirely on predicted species richness trends and geographic patterns, with no reporting of variable importance rankings or magnitudes."
+}

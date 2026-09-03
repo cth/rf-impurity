@@ -1,0 +1,14 @@
+{
+  "id": "W3012743347",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest only for weight estimation via classification of subgroup membership: \"We estimate p(s|y,x) by multinomial logistic regression or by random forest, using the implementation in the R packages glmnet [14] and ranger [43], respectively.\" Variable selection is performed via lasso-regularized Cox regression: \"We use a lasso penalty for variable selection and yields a sparse model solution.\" Results are reported using regression coefficients and mean inclusion frequency (MIF) of selected genes, not random forest impurity importance."
+}

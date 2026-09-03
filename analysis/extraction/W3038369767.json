@@ -1,0 +1,16 @@
+{
+  "id": "W3038369767",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not report or interpret impurity importance from the Random Forests. Instead, it uses Random Forest predictions as transformed covariates in a second-stage model: \"This process can therefore be seen as creating non-linear transformations of the raw covariates that are hopefully better correlated with malaria incidence.\" Table 5 reports only RMSE (model-level predictive error) and regression coefficients for the predictions, not feature-level importances within the Random Forests. The paper validates using held-out out-of-sample prediction performance across random and spatial cross-validation folds."
+}

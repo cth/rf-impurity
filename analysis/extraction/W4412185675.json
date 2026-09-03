@@ -1,0 +1,16 @@
+{
+  "id": "W4412185675",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper develops a random forest ecosystem classification model using ranger in R but reports only cross-validated accuracy metrics: \"We calculated the overall accuracy and the class-specific accuracy measures from the cross-validated confusion matrix,\" and \"The Tiwi Islands ecosystem distribution model achieved a high overall accuracy of 83.86%.\" A comprehensive search of the paper finds zero instances of variable importance, feature importance, impurity importance, SHAP, or permutation importance—no methods for importance ranking are used or reported. Model inputs include mixed-type covariates (satellite spectral bands, vegetation index, height measurements, elevation), and the paper's conclusions address ecosystem classification comprehensiveness and management implications, not feature importance."
+}

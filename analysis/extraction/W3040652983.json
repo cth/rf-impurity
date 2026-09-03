@@ -1,0 +1,18 @@
+{
+  "id": "W3040652983",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forest with recursive feature elimination (RFE) for feature selection, which internally relies on impurity importance. However, the paper does not report individual feature importance values or rankings. The main conclusions are based on model performance metrics: \"Adding SNT data led to a substantial relative improvement in predicting home healthcare hours, yielding 32.1% R-squared and 15.4% CPM\" (Table 2). Findings are validated through tenfold cross-validation with repeated trials, comparing predictive performance across models—not interpreting feature importance magnitude or ranking."
+}

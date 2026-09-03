@@ -1,0 +1,16 @@
+{
+  "id": "W4388966829",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies random forest classification to detect red snow in Sentinel-2 satellite images but does not formally analyze or report variable importance. The only reference to feature importance is: \"As expected, the strongest predictors of red snow were bands in red and near-infrared wavelengths and normalized differences containing those bands.\" This is a qualitative observation about which bands were useful for classification, not a formal importance analysis used to support scientific conclusions. The random forest serves as a tool for pixel-level classification, not as the subject of methodological investigation."
+}

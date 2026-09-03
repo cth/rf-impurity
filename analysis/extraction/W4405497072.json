@@ -1,0 +1,18 @@
+{
+  "id": "W4405497072",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper offers random forests only as an optional prediction model within their causal mediation analysis framework. The authors state: \"For example, on its own, random forests are only useful for prediction. But through M^(t,x) or Y^(t,m,x), they can provide plug-in estimates for causal analysis.\" In their actual case studies, they use linear regression and ℓ1-regularized regression for the microbiome-metabolome analysis, and ridge regression with logistic-normal multinomial regression for the mindfulness study. They report direct and indirect mediation effects with bootstrap confidence intervals and FDR-controlled selection, not variable importance scores."
+}

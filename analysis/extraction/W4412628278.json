@@ -1,0 +1,18 @@
+{
+  "id": "W4412628278",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses a Bayesian Monod-equation regression model as its primary inferential approach, reporting posterior estimates with credible intervals for seed dispersal disruption (−0.38 [−0.46, −0.30]) and other environmental predictors. Random forest was employed only for spatial mapping prevalence; the text states \"we developed a random forest model with the 'ranger' packages\" to produce Figure 1's map but never reports variable importance metrics from it. Validation includes process-based model comparison, field study consistency checks, and monoculture plantation control analysis showing null effect when mechanism is absent (SI Appendix)."
+}

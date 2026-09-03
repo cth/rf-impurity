@@ -1,0 +1,16 @@
+{
+  "id": "W4206185598",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not report impurity-based variable importance. Instead, it \"calculated and visualized partial dependence functions capturing relationships between the average patient-specific probability of in-hospital death and hospital case volume.\" The entire analysis derives conclusions from partial dependence plots (PDP), which show nonlinear relationships without ranking features by importance. Features include mixed types: continuous (age, case volume), categorical (location, ownership, admission reason), and binary (sex, ICU admission)."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "W3159761770",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"SVM-MOCCA lends itself more readily to model interpretation than does RF-MOCCA, as a linear or quadratic SVM kernel can be reformulated as feature or feature pair weights, respectively.\" Model evaluation focuses exclusively on cross-validated predictive accuracy: \"RF-MOCCA yielded the best generalization performance to both PREs and BEs, with a 1.07-fold increase in the area under the Precision/Recall curve.\" All conclusions are performance-based, not importance-based."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4315928172",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains RF models using ranger but never reports or interprets variable importance. Model evaluation uses only \"NRMSE and NIS metrics\" for predictive accuracy and \"Kendall distances\" for ranking accuracy of predictions. Conclusions state: \"GAMLSS and the RF models successfully predict relative dengue risk in the testing period (first three months of 2021) in most of the cantons, capturing the trend and seasonality.\" The discussion emphasizes that climate variables do not fully describe dengue distribution and additional variables are needed, with no ranking of climate predictors by importance."
+}

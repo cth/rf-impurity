@@ -1,0 +1,17 @@
+{
+  "id": "W4403081198",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"The relative importance of predictors was assessed with R_marginal^2\" and employs \"linear mixed-effects models\" with \"likelihood ratio test (LRT)\" for significance testing. Random forest appears only in imputation context: \"Missing data were imputed with chained random forest imputations and a sensitivity analysis was performed on the non-imputed data only.\" The impurity-importance bias is not relevant here because the paper uses linear mixed-effects models, not random forest impurity-based variable importance measures."
+}

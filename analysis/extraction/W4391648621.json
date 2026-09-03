@@ -1,0 +1,16 @@
+{
+  "id": "W4391648621",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not report or discuss feature importance at any point. The entire analysis focuses on clinical outcomes validation: survival times, response rates, and complete response duration in patients whose treatments matched model predictions (matching score > 0.5 threshold) versus those that did not. The matching score is determined by counting predictions above a threshold, not by importance magnitudes or rankings. Model development section mentions random forests and XGBoost as algorithm choices but never extracts or interprets importance values."
+}

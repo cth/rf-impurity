@@ -1,0 +1,17 @@
+{
+  "id": "W4400788105",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies random forests purely for classification of honey geographical origin, with no mention of variable importance or feature interpretation. Results are reported only as classification accuracy and confusion matrices: \"Classification based on the RP data results in more accurate results with an overall OOB-error of 5%... our final model, based on data from 835 samples, achieves a classification accuracy of 94% for 126 test samples.\" The entire methodological focus is optimizing preprocessing parameters (bucket sizes, normalization) through Design of Experiments, not interpreting which features drive predictions."
+}

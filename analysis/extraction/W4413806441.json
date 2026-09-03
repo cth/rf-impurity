@@ -1,0 +1,18 @@
+{
+  "id": "W4413806441",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"Shapley additive explanations (SHAP, measure of the effect to the result) value analysis\" computed via random forest classifier to identify biomarkers, selecting amino acids with mean absolute Shapley values ≥50% of maximum. It corroborates through: (1) mutual information index for candidate selection, (2) Mann-Whitney U tests comparing groups, (3) Spearman correlations showing histidine/glutamine/asparagine inversely correlate with blood glucose (r=−0.26 to −0.33), and (4) ROC curve validation (AUC 0.64-0.71). No impurity importance, Altmann/Janitza p-values, or Boruta testing is mentioned."
+}

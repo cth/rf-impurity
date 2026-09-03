@@ -1,0 +1,19 @@
+{
+  "id": "W4400449793",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"To better understand why the model gives certain predictions and to increase the model's interpretability, we calculate Shapley values for the final trained Stage 1 and Stage 2 models.\" It uses \"the Kernel SHAP method to calculate the approximate Shapley value, using the kernelshap R package\" and reports \"mean absolute Shapley value\" figures. Feature importance is used only to show that MPA features \"in aggregate...are less important than features like previous fishing effort and spatiotemporal environmental factors,\" comparing feature groups rather than ranking individual features. Main conclusions derive from predictive validation (out-of-sample R²≈0.8, ROC-AUC≈0.97) and scenario simulations, not importance magnitude or ranking."
+}

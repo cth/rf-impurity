@@ -30,3 +30,6 @@ paper/tas/impurity-importance-tas.pdf
 # Scratch review notes (not part of the record)
 ai-review.md
 .notes/
+
+# Python bytecode
+__pycache__/

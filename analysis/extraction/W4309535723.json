@@ -1,0 +1,14 @@
+{
+  "id": "W4309535723",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs ranger (random forest) for classification but never reports variable importance values from the model. Instead, features are selected via PCA loadings (\"Using the absolute value of the loadings for the first two principal components...a subset of markers with the highest contribution (>= 70% among all markers) in separation was selected\"). Model conclusions rely on accuracy metrics and held-out test set performance, with individual marker analysis via F_ST statistics rather than impurity importance."
+}

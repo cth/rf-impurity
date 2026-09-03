@@ -1,0 +1,15 @@
+{
+  "id": "W4409469842",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"Recursive feature elimination (random forest, 'ranger' package, 1000 trees, 5 times repeated cross-validation, 5 folds) was used to find relevant properties for the prediction of XlogP.\" Results report: \"The recursive feature elimination...selected the following molecular properties and functional groups as most important to predict the XlogP (in this order): R-OH, aromatic structures, molecular weight, number of rings, R-O-R, RCOR...Aldehydes and carboxylic groups contributed less to the prediction of XlogP.\" The conclusion reinforces this: \"We verified that less retained DOM isomers...were likely to contain more alcohol groups and ring elements than stronger retained isomers, instead containing more esters and ethers.\" However, the paper provides no permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation to corroborate these importance rankings; cross-validation (R²=0.81) only validates predictive accuracy, not feature importance magnitude or ranking."
+}

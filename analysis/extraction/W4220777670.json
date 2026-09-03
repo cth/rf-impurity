@@ -1,0 +1,19 @@
+{
+  "id": "W4220777670",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed",
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"Feature ranking performed using the Gini index\" (Methods) and presents \"the taxonomical identity of the 20 best predictor phylotypes\" (Figure 4b). Corroboration occurs through held-out test-set validation (\"test set accuracies of between 80.0% and 93.3%\") and comparison with independent abundance measures: the top predictors \"also appeared as the most dominant taxa within the prokaryotic and fungal core communities.\" The core conclusion is predictive validity for geographic origin prediction, not ecological importance magnitudes."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W3036144909",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"We considered only the most informative n-grams (13,087) selected by Quick Permutation Test (QuiPT)\" for feature selection. Conclusions focus on predictive performance (AUC, precision, sensitivity, specificity) and validation on lactoferrin and thrombin. No feature importance rankings or impurity-based interpretations appear; no statements rank features by importance or make biological claims contingent on importance magnitude."
+}

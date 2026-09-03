@@ -1,0 +1,14 @@
+{
+  "id": "W3184406988",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forest solely as a predictive classifier for identifying cow health status. Results are reported only as classification performance metrics: \"RF 46.22 ± 8.62 [sensitivity]... 62.74 ± 3.78 [AUC]\" (Table 2). The paper states: \"Each forest consisted of 800 trees, with an m value of 30, and the weights were 0.0049 and 0.9951...\" but never reports or interprets variable importance. The conclusion focuses on model selection: \"NN is the method of choice, as it has by far fewer false positives,\" making no claims about feature importance or feature ranking. The 872 wavenumber features undergo preprocessing but no feature attribution is analyzed."
+}

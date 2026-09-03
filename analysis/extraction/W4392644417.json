@@ -1,0 +1,17 @@
+{
+  "id": "W4392644417",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses penalized ordinal logistic regression and random forest base learners within a stacked ensemble to classify SCN8A patients into subgroups. Feature selection occurs through elastic net penalization in the ordinal regression, not through impurity importance. The paper states: 'Tuning of the model resulted in seizure freedom, DQ and developmental delay, age at onset...being selected' and 'This model selected age at seizure onset as its primary feature contributing to predicted outcome.' Notably, the paper reports NO variable importance metrics from the random forests. Instead, validation relies on: (1) external correlation with electrophysiological scores ('Linear regressions using values from the Unsupervised Stacked model showed a significant correlation...with electrophysiological score'), and (2) held-out test-set performance (cross-validation error rates, external dataset prediction error: 'Prediction resulted in a mean error of 0.209')."
+}

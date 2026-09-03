@@ -1,0 +1,9 @@
+{
+  "id": "W4409469842",
+  "cites": 4,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The RF/RFE ranking (R-OH, aromatic, MW, rings, R-O-R, RCOR) is not left to stand alone: Figure 3 and Tables S6/S7 independently show, via median/quantile distributions of each functional group across empirically-defined XlogP bins, that alcohols/rings dominate early-eluting isomers and esters/aromatics dominate late-eluting ones -- a direct, model-independent confirmation of the RF-selected features' relationship to the target. The paper further corroborates the low ranking of carboxylic/aldehyde groups with an entirely separate analytical method, citing that prior independent MS2 neutral-loss experiments (H2O vs CO2 loss) show alcohol content varies while carboxylic content stays constant across retention time, stating explicitly \"these experimental observations strongly support our theoretical prediction.\" This cross-method, literature-anchored validation of the same feature-target relationships goes beyond mere overall-accuracy R2 and functions as genuine corroboration of the selected/ranked features, so criterion (3) is not met and the flag is refuted."
+}

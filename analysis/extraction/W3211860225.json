@@ -1,0 +1,14 @@
+{
+  "id": "W3211860225",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper focuses entirely on comparing predictive performance of classification algorithms using ROC curves, precision-recall curves, and AUC metrics. No variable importance measures are reported or discussed. Section 2.2 describes the Random Forest and XGBoost algorithms; Sections 3.2–3.2.2 present results exclusively as ROC/PR curves and AUC values with bootstrap-test significance; Section 4 discusses algorithm performance trade-offs. No feature importance, feature ranking, or Gini/MDI values appear anywhere in the text."
+}

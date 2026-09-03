@@ -1,0 +1,12 @@
+{
+  "id": "W3024663870",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses quantile regression forests to model forecast error distributions but does not report or interpret impurity importance. Section 2(a) states \"We found that using just lead time, t, and model type, m, as covariates gave the best calibration results,\" but this reflects feature selection, not importance ranking. Conclusions rest entirely on predictive performance metrics (CRPS, prediction interval coverage, MAE) and calibration properties, not on variable importance magnitudes."
+}

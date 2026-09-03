@@ -1,0 +1,12 @@
+{
+  "id": "W2974190803",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper contains zero mentions of variable importance, feature importance, impurity importance, or MDI. All performance evaluation uses Balanced Accuracy (BACC), F1 score, and number of decision nodes (NDN). The abstract and main text focus exclusively on \"predictive performance\" and \"interpretability\" measured by tree size, not on variable ranking or feature selection by importance."
+}

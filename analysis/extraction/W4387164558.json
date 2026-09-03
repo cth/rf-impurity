@@ -1,0 +1,12 @@
+{
+  "id": "W4387164558",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper develops an R package for stacking ensemble learning. It demonstrates the method on three datasets using multiple base learners (ranger/random forest, XGBoost, GBM, SVM, elastic net, PLS). No variable importance measures are discussed. Feature selection in the cancer analysis explicitly uses Wilcoxon rank-sum tests: \"the top 2000 transcripts from 57,905 transcripts were selected based on P-values obtained with Wilcoxon rank-sum tests between pCR and other categories.\" The focus is prediction accuracy (Pearson correlation, kappa coefficients), not feature ranking or importance magnitude."
+}

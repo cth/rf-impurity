@@ -1,0 +1,18 @@
+{
+  "id": "W4403541856",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses permutation-based importance (varImpRanger, \"based on the area under the curve (AUC) loss when a factor is randomly permuted\") and interprets both ranking (\"the most important factors\") and magnitude (\"socioeconomic factors having on average more relative standardised importance (0.63) than environmental factors (0.59)\"). These interpretations are corroborated by partial response plots (PDP/ALE), 10-fold spatial cross-validation (heldout validation with accuracy 0.74-0.94, TSS 0.46-0.76), and sensitivity analyses. Since impurity-based importance is not used, the specific impurity bias does not apply."
+}

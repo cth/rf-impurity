@@ -1,0 +1,12 @@
+{
+  "id": "W4407025272",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper title and abstract describe: \"We investigate the behavior of the inverse-probability-of-censoring weighted (IPCW) Brier score, which is frequently used to assess the predictive performance of time-to-event models.\" No variable importance analysis is conducted. Machine learning methods (random forests, XGBoost) are used only for estimating censoring distributions to compute weighting schemes, not for feature importance analysis."
+}

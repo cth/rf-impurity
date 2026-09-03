@@ -1,0 +1,18 @@
+{
+  "id": "W7151833257",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses SHAP values, not impurity-based importance: 'A random forest method was used to identify amino acid markers, with the SHAP value used to estimate the contribution of each amino acid' (abstract). Amino acids are ranked by SHAP value magnitude, with 'Amino acids with a mean absolute SHAP value of at least half the maximum calculated value' selected as markers. The ranking of amino acids by importance is central to identifying biomarkers for GDM prediction. Corroboration through Mann-Whitney tests, Spearman correlations, and pathway analysis occurs but no permutation-based, PDP/ALE, conditional, or held-out validation approaches are used."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "W4416396607",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper mentions random forests only in the context of probability estimation: \"the propensity scores and conditional outcome probabilities were estimated using random forests implemented with the R package ranger using default values for parameter tuning.\" Covariate selection strategies studied are stepwise selection (based on AIC) and univariable pre-filtering (based on p-values), not random forest variable importance. The paper concludes that \"variables selected based on the underlying causal structure\" matter for causal inference, not data-driven selection."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "W4400731229",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forest and other classifiers to detect walnut mixtures but reports only classification accuracies and confusion matrices across different evaluation approaches (Sections 2.3.1–2.3.5). It states \"Random forest classification models showed the best accuracies\" but never extracts, reports, or interprets variable importance metrics for the 17 elements. The focus is entirely on prediction performance, not feature ranking or importance interpretation."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "W3199765043",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest as one of six classifiers tested (section 3.6: \"random forest (RF) [ 40 ]\") but reports only classification accuracy, sensitivity, and specificity (Table 1: RF achieved 0.989 accuracy) with no impurity-based importance measures. Feature interpretation relies instead on marginal relevance scores (\"MR score for each wavelength is the ratio of the between-class to within-class sum of squares\") and PCA loadings. Conclusions address classification performance and system throughput, not variable importance ranking."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4380870546",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest (Ranger) for supervised classification: \"A random forest classifier was built to predict Leiden cluster membership based on each fusion variant's scaled feature attributes...leveraging 2/3 of fusions for training and 1/3 for testing.\" Evaluation relies on cross-validation: \"Evaluation of this random forest classifier using 5-fold cross-validation and application to biological replicates demonstrates high prediction accuracy, with most clusters yielding >90% prediction accuracy.\" Feature interpretation is manual, via cluster heatmaps showing \"median scaled intensity values for each feature\" (Figure 5B), not impurity-based importance. Conclusions derive from Fisher's exact test cluster enrichment and manual feature review, not importance rankings: \"Clustering TCGA and GTEx fusions by shared sequence and expression features identified a cluster of fusions highly enriched for COSMIC fusions.\" The authors explicitly prioritize transparent predictions: \"we emphasize an important companion direction to machine learning, namely generating transparent and interpretable predictions, loosely referred to as explanations.\""
+}

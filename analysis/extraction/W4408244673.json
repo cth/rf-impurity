@@ -1,0 +1,12 @@
+{
+  "id": "W4408244673",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Cox proportional hazards regression with pre-specified exposures (loneliness, social isolation, social support) and gender-stratified analyses. Random forests are mentioned only in the imputation section (missRanger for handling missing data < 5%), not for variable importance or feature selection. The paper's conclusions rest on adjusted hazard ratios from Cox models (e.g., incident loneliness in men: HR 1.52, 95% CI 1.08–2.13; persistent loneliness in women: HR 2.14, 95% CI 1.55–2.97), not on machine-learning importance rankings."
+}

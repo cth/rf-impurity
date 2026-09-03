@@ -1,0 +1,12 @@
+{
+  "id": "W4225316107",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper's Methods section states: \"We analyzed survivorship using the Kaplan–Meier method\" and \"We used the Wilcoxon signed-rank and rank-sum tests for HHS and UCLA Activity Score data.\" The statistical analysis is limited to classical survival analysis and non-parametric hypothesis tests on clinical outcome scores (Harris Hip Score, UCLA Activity Score, visual analogue scale pain scores). No variable importance methods, impurity-based measures, or machine learning techniques are employed in the analysis."
+}

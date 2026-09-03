@@ -1,0 +1,17 @@
+{
+  "id": "W4417323971",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "shap"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses \"random forest algorithm\" via the ranger package and reports variable contributions through \"mean absolute Shapley Additive Explanations (MA-SHAP).\" The discussion states: \"results of the random forest regression conducted to evaluate main contributing factors to the overall ARA score... yielded hypertension as the most influence factor, followed by going for walks, engaging in sports, education...\" Though the conclusions depend on ranking and magnitude of importance scores, SHAP values provide corroboration independent of impurity-based importance bias, mitigating the vulnerability to magnitude distortion."
+}

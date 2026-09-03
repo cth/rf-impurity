@@ -1,0 +1,17 @@
+{
+  "id": "W3201677331",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"For all cases, permutation tests confirmed (p-values < 0.001) that the probability that the model was obtained by chance is quite low,\" but these are model-level significance tests, not feature importance inference. The paper compares fingerprint-based random forest model performance (via BACC, AUC, R²) against descriptor-based approaches (Figure 3) without analyzing feature-level impurity importance. Fingerprints range from 79 to 4860 bits with mixed types, and the paper concludes that \"PUBCHEM, MACCS and ECFP/FCFP encodings were found to yield the best results for most properties\" based on model performance comparison, not feature importance ranking."
+}

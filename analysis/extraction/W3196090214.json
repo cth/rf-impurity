@@ -1,0 +1,14 @@
+{
+  "id": "W3196090214",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs random forests solely as a predictive tool and evaluates performance using out-of-sample R² values in geographic and temporal cross-validation (Methods: \"We evaluate performance in terms of the coefficient of determination R²\"). No variable importance, feature importance, or importance-based variable selection is reported anywhere in the manuscript. All conclusions concern predictive accuracy: \"satellite observations are most useful when interpolating spatially, and less useful when extrapolating in space and time\" (Discussion). The comparison between full and reduced models examines R² differences, not importance rankings or magnitudes."
+}

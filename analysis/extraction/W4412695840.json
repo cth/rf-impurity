@@ -1,0 +1,17 @@
+{
+  "id": "W4412695840",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "other",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper uses ranger's Random Forest classifier on 792 untargeted metabolite features and states: \"The RF model, used to compute the importance of the 792 metabolites to the resistance phenotype, had an average accuracy score of 90% ± 16% (10-fold cross-validation) and was significant (P < 0.01 based on 100 random permutations).\" It explicitly interprets ranking and magnitude: \"we identified riboflavin, also known as vitamin B2, as the top candidate metabolite associated with the resistance phenotype\" and \"The relative abundance of the top candidate feature was 21-fold higher in LA1840.\" Critically, the authors provide independent empirical validation: \"We proceeded to validate the role of riboflavin in the resistance phenotype using nymphal performance assays on cv and LA1840 leaves in which we manipulated the riboflavin content,\" demonstrating that directly altering riboflavin levels replicates the phenotype in fed plants and its inhibition reverses effects. This experimental validation adequately corroborates the RF-based importance ranking."
+}

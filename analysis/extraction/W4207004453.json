@@ -1,0 +1,16 @@
+{
+  "id": "W4207004453",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"The RFtest uses the generalization error rate estimate of random forest as a test statistic, and uses permutation to calculate p-values... the observed out-of-bag (OOB) error rate T_obs is used as the test statistic.\" The method permutes the outcome and compares OOB error rates to derive p-values for community-level association testing, without extracting, ranking, or interpreting random forest variable importance scores."
+}

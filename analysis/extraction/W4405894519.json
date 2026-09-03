@@ -1,0 +1,17 @@
+{
+  "id": "W4405894519",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The authors report: \"The ranking of the relative importance of input parameters indicates that dust deposition is the most important factor influencing spatial bioavailable 87Sr/86Sr variation, followed by terrane age, soil clay content, maximum age of bedrock...\" and later state \"Geological variables also dominate in predicting bioavailable 87Sr/86Sr across Africa.\" However, they immediately corroborate these findings with partial dependence plots: \"The partial dependence plots (Supplementary Fig. 3) reveal more radiogenic 87Sr/86Sr ratios occur in regions with low dust deposition.\" Their main conclusions center on predictive accuracy (R² = 0.84) and geolocation utility, demonstrated through case studies aligning with genetic evidence, not on the magnitude or ranking of feature importance."
+}

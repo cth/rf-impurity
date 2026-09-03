@@ -1,0 +1,14 @@
+{
+  "id": "W4409737899",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs Rasch/IRT methods (Partial Credit Model) for psychometric scale development. Random forest appears only in the imputation step: \"the data of individuals with less than 30% of the items missing per assessment Wave was imputed using a random forest-based approach.\" Item selection for the 33-item functioning metric was determined by prior systematic mapping to ICF (International Classification of Functioning) categories, not by machine-learning-based importance ranking. The analysis focuses entirely on item fit, local dependencies, unidimensionality, and differential item functioning—standard psychometric properties—with no variable importance or ranking used for substantive conclusions."
+}

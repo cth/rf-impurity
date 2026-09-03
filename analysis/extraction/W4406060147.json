@@ -1,0 +1,14 @@
+{
+  "id": "W4406060147",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"PIXANT first selects reference phenotypes that are correlated with the imputed phenotype as predictors\" and specifies that \"we selected reference phenotypes that were highly correlated (r > 0.3) with the imputed phenotype or the 30 most correlated phenotypes.\" Feature selection uses correlation, not impurity-based importance. Random forests are employed for nonlinear effect modeling within the imputation algorithm, not for extracting or ranking variable importance."
+}

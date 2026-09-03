@@ -1,0 +1,14 @@
+{
+  "id": "W4376226677",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs random forests with Gini impurity splits (\"minimizing node impurity, which is computed with the Gini index\") but does not report or interpret variable importance. The work focuses entirely on classification and regression performance metrics (accuracy, power, parameter prediction error) and empirical predictions of expression divergence, not on feature importance analysis or ranking of predictive contributions."
+}

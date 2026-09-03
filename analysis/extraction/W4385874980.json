@@ -1,0 +1,12 @@
+{
+  "id": "W4385874980",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper evaluates random forest model performance using balanced accuracy and AUC metrics across 24 bioactivity datasets and 12 molecular fingerprints. No feature importance, impurity-based importance, or variable ranking is computed or discussed. The work states: \"the best-performing models that achieved test set AUC values of 0.62–0.99 have been integrated into an easy-to-use graphical user interface\" and focuses entirely on which fingerprints produce the best predictive accuracy for different drug discovery targets, not on interpreting feature importance."
+}

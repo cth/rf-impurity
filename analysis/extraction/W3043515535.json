@@ -1,0 +1,17 @@
+{
+  "id": "W3043515535",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Pearson Correlation Coefficient (PCC) and OneR rule-based evaluation for feature ranking, not random forest impurity importance. The methods section states: 'two different measures, the Pearson correlation coefficient (PCC) and one rule (OneR) attribute evaluation, were adopted to rank all features.' They employ sequential forward selection with these statistical rankings and validate with multiple algorithms (DT, RF, KNN, SVM) on independent test data. No use of Gini/MDI/variance importance from random forest is evident."
+}

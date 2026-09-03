@@ -1,0 +1,15 @@
+{
+  "id": "W4366390768",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper develops ML models (random forest, XGBoost, GBM, ANN) for SAG mill optimization but never reports variable importance or feature importance scores. Variable relationships are identified via Spearman correlation: \"The Spearman correlation study (see Figure 3) indicates a strong relationship between SAG production and SAG water feeding.\" Conclusions depend on model-based simulation of scenarios, reporting outcomes like \"4.42% increase in production\" and \"7.62% energy savings,\" not on importance magnitude or ranking."
+}

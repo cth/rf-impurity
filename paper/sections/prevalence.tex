@@ -21,28 +21,12 @@ restricted to these, because the detail needed to judge exposure --- which
 importance measure is used, and whether it is corroborated --- is almost never
 present in an abstract.
 
-\paragraph{Relevance filter.} Many papers cite ranger only for its speed or for
-prediction and never interpret a variable importance. To drop these without
-discarding relevant work, we required a textual mention of variable importance: a
-paper was retained if its full text matched, case-insensitively, any of the
-following regular-expression alternatives.
-\begin{verbatim}
-(variable|feature|permutation|gini|impurity)\s+importance
-importance\s+(score|value|ranking|measure)
-mean decrease
-decrease in (impurity|gini|accuracy)
-\bMDI\b   \bMDA\b   \bBoruta\b
-impurity[_\s]?corrected
-most important (variable|feature|predictor)
-\end{verbatim}
-$524$ of the $773$ matched. The filter is deliberately broad: an earlier version
-that also required a significance keyword (\code{importance\_pvalues}, Altmann,
-Janitza, Boruta) missed most exposed papers. Of $40$ sampled papers it rejected,
-$24$ still used an impurity importance and $11$ met the flag criterion below,
-because many papers rank features by impurity importance with no significance
-test. In total $544$ papers were screened: the $524$ matches plus $20$ from
-earlier passes (including that probe) that the broadened filter misses. Its recall
-was not separately re-estimated (see limitations).
+All $773$ full texts were screened. Many papers cite ranger only for its speed
+or for prediction and never interpret a variable importance; an earlier pass
+prioritised the $524$ whose text matched a variable-importance keyword filter
+(reproduced in the supporting repository), and the remaining $249$ were screened
+afterwards under the same instruction, so the filter plays no role in the counts
+below.
 
 \paragraph{Two-stage screen.} Each paper was read by a large language model under
 a fixed instruction and asked to return a structured judgement; the verbatim
@@ -79,74 +63,64 @@ instruction: its task was to \emph{refute} the flag. It returned a verdict of
 three conditions held at once: 1) the paper genuinely uses an impurity (not solely
 a permutation or SHAP) importance, 2) the ranking is central to a stated conclusion,
 and 3) the ranking is not adequately corroborated. Both models were accessed in
-July 2026. Using two models from a single vendor means the adjudication is a
+July and September 2026. Using two models from a single vendor means the adjudication is a
 precision filter, not an independent validation --- a different-vendor or human
 check would be stronger; we return to this in the limitations.
 
 \subsection{Results}
 \label{sec:prevalence-results}
 
-Table~\ref{tab:prevalence} traces the corpus through the pipeline. Of the $544$
-papers screened, $307$ were judged to use an impurity importance and $125$ were
-flagged in stage~1. The adversarial adjudication confirmed $55$, refuted $65$, and
-could not decide for $5$, refuting $52\%$ of the stage-1 flags and leaving $4\%$ undecided. The
-implied stage-1 precision is therefore about $44\%$, and raw screening counts
+Table~\ref{tab:prevalence} traces the corpus through the pipeline. Of the $773$
+papers screened, $331$ were judged to use an impurity importance and $129$ were
+flagged in stage~1. The adversarial adjudication confirmed $56$, refuted $68$, and
+could not decide for $5$, refuting $53\%$ of the stage-1 flags and leaving $4\%$ undecided. The
+implied stage-1 precision is therefore about $43\%$, and raw screening counts
 should be discounted accordingly.
 
 \begin{table}[htb]
 \centering
-\caption{The ranger-citing corpus traced through the screening pipeline. The
-final rows are counts of screened papers; percentages in the text are relative to
-the $544$ screened.}
+\caption{The ranger-citing corpus traced through the screening pipeline.
+Percentages in the text are relative to the $773$ screened.}
 \label{tab:prevalence}
 \begin{tabular}{lr}
 \toprule
 Stage & Count \\
 \midrule
 Works citing ranger (OpenAlex) & $3{,}189$ \\
-With open-access full text & $773$ \\
-Matching the relevance filter & $524$ \\
-Screened (filter matches $+$ non-match sample) & $544$ \\
+With open-access full text (all screened) & $773$ \\
 \midrule
-Using an impurity importance (stage 1) & $307$ \\
-Flagged (stage 1, Haiku 4.5) & $125$ \\
-\quad Confirmed (stage 2, Sonnet 5) & $55$ \\
-\quad Refuted & $65$ \\
+Using an impurity importance (stage 1) & $331$ \\
+Flagged (stage 1, Haiku 4.5) & $129$ \\
+\quad Confirmed (stage 2, Sonnet 5) & $56$ \\
+\quad Refuted & $68$ \\
 \quad Uncertain & $5$ \\
 \bottomrule
 \end{tabular}
-
-\vspace{4pt}
-{\footnotesize\emph{Note:} the $544$ screened papers comprise all $524$
-filter matches plus $20$ non-matching papers that were screened in earlier passes
-before the filter was finalised, including the random recall sample; all $524$
-filter matches were screened.}
 \end{table}
 
-Taking the confirmed count in Table~\ref{tab:prevalence} at face value, $55$ of
-the $544$ screened papers state a central conclusion that could have been
-distorted by the effects of Sections~\ref{sec:linear}--\ref{sec:confound} and did
-not cross-check it. That is about $10\%$ of the screened papers. Measured against
-the $307$ that actually interpret an impurity importance, it is $18\%$, roughly
-one in six. As a share of all $773$ full-text ranger-citing works it is about
-$7\%$.
+Taking the confirmed count in Table~\ref{tab:prevalence} at face value, $56$ of
+the $773$ full-text ranger-citing papers state a central conclusion that could
+have been distorted by the effects of
+Sections~\ref{sec:linear}--\ref{sec:confound} and did not cross-check it. That
+is about $7\%$. Measured against the $331$ that actually interpret an impurity
+importance, it is $17\%$, roughly one in six.
 
 Two features of the confirmed set are worth drawing out. First, exposure is
-concentrated in papers that use no significance machinery: $51$ of the $55$
+concentrated in papers that use no significance machinery: $52$ of the $56$
 confirmed papers ($93\%$) report no importance $p$-value or Boruta selection and
 simply rank features by impurity importance, suggesting that familiarity with
 significance testing goes with more cautious interpretation of a ranking. Second,
 the confirmed papers are not confined to low-visibility venues: citation counts
 span the full range of the corpus (median $11$, versus a screened-set median of $10$),
-and $12$ of the $55$ exceed $50$ citations.
+and $12$ of the $56$ exceed $50$ citations.
 
 \paragraph{Limitations.} These are model judgements, not audits: a flag means a
 conclusion \emph{could} have been affected and was uncorroborated, not that it is
-wrong, and predictive accuracy is unaffected. The $10\%$ is an unvalidated
+wrong, and predictive accuracy is unaffected. The $7\%$ is an unvalidated
 estimate; stage 2 raises precision but is not independent validation, and there
 is no human ground truth. Only $773$ of $3{,}189$ works had open-access full
 text, and open access correlates with field and venue, so the sample may not
-generalise. The broadened filter's recall was not re-estimated. Our controlled
+generalise. Our controlled
 experiments are all regressions, and the screen does not record which of the
 screened papers are classification and which regression; the variance reading of
 the Gini index in Section~\ref{sec:background-strands} is what carries the

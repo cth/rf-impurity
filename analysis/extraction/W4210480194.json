@@ -1,0 +1,16 @@
+{
+  "id": "W4210480194",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests only as a classifier to achieve predictions, not to extract importance measures. Results report perspective importance via classification accuracy: \"inflorescence (87.3%), ligule front (75.1%), ligule side (70.3%), node (64.9%), leaf back (63.9%) and leaf top (62.6%)\" derived from training separate models on each perspective. Conclusions rest on accuracy differences and cross-classifier consistency: \"the strip-like patterns...indicate that the feature descriptors and the classifiers largely agree on which species are easy to classify\" (Figure 6)."
+}

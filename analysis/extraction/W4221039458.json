@@ -1,0 +1,17 @@
+{
+  "id": "W4221039458",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper trains random forests (ranger package) and calculates TreeSHAP values (fastshap package) on binary classification of expert-selected genes, reporting CRISPR-derived features have \"the largest impact on gene classification in both experiments\" and clinical features \"had less impact\". However, these Shapley-based importance interpretations received no independent corroboration through permutation, SHAP, PDP/ALE, conditional, or held-out validation methods. Experimentally validated genes (MET, PTEN, NF1, KCTD5, EZH2, WWTR1, SRC) were selected based on biological interest and inhibitor availability rather than Shapley importance ranking. The paper's primary conclusions—that a multi-objective optimization system identified 57 credible resistance markers with 86% expert agreement—do not depend on Shapley importance magnitude or ranking."
+}

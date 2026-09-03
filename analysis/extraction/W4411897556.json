@@ -1,0 +1,17 @@
+{
+  "id": "W4411897556",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper builds individual decision tree models and ranks features by AUC: \"Putrescine (AUC = 0.98), PC ae C40:3 (AUC = 0.96)...Each decision tree model was built using one biomolecule at a time...discriminative performances of each model were assessed...using the area under the curve (AUC).\" Biomarker identification relies on this AUC ranking, not on impurity-based importance. The ranking is validated through held-out ROC/AUC performance, which is robust to the impurity-importance bias that corrupts Gini/MDI magnitude and ranking."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "W2804995754",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies Random Forest for image segmentation using Gini impurity only as a splitting criterion during tree construction: \"From calculated p_j for parent and child nodes, the Gini impurity criteria are estimated...only the selected image filters and optimized split function parameters at each node, that lead to information gain, are selected for the k to grow.\" The paper reports OOB error rates and segmentation accuracy but never reports, ranks, or interprets feature importance scores. No methods are employed to assess or corroborate importance magnitude or ranking."
+}

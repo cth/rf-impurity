@@ -1,0 +1,17 @@
+{
+  "id": "W4327976042",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper attempted random forest analysis in exploratory section 3.4.2, adding \"all HMOs from all time points to a random forest model... to assess which HMO had the highest predictive value.\" However, the authors explicitly state: \"All models... yielded a high Mean of Squared Residuals... and a negative % variance explained... Because the model fits for all random forest models could not be improved... the results of the random forest models were not interpreted.\" Main conclusions derive from multiple regression analyses (section 3.3) reporting beta coefficients and confidence intervals for pre-registered HMO predictors."
+}

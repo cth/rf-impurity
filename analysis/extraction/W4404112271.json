@@ -1,0 +1,16 @@
+{
+  "id": "W4404112271",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains Random Forest models on 385 statistical and physicochemical features to predict epitopes, validated experimentally in 47 MPXV-infected and 83 VACV-infected individuals. All conclusions are based on model performance metrics (AUC, F1, MCC) and experimental validation via immunoblotting and ELISA assays. No analysis of variable importance, feature ranking by impurity, or feature attribution is presented or used in any conclusions."
+}

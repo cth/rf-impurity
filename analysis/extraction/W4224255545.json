@@ -1,0 +1,12 @@
+{
+  "id": "W4224255545",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests only for prediction of wind speed at 3 m aboveground, not for variable importance analysis. Feature selection is performed via \"backward elimination... based on root mean square error (RMSE) for the validation dataset,\" which is independent of impurity importance. The paper reports no importance scores, rankings, or magnitude comparisons of variables; conclusions concern only prediction performance metrics (correlation, RMSE, MAE, MBE)."
+}

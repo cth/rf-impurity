@@ -1,0 +1,16 @@
+{
+  "id": "W4400777031",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"Table 4 shows Pearson correlation coefficients for random forests (r = -0.068) and XGBoost (r = -0.148), respectively. The very low correlation coefficients show that there was no predictive performance of the machine-learning models.\" The main conclusions derive from regression coefficients: \"In the multiple linear regression analysis, only two variables remained significantly associated with anxiety symptom change at 6 months: (a) A higher 'Anxiety severity' at baseline was associated with a higher symptom reduction at 6 months (β = -6.05, 95% CI = -7.54,-4.56, p < 0.001), and (b) A higher level of 'General psychological problems and symptoms of psychopathology' at baseline was associated with a lower reduction in anxiety symptoms at 6 months (β = 2.19, 95% CI = 0.24,4.14, p = 0.028).\" No variable importance metrics from tree models are reported or interpreted."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "W4404396691",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies a forward feature selection algorithm with five different model types including random forests. Random forest is used only for comparison; the paper reports that \"The random forest model selected all variables 100% of the time during the training process\" but selects gradient boosting machine (GBM) as the top-performing algorithm based on RMSE. Variable rankings are determined via AIC-based model selection (\"AIC is used for ranking the maximum likelihood population effects models\") and model convergence across MLPE and LCTA frameworks. The conclusion states: \"Multiple statistical approaches converged on the conclusion that wolverine genetic connectivity across western North America was positively associated with forest cover and negatively associated with human disturbance.\""
+}

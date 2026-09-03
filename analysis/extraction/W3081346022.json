@@ -1,0 +1,14 @@
+{
+  "id": "W3081346022",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests solely for classification of disease trajectories, reporting only \"the area under the receiver operator characteristic curve (AUC) of a 10-fold cross-validation experiment\" and comparing overall performance across feature representations. No feature importance, importance rankings, or importance magnitudes are reported or interpreted. The error analysis examines individual trajectory predictions by literature review, not feature contributions."
+}

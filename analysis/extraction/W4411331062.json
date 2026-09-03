@@ -1,0 +1,17 @@
+{
+  "id": "W4411331062",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper explicitly states it performs \"random forest classification analysis using ranger (v 0.16.0)\" to build a predictive model, then uses \"a post hoc analysis of our random forest classification model to identify specific bacterial species that are explanatory of our two groups...using FastShap (v 0.1.1).\" Figure 3 caption confirms: \"SHAP value (SHapley Additive exPlanations) indicates the degree of importance for each variable on the model.\" SHAP values are model-agnostic explanations based on Shapley values, not impurity-based importance metrics. The paper contains no reference to Gini, MDI, mean decrease in impurity, or ranger's default variable importance output."
+}

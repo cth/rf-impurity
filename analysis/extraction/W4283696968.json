@@ -1,0 +1,16 @@
+{
+  "id": "W4283696968",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs random forests and XGBoost as components of an ensemble forecasting model: \"The ensemble model was constructed as a combination of three different statistical forecasting approaches: exponential smoothing [35], random forests [36] and XGBoost models [37].\" However, the paper contains no reporting, discussion, or interpretation of variable importance from these models. Random forests are used purely for predictive forecasting of antimicrobial resistance rates; all reported conclusions focus on cost-effectiveness metrics and predicted AMR trajectories, not on feature importance rankings or magnitudes."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4283376244",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"hierarchical k-means clustering of 33 histologic variables\" and random forests solely for missing-value imputation via missRanger. Variable selection for the prognostic model uses \"univariate Bayesian generalized linear models to identify variables for the final multivariate model,\" with statistical significance determined by p-values from these Bayesian models, not by random-forest impurity importance. The three prognostic factors (remyelination p=0.006, fiber-invasive infiltrates p=0.022, intramuscular fiber loss p=0.045) are reported as univariate and multivariate model estimates, not as ranked importance scores."
+}

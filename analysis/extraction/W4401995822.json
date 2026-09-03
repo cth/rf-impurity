@@ -1,0 +1,12 @@
+{
+  "id": "W4401995822",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper is titled \"Distributed non-disclosive validation of predictive models by a modified ROC-GLM\" and focuses on validation methodology. While it mentions using ranger (random forest implementation) to train a random survival forest model for generating predictions on breast cancer data, the entire paper concerns ROC curve computation and AUC estimation in distributed settings under differential privacy constraints. There is zero discussion of variable importance, feature selection, impurity measures, Gini importance, permutation importance, or feature ranking. The random forest serves only as an example predictive model; the methodological contribution is purely about validation technology, not about interpreting variable effects."
+}

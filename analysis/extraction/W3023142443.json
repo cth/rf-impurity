@@ -1,0 +1,14 @@
+{
+  "id": "W3023142443",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper identifies 27 SNP markers \"associated with salt tolerance\" through GWAS using GWASpoly with statistical significance testing (Bonferroni p < 0.05), not through random forest variable importance extraction. Random forest is used only as one of eight genomic selection (prediction) models tested for estimating breeding values. The paper makes one speculative statement that \"The best performance of machine learning methods in GS in this work was likely due to the ability of these methods for identification of the top-ranking SNPs with major effects on the phenotypic variation,\" but no variable importance values are extracted, reported, or used to support any conclusions. The paper's main findings concern prediction accuracy metrics and the role of non-additive effects, not the ranking or magnitude of RF importance scores."
+}

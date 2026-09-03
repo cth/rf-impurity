@@ -1,0 +1,12 @@
+{
+  "id": "W4412011329",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs Random Forest classification for one specific task: predicting Douglas-fir forest susceptibility to beetle infestation. The authors report model performance metrics (AUC 0.60, sensitivity 0.74, specificity 0.39) and probability threshold results for fire selection, but explicitly do not extract or report variable importance. Four continuous predictor variables (DF basal area, stand basal area, stand density index, forest cover) are used only as inputs to generate susceptibility predictions, not for interpretation of relative importance or ranking."
+}

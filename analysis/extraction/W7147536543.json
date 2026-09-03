@@ -1,0 +1,16 @@
+{
+  "id": "W7147536543",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper focuses on \"a Bayesian hierarchical shrinkage method that automatically determines whether each covariate should be treated as static, time‐varying, or excluded altogether,\" employing triple gamma shrinkage priors for variable selection and variance selection. Ranger (random forest) is mentioned only as a competing baseline method in Table 1 with permutation importance (not impurity importance), marked \"(X)\" indicating it was not used for the primary variable importance assessment. The paper's contributions center on Bayesian variable selection through coefficient shrinkage in survival models, not random forest methods or impurity-based variable importance."
+}

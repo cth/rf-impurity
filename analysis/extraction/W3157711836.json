@@ -1,0 +1,12 @@
+{
+  "id": "W3157711836",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests for spatial interpolation (via RFSI methodology) but does not extract or discuss variable importance. Covariates are selected a priori based on domain knowledge: \"DEM, TWI, GTT, DOY, IDW\" for temperature modeling, with similar choices for other meteorological variables. Hyperparameters (mtry, min.node.size, sample.fraction, n.obs) are tuned using nested 5-fold leave-location-out cross-validation optimizing RMSE. Accuracy is validated through cross-validation metrics (R², CCC, MAE, RMSE), comparison with the E-OBS dataset, and independent testing on stations not used in model training. No importance scores, feature rankings, or p-value tests are reported."
+}

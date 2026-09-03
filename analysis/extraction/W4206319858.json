@@ -1,0 +1,12 @@
+{
+  "id": "W4206319858",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies random forest models to time series prediction for yield spreads and Bitcoin, but does not extract or interpret variable importance measures. Model selection is based entirely on out-of-sample log likelihood (KL divergence minimization) and Kolmogorov-Smirnov distributional equivalence tests: \"The out-of-sample log likelihood is cross-validated using Equation (23)... A Kolmogorov-Smirnov test, under the null of distributional equivalence... is computed.\" No mention of Gini importance, MDI, or variable importance appears in the paper."
+}

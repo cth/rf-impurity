@@ -1,0 +1,16 @@
+{
+  "id": "W4311716514",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Table 6 reports predictive performance metrics (Sensitivity, Specificity, Accuracy, F1-Score, MCC) for Random Forest and other baselines, comparing them only on classification accuracy, not on feature importance. Table 3 lists feature properties including \"Information Gain\" and \"Mean Rank,\" but does not attribute these to Random Forest or interpret them as variable importance rankings central to conclusions. The paper states: \"The outcome of the present study is being evaluated against conventional classification techniques such as Decision Tree, J48, K Nearest Neighborhood, Logistic Regression, Naive Bayes, Random Forest, and Support Vector Machine\" — focusing solely on predictive comparison, not on interpretive feature analysis."
+}

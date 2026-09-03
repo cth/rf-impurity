@@ -1,0 +1,12 @@
+{
+  "id": "W3037651932",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies random forest and XGBoost models to predict hourly depressed mood but never reports feature importance values or interpretations. The Results section (Section 3) presents only predictive correlations (r = 0.587 overall) and sensitivity analyses controlling for race and lagged outcomes. All conclusions address prediction accuracy from sensor data, not variable importance or feature rankings. No figures, tables, or text discuss which sensors or features most strongly predict mood."
+}

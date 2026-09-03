@@ -1,0 +1,9 @@
+{
+  "id": "W4280581368",
+  "cites": 11,
+  "verdict": "confirmed",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": false,
+  "reason": "The paper's importance measure is explicitly impurity-based: \"The reduction in MSE for each variable was accumulated for each variable in the random forest model\" (node-purity/MDI-style importance, ranger's default), plotted in Figure 4. That ranking is load-bearing for a real design decision: \"as differences in healing times between males and females contributed only marginally to variance (Figure 4), the combined-sex models were deemed sufficient\" — no separate test (t-test, ANOVA, or stratified model comparison) on sex was run to back this. The same importance plot is also used to conclude fixation \"was a minor factor,\" explicitly contradicting prior literature. No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of this specific feature-selection decision appears anywhere in the text; the only held-out evaluation (Table 4) checks overall predictive accuracy of the combined models against the Malone scale, which does not validate the sex/fixation ranking itself. Since sex and fixation are binary/categorical while age, gap, and callus are continuous, this is exactly the pattern impurity bias produces (penalizing low-cardinality categorical splitters), so the flag is well-founded rather than a false positive."
+}

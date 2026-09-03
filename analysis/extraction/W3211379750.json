@@ -1,0 +1,12 @@
+{
+  "id": "W3211379750",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"Analyses were performed in R version 3.6.3 using packages randomForest and ranger.\" Random forests are used for binary classification (ABCORA 2.2 and 2.3) to predict SARS-CoV-2 seropositivity with 1000 trees. The remark that \"positive calling by ABCORA 2.2 was dominated by IgG responses\" is descriptive of model output, not derived from extracted importance scores. Main conclusions address diagnostic accuracy (sensitivity 97.43%, specificity 99.91%), neutralization prediction, and associations of HCoV immunity with protection and disease severity - none leveraging feature importance ranking or magnitude."
+}

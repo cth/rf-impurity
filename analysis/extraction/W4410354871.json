@@ -1,0 +1,12 @@
+{
+  "id": "W4410354871",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests exclusively for missing data imputation: \"Missing data in the covariates were imputed using a random forest algorithm [17], with reduced weighting assigned to observations with a high proportion of missing values.\" No random forest impurity importance, variable importance rankings, or feature selection appears anywhere in the methods or results. The analysis relies entirely on propensity score matching, multivariable regression, and IPTW for causal inference."
+}

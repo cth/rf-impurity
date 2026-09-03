@@ -1,0 +1,15 @@
+{
+  "id": "W2951682736",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses a random forest classifier solely for clustering quality control: \"we trained a random forest classifier to predict cluster membership...We merged clusters together if the classifier had a prediction error greater than 11%.\" This applies out-of-bag error rates to assess cluster separability, not variable importance. Substantive conclusions rely on unsupervised Louvain clustering, Wilcoxon differential expression tests, and validation via flow cytometry, bulk RNA-seq, and immunofluorescence—none involving impurity importance."
+}

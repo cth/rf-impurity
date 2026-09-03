@@ -1,0 +1,14 @@
+{
+  "id": "W3207748272",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"Random Forest models were built using the ranger package and the caret package in R. The models were tuned over ~50 repeats to obtain robust classification probabilities. Performances of the models were assessed with the MLeval package in R. The main metric for predictive performance assessment was the area under the curve (AUC) for the resulting receiver operating characteristic (ROC) curve.\" Only AUC values are reported (e.g., PC aa C36:6 AUC = 0.949). Metabolite selection used \"Limma package for differential analysis\" and network-based patient-specific signatures, not Random Forest importance."
+}

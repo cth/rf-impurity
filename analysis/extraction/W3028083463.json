@@ -1,0 +1,16 @@
+{
+  "id": "W3028083463",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper is a review of bioinformatics tools for COVID-19. Covidex, which uses random forests, is mentioned only incidentally: \"Covidex is based on a fast implementation of random forest trained over a k-mer database.\" No variable importance, feature ranking, or feature selection analysis is conducted or discussed anywhere in the paper."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "W4406549146",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports \"The variables 'species' and 'sampling station' (individual trawl samples) were the most important, but along with body size, season, and geographical area they explained only 22% of the total variance in individual stomach content (R² = 0.22; Table S3).\" This single mention of importance ranking appears in Results 3.8 as supporting evidence that individual variability in stomach content is NOT well-explained by available predictors. The paper's main conclusions focus on statistical distributions (log-normal-like patterns), not on identifying which factors are most important for prediction or decision-making. The random forest analysis is peripheral to the central narrative."
+}

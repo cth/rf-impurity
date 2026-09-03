@@ -1,0 +1,12 @@
+{
+  "id": "W4367394483",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "This is a bibliometric review analyzing 2,761 ML publications from African researchers. The paper uses bibliometric indicators (publication counts, citation metrics, collaboration patterns) to characterize research trends, not random forest impurity importance. While it cites Wright & Ziegler's Ranger paper on random forests as a highly cited article, it does not apply impurity-based importance to any of its own analyses."
+}

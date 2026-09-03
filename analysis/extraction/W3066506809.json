@@ -1,0 +1,16 @@
+{
+  "id": "W3066506809",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"A significant advantage of the gradient boosted regression and random forest machine learning techniques is that the partial dependencies between the predictor variables and predictant can be investigated. This is done by randomly sampling all but one of the predictor variables, one at a time.\" The method used is partial dependence analysis, not impurity-based importance. Main conclusions concern meteorological normalization results: \"By accounting for meteorological and environmental effects, the results show that there has been an increase of 0.6 ± 0.3 μg m−3 per year due to changes in local emissions, with the remainder mostly due to a decrease in soil water content.\" Conclusions rest on trend analysis and meteorological normalization, not variable importance ranking."
+}

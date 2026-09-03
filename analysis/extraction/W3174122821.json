@@ -1,0 +1,14 @@
+{
+  "id": "W3174122821",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forests (\"a Random Forests (RF) model was used to estimate the business-as-usual concentrations of the six air pollutants in 2020\") and the ranger package for predictive modeling, but does not report, interpret, or draw conclusions from variable importance. The study focuses entirely on predicting pollution concentrations and calculating avoided health burden and economic benefits from pollution reduction, not on variable importance analysis."
+}

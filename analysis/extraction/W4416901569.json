@@ -1,0 +1,14 @@
+{
+  "id": "W4416901569",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper develops haplotype-based autoencoders for genomic prediction and uses Random Forest as a reference model for evaluating prediction accuracy: \"As an additional reference to evaluate the influence of dimensionality reduction in the context of ML, we used Random Forests.\" However, Random Forest impurity importance is never extracted, reported, or used. The only mention of \"importance\" appears in the conclusions: \"In future work, this may provide a new way of quantifying the importance of haplotype blocks for selection and breeding,\" indicating importance quantification is proposed future work, not part of the current study."
+}

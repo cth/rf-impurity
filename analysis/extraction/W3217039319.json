@@ -1,0 +1,16 @@
+{
+  "id": "W3217039319",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"To evaluate prediction performance, we calculate the five-fold cross-validated area under the receiver operating characteristic curve (CV-AUC).\" Variable selection is performed via LASSO screening: \"we employ lasso screening (a supervised method) that eliminates variables with zero coefficients estimated from lasso logistic regression models.\" All conclusions center on prediction performance optimization via held-out validation, not variable importance ranking or magnitude interpretation."
+}

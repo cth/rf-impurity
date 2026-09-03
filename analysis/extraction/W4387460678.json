@@ -1,0 +1,16 @@
+{
+  "id": "W4387460678",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "scale_mismatch"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "\"The two variables chosen from all the selection methods, age and leukocytes, appear to be key influencing factors for physical frailty syndrome.\" And: \"The two described variables were followed in terms of importance by self-assessed health status, GFR, EQ-5D index, and handgrip strength.\" The paper ranks variables by selection frequency from impurity-based and information-theoretic methods, without corroboration via permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation. Features span laboratory values (sodium, potassium, glucose, creatinine), questionnaires (SARC-F, EQ-5D), physical measures, and demographics—mixed types and scales.\""
+}

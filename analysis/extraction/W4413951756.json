@@ -1,0 +1,12 @@
+{
+  "id": "W4413951756",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses confirmatory factor analysis and structural equation modeling to examine core vs. peripheral criteria in social media addiction scales. Random forests (missRanger/ranger) appear only in the missing data imputation section: \"the missRanger R package was used to impute missing values by using random forests with the ranger algorithm.\" The primary analyses use latent variable models (CFA/SEM), not random forest variable importance. No impurity-based importance measures are reported or interpreted."
+}

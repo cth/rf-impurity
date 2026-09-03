@@ -1,0 +1,12 @@
+{
+  "id": "W4391006194",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs Shapley analysis on the neural network classifier to investigate feature importance: \"Shapley analysis was performed on the balanced, simulated training dataset using the R package iml (Molnar 2018) and the CLOUDe NN classifier.\" The finding is that \"features associated with the L gene are most important for discriminating between classes.\" The analysis uses Shapley values, not impurity-based importance methods. No random forest variable importance is reported. Feature importance analysis is a secondary analytical procedure; main conclusions concern classification accuracy, prediction precision, and functional enrichment of deleted genes."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W4416024426",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "pdp_ale",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"the top 20 most important genera\" for network construction but bases substantive conclusions on PLS models, SEM analysis (e.g., \"Paludibacter P = 0.001\"), Wilcoxon rank-sum tests for differential pathway abundance, and literature on bacterial functions. The main claims about energy-maximization vs. protein-maximization strategies rest on which microbes are differentially abundant and their known roles, not on impurity importance magnitudes. No importance p-values (Altmann, Janitza, Boruta) are used."
+}

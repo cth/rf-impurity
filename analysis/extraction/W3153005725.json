@@ -1,0 +1,12 @@
+{
+  "id": "W3153005725",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports only standard predictive performance metrics: \"The results presented in Table 4 show that the proposed method performs properly with an accuracy score of 0.85. Table 4 also lists the result of using fundus photography diagnosis alone.\" No feature importance, variable rankings, or magnitude comparisons are discussed anywhere in the results or conclusions."
+}

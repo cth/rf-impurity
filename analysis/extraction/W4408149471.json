@@ -1,0 +1,14 @@
+{
+  "id": "W4408149471",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest as one candidate algorithm within SuperLearner but explicitly states \"the nuisance functions estimated are not directly reported.\" Results report only which algorithms received highest weights in the ensemble, not variable importance from any algorithm. Variable importance is never extracted, interpreted, or used to support any conclusions about feature effects."
+}

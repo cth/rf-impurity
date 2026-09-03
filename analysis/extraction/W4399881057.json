@@ -1,0 +1,12 @@
+{
+  "id": "W4399881057",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains Random Forest classifiers on cell type labels (MYO-1 vs MYO-2, and various CF states) and applies them for prediction: \"we used the predefined MYO-1 and MYO-2 subsets from the original Pdgfra-eGFP+ MI-day 7 CF data of Farbehi et al. to train a Random Forest (RF) classifier to predict MYO-1 and MYO-2 on the integrated data.\" Similarly, \"we trained an RF classifier on the integrated gene expression data using cell type labels determined above and applied it to the IRI, AngII, and TAC datasets.\" The RF is used purely for classification outputs (predicted cell percentages and locations). No feature importance, variable importance, or impurity-based measures are reported or discussed. Conclusions rely on differential expression testing (MAST), marker genes, GO enrichment, and transcription factor pathway analysis via decoupleR."
+}

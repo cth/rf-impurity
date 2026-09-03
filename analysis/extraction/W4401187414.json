@@ -1,0 +1,15 @@
+{
+  "id": "W4401187414",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not use impurity importance at all. It applies semantic-based dimensionality reduction for spam filtering using synsets from Babelnet. While ranger (random forests) is mentioned as one classifier in their experimental comparison alongside SVM and naive Bayes, the paper contains zero mentions of \"importance\" and reports only classification performance metrics (FP errors, FN errors, accuracy, Kappa, f-score). Ranger is used only as a predictive classifier, not for importance extraction or feature ranking."
+}

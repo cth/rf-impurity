@@ -1,0 +1,16 @@
+{
+  "id": "W4404526711",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies random forest classification and regression using the ranger package in R but never reports variable importance metrics. Results focus exclusively on predictive accuracy: \"classification accuracies ranging from 98 to 100%\" and regression R² values (\"coefficients of determination show values of 0.95 and 0.97 for the analysis of adulteration with rice and beet syrup\"). The random forest is used as a black-box predictor; no conclusions concern feature importance, ranking, or individual feature contributions."
+}

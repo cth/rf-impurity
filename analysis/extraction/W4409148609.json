@@ -1,0 +1,16 @@
+{
+  "id": "W4409148609",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest classification purely for model accuracy testing, not feature importance interpretation. As stated in methods: \"we used random forest classification to examine the robustness of our PERMANOVA findings\" and \"The accuracy of the predicted classifications of the outcome variable by the model on the test data was assessed using a confusion matrix, from which precision, recall, and Kappa were calculated.\" Results report only classification accuracy: \"Random forests indicated that sample type...can be classified using the microbiome principal coordinate axis loadings (Table 2)\" with p-values comparing accuracy to No Information Rate, not ranger importance p-values."
+}

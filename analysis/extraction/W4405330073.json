@@ -1,0 +1,16 @@
+{
+  "id": "W4405330073",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests for predictive modeling but explicitly measures feature importance via permutation-based methods: \"The importance of each marker was estimated on permutation-basis using the varImp function from caret.\" Features are selected using GWAS p-values (\"The 200 SNPs with the lowest P-value were then used as the predictors\"), not impurity-based importance. No mention of impurity, Gini, MDI, or variance importance appears in the text."
+}

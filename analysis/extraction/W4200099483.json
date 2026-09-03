@@ -1,0 +1,12 @@
+{
+  "id": "W4200099483",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest (ranger) and quantile regression forest as regression tools for building prediction intervals to detect anomalies in tobacco sales. No variable importance metrics, rankings, or magnitude interpretations appear anywhere in the methodology, results, or conclusions. The RF is employed only for quantile prediction, not feature importance analysis."
+}

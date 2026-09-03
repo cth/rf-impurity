@@ -1,0 +1,17 @@
+{
+  "id": "W4386726210",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper extracts 1940 radiomic features from ADC maps and uses random forest regression with feature selection (mRMR and RFE). They report feature importance by counting selection frequency across 1000 models: \"The most dominant feature was selected as input data for 992 out of 1000 models\" and analyze \"the relative frequency of the features used in more than 500 out of 1000 models.\" They rank and interpret which feature types (first-order, GLCM, GLDM, NGTDM, 3D Shape) matter most, concluding \"First-order statistics describe the distribution of voxel intensities within the VOI and showed to be a helpful tool...\" This magnitude/ranking-based interpretation occurs without corroborating via permutation importance, SHAP, PDP/ALE, conditional importance, or validation on held-out data specific to feature importance."
+}

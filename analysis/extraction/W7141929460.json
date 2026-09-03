@@ -1,0 +1,19 @@
+{
+  "id": "W7141929460",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"We built predictive models using Random Forest (RF), and subsequently combined with univariate statistics to rank m/z features connected to PSC-IBD.\" Their feature ranking method is \"performed t-test and fold-change analyses within each fold, through MetaboShiny and calculated the combined V-score\" where V = -log10(p-value) × log2(fold-change). They additionally use logistic regression z-values (|Z|) for ranking. The paper does not extract or use impurity-based variable importance from Random Forest."
+}

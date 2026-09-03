@@ -1,0 +1,14 @@
+{
+  "id": "W4405464653",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs learning curves with AUC as performance metric and negative binomial regression to model dataset-level characteristics (class imbalance, feature count, nonlinearity) predicting sample sizes. It contains no feature importance analysis. \"Core linear features\" are identified via LASSO regression shrinkage in logistic regression, not tree-based impurity. The only coefficients reported are regression estimates on dataset characteristics, not feature importance magnitudes or rankings."
+}

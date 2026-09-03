@@ -1,0 +1,12 @@
+{
+  "id": "W4396626130",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"Both the propensity and outcome models combined 5 learners using stacking, including the generalized linear model, the generalized additive model... random forests (ranger package, version 0.14.1; R Project for Statistical Computing), and extreme gradient boosting.\" Random forests are used as one component of an ensemble for propensity score estimation within AIPTW. The entire paper contains zero mentions of \"importance\", \"feature\", \"ranking\", or variable selection. All reported conclusions concern treatment effect estimates and clinical outcomes (operative time, length of stay, readmission), derived from the fitted models themselves, not from variable importance analysis."
+}

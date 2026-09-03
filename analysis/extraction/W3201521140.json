@@ -1,0 +1,14 @@
+{
+  "id": "W3201521140",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains a random forest classifier using OTU presence-absence data and evaluates it by: \"The relationship between the observed and the predicted score was evaluated based on the adjusted R² of a linear model and the goodness of fit based on Cohen's Kappa κ.\" No variable importance metrics (impurity importance, Gini, MDI) are computed or reported. The only reference to importance is theoretical: \"the interpretation of misclassifications relies on the ecological understanding of the importance of input features, i.e. OTUs for the prediction,\" but the paper never actually analyzes or ranks OTU importance."
+}

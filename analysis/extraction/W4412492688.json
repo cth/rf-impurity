@@ -1,0 +1,14 @@
+{
+  "id": "W4412492688",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests from the ranger package for two purposes: (1) to predict cell type probabilities for contamination correction (Section 2.4), and (2) for survival prediction modeling (Section 2.5). In both cases, the paper uses predictions or Cox proportional hazards test statistics, not random forest variable importance. Feature selection for survival models explicitly ranks by \"univariate Cox proportional hazards models,\" not impurity importance."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4327554759",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper builds random forest models for virtual screening and states: \"Stepwise feature selection was performed during model optimization in Pipeline Pilot using the 'caret' package in R...Model improvement was defined as an increase in 5-fold cross-validated R².\" No variable importance scores, rankings, or interpretations are reported. Conclusions rely entirely on predictive performance metrics and experimental validation: \"From this screen, 32 compounds were ordered and 5 out of 32 compounds (16% hit rate) showed a similar affinity as the reference high-affinity NET inhibitor nisoxetine,\" with corroboration through TRACT assay experimental validation rather than impurity importance analysis."
+}

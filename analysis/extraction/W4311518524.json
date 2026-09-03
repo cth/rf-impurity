@@ -1,0 +1,14 @@
+{
+  "id": "W4311518524",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper evaluates Cox and random survival forest models using C-index and Integrated Brier Score (IBS)—predictive performance metrics, not variable importance. No impurity-based importance scores are extracted or reported. Variable selection uses univariate Cox p-values for pre-filtering 2500 genes (Section 2.2.2), not forest importance. All conclusions address aggregate prediction performance: Cox vs RF comparison, miRNA vs mRNA predictive value, sequencing depth optimization, and sample size requirements. Results are validated using cross-validation and external held-out validation on an independent dataset (E-MTAB-1980; Section 3.8)."
+}

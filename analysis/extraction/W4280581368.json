@@ -1,0 +1,18 @@
+{
+  "id": "W4280581368",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch",
+    "skewed"
+  ],
+  "p_affected": true,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"The reduction in MSE for each variable was accumulated for each variable in the random forest model. For both displaced and buckle fractures, fracture gap, callus, and patient age tended to be most predictive of fracture age; sex and fixation were least so (Figure 4).\" This ranking is then used to justify model selection: \"as differences in healing times between males and females contributed only marginally to variance (Figure 4), the combined-sex models were deemed sufficient.\" The impurity-importance magnitude directly supports the decision to omit sex-stratified models, with no independent corroboration (permutation, SHAP, or held-out validation of ranking)."
+}

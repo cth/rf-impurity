@@ -1,0 +1,16 @@
+{
+  "id": "W7154460799",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses targeted minimum loss-based estimation (TMLE) with machine learning ensemble for causal inference. Random forest is employed as one component in an ensemble to estimate treatment and outcome models, not for variable importance analysis. No variable importance rankings, Gini importance, impurity-based scores, or feature importance comparisons are reported or discussed anywhere in the paper. The analysis estimates a single causal effect (risk difference/ratio) for a predetermined exposure variable, not feature importance rankings."
+}

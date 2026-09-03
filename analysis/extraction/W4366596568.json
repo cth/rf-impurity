@@ -1,0 +1,12 @@
+{
+  "id": "W4366596568",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not use random forest methods or impurity-based variable importance. Statistical analysis relies on ANOVA (with F-statistics and p-values reported as F = X, p = Y), generalized linear mixed models, and AICc-based model selection. The methods section states: \"The following packages were used in the analysis: datasets, ggplot2 and lme4 for fitting and analyzing mixed models; nlme for linear and nonlinear mixed effects models; MuMin for model selection.\" While ranger is listed, it is not mentioned in any analysis description. Results sections exclusively report ANOVA, t-tests, and AICc comparisons without variable importance scores or feature ranking."
+}

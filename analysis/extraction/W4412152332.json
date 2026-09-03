@@ -1,0 +1,16 @@
+{
+  "id": "W4412152332",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports random forest model accuracy through out-of-bag R² and RMSE values (Table 2: R² range 0.70–0.82 for soil properties) and validates predictions via correlation analysis with independent soil survey data from three field sites (Tables 4–6, Figures 6–8). No variable importance metrics, rankings, or interpretations are presented anywhere in the manuscript. The conclusions address model accuracy and suitability of the gridded predictions for different application scales, with no reference to feature importance."
+}

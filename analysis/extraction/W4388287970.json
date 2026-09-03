@@ -1,0 +1,12 @@
+{
+  "id": "W4388287970",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"often selecting covariates beforehand either via covariate selection strategies or via machine learning methods such as the random forest\" (describing prior work), but then explains their approach: \"The main advantages of using the generalized linear model is that it facilitates interpretation and inference of the CATE: it is straight-forward to assess which covariates are driving the predictions through evaluating significance tests and comparing the (standardized) regression coefficients. With more flexible base-learners, it becomes more difficult to interpret and perform inference on treatment effect heterogeneity.\" Instead of variable importance, they use Classification Analysis (CLAN): \"To this end, one can compare the average (as well as variances, covariances, etc.) of baseline covariates across the subgroups.\" The paper makes no mention of impurity importance, permutation importance, SHAP, or partial dependence."
+}

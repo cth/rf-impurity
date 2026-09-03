@@ -1,0 +1,12 @@
+{
+  "id": "W4386881172",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states \"f referred to the random forest algorithm fitted with the ranger R package\" for calibrating model outputs against stations. However, the paper never reports or interprets feature importance; it reports only cross-validation performance metrics (R² = 0.89, RMSE = 9.24 μg m⁻³ for PM2.5; R² = 0.80, RMSE = 19.24 μg m⁻³ for O3). The main findings concern estimated pollution concentrations and population exposure levels, with conclusions drawn from temporal trends and geographic comparisons, not from variable importance rankings."
+}

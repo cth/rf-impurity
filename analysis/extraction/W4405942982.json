@@ -1,0 +1,16 @@
+{
+  "id": "W4405942982",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper is a simulation study comparing forecasting methods using Random Forest and XGBoost as predictors alongside traditional time series approaches. Performance comparison uses MSE and MAPE metrics only. No variable or feature importance measures are reported: \"The key findings from our study are as follows: The out-of-the-box Random Forest emerged as the ML benchmark method\" (Section 6.1), based solely on predictive error rates. The paper treats Random Forest and XGBoost as forecasting tools, not as importance-reporting methods. No impurity-based, permutation, SHAP, or other importance analysis is conducted."
+}

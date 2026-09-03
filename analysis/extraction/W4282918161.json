@@ -1,0 +1,18 @@
+{
+  "id": "W4282918161",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forest only for classification of relic charcoal hearths from LiDAR imagery, reporting classification accuracy (91.9%) and Cohen's Kappa (0.81) from 5-fold cross-validation but no variable importance values. The main forest structure analysis uses Redundancy Analysis (RDA) with Monte Carlo permutation testing (10,000 runs), not RF-based importance. Conclusions about driver effects derive from RDA associations, not from feature importance rankings or magnitudes. Multiple corroborating data sources include field surveys, anthracological identification of historical charcoals, historical mining records, and geostatistical interpolation, none relying on impurity importance."
+}

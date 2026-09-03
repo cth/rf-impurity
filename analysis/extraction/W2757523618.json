@@ -1,0 +1,16 @@
+{
+  "id": "W2757523618",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper evaluates sample selection bias correction methods by comparing prediction performance (AUC) of classifiers trained on biased learning data against unbiased test data, but never mentions or uses variable importance. Section 4.2 states: \"Evaluation. We measure the performance of the different classifiers combined with the various correction approaches by the Area-under-the-Receiver-Operating-Characteristic curve (AUC).\" The emphasis is entirely on which correction method improves prediction accuracy on held-out data, not on feature importance ranking or magnitude. The paper's conclusions address only prediction performance improvement across different correction approaches, without any reference to feature selection, feature importance, or variable importance of any kind."
+}

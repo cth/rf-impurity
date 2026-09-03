@@ -1,0 +1,17 @@
+{
+  "id": "W4319345875",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses a Random Forest algorithm for geospatial extrapolation (\"A Random Forest algorithm was applied to identify the spatial associations and extrapolate local observations to the global scale\"), reporting R² values for model performance (0.30-0.57). However, no variable importance metrics from the random forest are extracted or reported. Instead, the paper uses path analysis (structural equation modeling) to identify environmental predictors: \"Path analysis suggested that springtail density increases with latitude, NDVI (vegetation biomass), and soil pH, but decreases with increasing mean annual air temperature, aridity index (under dryer conditions), and elevation.\" The paper also states \"similar responses were obtained by linear modelling,\" providing independent corroboration. The main conclusions concern global springtail biomass estimates and latitudinal ecological patterns, not variable importance rankings."
+}

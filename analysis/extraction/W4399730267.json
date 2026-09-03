@@ -1,0 +1,12 @@
+{
+  "id": "W4399730267",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The Methods section explicitly states \"random forest from the ranger engine with importance set to impurity.\" However, the paper reports cross-validation performance for random forest (kappa ~0.86) but never reports or discusses random forest feature importance values. The authors selected LASSO for final models \"owing to the high-performance metrics and the simplicity of model interpretation,\" and all substantive findings—feature selection, interpretation of CpG importance, and external validation—are based on LASSO regression coefficients and correlations with cotinine levels, not random forest impurity importance."
+}

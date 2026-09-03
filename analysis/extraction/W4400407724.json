@@ -1,0 +1,17 @@
+{
+  "id": "W4400407724",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper builds random forest models using ranger, but analyzes relationships through partial dependence plots rather than impurity importance: \"The partial dependency results between the transmission and fatality rate of viruses and the number of positive patients of the virus are shown in Fig. 6. All transportation, including public bus, metro, and private transport, were significantly (p < 0.01) affected by the transmission and fatality rate of SARS-CoV-2 and the number of positive individuals (Fig. 6).\" The paper does not report variable importance scores, rankings, or Gini/MDI metrics at any point."
+}

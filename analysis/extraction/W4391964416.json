@@ -1,0 +1,12 @@
+{
+  "id": "W4391964416",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains random forest classifiers as one of two diagnostic methods being compared using AUC and two-way partial AUC (tpAUC) metrics. The methodology focuses on classifier performance evaluation through ROC analysis. No variable importance measures, impurity-based importance, feature importance, or variable selection methods are mentioned, described, or used in the analysis. Random forests are used solely as a predictive classifier whose output probabilities feed into AUC computation, not as a source of importance rankings."
+}

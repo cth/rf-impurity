@@ -1,0 +1,12 @@
+{
+  "id": "W4410949386",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper mentions random forest only as one of five classification methods compared for predictive performance: \"Several methods for binary classification including Ridge logistic regression, LASSO logistic regression, Support vector machine (SVM), k-nearest neighbors (KNN), and random forest (RF).\" No variable importance measures, feature selection methods, or impurity-based importance ranks are discussed anywhere in the paper. The study focuses entirely on classification performance estimation (accuracy, AUC, Brier score, F1-score, sensitivity, specificity) across different simulation approaches."
+}

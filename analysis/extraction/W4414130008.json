@@ -1,0 +1,12 @@
+{
+  "id": "W4414130008",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests only for propensity score prediction, reporting accuracy and AUC (Section 3.3). Covariate selection was done via AIC-based stepwise selection (Section 2.5). Main conclusions are about treatment effects of albuterol dosing estimated through SIPW-adjusted regression models, not about variable importance. No impurity-based importance scores are reported or interpreted."
+}

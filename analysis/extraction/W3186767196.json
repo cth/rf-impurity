@@ -1,0 +1,17 @@
+{
+  "id": "W3186767196",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper develops Random Forest models using ranger (section 2.2), which computes default impurity-based importance. However, feature importance is examined only in supplementary materials (section 3.2: \"An examination of the relevance of distinct features and feature groups is provided in Supplementary File S6\"). The paper's substantive conclusions—that organism-specific models yield significant performance gains and outperform existing tools—rest entirely on held-out predictive performance metrics (AUC, PPV, etc.) with bootstrap hypothesis testing. The feature importance discussion is explicitly labeled as exploratory, and the paper acknowledges interpretability limits that prevent deriving biochemical hypotheses from importance rankings."
+}

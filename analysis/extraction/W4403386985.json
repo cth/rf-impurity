@@ -1,0 +1,14 @@
+{
+  "id": "W4403386985",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses a random forest model trained on three accelerometer axes (x, y, z) to classify drinking behaviors but never extracts, reports, or discusses variable importance. No section of the methods, results, or discussion interprets feature rankings or magnitudes. The validation relies entirely on held-out leave-one-out cross-validation, equivalence testing against manual ground truth, and comparison of derived metrics (sip duration, intervals) rather than importance-based feature analysis. No variable importance p-values or alternative importance methods (permutation, SHAP, PDP/ALE, conditional) are mentioned."
+}

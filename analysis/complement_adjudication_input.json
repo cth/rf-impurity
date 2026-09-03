@@ -1,0 +1,34 @@
+[
+ {
+  "id": "W4280581368",
+  "cites": 11,
+  "evidence": "The paper states: \"The reduction in MSE for each variable was accumulated for each variable in the random forest model. For both displaced and buckle fractures, fracture gap, callus, and patient age tended to be most predictive of fracture age; sex and fixation were least so (Figure 4).\" This ranking is then used to justify model selection: \"as differences in healing times between males and females contributed only marginally to variance (Figure 4), the combined-sex models were deemed sufficient.\" The impurity-importance magnitude directly supports the decision to omit sex-stratified models, with no independent corroboration (permutation, SHAP, or held-out validation of ranking).",
+  "pvalue_method": "none",
+  "corroboration": [
+   "none"
+  ]
+ },
+ {
+  "id": "W4387460678",
+  "cites": 7,
+  "evidence": "\"The two variables chosen from all the selection methods, age and leukocytes, appear to be key influencing factors for physical frailty syndrome.\" And: \"The two described variables were followed in terms of importance by self-assessed health status, GFR, EQ-5D index, and handgrip strength.\" The paper ranks variables by selection frequency from impurity-based and information-theoretic methods, without corroboration via permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation. Features span laboratory values (sodium, potassium, glucose, creatinine), questionnaires (SARC-F, EQ-5D), physical measures, and demographics\u2014mixed types and scales.\"",
+  "pvalue_method": "none",
+  "corroboration": []
+ },
+ {
+  "id": "W4386726210",
+  "cites": 5,
+  "evidence": "The paper extracts 1940 radiomic features from ADC maps and uses random forest regression with feature selection (mRMR and RFE). They report feature importance by counting selection frequency across 1000 models: \"The most dominant feature was selected as input data for 992 out of 1000 models\" and analyze \"the relative frequency of the features used in more than 500 out of 1000 models.\" They rank and interpret which feature types (first-order, GLCM, GLDM, NGTDM, 3D Shape) matter most, concluding \"First-order statistics describe the distribution of voxel intensities within the VOI and showed to be a helpful tool...\" This magnitude/ranking-based interpretation occurs without corroborating via permutation importance, SHAP, PDP/ALE, conditional importance, or validation on held-out data specific to feature importance.",
+  "pvalue_method": "none",
+  "corroboration": [
+   "none"
+  ]
+ },
+ {
+  "id": "W4409469842",
+  "cites": 4,
+  "evidence": "The paper states: \"Recursive feature elimination (random forest, 'ranger' package, 1000 trees, 5 times repeated cross-validation, 5 folds) was used to find relevant properties for the prediction of XlogP.\" Results report: \"The recursive feature elimination...selected the following molecular properties and functional groups as most important to predict the XlogP (in this order): R-OH, aromatic structures, molecular weight, number of rings, R-O-R, RCOR...Aldehydes and carboxylic groups contributed less to the prediction of XlogP.\" The conclusion reinforces this: \"We verified that less retained DOM isomers...were likely to contain more alcohol groups and ring elements than stronger retained isomers, instead containing more esters and ethers.\" However, the paper provides no permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation to corroborate these importance rankings; cross-validation (R\u00b2=0.81) only validates predictive accuracy, not feature importance magnitude or ranking.",
+  "pvalue_method": "none",
+  "corroboration": []
+ }
+]

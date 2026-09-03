@@ -1,0 +1,9 @@
+{
+  "id": "W4387460678",
+  "cites": 7,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": true,
+  "adequate_corroboration": true,
+  "reason": "The paper's \"impurity (imp)\" filter (Gini impurity from decision trees) is only 1 of 6 feature-selection methods run in parallel; the other 5 (mrmr, cmim, jmim, njmim, jmi) are mutual-information/conditional-information filters that do not share the impurity-magnification bias. The \"age and leukocyte count are key factors\" claim rests on these two variables being selected by ALL SIX methods unanimously (text: \"selected by all six methods\"), so the conclusion survives even with the impurity method dropped entirely — it is corroborated by five independent, non-impurity, conditional/joint-mutual-information criteria. The paper also reports held-out test-set MAE/RMSE broken down by feature-selection method and finds the best-performing combination uses mrmr (not impurity) with random forest, and explicitly notes no appreciable performance differences across selection methods, i.e., held-out predictive validation of the selected feature sets. Since the impurity-specific bias could not have altered this consensus-driven, cross-validated ranking, the flag is refuted."
+}

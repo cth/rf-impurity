@@ -1,0 +1,17 @@
+{
+  "id": "W3016414098",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Random Forest is used as a classifier (\"combinations of CFSP and various methods of machine learning (Weighted SVM, Random Forest, Neural Network) are tested\"). Results tables report only classification performance metrics—accuracy, ROC, precision, recall, F1—not feature importance. The conclusion states: \"the random forest method appears to be slightly better; however, the evidence is not reliable due to fluctuation,\" evaluating predictive accuracy, not feature importance ranking."
+}

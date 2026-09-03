@@ -1,0 +1,14 @@
+{
+  "id": "W4409714366",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"The prediction explainability per model was computed via the Shapley values. This is a model-agnostic explainable artificial intelligence approach based on the cooperative game theory for feature contribution estimation\" and reports findings using Global Absolute Shapley values rather than impurity-based importance from random forests. Conclusions center on cross-validated predictive performance (cROC AUC differences), not on variable importance magnitude or ranking, avoiding reliance on impurity importance entirely."
+}

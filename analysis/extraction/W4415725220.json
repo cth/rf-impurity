@@ -1,0 +1,16 @@
+{
+  "id": "W4415725220",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not employ impurity-based variable importance from random forests. All statistical analyses use Kaplan-Meier survival curves for insecticide efficacy, Wilcoxon-Mann-Whitney tests for trap attractiveness, and chi-squared tests for field data. Though the ranger package is listed in the methods section, no actual random forest modeling or variable importance extraction is described or reported in the results. Conclusions derive directly from observed proportions and survival curves, not from any importance ranking."
+}

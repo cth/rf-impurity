@@ -1,0 +1,12 @@
+{
+  "id": "W4416313877",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses logistic regression for all primary and secondary analyses. Random forests appear only for imputation of missing medication data via missRanger; this tool plays no role in variable importance assessment. All conclusions—including the ranking of DIS as the strongest predictor compared to DMS and EMA—derive from logistic regression odds ratios, confidence intervals, and statistical significance tests. The paper employs theory-driven covariate adjustment (age, gender, illness duration, PANSS factors, medication use) consistent with causal inference, not automated feature selection."
+}

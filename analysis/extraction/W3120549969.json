@@ -1,0 +1,16 @@
+{
+  "id": "W3120549969",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper shows \"attribute counts from 5000 RF trees\" but does not compute formal impurity-based importance scores. States: \"The attributes between ~2–15 ps have higher counts in RF trees since in this delay time range, largest amplitude differences between waveform classes are present.\" The ranking is validated directly against waveform visual inspection (Fig 3b) and experimental boundaries (Fig 3d). Main conclusions concern classification accuracy and algorithm performance, not importance ranking."
+}

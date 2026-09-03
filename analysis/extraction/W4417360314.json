@@ -1,0 +1,12 @@
+{
+  "id": "W4417360314",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not extract or interpret variable importance. It states \"We compared the performance of nine commonly used methods for genomic prediction\" using NCG (Normalized Cumulative Gain) and Pearson correlation as evaluation metrics. Random Forest is used only as one of nine prediction algorithms; conclusions address \"which models perform best\" on selection accuracy, not which genomic variables are important."
+}

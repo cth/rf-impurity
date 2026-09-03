@@ -1,0 +1,16 @@
+{
+  "id": "W4404619028",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "This paper studies tsetse fly (Glossina morsitans morsitans) quality under the sterile insect technique using experimental treatments. Statistical methods are GLMM (Generalized Linear Mixed Models), Kaplan-Meier survival curves, and Cox proportional hazards models with random effects. The paper reports effect sizes for treatment comparisons across biological quality indicators (emergence, flight, mating, insemination, survival) via hypothesis tests. No random forest models or variable importance metrics (impurity-based, Gini, MDI) are employed."
+}

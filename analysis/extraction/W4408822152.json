@@ -1,0 +1,12 @@
+{
+  "id": "W4408822152",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests as one of several machine learning methods for record linkage. Methods section: \"hyperparameters were optimized regarding precision using another grid search for all methods except logistic regression...Each GePaRD case was then assigned to the case from CRs with the highest probability.\" Results reports predictive performance only (Table 2: \"Random forest...Precision 59%, Recall 72%, F*-measure 48%\"). No variable importance analysis, interpretation, or inference is performed."
+}

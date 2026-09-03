@@ -1,0 +1,16 @@
+{
+  "id": "W4406270307",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Forest as one classification algorithm among several (LightGBM, Logistic Regression, BERT-based models) for adverse event coding. Model selection criterion is stated as: \"Upon further discussion with our clinician co-authors regarding the importance of clinical meaningfulness, we selected the best-performing model that included participant age and sex as additional predictors...which achieved an F1 score and accuracy of 0.913.\" The analysis focuses entirely on classification accuracy (F1 score, precision, recall) compared across algorithms. No variable importance measures, feature rankings, or impurity-based importance are discussed."
+}

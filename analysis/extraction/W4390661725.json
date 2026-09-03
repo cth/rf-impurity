@@ -1,0 +1,16 @@
+{
+  "id": "W4390661725",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"For step i), classification random forests were trained using the ranger engine in R the tidymodels library with importance set to 'impurity'\" to classify genes as cytokine-responsive or unresponsive. However, importance scores are never reported. The main finding—that \"a large fraction (70.4%) of bystander tumor cells in T cell-treated mice showed a pronounced IFNγ gene set score, whereas...5.3% of tumor cells classified as TNFα sensing\"—derives from gene set scores (sums of classified gene expression), not importance rankings. The random forests served only for internal feature selection during gene classification, not for biological interpretation of results."
+}

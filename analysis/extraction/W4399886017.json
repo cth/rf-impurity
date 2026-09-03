@@ -1,0 +1,16 @@
+{
+  "id": "W4399886017",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "This paper on phenomic selection for rapeseed breeding uses Random Forest as one of five prediction models tested (alongside GBLUP/NIRS-BLUP, Bayesian LASSO, RKHS, and SVM) but never analyzes or reports random forest variable/feature importance. The authors compare prediction accuracy across models using Pearson correlation coefficients between predicted and actual trait values. When discussing wavelength contributions, they note: \"This suggests that the differences in the effects of the individual features are negligible here, which could also explain why Zhu et al. [24] did not observe any improvement in prediction accuracy when selecting specific wavelengths.\" All conclusions focus on comparative prediction accuracy (e.g., \"RF yields the best prediction accuracies\" for plant height) and model selection recommendations (e.g., \"NIRS-BLUP shows sufficient competitiveness\"), not on interpreting which spectral wavelengths or genetic markers are important drivers of trait variation."
+}

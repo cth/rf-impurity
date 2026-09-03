@@ -1,0 +1,19 @@
+{
+  "id": "W4417106880",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "shap",
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Shapley values (SHAP) for feature selection, not impurity-based importance: \"For the variables incorporated into each optimal model, Shapley values were computed...Features with Shapley values no less than half of the maximum value were considered potential markers.\" Results are cross-validated (10-fold CV) and biomarker levels are validated statistically (Mann-Whitney with FDR correction, reported in Table 2). Since SHAP addresses the impurity-importance bias through a game-theoretic approach, the identified bias does not apply to this study's methodology."
+}

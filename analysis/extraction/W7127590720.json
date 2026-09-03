@@ -1,0 +1,12 @@
+{
+  "id": "W7127590720",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper mentions using random forests only for DEG identification: \"Differentially expressed genes (DEG) among the lineages were identified using a random forest regression model.\" No importance values, rankings, or impurity-based metrics are reported or discussed. The paper's conclusions rely on differential expression analysis, pathway enrichment, and single-cell phenotyping—not on random forest importance."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W4388516855",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses GWAS-based ranking (\"we ranked the SNPs according to the strength of their association with the phenotype as determined by a GWAS\") combined with random forest prediction. Validation relies on held-out test data: \"Finally, we employed the trained model to predict the phenotypes of the Ψ dataset and calculated the R² value between predicted and true phenotypes.\" The paper does not use tree-based variable importance measures for feature selection or interpretation of results."
+}

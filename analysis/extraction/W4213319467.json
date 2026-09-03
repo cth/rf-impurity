@@ -1,0 +1,16 @@
+{
+  "id": "W4213319467",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest for solar irradiance forecasting but does not employ impurity importance, variable importance, or feature selection methods. Section 3.2 states: \"An R package ranger to be used as a fast RF implementation for high-dimensional data is used in this work.\" The \"sensitive analysis\" described throughout (e.g., Section 3.3 and Results section) concerns only the sensitivity of forecasting accuracy to LoRa communication parameters (spreading factor, packet loss, time horizons), evaluated using nRMSE, MAPE, and DTW metrics. No importance scores, rankings, or magnitude interpretations appear in the paper."
+}

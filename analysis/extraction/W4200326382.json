@@ -1,0 +1,12 @@
+{
+  "id": "W4200326382",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs Random Forest (Ranger, 1500 trees) as a classification tool to automatically assign Raman spectra to polymer types (PA, PE, PES, PMMA, PP, PS, PU, PTFE) or non-MP particles, with performance evaluated via out-of-bag error and confusion matrices. No variable importance, feature importance, impurity importance, or any feature ranking measures are computed, reported, or used. Conclusions concern detection and characterization methodology, not feature importance."
+}

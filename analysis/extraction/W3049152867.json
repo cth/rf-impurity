@@ -1,0 +1,12 @@
+{
+  "id": "W3049152867",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Paper analyzes dietary effects on mosquito development using Kruskal-Wallis and Wilcoxon rank-sum tests, comparing means across five diet treatments. Methods section (2.5): \"Comparisons of physiological features (mean weights, wing lengths and nutrients) for each diet were performed by Kruskall-Wallis test followed by pairwise scoring using the Wilcoxon signed-rank test.\" All inference based on classical non-parametric tests, not random forest impurity importance."
+}

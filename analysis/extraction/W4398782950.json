@@ -1,0 +1,12 @@
+{
+  "id": "W4398782950",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest regressors for predicting post-FMT taxon abundances but explicitly employs SHAP (Shapley additive explanations) values rather than impurity-based importance for feature interpretation: \"For these well-predicted taxa, we calculated feature contribution using Shapley additive explanations (SHAP) values.\" No mention of Gini, MDI, variance importance, permutation importance p-values, or other impurity measures appears in the text."
+}

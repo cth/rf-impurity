@@ -1,0 +1,14 @@
+{
+  "id": "W4417222054",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs random forest models (ranger package) to evaluate whether experimental manipulations of trust in science improve model predictive performance on protection intentions. It explicitly evaluates models by \"predictive performance (e.g., cross-validated R²)\" and compares \"performance of both variants, indicated as 10-fold cross-validated R² values,\" with and without trust in science as a predictor. The paper does not extract or report any variable importance metrics—no variable importance scores, Gini importance, MDI, or permutation-based importance. The machine learning analysis tests a predictive question (does including this variable improve prediction?), not importance ranking or magnitude. The main conclusions concern the absence of causal effects rather than feature importance."
+}

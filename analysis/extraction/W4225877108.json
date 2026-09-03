@@ -1,0 +1,16 @@
+{
+  "id": "W4225877108",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"Feature selection within the model fitting was implemented using the permutated importance metric. Variants achieving an importance > 1 × 10^-5 were accepted into the model.\" The conclusions focus entirely on prediction accuracy (\"the mean overall accuracy of prediction was 0.985 (95% CI [0.970–0.992]%)\"), not on variable importance rankings or magnitudes. Importance is used only for feature selection filtering, not for substantive claims about SNP effects."
+}

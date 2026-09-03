@@ -1,0 +1,16 @@
+{
+  "id": "W4395661646",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses elastic net logistic regression for variable selection (\"we performed bootstrapped elastic net logistic regression for variable selection\"), not random-forest impurity importance. Random forest appears only in the imputation step: \"missing values were imputed by random forest using the missRanger R package.\" Feature importance is reported as logistic regression odds ratios: \"Among the essential peptides, the highest odds ratio (ORs [95% CI]) for independently predicting incident RKOA in logistic regression models were achieved by y2 HABP2 (186–203) (4.09 [1.60, 4.97]) and HRG (1.05–2.87) (2.49 [1.05, 2.87]).\" The paper ranks and interprets magnitudes of these ORs, but impurity importance bias cannot affect conclusions that do not rely on impurity-based methods."
+}

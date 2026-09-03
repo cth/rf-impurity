@@ -1,0 +1,12 @@
+{
+  "id": "W4376643855",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Random forest (ranger package) used only for predictive mapping of vegetation and forest cover as auxiliary input to soil erosion calculations: \"we used separate random forest models (R package 'ranger') based on global FCOVER data...to obtain global mappings of annual potential vegetation and forest cover.\" No variable importance analysis reported or used for any core scientific conclusions about land-use dynamics, pollination, or emissions."
+}

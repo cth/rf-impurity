@@ -1,0 +1,12 @@
+{
+  "id": "W4414850362",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports results from multinomial logistic regression (\"female sex and number of days with deep sedation were associated with ICU amnesia (aOR 1.99... and aOR 1.34... respectively)\") and linear mixed-effects models (\"delusional memories were independently linked to both 3- and 12-month symptoms of PTSD... adjusted %-difference in mean IES score, 12.9%... and 18.1%\"). The only reference to random forests appears in the missing-data imputation section: \"a sensitivity analysis was performed following imputation of 12-month IES-6 data using a chained random forest-based imputation method,\" citing Wright & Ziegler's ranger package. No variable importance, feature importance, or impurity-based ranking is used in the analysis."
+}

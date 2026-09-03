@@ -1,0 +1,17 @@
+{
+  "id": "W4414520153",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest only for imputation of missing baseline characteristics (age, sex, country via missRanger package). All substantive conclusions about drug safety signals are based on disproportionality analysis: \"We used two classical disproportionality methods... the reporting odds ratio (ROR) and the information component (IC) algorithms.\" Five drugs consistently showing signals (methotrexate, leflunomab, sulfasalazine, rituximab, tocilizumab) are identified through ROR/IC thresholds in FAERS and VigiAccess, not through tree-based importance. Risk factors (age, sex) are analyzed via \"Univariable and multivariable logistic regression analyses.\""
+}

@@ -1,0 +1,18 @@
+{
+  "id": "W3174273655",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "permutation",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest for classification validation: \"we used random forest to validate the top 500 genes selected from PCA, mRMR, and DGE\" and reports classification statistics (accuracy, sensitivity, specificity) in Table 3. However, biomarker ranking comes from overlapping selections by 5 independent methods (DGE, PCA, mRMR, XGboost, Lasso), not from random forest impurity importance. Conclusions are corroborated by external validation on GSE28582 using ROC/AUC and Kaplan-Meier survival analysis."
+}

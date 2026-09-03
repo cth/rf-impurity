@@ -1,0 +1,12 @@
+{
+  "id": "W4392619945",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies a random forest model (\"An R Package 'ranger' (ver. 0.13.1) (Wright and Ziegler 2017) was used to create a random forest model\") but evaluates it solely on predictive accuracy using correlation coefficients. Results report frequency of outperformance versus a genomic prediction benchmark (\"the random forest model outperformed GPG 155 out of 364 times\"), not variable importance. Conclusions concern G × E capture and prediction accuracy, not feature ranking or magnitude: \"the results suggest that our model can capture G × E, especially the latter growth period for the random forest model.\""
+}

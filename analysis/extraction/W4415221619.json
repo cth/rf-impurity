@@ -1,0 +1,15 @@
+{
+  "id": "W4415221619",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"This framework is used to perform three experiments... classifiers are trained on each dataset... The stored classifier's performance is then estimated on the test set.\" Results are presented exclusively as MCC, AUC-ROC, sensitivity, specificity, and F1 scores across imputation methods. The paper uses \"randomForest\" package for the RF classifier but reports only classification performance metrics (MCC mentioned 41 times), with zero mentions of variable/feature importance, Gini, MDI, or mean decrease impurity. Conclusions rank imputation methods by classification accuracy, not features by importance."
+}

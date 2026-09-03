@@ -1,0 +1,18 @@
+{
+  "id": "W4200017076",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses ranger (random forests) in the Methods section but never extracts or reports variable importance measures. Validation relies on c-for-benefit discrimination, absolute risk reduction in held-out test data, and trial emulation projecting clinical outcomes—all outcome-driven metrics independent of impurity importance. The authors explicitly state: \"The single-variable differences should be regarded as descriptive at best, because the ultimate probability of treatment success (benefit score) depends on the interaction of all variables,\" indicating they do not rely on univariate variable importance rankings."
+}

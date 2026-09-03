@@ -1,0 +1,20 @@
+{
+  "id": "W4415147614",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "permutation",
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses two importance metrics: %IncMSE (permutation importance, which is robust) stated as \"The essential variables according to %IncMSE for the model were pannual (13.01%), tannual (11.89%), uspeed (11.65%), and clayContent (10.98%)\" and IncNodePurity (impurity-based) for \"the primary environmental factors associated with decreases in spatial model residual variance.\" The methodology states importance is measured via \"a sensitivity analysis in which the importance of variables is measured by permuting variables in the model\" (permutation importance). Substantive conclusions about environmental drivers are corroborated by \"Partial dependence plots showing the influence of environmental variables on modeled tall‐tree density\" (Fig. S6), spatial cross-validation (k-fold and spatial), and extensive ecological reasoning in the Discussion. The paper's central claims concern spatial distribution patterns and the mechanism (clay content, water availability, low disturbance) supporting tall tree density, not the relative magnitudes of importance scores."
+}

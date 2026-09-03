@@ -1,0 +1,14 @@
+{
+  "id": "W3011716490",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper describes random forest importance as 'the increase in the misclassification frequency after random permutations of the values of each input' (permutation importance, not impurity-based) and gradient boosting importance as 'the average improvement of the loss function.' The paper ranks variables and interprets magnitude (abstract: 'date of onset has a greater influence'; results: 'ranked first,' 'strongest impact'). Corroboration with partial dependence plots confirms interpretations: 'The strong sensitivity...is consistent with the increasing trend shown by the partial dependence plots' (Figs 7A, 7B). The 9 inputs are all continuous numerical variables (date, temperature, precipitation across months), homogeneous in type."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "W7149531302",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses \"principal component analysis (PCA) to reduce the number of variables\" followed by \"multivariate logistic regression models\" for variable selection and prediction. Univariate analysis identifies statistically significant variables. No random-forest impurity importance or tree-based variable importance measures are employed; the only ranger reference is to the missRanger package for multiple imputation of missing data."
+}

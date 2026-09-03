@@ -1,0 +1,16 @@
+{
+  "id": "W4366974966",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper makes no mention of impurity importance (Gini/MDI), variable importance metrics, feature ranking, or any importance-based analysis. It is a methods comparison paper that evaluates different integration techniques using performance metrics (Harrell's C, Integrated Brier Score, and log-rank tests). The only random forest method discussed is RSF and BlockForest, but their importance scores are never analyzed or discussed. The paper states: \"We compared eight deep learning and four statistical integration techniques for survival prediction on 17 multi-omics datasets, examining model performance in terms of overall accuracy and noise resistance,\" and concludes by recommending \"PriorityLasso\" and \"BlockForest\" based on their superior noise resistance and overall discriminative and calibration performance - rankings of methods, not variables."
+}

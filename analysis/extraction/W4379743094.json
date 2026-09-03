@@ -1,0 +1,17 @@
+{
+  "id": "W4379743094",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "conditional",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not report impurity-based feature importance. Instead, it focuses on predictive performance: \"The SVM had an area under the receiver-operator curve of 0.94 and an area under precision-recall curve of 0.96... The RF had an area under the receiver-operator curve of 0.84 and an area under precision-recall curve of 0.87.\" Conclusions rest on classification accuracy, out-of-bag voting consensus across trees, unsupervised k-means clustering of phenotypes, and t-tests on individual features. Multiple classifiers (RF and SVM) are tested for cross-validation."
+}

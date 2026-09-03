@@ -1,0 +1,17 @@
+{
+  "id": "W4407805473",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random survival forests (\"The random survival forest-based prediction models used the C++ implementation of the ranger package\") but never reports variable importance. Conclusions address feasibility (\"DA can be deployed in real time during the DCD process\"), usability (\"usefulness and usability of the DA report has improved through user feedback\"), and implementation barriers/drivers. No feature importance, rankings, or magnitude interpretations appear in the text."
+}

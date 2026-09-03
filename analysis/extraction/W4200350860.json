@@ -1,0 +1,14 @@
+{
+  "id": "W4200350860",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "Random forest appears only in the missing data imputation context: \"missing data were imputed over 30 data sets using the chained random forest method 21 over 100 trees and 10 iterations.\" Feature selection and ranking derived from traditional multivariate regression models, sPLS-DA (\"used as a supervised machine learning model to rank the most predictive features\"), and differential gene expression analysis with Bonferroni correction. No impurity-based importance used for biomarker or gene selection."
+}

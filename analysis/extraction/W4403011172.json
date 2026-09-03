@@ -1,0 +1,15 @@
+{
+  "id": "W4403011172",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper states: \"We specified the following collaborative learners: (mean, generalised linear model, lasso, random forest and gradient boosted trees).\" Random forests are used as one base learner within SuperLearner for outcome prediction, but the paper reports only risk differences, adjusted mortality estimates, and sensitivity analyses. No feature importance is extracted or interpreted. The analysis and conclusions focus entirely on the causal effect of statin initiation on inpatient mortality, not on variable importance rankings or magnitudes."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "W3157264684",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses logistic regression with adjusted odds ratios to assess mitigation measures: \"After adjusting for county-level incidence and other individual- and county-level factors... living in a household with a child engaged in full-time in-person schooling is associated with a substantial increase in the odds.\" Variable effects are compared via multivariable regression coefficients: \"Regression treating each individual mitigation measure as having an independent effect shows that daily symptom screening is clearly associated with greater risk reductions than the average measure.\" No random forest impurity importance or tree-based variable selection methods are employed; the ranger package is cited in the bibliography but not used in the analysis."
+}

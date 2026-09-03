@@ -1,0 +1,16 @@
+{
+  "id": "W4214617667",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest models via the ranger package for SARS-CoV-2 sequence classification, stating \"The second phase of the classification executes the call to the ranger package (Wright and Ziegler, 2017) predict function using three trained random forest models in sequential order.\" However, no feature importance, variable importance, or feature ranking is discussed. The paper focuses only on reporting classification accuracy (0.9777-0.9952), AUC, and computational speed, with conclusions centered entirely on model performance: \"All three models performed well, with an accuracy of 0.9777, 0.9952 and 0.9656 for GISAID, Nextstrain and Pango models, respectively.\" Random forests are used solely for prediction, not for understanding which k-mers or features drive the classification decisions."
+}

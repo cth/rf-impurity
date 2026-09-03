@@ -1,0 +1,17 @@
+{
+  "id": "W3139770405",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not extract or interpret random forest impurity importance for feature selection or ranking. The authors state: \"To avoid overfitting problems due to the number of input features being larger than the number of recordings (23 EHG and six obstetric), a principal component analysis (PCA) was carried out.\" In the Discussion, they identify this as a limitation and propose future work: \"In future work we aim to use other feature selection techniques that will allow us to determine an optimized feature subset, such as random forest or particle swarm optimization, among others,\" indicating RF importance was not used in this study."
+}

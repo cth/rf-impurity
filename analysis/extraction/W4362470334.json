@@ -1,0 +1,14 @@
+{
+  "id": "W4362470334",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses quantile regression forests with 57 environmental covariates but does not report variable importance. Results focus on prediction accuracy metrics (RMSE r² MEC) and uncertainty quantification from 10-fold cross-validation. Methods section describes variance as the splitting metric for tree construction but never analyzes or interprets the importance of individual covariates. No ranking of environmental factors or claims about relative predictor contributions appear anywhere in the text."
+}

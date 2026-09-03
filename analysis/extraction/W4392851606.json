@@ -1,0 +1,18 @@
+{
+  "id": "W4392851606",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"Importance is quantified as the difference (mean among trees) in root mean square error when a given variable is excluded during out-of-bag prediction.\" For ranking: \"the strongest predictors of Chinook salmon depth distribution were bottom depth, one of two composite calendar day variables, maturity stage, and location.\" Corroboration via conditional predictions: \"we used random forest models for ecological inference by generating conditional predictions to evaluate how Chinook salmon depth varies\" and \"generated conditional spatial contrasts...to visualize spatially varying effects.\" Held-out validation: \"8-fold cross-validation\" with out-of-sample testing. Feature characteristics: \"depth is not normally distributed but bounded by zero and, in this case, right skewed towards surface depths\" with mixed continuous (spatial, oceanographic) and categorical (day-night) variables."
+}

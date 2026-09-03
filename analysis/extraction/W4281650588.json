@@ -1,0 +1,16 @@
+{
+  "id": "W4281650588",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests only for missing data imputation: \"missing values for the remaining variables were imputed using chained random forests with 500 iterations and predictive mean matching k = 5 (missRanger package)\". The substantive analyses employ traditional statistical methods (t-tests, Mann-Whitney tests, Shapiro-Wilk tests, clustering algorithms) to describe trial heterogeneity and compare cohort characteristics. No random forest importance scores are computed, ranked, or interpreted."
+}

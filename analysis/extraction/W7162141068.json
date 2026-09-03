@@ -1,0 +1,14 @@
+{
+  "id": "W7162141068",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper does not report variable importance or feature ranking at any point. It uses Random Forest solely for predictive habitat suitability modeling and evaluates performance using standard validation metrics (AUC, accuracy, precision, recall, F1-score, Kappa) and spatial extrapolation accuracy. The conclusions state: \"correction for sampling effort is superior to assuming abundance reflects habitat quality, as IW and ISW outperformed the unweighted baseline\" — all claims rest on predictive accuracy metrics, not variable importance. The 19 bioclimatic and topographic covariates are never ranked or interpreted by importance."
+}

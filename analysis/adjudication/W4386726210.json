@@ -1,0 +1,9 @@
+{
+  "id": "W4386726210",
+  "cites": 5,
+  "verdict": "refuted",
+  "uses_impurity_importance": true,
+  "ranking_central": false,
+  "adequate_corroboration": true,
+  "reason": "The reported metric is not a raw impurity-importance magnitude but the SELECTION FREQUENCY of features across 1000 independent mRMR+RFE+RF refits nested inside a 100-repeat×10-fold outer / 5-fold inner cross-validation (\"the frequency of the features selected for the model after mRMR and rfe within the 1000 computed models... was analysed\"). Even granting that caret's default RFE ranking criterion for a regression forest is node-purity-based (impurity-style), each of those 1000 models was itself validated on a held-out test fold, and the aggregate predictive performance (Pearson r=0.42±0.07, p<0.05 in all 100 repeats) is exactly the \"held-out predictive validation of the selected feature set\" the rubric names as adequate corroboration — this is far stronger than a single-split accuracy check. Moreover the feature-group discussion (first-order/GLCM/GLDM/NGTDM/shape) is a qualitative, literature-linking discussion paragraph, not the paper's central conclusion, which is instead the significant SSTR2A/2B/5–SUVmax correlations and the overall out-of-sample predictive success of the ADC-radiomics model — neither of which depends on the magnitude or ranking of impurity importance."
+}

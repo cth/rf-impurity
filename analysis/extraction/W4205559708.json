@@ -1,0 +1,15 @@
+{
+  "id": "W4205559708",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains supervised random forests only to evaluate that ALRA improves cell-type separability by comparing out-of-bag classification error before and after imputation: 'To quantitatively confirm that ALRA increases separation, we trained supervised random forests to classify the cells into cell types based on expression values, and we compare the out-of-bag classification error before and after imputation.' Random forest variable importance is never computed, discussed, or cited in the paper."
+}

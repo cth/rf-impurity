@@ -1,0 +1,15 @@
+{
+  "id": "W4309455543",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses Random Survival Forests and Gradient Boosted Trees but evaluates them based on Integrated Brier Score (IBS) predictive performance, not variable importance. Conclusions state: \"Predictive performance was measured by the integrated Brier score (IBS)... none of the models were able to outperform the KM when using clinical data only.\" No variable importance scores, rankings, or p-values for importance are reported anywhere in the paper. The impurity-importance bias cannot affect conclusions that rely on predictive performance metrics rather than importance magnitude or ranking."
+}

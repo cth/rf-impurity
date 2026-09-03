@@ -1,0 +1,14 @@
+{
+  "id": "W2790739050",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses 8 epistasis-detection tools (GBOOST, PLINK, FastEpistasis, etc.) to identify SNP-SNP interactions, not variable importance scoring. It does not rank or interpret importance magnitudes. Conclusions rest on enrichment tests against drug databases (hypergeometric/permutation tests) and empirical validation: 5 of 9 predicted drug combinations showed synergistic effects in MCF-7 cell assays, and filtering with 3D genome data improved clinical hit rates from 6.6% to 20.4%. Though Ranger is evaluated as one epistasis method, the paper notes it \"failed to identify any significantly associated SNP pairs\" and does not use its importance outputs."
+}

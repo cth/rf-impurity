@@ -1,0 +1,14 @@
+{
+  "id": "W7156778660",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The random forest model is used only for natal river classification: \"Juvenile and adult samples were assigned to a natal river or hatchery using a random forest (RF) model implemented in the R package ranger.\" The paper reports classification accuracy (60.7% ± 2.1% for AME-origin fish) and class probabilities for reassignment decisions but does not report, discuss, or interpret variable importance from the model. All scientific conclusions about selective mortality, cohort replacement rates, and flow effects derive from isotope threshold analysis, size measurements, and selection differentials—not from variable importance rankings."
+}

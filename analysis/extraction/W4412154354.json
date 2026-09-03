@@ -1,0 +1,14 @@
+{
+  "id": "W4412154354",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The Random Forest is used only for binary classification to filter bird detection records, not for interpreting variable importance. Model evaluation relies solely on AUC from cross-validation: \"The best-performing RF model hyperparameter configuration (mtry = 2, splitrule = gini) resulted in an average AUC of 0.95 across all cross-validation sets.\" No variable importance metrics are reported or discussed anywhere in the paper."
+}

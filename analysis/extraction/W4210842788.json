@@ -1,0 +1,16 @@
+{
+  "id": "W4210842788",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper states: \"Individually, precipitation is the most influential climate variable for coastal and mid-elevation δ 15 N‰ regardless of KDE employed, whereas in the highlands, precipitation seasonality has the largest effect on δ 15 N‰... with mean temperature having a larger relative effect in the highlands\" and \"Climate, cumulatively, has an effect size ranging from two to fourteen times that of demography across both isotopes.\" The central conclusion—\"climate change is the dominant driver of Central Andean dietary variation\"—depends on ranking effect sizes across variables and interpreting their magnitudes."
+}

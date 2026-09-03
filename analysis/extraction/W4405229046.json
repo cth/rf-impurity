@@ -1,0 +1,18 @@
+{
+  "id": "W4405229046",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "pdp_ale",
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": true,
+  "evidence": "The paper explicitly uses Gini-based importance: \"The Gini index served as the performance metric for this assessment.\" It interprets importance magnitude and ranking to support key conclusions: \"with BIW_i standing out as the most relevant factor, particularly for high specificity values\" and \"the prediction factor WW_i replaced birthweight-related factors as the most relevant, accounting for more than 50% of the importance.\" The importance rankings are corroborated through partial dependence plots (\"Partial dependence plots were examined for factors accounting for more than 5% importance\") and held-out validation showing AUC reduction when high-importance factors are excluded (\"resulting in a decrease in AUC ranging from 0.056 to 0.060\")."
+}

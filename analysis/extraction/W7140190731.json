@@ -1,0 +1,14 @@
+{
+  "id": "W7140190731",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains random forest models to classify substitutions as high or low frequency but reports only ROC AUC performance metrics (0.81, 0.80, 0.78 on Alpha, Delta, Omicron) without reporting or interpreting variable importance scores. Conclusions rest on constraint predictor scores directly (PSSM, ESST, FoldX, Rosetta shown in Fig. 1) and Mann-Whitney U tests, not on feature importance rankings from the random forest."
+}

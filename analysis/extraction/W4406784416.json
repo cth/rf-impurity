@@ -1,0 +1,12 @@
+{
+  "id": "W4406784416",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper develops random forest models to predict HCAb binding affinity, stating: \"Random forest models trained on Log10(KD) for HCAb binding to SARS-CoV-2 variant RBDs (Beta, Gamma, Delta, Lambda, & Mu variants) were generated and used to predict HCAb binding efficacy on novel variants.\" However, the entire text contains zero mentions of \"importance\" or feature-importance concepts. Model evaluation focuses exclusively on prediction accuracy (RMSE, correlation, Q²), and conclusions derive from experimental validation and structural analysis rather than feature importance interpretation."
+}

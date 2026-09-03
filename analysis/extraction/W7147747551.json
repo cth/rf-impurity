@@ -1,0 +1,16 @@
+{
+  "id": "W7147747551",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "This paper on spatial interpolation of meteorological variables does not employ variable or feature importance analysis of any kind. The abstract states the goal is to \"provide accurate atmospheric delay corrections for high-precision edge and corner nets observation\" and \"compare their performance with traditional methods for high-density interpolation,\" focusing on model accuracy metrics (RMSE, MAE, R²). The paper employs Random Forest and XGBoost for interpolation tasks but does not report, analyze, or interpret variable importance—neither impurity-based (Gini/MDI) nor permutation-based—and contains zero mentions of \"importance,\" SHAP, Boruta, or importance p-values (Altmann/Janitza)."
+}

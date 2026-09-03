@@ -1,0 +1,16 @@
+{
+  "id": "W4315480013",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses a random forest as a predictive model to weight functional importance, not as a variable importance method. The text states: 'We then used a RandomForest model to obtain a quantitative prediction of conservation... This method produced a predicted value between 0-1 for each of the ~66k nonsynonymous, segregating mutations.' The validation is through genomic prediction accuracy (cross-population and within-population), not through variable importance extraction or ranking.\""
+}

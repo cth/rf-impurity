@@ -1,0 +1,16 @@
+{
+  "id": "W4318039173",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses elastic net with weighted frequency scores for feature selection (not impurity importance). Random forests appear only for multiple imputation of missing values. Feature ranking comes from bootstrap-stable elastic net selection and AUC-based backward elimination. Prediction validation uses a held-out cohort (BMF, n=86)."
+}

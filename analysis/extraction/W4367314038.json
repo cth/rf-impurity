@@ -1,0 +1,16 @@
+{
+  "id": "W4367314038",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper mentions Random Forest for evaluating \"predictability of functional data\" but never reports variable importance estimates or feature rankings from this model. The actual analytical results are derived entirely from MaAsLin2 differential abundance testing (\"Differential abundances at the genus and species levels were tested with MaAsLin 2\") and Spearman correlations, which are distinct statistical methods that do not rest on impurity-based importance. The functional pathway analysis results state \"We did not detect any significant differences...between the two groups with and without prediabetes (p > 0.05, linear model),\" providing no importance-based ranking. Conclusions identify \"specific taxonomic signatures\" based on differential abundance patterns, not RF importance magnitudes."
+}

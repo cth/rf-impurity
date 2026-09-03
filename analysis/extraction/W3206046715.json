@@ -1,0 +1,12 @@
+{
+  "id": "W3206046715",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest models exclusively as reference predictors for establishing baseline prediction accuracy on a single-cell signaling task. Random forests appear in two contexts: (1) as a reference model: \"A reference model was built using a random forest predictor before the challenge\" (SC1, SC2, SC4 reference models), and (2) as one algorithm in an ensemble by one team: \"They used subsets of these features to train an ensemble of models: ElasticNet, ExtraTrees, RandomForest, Light Gradient Boosting, and linear model.\" Variable importance metrics are never discussed, analyzed, or used for any purpose."
+}

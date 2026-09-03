@@ -1,0 +1,16 @@
+{
+  "id": "W4385602986",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses elastic net and glinternet (hierarchical LASSO) for variable selection and interaction detection, producing a linear model. Random forest is mentioned only as a predictive-performance comparison ('For comparison to the POSTOP-AKI model, the random forest model had an ROC AUC of 0.79'). Interpretation relies on OLS regression coefficients ('To aid interpretation...we conducted OLS regression on 1000 bootstraps'), not on impurity importance. Features are continuous (serum creatinine, heart rate, perfusion index, blood loss) and categorical (surgical service), combined through a linear model with interactions selected via regularization.\""
+}

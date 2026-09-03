@@ -1,0 +1,12 @@
+{
+  "id": "W4408317162",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper mentions random forest only in future work: \"a full evaluation and validation of the potential of plastome tracing requires conducting (self-) assignment tests, e.g., using random forest analyses [ 49 , 50 ] or a Nearest Neighbour Approach [ 51 ]\" (Next steps section). The actual methods employed are RAxML phylogenetic trees, DAPC, haplotype networks, Mantel correlation tests, and PCA - none involving impurity importance. Random forest is not used in the current study."
+}

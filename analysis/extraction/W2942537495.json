@@ -1,0 +1,18 @@
+{
+  "id": "W2942537495",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": true,
+  "corroboration": [
+    "heldout_validation",
+    "conditional"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper displays normalized attribute importance counts in Figure 5(a), noting that \"irrelevant to our classification task, such as Mode, Mean, FeretX, and FeretY got zero or very low counts in tree nodes.\" However, the substantive conclusions concern classification accuracy (~98–99%) and classifier comparison, not feature ranking. Importance serves as supportive evidence that \"RF classifier is not a 'black box'\" but does not anchor the main findings. The 1.5% accuracy drop when switching to scale-robust attributes validates robustness through prediction performance, not importance magnitude. Features include mixed types (counts, continuous measurements, ratios, coordinates) with varying scales, and no p-values test importance significance."
+}

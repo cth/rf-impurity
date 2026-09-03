@@ -1,0 +1,17 @@
+{
+  "id": "W4377822166",
+  "set": "complement",
+  "uses_impurity_importance": true,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses importance \"to check the importance of all predictors and...excluded those of low importance in a step-wise manner\" to select features, not to interpret effect magnitudes. Figure 8 reports importance visually but conclusions state only which variables \"could be estimated,\" not their ranked strength. Validation relies on held-out R² (>0.85), RMSE, MAE, and slopes across sensitivity analyses, confirming predictive accuracy but not importance-based claims. The main conclusions concern dataset quality and gap-filling effectiveness, with importance playing only an instrumental role in feature selection—a use robust to impurity bias because it tests variable USAGE (non-zero), not magnitude or ranking."
+}

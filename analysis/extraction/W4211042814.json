@@ -1,0 +1,14 @@
+{
+  "id": "W4211042814",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper used random forests only for interaction detection (\"to search for stable interactions among disorders...The cross-validated predicted outcome score based on RF was then added\"). Primary conclusions derive from generalized linear model coefficients (Table 4), lasso regression for feature selection, and population attributable risk (PARP) calculations from regression coefficients. Main claim: \"mental illnesses are associated with a higher proportion of DOR (32.9%) than the physical disorders considered here (27.0%)\" — grounded in PARP, not impurity importance."
+}

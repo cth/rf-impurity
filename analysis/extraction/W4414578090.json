@@ -1,0 +1,12 @@
+{
+  "id": "W4414578090",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper develops methods for flexible calibration curves in clustered clinical prediction data. Its focus is on assessing agreement between predicted and observed event risks in multicenter validation studies (stated: \"A comprehensive evaluation includes an assessment of the agreement between the estimated risks and the observed outcomes, also known as calibration\"). Random forests appear once only, as a data-generating mechanism in synthetic data experiments to test calibration methods under nonlinear truth. No impurity-based importance (Gini, MDI, variance) is used, computed, or discussed. The paper contains no feature importance rankings, feature selection by importance, or magnitude interpretation of importance values."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "W3131480949",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [
+    "mixed_types"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper reports only prediction performance metrics (median AUC) across simulation scenarios and real rheumatoid arthritis data. Results state: \"median AUC: 0.66\" for MB-MDR, \"0.54\" for Random Forest, and \"0.50\" for Elastic Net when interactions are present. No variable importance measures, feature rankings, or impurity-based metrics (MDI, Gini) appear anywhere in the text. Discussion and conclusion focus solely on prediction performance improvement with interaction-aware models, not variable selection or importance ranking."
+}

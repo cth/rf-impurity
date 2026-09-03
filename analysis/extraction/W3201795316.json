@@ -1,0 +1,18 @@
+{
+  "id": "W3201795316",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper employs tree-based models (random forest and ISLE) but reports only predictive performance measures: \"The logistic lasso, logistic elastic-net, and tree-based methods yielded AUCs comparable to those of the logistic regression with subject-matter knowledge.\" Variables are selected via cross-validated AUC optimization on a 75/25 train-test split, not by impurity importance ranking. The authors conclude: \"Appropriate machine learning methods can substitute our knowledge of target conditions to construct CBAs efficiently,\" referring to overall model selection, not variable importance interpretation. Input features span 1,333 ICD-10 codes (89.6% appearing in <1% of samples) and 92 WHO-ATC codes, with continuous demographics (age, gender), creating mixed-type, high-cardinality, skewed feature sets."
+}

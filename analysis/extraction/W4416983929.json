@@ -1,0 +1,14 @@
+{
+  "id": "W4416983929",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper proposes LatentSNA, a \"generative Bayesian framework\" that uses \"latent space estimation techniques\" and joint modeling of brain connectivity and behavioral outcomes. The method estimates covariance relationships between latent connectivity variables and latent behavior variables via MCMC, not random forest impurity. While RF is mentioned as a comparison baseline, LatentSNA does not use tree-based or impurity-based variable importance, and conclusions rely instead on Bayesian posterior estimates validated through held-out prediction accuracy."
+}

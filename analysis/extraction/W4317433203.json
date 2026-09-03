@@ -1,0 +1,12 @@
+{
+  "id": "W4317433203",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper focuses exclusively on prediction accuracy as the evaluation metric: \"we focused on their utility from a breeder's perspective, so we compared only their prediction accuracies\" measured as \"Pearson correlation coefficient between observed phenotypic values and predicted genomic values.\" No variable importance, impurity measures, permutation importance, or feature ranking methods are employed or discussed in the paper."
+}

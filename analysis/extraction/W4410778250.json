@@ -1,0 +1,12 @@
+{
+  "id": "W4410778250",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains random forest and LightGBM classifiers for diagnosis prediction, but reports no feature importance rankings. All biological interpretation uses differential expression analysis (\"Differential expression analysis defined subtype-specific genes\"), Gene Ontology enrichment, and weighted gene co-expression network analysis (\"weighted gene co-expression network analyses identified shared hub transcription factors\"). The random forest serves only for sample classification accuracy, not feature discovery or ranking."
+}

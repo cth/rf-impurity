@@ -1,0 +1,12 @@
+{
+  "id": "W3108120665",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper trains random forests (ranger-ml, 1000 trees) for classification but focuses exclusively on predictive performance metrics (ROC AUC, sensitivity, specificity, PPV/NPV) and performance stratification by clinical subgroups (gender, age, parasitaemia level, parasite life stage). Variable selection employed cross-validation to reduce the feature space to 393 variables, but no variable importance scores are extracted, displayed, or used for inference. No variables are ranked by importance or interpreted by magnitude of importance. All substantive conclusions address classification accuracy and clinical utility, not feature importance."
+}

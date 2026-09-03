@@ -1,0 +1,17 @@
+{
+  "id": "W4210413950",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "heldout_validation"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality",
+    "skewed"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forest regressions with leave-one-out cross-validation (LOOCV) for predictive modeling of POC export, not for feature selection or importance ranking. To identify planktonic ASVs associated with POC export, the authors explicitly state: \"Planktonic ASVs in sediment associated with the POC export and POC reaching the seafloor were identified with a sparse partial least square regression. Planktonic ASVs strongly associated (correlation > 0.3) with POC export and POC reaching the seafloor are detailed on the clustered heatmap.\" The main conclusions focus on diversity patterns (DOS diversity 3x higher than pelagic), biogeographic structure, and plankton DNA signatures—not on feature importance rankings."
+}

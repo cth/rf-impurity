@@ -1,0 +1,16 @@
+{
+  "id": "W4400665126",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "high_cardinality"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper applies \"a random-forest regression model from the Ranger R package (version 0.12.1) was applied to predict the optimal implantation point with hourly precision\" but does not report or interpret variable importance. The 175 biomarkers used are selected from pre-identified differentially expressed genes, not ranked by random-forest impurity importance. No conclusions about feature importance, ranking, or magnitude are drawn from the random forest analysis."
+}

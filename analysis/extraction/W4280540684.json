@@ -1,0 +1,16 @@
+{
+  "id": "W4280540684",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "unclear"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests only for missing value imputation (\"missRanger approach, a non-parametric multivariate imputation by chained random forest algorithm with 1000 trees\"). All substantive conclusions are based on direct measurements (anaesthesia depth scores, incident counts, mortality rates, labour time, isoflurane consumption) compared between groups using Kruskal–Wallis tests, Mann–Whitney-U tests, and Generalized Additive Models. No variable importance ranking from random forests is presented or interpreted."
+}

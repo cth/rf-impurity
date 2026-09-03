@@ -1,0 +1,14 @@
+{
+  "id": "W4409219974",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper uses random forests only for machine-learning genotype assignment (R::ranger) to classify nonnative oyster genotypes to source regions in Japan. The analysis does not report, discuss, or interpret random-forest variable importance. The primary statistical framework is Approximate Bayesian Computation with Bayes factors, used to compare oyster vs. shipping vectors for 14 invasive species.\""
+}

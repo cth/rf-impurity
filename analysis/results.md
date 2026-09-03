@@ -10,6 +10,15 @@ adversarial pass (prompted to *refute* each flag) then verified them. Both layer
 are LLM judgements — treat the confirmed set as a strong screening estimate, not
 ground truth (proving impact needs the study's data; plan §6).
 
+**Update 2026-09-03: all 773 full texts screened.** The 229 filter-rejected
+papers not covered by earlier passes were screened with the same Haiku prompt
+(`extract_complement_workflow.js`, records tagged `set: "complement"`) and their
+4 flags adjudicated with the same Sonnet prompt (`adjudicate_complement_workflow.js`):
+1 confirmed, 3 refuted. Corpus-wide totals are now 773 screened / 331 use
+impurity importance / 129 flagged / 56 confirmed, 68 refuted, 5 uncertain —
+`python3 analysis/tally.py` reproduces every figure in the paper. Counts quoted
+in the sections below (544 / 307 / 125 / 55 / 65) are from the earlier passes.
+
 ## Adjudication outcome (the verified numbers)
 
 Each of the 125 flagged papers was re-read by a Sonnet agent instructed to refute

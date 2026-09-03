@@ -1,0 +1,18 @@
+{
+  "id": "W4391227869",
+  "set": "complement",
+  "uses_impurity_importance": false,
+  "pvalue_method": "none",
+  "interprets_magnitude_or_ranking": false,
+  "corroboration": [
+    "none"
+  ],
+  "feature_heterogeneity": [
+    "mixed_types",
+    "skewed",
+    "scale_mismatch"
+  ],
+  "p_affected": false,
+  "central_to_conclusions": false,
+  "evidence": "The paper fits random forest and gradient boosted tree models (ranger v0.14.1, xgboost v1.7.3.1) but reports only cross-validated ROC AUC performance metrics, not variable importance measures. Feature rankings (\"oxytocin, leukocytes and pain sensitivity had the highest predictive power\") derive from logistic regression coefficients in Table 3, not impurity importance. Authors explicitly note that \"the additional flexibility of the more complex machine learning models had no advantage over the simpler logistic regression,\" confirming conclusions rest on logistic regression, not tree importance."
+}
