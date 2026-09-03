@@ -34,7 +34,9 @@ At $\code{mtry} = 3$, the measured total is $2525.2 = n\,\mathrm{Var}(y)$ and $c
 of it. Over seeds $1$--$10$ at the default $\code{mtry} = 1$, $a$ and $b$ average
 $451$ (SD $29$) against $15$ for $c$, and its share rises to $1.6\%$, because
 $\code{mtry} = 1$ truncates trees and the loss falls harder on the pair, whose
-credit needs both variables on one path. Figure~\ref{fig:interaction} shows the contrast
+credit needs both variables on one path: a node whose single candidate is
+already constant becomes terminal, so paths are cut before both $a$ and $b$
+have been split on. Figure~\ref{fig:interaction} shows the contrast
 against main-effects OLS.
 
 Since $a$ and $b$ are exchangeable by construction, any difference between their
