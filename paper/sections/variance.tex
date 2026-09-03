@@ -1,7 +1,8 @@
 \section{What the split criterion sees, and what it discards}
 \label{sec:variance}
 
-Two properties of variance-based splitting explain the rest of the paper. Take a
+Two properties of variance-based splitting underlie the effects in the sections
+that follow. Take a
 noise-free, sorted dataset and sweep every single split, scoring each by the sum
 of within-child variances, for $y = x$, $y = x^2$, $y = x^3$ ($x = 1\ldots1000$):
 
@@ -19,12 +20,12 @@ $x^3$ & $4.1 \times 10^{16}$ & $0.74$ & 799 \\
 
 The raw minimum grows by orders of magnitude with the degree, but that is a
 \emph{response-scale artifact}: as a fraction of parent variance removed, all
-three splits are essentially equal (${\approx}0.75$). A ``large scale wins''
-story does not survive normalisation; two things do.
+three splits are essentially equal (${\approx}0.75$). The two relevant
+properties that can be read from this table are:
 
 \begin{enumerate}[leftmargin=1.6em]
 \item \textbf{Trees discard feature-distribution shape.} A split compares only the
-  \emph{order} of a feature's values, so the tree is invariant to any monotone
+  \emph{ordering} of a feature's values, so the tree is invariant to any monotone
   transform and cannot see whether a feature is uniform or heavy-tailed,
   information a per-unit effect size needs. This is the root cause of the confound
   in Section~\ref{sec:confound}.
@@ -35,5 +36,6 @@ story does not survive normalisation; two things do.
   charged to the same feature.
 \end{enumerate}
 
-So importance summarises \emph{variance contribution over the feature ordering},
-blind to the metric the ordering lives on.
+Impurity importance is a sum of those split scores over the fitted trees, so it
+inherits both properties: it summarises variance contribution over the feature
+ordering, but is blind to the metric the ordering lives on.
