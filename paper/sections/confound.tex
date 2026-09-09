@@ -25,13 +25,13 @@ order. The following proposition makes this precise.
 $y = a + b^2 + c^3$, and \emph{(B)} features
 $(1{+}U_a,\; (1{+}U_b)^2,\; (1{+}U_c)^3)$ with response $y = a + b + c$. Then the
 response vector is the same in both worlds, and each world-B feature is a
-strictly increasing transform of its world-A counterpart. If (i) split selection
-depends on a feature only through the \emph{ordering} of its values --- as it
-does for an exhaustive search over thresholds between consecutive order
-statistics, \code{ranger}'s default \code{splitrule = "variance"} --- and (ii)
-bootstrap indices and candidate-feature draws are held fixed across the two fits,
-then the two forests are identical tree for tree as partitions of the in-bag
-sample, and every importance that is a functional of those partitions (MDI,
+strictly increasing transform of its world-A counterpart. If (i) bootstrap
+indices and candidate-feature draws are held fixed across the two fits, and
+(ii) split selection depends on a feature only through the \emph{ordering} of
+its values --- as it does for an exhaustive search over thresholds between
+consecutive order statistics, \code{ranger}'s default
+\code{splitrule = "variance"} --- then the two forests are identical tree for
+tree as partitions of the in-bag sample, and every importance that is a functional of those partitions (MDI,
 AIR) coincides exactly.
 
 The mechanism is the monotone relabelling, not equality of variance
@@ -39,30 +39,26 @@ contributions. Equal variance is a by-product of the same construction; the
 argument uses only that $y$ is the same vector and the features are in the same
 order.
 
-Both hypotheses can fail in practice. Hypothesis (ii) concerns the random number
-generator: the two fits must draw the same bootstrap samples and candidate
-features (and, for the debiased variant in the table below, the same
-permutations). Reseeded, they agree exactly. Run one after the other in a single
-session, as a naive script does, they differ --- but by how much is already
-settled by the proposition. World B under any RNG state gives the same trees as
-world A under that state, so an unseeded cross-world pair is distributed exactly
-as refitting a single world under two seeds: the residual gap \emph{is} seed
-noise, with no cross-world signal to find. A sweep over seeds $1$--$10$ confirms
-the corollary in \code{ranger}'s implementation: the identity is exact at every
-seed, and across all $\binom{10}{2} = 45$ pairs of distinct seeds the
-cross-world gap equals the same-world gap value for value, ranging
-$0.1$--$2.7\%$.
-Hypothesis (i) concerns the split search:
-\code{splitrule = "extratrees"} draws thresholds uniformly from the feature's
-value \emph{range} instead of scanning order statistics. Squaring stretches that
-range, so the same draw lands elsewhere in the data and the two worlds separate
-by ${\sim}3\%$ ($1:4.9:23.7$ against $1:5.0:24.6$). \citet{galili2016} document
-the same escape from monotone invariance at
-the level of predictions: any split rule that interpolates between observed
-values, rather than only partitioning them, sees more than the ordering.
-
-Trees under (i) discard exactly the distribution-shape information that would
-tell the two apart.
+Both hypotheses can fail in practice. Hypothesis (i) fails in any script that
+fits the two worlds one after the other without reseeding, and the cross-world
+variation that follows is seed noise: world B under any RNG state gives the same
+trees as world A under that state, so an unseeded cross-world pair is
+distributed exactly as refitting a single world under two seeds. A sweep over
+seeds $1$--$10$ confirms the corollary in \code{ranger}'s implementation: the
+identity is exact at every seed, and across all $\binom{10}{2} = 45$ pairs of
+distinct seeds the cross-world gap equals the same-world gap.
+Hypothesis (ii) concerns the split search: a rule that sees a feature only
+through the ordering of its values discards exactly the distribution-shape
+information that would tell the two worlds apart.
+\code{splitrule = "extratrees"} keeps a little of it, drawing thresholds
+uniformly from the feature's value \emph{range} instead of scanning order
+statistics. Squaring stretches that range, so the same draw lands elsewhere in
+the data and the two worlds separate: $1:4.9:23.7$ against $1:5.0:24.6$.
+The same thing happens to predictions. \citet{galili2016} show that a tree's
+predictions for new observations are not invariant to monotone transforms of its
+features, for the same reason: a threshold placed between two observed values
+sits at their midpoint, and stretching the scale moves that midpoint even though
+the training points either side of it stay put.
 
 This is \textbf{not specific to impurity}, and debiasing does not touch it.
 Bias-corrected impurity (AIR), permutation importance, and global mean
@@ -86,7 +82,7 @@ standardised OLS          & $1:2.98:6.88$ (A), $1:2.99:6.98$ (B) & $1.4 \times 1
 The first four are pinned by the proposition, in descending strictness. MDI is a
 functional of the fitted trees alone, so it agrees identically. AIR agrees
 identically for the same reason, one step removed: the correction subtracts the
-impurity a permuted copy of each feature would earn, and under hypothesis (ii)
+impurity a permuted copy of each feature would earn, and under hypothesis (i)
 those permutation draws are fixed too, while permuting commutes with monotone
 transforms --- the permuted copy of $(1+U_b)^2$ is the square of the permuted
 copy of $1+U_b$ --- so the correction is a functional of the same trees and the

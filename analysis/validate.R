@@ -600,10 +600,10 @@ cat("  max rel diff across worlds:", signif(max(abs(sA - sB)/abs(sA)), 3),
 
 ## ---------------------------------------------------------------------------
 ## Claim 5c: the two hypotheses of the Section 6 proposition. The identity holds
-##   because (i) splits depend on a feature only through the ORDER of its values
-##   and (ii) the two fits share bootstrap indices and candidate-feature draws.
-##   Both are load-bearing: drop (ii) by fitting sequentially without reseeding,
-##   or drop (i) via splitrule = "extratrees" (which draws thresholds uniformly
+##   because (i) the two fits share bootstrap indices and candidate-feature draws,
+##   and (ii) splits depend on a feature only through the ORDER of its values.
+##   Both are load-bearing: drop (i) by fitting sequentially without reseeding,
+##   or drop (ii) via splitrule = "extratrees" (which draws thresholds uniformly
 ##   on the feature's value RANGE, so it does see the metric), and the identity
 ##   degrades from exact to ~1% and ~3% respectively.
 ## ---------------------------------------------------------------------------
