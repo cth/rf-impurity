@@ -25,7 +25,13 @@ additive regression with independent uniform inputs, fitted with
 \emph{truncated} (not fully grown) trees, MDI recovers a
 \emph{variance-explained} decomposition, each
 feature's score tracking $\mathrm{Var}(f_j(X_j))$, which for a linear term is
-$\beta_j^2\,\mathrm{Var}(X_j)$.
+$\beta_j^2\,\mathrm{Var}(X_j)$. \citet{gromping2009} had already set
+random-forest importances beside the $R^2$-decomposition importances of linear
+regression, the comparison this paper makes throughout; and on the permutation
+side, \citet{benard2022} show that mean decrease in accuracy is inconsistent
+under dependence and give the Sobol-MDA, a consistent estimator of the total
+Sobol index --- under independence, the same variance contribution normalised
+by $\mathrm{Var}(y)$.
 
 Our experiments are consequences of that identity, not new biases. Their value is
 to show, among uncorrelated features that are all of one kind --- all continuous,
