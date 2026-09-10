@@ -18,8 +18,7 @@
 
 \newcommand{\code}[1]{\texttt{#1}}
 
-\title{Variable importance is variance, not effect size:\\
-a caution and a prevalence screen}
+\title{On the misinterpretation of variable importance as effect size}
 \author{Christian Theil Have}
 \date{July 2026}
 
@@ -43,8 +42,8 @@ features are uncorrelated and all of one kind (all continuous, or all binary),
 so that bias applies equally to all of them, and where their distributions differ
 that difference is the object of study rather than a confound. Nor are they
 specific to impurity: permutation importance behaves the same way, and
-standardised regression coefficients spread similarly. No marginal importance
-measure separates an effect's \emph{shape} from a feature's \emph{distribution};
+standardised regression coefficients spread too, one power lower. No marginal
+importance measure separates an effect's \emph{shape} from a feature's \emph{distribution};
 partial-dependence plots do. Finally, an LLM-powered screen of the ranger-citing
 literature suggests that about one
 in six papers that interpret an impurity ranking rely on it without such

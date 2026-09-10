@@ -4,10 +4,10 @@ Impurity importance estimates a feature's variance contribution, not its per-uni
 effect. Read that way its behaviour is unsurprising: it scales with the square of
 a linear coefficient, assigns an interaction's variance to the interacting
 variables, and gives identical scores to a non-linear effect and to a linear
-effect on a skewed feature. That last identity is provable, and it holds for
-permutation importance too, so it is a property of variance-based measures rather
-than a defect of MDI. The mechanisms are largely established; our contribution is
-the sharp skew-versus-nonlinearity demonstration and an estimate of how far the
+effect on a skewed feature. That last identity is provable, and it extends to
+permutation importance to four significant figures, so it is a property of
+variance-based measures rather than a defect of MDI. The mechanisms are largely
+established; our contribution is the sharp skew-versus-nonlinearity demonstration and an estimate of how far the
 misreading reaches. In the screened literature, $17\%$ of the papers that
 interpret an impurity ranking, including heavily-cited work, lean on it without
 corroboration. Impurity importance is a useful screening tool when read as a
