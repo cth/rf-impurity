@@ -53,8 +53,10 @@ Counting SHAP as corroboration is generous. Section~\ref{sec:confound} shows
 that a global mean $|\text{SHAP}|$ ranking carries the same shape/skew confound
 as impurity importance, while a SHAP \emph{dependence} plot does not, and the
 screen does not distinguish the two forms, so papers reporting only a mean
-$|\text{SHAP}|$ ranking were credited with corroboration they do not have. This
-can only suppress flags, so it makes the confirmed count conservative.
+$|\text{SHAP}|$ ranking were credited with corroboration they do not have.
+Permutation importance, which Section~\ref{sec:confound} shows to carry the
+same confound, was credited likewise. Both can only suppress flags, so they make
+the confirmed count conservative.
 
 \emph{Stage 2 --- adjudication.} Every flagged paper was independently re-read by
 a second, stronger model (Claude Sonnet 5) under an explicitly adversarial
