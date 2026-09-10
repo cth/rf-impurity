@@ -11,9 +11,7 @@ where $U_a, U_b, U_c$ are \emph{the same} draws used in
 Section~\ref{sec:nonlinear}. Every feature enters with coefficient 1, and OLS
 recovers $1.00, 1.00, 1.00$: nothing about the \emph{effects} is non-linear. Yet
 the forest reports \textbf{1751 / 8166 / 39632}, a $1:4.7:22.6$ spread
--- exactly the same as 
-%\textbf{numerically identical}, to the digit, to the 
-non-linear model of
+--- exactly the same as the non-linear model of
 Section~\ref{sec:nonlinear} (Figure~\ref{fig:confound}).
 
 The agreement is exact because the two datasets present the forest with the
@@ -34,10 +32,8 @@ consecutive order statistics, \code{ranger}'s default
 tree as partitions of the in-bag sample, and every importance that is a functional of those partitions (MDI,
 AIR) coincides exactly.
 
-The mechanism is the monotone relabelling, not equality of variance
-contributions. Equal variance is a by-product of the same construction; the
-argument uses only that $y$ is the same vector and the features are in the same
-order.
+Equal variance contribution is a by-product of the same construction; the
+argument does not use it.
 
 Both hypotheses can fail in practice. Hypothesis (i) fails in any script that
 fits the two worlds one after the other without reseeding, and the cross-world
@@ -79,7 +75,7 @@ standardised OLS          & $1:2.98:6.88$ (A), $1:2.99:6.98$ (B) & $1.4 \times 1
 \end{tabular}
 \end{center}
 
-The first four are pinned by the proposition, in descending strictness. MDI is a
+The first four follow from the proposition, in descending strictness. MDI is a
 functional of the fitted trees alone, so it agrees identically. AIR agrees
 identically for the same reason, one step removed: the correction subtracts the
 impurity a permuted copy of each feature would earn, and under hypothesis (i)
