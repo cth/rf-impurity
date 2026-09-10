@@ -40,8 +40,9 @@ AND it is not adequately corroborated). Verdicts (`analysis/adjudication/`):
   ranger/xgboost built-in (impurity/gain) importance with no permutation, SHAP,
   Boruta, or conditional check. The confirmed set carries **6,659 citations**
   total, so the citation-weight concentration survives verification.
-- Confirmed candidates: `analysis/confirmed_candidates.csv` (id, cites,
-  pvalue_method, title/DOI, adjudication reason), sorted by citations.
+- Confirmed candidates: the per-paper verdicts in `analysis/adjudication/`;
+  `python3 analysis/tally.py` prints the current counts (the former
+  `confirmed_candidates.csv` snapshot was removed as stale).
 
 The screening-level tables that follow (`flagged` = Haiku `p_affected ∧ central`)
 are retained for the recall/method/citation/year analyses; apply the ~44%
@@ -100,10 +101,11 @@ higher-confidence stratum, but it is a small minority of the exposed literature.
 
 ## Flagged candidates
 
-`analysis/candidates.csv` — **125 flagged papers** with `pvalue_method`,
-corroboration, feature-heterogeneity, title/DOI (joined from
-`corpus/manifest.csv`), and the evidence quote behind each flag. Sorted with the
-`pvalue_method != none` (higher-confidence) papers first.
+The flagged papers are the `analysis/extraction/` records with
+`p_affected ∧ central_to_conclusions` (129 after the full-corpus screen; the
+former `candidates.csv` snapshot of 125 was removed as stale). Each record
+carries `pvalue_method`, corroboration, feature-heterogeneity, and the evidence
+quote behind the flag; `analysis/tally.py` derives every count from them.
 
 ## Citation impact of flagged papers
 

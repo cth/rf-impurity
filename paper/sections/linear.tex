@@ -2,15 +2,15 @@
 \label{sec:linear}
 
 A random forest is fitted to the data: $y = a + 2b + 4c$, with
-$a,b,c \sim U(0,1)$, $n = 1000$. The forest's OOB $R^2$ is $0.98$. Impurity
+$a,b,c \sim U(0,1)$, $n = 1000$. The forest's out-of-bag (OOB) $R^2$ is $0.98$. Impurity
 importance (abbreviated ``vip'', variable importance)
 ranks the features in the correct order, but its \emph{ratios} do not match the
-coefficient ratios:
+ordinary-least-squares (OLS) coefficient ratios:
 
 \begin{center}
 \begin{tabular}{rccc}
 \toprule
-feature & OLS coef & impurity vip (ratio) & impurity\_corrected (ratio) \\
+feature & OLS coefficient & impurity vip (ratio) & impurity\_corrected (ratio) \\
 \midrule
 a & 1 & 1.00 & 1.00 \\
 b & 2 & 2.39 & 6.23 \\

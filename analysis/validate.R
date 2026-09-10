@@ -678,4 +678,41 @@ if (requireNamespace("treeshap", quietly = TRUE)) {
   cat("\n=== Claim 5d skipped (install 'treeshap' to run the SHAP check) ===\n")
 }
 
+## ---------------------------------------------------------------------------
+## Claim 6: the two PDP statements in the Section 3 and Section 6 implications
+##   paragraphs. A partial-dependence value at x_j = v is the mean prediction
+##   over the sample with column j set to v (Friedman 2001); no package needed.
+##   (a) Parity design: one-way PDPs over a and over b are flat, the joint PDP
+##       over (a, b) shows the parity pattern.
+##   (b) Two worlds: the PDP over b is curved in the non-linear world (quadratic
+##       coefficient ~1) and a straight line in the skewed-feature world
+##       (quadratic coefficient ~0), at identical importances.
+## ---------------------------------------------------------------------------
+cat("\n=== Claim 6: PDP checks behind the implications paragraphs ===\n")
+set.seed(42); n <- 10000
+df_par <- tibble(a = ib(n), b = ib(n), c = ib(n), y = c/10 + (a + b) %% 2)
+m_par  <- ranger(y ~ a + b + c, df_par, importance = "impurity", num.trees = 500, seed = 42)
+set.seed(42); df_nl  <- tibble(a = 1+runif(n), b = 1+runif(n), c = 1+runif(n), y = a + b^2 + c^3)
+m_nl   <- ranger(y ~ ., df_nl,  importance = "impurity", num.trees = 500, seed = 42)
+set.seed(42); df_inc <- tibble(a = 1+runif(n), b = (1+runif(n))^2, c = (1+runif(n))^3, y = a + b + c)
+m_inc  <- ranger(y ~ ., df_inc, importance = "impurity", num.trees = 500, seed = 42)
+pd <- function(m, d, col, v) { d[[col]] <- v; mean(predict(m, d)$predictions) }
+cat("  (a) parity: one-way PDP over a at a=0,1 :", round(c(pd(m_par, df_par, "a", 0), pd(m_par, df_par, "a", 1)), 3), "\n")
+cat("               one-way PDP over b at b=0,1 :", round(c(pd(m_par, df_par, "b", 0), pd(m_par, df_par, "b", 1)), 3), "\n")
+joint <- sapply(0:1, function(bv) sapply(0:1, function(av) { d <- df_par; d$a <- av; d$b <- bv; mean(predict(m_par, d)$predictions) }))
+dimnames(joint) <- list(a = 0:1, b = 0:1)
+cat("               joint PDP over (a,b)        : (0,0)", round(joint[1,1],3), " (1,0)", round(joint[2,1],3),
+    " (0,1)", round(joint[1,2],3), " (1,1)", round(joint[2,2],3), "  <-- parity pattern\n")
+## (b) evaluate both worlds' PDP over b at matched quantile positions of b
+qs <- seq(0.05, 0.95, by = 0.05)
+gA <- quantile(df_nl$b, qs);  pA <- sapply(gA, function(v) pd(m_nl,  df_nl,  "b", v))
+gB <- quantile(df_inc$b, qs); pB <- sapply(gB, function(v) pd(m_inc, df_inc, "b", v))
+fitA <- lm(pA ~ gA + I(gA^2)); fitB <- lm(pB ~ gB + I(gB^2))
+cat("  (b) PDP over b, 19 quantile positions:\n")
+cat("      non-linear world   quadratic coef", signif(coef(fitA)[3], 3), " p =", signif(summary(fitA)$coefficients[3,4], 2),
+    " (true 1)\n")
+cat("      skewed-feature world quadratic coef", signif(coef(fitB)[3], 3), " p =", signif(summary(fitB)$coefficients[3,4], 2),
+    "  linear R^2", round(summary(lm(pB ~ gB))$r.squared, 4), "\n")
+cat("  -> same importances, different PDP shapes: the shape-aware view separates the worlds\n")
+
 cat("\nAll experiments completed.\n")

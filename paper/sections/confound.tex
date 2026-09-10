@@ -143,7 +143,8 @@ a SHAP dependence plot separates them the same way. The PDP averages the model
 over the other features' marginal distribution, which is exact for
 independent features as here; under dependence it evaluates the model on
 combinations that do not occur in the data and can show its extrapolation
-rather than an effect \citep{hooker2021}. There, ALE \citep{apley2020}, which
+rather than an effect \citep{hooker2021}. There, accumulated local effects
+(ALE) \citep{apley2020}, which
 accumulates local effects conditional on the neighbouring feature
 distribution, replaces it. A SHAP dependence plot does not share this
 exposure when the SHAP values are computed with path-dependent TreeSHAP, as

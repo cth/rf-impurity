@@ -31,6 +31,7 @@ rely on it without corroboration.
 | [`notebook/impurity-importance.Rmd`](notebook/impurity-importance.Rmd) | Original 2022 R Markdown note. |
 | [`analysis/validate.R`](analysis/validate.R) | Reproduces every experiment number cited in the paper. |
 | [`analysis/figures.R`](analysis/figures.R) | Regenerates the figures. |
+| [`analysis/tally.py`](analysis/tally.py) | Reproduces every count in the literature-screen section from the per-paper records. |
 | [`analysis/results.md`](analysis/results.md) | Full literature-screen results and statistics. |
 | `analysis/fingerprint.py`, `analysis/extract_*`, `analysis/adjudicate_*` | Corpus filter, screening prompts, adjudication workflow. |
 | `analysis/extraction/`, `analysis/adjudication/` | Per-paper structured records and verdicts. |
