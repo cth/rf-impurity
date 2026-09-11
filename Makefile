@@ -18,6 +18,9 @@ tas: paper/tas/impurity-importance-tas.pdf
 tas-anon:  paper/tas/impurity-importance-tas-anon.pdf
 tas-title: paper/tas/title-page.pdf
 submission: tas-anon tas-title supplement
+	cp paper/tas/impurity-importance-tas-anon.pdf dist/main_document_anonymized.pdf
+	cp paper/tas/title-page.pdf dist/title_page.pdf
+	@ls -la dist
 
 paper/impurity-importance.pdf: paper/impurity-importance.tex $(SECTIONS) paper/bibliography.bib $(FIGURES)
 	cd paper && $(LATEXMK) impurity-importance.tex
@@ -44,7 +47,8 @@ clean:
 # Creative Commons licence. corpus/manifest.csv plus analysis/fetch_corpus.py
 # regenerate it. Pass FULLTEXT=1 to include it anyway.
 
-SUPP_NAME    := rf-impurity-supplement
+# ScholarOne accepts only alphanumerics and underscores in upload names.
+SUPP_NAME    := rf_impurity_supplement
 SUPP_ZIP     := dist/$(SUPP_NAME).zip
 SUPP_PATHS   := README.md analysis notebook figures \
                 corpus/README.md corpus/abstracts corpus/manifest.csv \
