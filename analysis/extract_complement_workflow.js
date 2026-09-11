@@ -3,7 +3,7 @@ export const meta = {
   description: 'Screen the 229 full-text ranger-citing papers the relevance filter rejects (Haiku 4.5, same prompt and schema as the broad pass)',
   phases: [{ title: 'Extract', detail: 'one Haiku agent per paper, then a write step' }],
 }
-const REPO = '/Users/christian.theilhave/code/private/rf-impurity'
+const REPO = '/path/to/rf-impurity'  // absolute path of this repository on the machine running the workflow
 const ITEMS = args  // analysis/complement_items.json (229 filter-rejected full texts)
 log(`extracting ${ITEMS.length} filter-rejected full-text papers`)
 const SCHEMA = {

@@ -59,10 +59,11 @@
 \graphicspath{{../../figures/}}
 \newcommand{\code}[1]{\texttt{#1}}
 
-% Set \anon to ``0'' to hide the authors, acknowledgements, and the
-% author-identifying repository URL, producing the required anonymized
-% version. Set it to ``1'' for the full manuscript.
-\newcommand{\anon}{1}
+% \anon is ``1'' for the full manuscript and ``0'' for the anonymized
+% main document that TAS reviews. The default here is 1; `make tas-anon'
+% builds the 0 version without editing this file, by predefining \anon on
+% the latexmk command line (see the Makefile).
+\ifdefined\anon\else\newcommand{\anon}{1}\fi
 
 % Keep the author out of the PDF metadata in the anonymized build --- an
 % anonymized body is not anonymous if pdfauthor still names the author.
@@ -176,30 +177,20 @@ against the analysis output, and takes full responsibility for the content.
 \section{Data Availability Statement}
 \label{sec:availability}
 
-\if1\anon
-{
-All code and data supporting this paper are available at
-\url{https://github.com/cth/rf-impurity}: the R scripts that generate the
-controlled experiments and figures of
-Sections~\ref{sec:linear}--\ref{sec:confound} (with a one-line command to
-reproduce every number cited there), the corpus-construction and
-full-text-retrieval pipeline, the relevance filter, the verbatim screening and
-adjudication prompts, and the per-paper structured records and verdicts behind
-Section~\ref{sec:prevalence-results}, with a one-line tally that reproduces
-every count in it.
-} \fi
-\if0\anon
-{
-All code and data supporting this paper are available in a public repository
-(URL withheld for anonymous review; it will be restored in the de-anonymized
-version): the R scripts that generate the controlled experiments and figures of
-Sections~\ref{sec:linear}--\ref{sec:confound} (with a one-line command to
-reproduce every number cited there), the corpus-construction and
-full-text-retrieval pipeline, the relevance filter, the verbatim screening and
-adjudication prompts, and the per-paper structured records and verdicts behind
-Section~\ref{sec:prevalence-results}, with a one-line tally that reproduces
-every count in it.
-} \fi
+% One paragraph for both builds: the supplementary archive carries no author
+% identity, so nothing here needs withholding for anonymous review. If the
+% archive is also deposited in a persistent repository, add the DOI at proof.
+All code and data supporting this paper are supplied as supplementary
+material, in a single archive: the R scripts that generate the controlled
+experiments and figures of Sections~\ref{sec:linear}--\ref{sec:confound} (with
+a one-line command to reproduce every number cited there), the
+corpus-construction and full-text-retrieval pipeline, the relevance filter, the
+verbatim screening and adjudication prompts, and the per-paper structured
+records and verdicts behind Section~\ref{sec:prevalence-results}, with a
+one-line tally that reproduces every count in it. The corpus manifest records
+every work screened, with its identifier and retrieval timestamp; the retrieved
+full texts themselves are not redistributed, and the included retrieval script
+regenerates them from Europe PMC.
 
 \phantomsection\label{supplementary-material}
 \bigskip
@@ -221,7 +212,15 @@ filter, the verbatim stage-1 and stage-2 prompts, the per-paper structured
 judgements and verdicts behind Section~\ref{sec:prevalence-results}, and a
 one-line tally that reproduces every count in it. (scripts and structured
 records)
+\item[Corpus:]
+The manifest of every work screened, with identifiers and retrieval
+timestamps, and the retrieved abstracts. The full texts are regenerated from
+the manifest by the included retrieval script. (CSV and text)
 \end{description}
+
+All of the above are supplied as a single archive,
+\code{rf-impurity-supplement.zip}, whose top-level \code{README.md} gives the
+reproduction commands and the R and Python versions used.
 
 \bibliography{../bibliography}
 

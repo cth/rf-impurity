@@ -3,7 +3,7 @@ export const meta = {
   description: 'Adversarially verify the 4 newly flagged filter-rejected papers (Sonnet 5, same prompt and schema as the July adjudication)',
   phases: [{ title: 'Adjudicate', detail: 'one Sonnet agent per flagged paper, prompted to refute' }],
 }
-const REPO = '/Users/christian.theilhave/code/private/rf-impurity'
+const REPO = '/path/to/rf-impurity'  // absolute path of this repository on the machine running the workflow
 const ITEMS = args  // analysis/complement_adjudication_input.json
 log(`adjudicating ${ITEMS.length} flagged papers (highest-cited first)`)
 const SCHEMA = {

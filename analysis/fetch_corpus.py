@@ -21,7 +21,8 @@ import urllib.request
 from datetime import datetime, timezone
 
 ANCHOR_ID = "W2157395790"
-UA = "rf-impurity-scoping/1.0 (mailto:christian@archontech.ai)"
+# OpenAlex/Crossref polite pool: set CONTACT_EMAIL to your address.
+UA = "rf-impurity-scoping/1.0 (mailto:%s)" % os.environ.get("CONTACT_EMAIL", "anonymous")
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CORPUS = os.path.join(REPO, "corpus")

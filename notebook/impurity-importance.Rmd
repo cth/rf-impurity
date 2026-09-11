@@ -1,7 +1,6 @@
 ---
 title: "Feature importance (impurity) in relation to interactions and non-linear relationships"
 output: html_notebook
-author: Christian Theil Have
 date: 17-05-2022
 ---
 
