@@ -17,8 +17,9 @@ tas: paper/tas/impurity-importance-tas.pdf
 # full build's aux files are untouched) and a separate title page.
 tas-anon:  paper/tas/impurity-importance-tas-anon.pdf
 tas-title: paper/tas/title-page.pdf
-submission: tas-anon tas-title supplement
+submission: tas tas-anon tas-title supplement
 	cp paper/tas/impurity-importance-tas-anon.pdf dist/main_document_anonymized.pdf
+	cp paper/tas/impurity-importance-tas.pdf dist/manuscript_with_author_details.pdf
 	cp paper/tas/title-page.pdf dist/title_page.pdf
 	@ls -la dist
 
