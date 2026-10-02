@@ -1,0 +1,15 @@
+\paragraph{Notation}
+\begin{description}
+\item[$f_j$] The contribution of feature $j$ to the model output (the function evaluated at a split).
+\item[$\beta_j$] The linear coefficient associated with feature $j$ in an additive model; the MDI for a linear term is proportional to $\beta_j^2$.
+\item[$p_k$] The probability (or proportion) of class $k$ in the response variable $Y$.
+\item[$X_j$] The predictor variable (feature) for dimension $j$.
+\item[$Y$] The random response variable.
+\item[$y$] The observed outcome for a single observation.
+\item[$n$] The number of observations in the dataset.
+\item[$T$] The total number of trees in the random forest.
+\item[$\Delta I_j^{(t)}$] The decrease in impurity (e.g., Gini index or entropy) produced by a split on feature $j$ in tree $t$.
+\item[$\text{MDI}_j$] The Mean Decrease in Impurity for feature $j$, defined as $\frac{1}{T}\sum_{t=1}^{T}\Delta I_j^{(t)}$.
+\end{description}
+
+For a linear term $ \beta_j X_j$, the MDI is proportional to $\beta_j^2\,\text{Var}(X_j)$, showing that MDI grows with the square of the coefficient, not linearly.
