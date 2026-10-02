@@ -15,6 +15,18 @@ both settings, and that is the source of every effect studied here.
 
 \input{notation}
 
+\section{Definition of MDI}
+\label{sec:def-mdi}
+
+\paragraph{Mean-Decrease-in-Impurity (MDI)}
+The Mean-Decrease-in-Impurity (MDI) for feature $j$ is defined as the average decrease in impurity across all splits on that feature, summed over all trees:
+
+\begin{equation}
+\text{MDI}_j = \frac{1}{T}\sum_{t=1}^{T} \Delta I_j^{(t)}
+\end{equation}
+
+where $T$ is the number of trees and $\Delta I_j^{(t)}$ is the decrease in impurity (e.g., Gini or entropy) caused by a split on feature $j$ in tree $t$.
+
 Two strands of prior work bear on this. The first documents that MDI is
 \emph{biased} toward continuous and high-cardinality
 features \citep{strobl2007,nembrini2018}; \citet{nembrini2018} give the
