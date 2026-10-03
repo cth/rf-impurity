@@ -1,17 +1,36 @@
 \section{Background}
 \label{sec:background-strands}
 
+To interpret random forests it is common to calculate an variable importance measure in a similar vein to how a linear model regression estimates effect size. A commonly used measure of variable importance in random forest is the \emph{impurity importance}.
+In this paper we introduce a series of experiments demonstrating how impurity importance differs from effect sizes in various regression settings. The motivation for this is that it is common (bad) practice interpret impurity performance as if it was a per-unit effect size. We demonstrate this through an LLM-based screening published articles that utilizes impurity performance to drive conclusions about effects without adequate additional corroboration.
+
+In decision tree algorithms, a node's impurity measures the variability of the target variable among the samples reaching that node. 
 For a random forest \citep{breiman2001}, the impurity importance of a feature is
 the total decrease in node impurity attributable to splits on that feature,
-summed over all splits and all trees \citep{breiman1984,louppe2013}. For
+summed over all splits and all trees \citep{breiman1984,louppe2013}. 
+%
+Formally, the Mean-Decrease-in-Impurity (MDI) for feature $j$ is defined as the decrease in node impurity across all splits on that feature, averaged over all trees:
+
+\begin{equation}
+\text{MDI}_j = \frac{1}{T}\sum_{t=1}^{T} \sum_{v \in S_j^{(t)}} p(v) \Delta i(v)
+\end{equation}
+
+\noindent
+where $T$ is the number of trees, $S_j^{(t)}$ is the set of internal nodes in tree $t$ that split on feature $j$, $p(v)$ is the proportion of samples reaching node $v$, and $\Delta i(v)$ is the decrease in impurity (e.g., Gini or variance) caused by the split at node $v$.
+
+This paper focus on effects of impurity importance in a regression setting.
+For
 regression, \code{ranger} \citep{wright2017}
 (and most implementations) score a split by how much it reduces the sum of
-within-child \textbf{response variances}. For classification the impurity is the
+within-child \textbf{response variances}. Note that 
+for classification the impurity is the
 Gini index, which measures the same thing: since $\mathbf{1}\{Y=k\}$ is
 Bernoulli with variance $p_k(1-p_k)$,
 $1 - \sum_k p_k^2 = \sum_k \mathrm{Var}(\mathbf{1}\{Y = k\})$, the total variance
-of the class indicators. Impurity importance is a variance-explained quantity in
-both settings, and that is the source of every effect studied here.
+of the class indicators. 
+%Impurity importance is a variance-explained quantity in
+%both settings, and that is the source of every effect studied here.
+Hence, the underlying metric is variance in both regression and classification settings, impurity importance is fundamentally a variance-explained quantity. 
 
 Two strands of prior work bear on this. The first documents that MDI is
 \emph{biased} toward continuous and high-cardinality
@@ -33,7 +52,8 @@ under dependence and give the Sobol-MDA, a consistent estimator of the total
 Sobol index --- under independence, the same variance contribution normalised
 by $\mathrm{Var}(y)$.
 
-Our experiments are consequences of that identity, not new biases. Their value is
+Our results are consequences of the \citet{scornet2023} identity, not new biases. 
+Their value is
 to show, among uncorrelated features that are all of one kind --- all continuous,
 or all binary, so that a bias between feature types cannot separate them --- how
 far a variance-contribution measure departs from a per-unit effect size, and that it
