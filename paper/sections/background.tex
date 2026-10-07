@@ -46,9 +46,9 @@ Hence, the underlying metric is variance in both regression and classification s
 
 MDI is known to be
 \emph{biased} toward continuous and high-cardinality
-features \citep{strobl2007,nembrini2018}; \citet{nembrini2018} give the
-bias-corrected ``actual impurity reduction'' (AIR), exposed by \code{ranger} as
-\code{impurity\_corrected}. Formally, each feature $X_j$ is paired with a
+features \citep{strobl2007,nembrini2018}. \citet{nembrini2018} propose the
+bias-corrected ``actual impurity reduction'' (AIR), which \code{ranger}
+implements as \code{impurity\_corrected}. Formally, each feature $X_j$ is paired with a
 permuted copy $X_j^{*}$ --- same distribution and the same split points, but by
 construction unassociated with the response --- the trees are grown over the
 doubled candidate pool, and the impurity decrease the copy earns is subtracted
