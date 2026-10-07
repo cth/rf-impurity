@@ -30,7 +30,7 @@ Formally, the Mean-Decrease-in-Impurity (MDI) for feature $j$ is defined as the 
 \noindent
 where $T$ is the number of trees, $S_j^{(t)}$ is the set of internal nodes in tree $t$ that split on feature $j$, $p(v)$ is the proportion of samples reaching node $v$, and $\Delta i(v)$ is the decrease in impurity (e.g., Gini or variance) caused by the split at node $v$.
 
-This paper focuses on effects of impurity importance in a regression setting.
+The rest of the paper concerns impurity importance in a regression setting.
 For
 regression, \code{ranger} \citep{wright2017}
 (and most implementations) score a split by how much it reduces the sum of
