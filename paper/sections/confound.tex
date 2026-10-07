@@ -111,14 +111,15 @@ distribution is a long-standing complaint in the regression
 literature \citep{bring1994}; the proposition is the tree-based version, with
 effect shape and feature spread made exactly indistinguishable.
 
-That spread of agreement is what identifies the mechanism. Equal variance
+The spread of agreement is what identifies the mechanism. Equal variance
 contribution alone would predict uniform approximate agreement, and cannot
 produce an exact zero. Nor is being a variance the operative property: MDI and
 permutation are denominated in variance, but mean $|\text{SHAP}|$ tracks the
 \emph{square root} of the variance contribution ($\sqrt{1:9.07:48.96} =
 1:3.01:7.00$), one power lower, and is confounded just the same. What the four
-share is that each is a functional of the fitted model and the feature ordering,
-which the proposition makes identical. Any marginal importance inherits this,
+share, and what none of them escapes, is being a functional of the fitted model
+and of the feature ordering, and the proposition makes both identical across the
+two worlds. Any marginal importance inherits this,
 whatever its units. The remedy is a shape-aware view: a partial-dependence plot,
 or a SHAP \emph{dependence} plot, which plots each observation's SHAP value
 against its feature value, and the feature values do differ between the two worlds.
