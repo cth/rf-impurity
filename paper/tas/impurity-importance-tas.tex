@@ -96,25 +96,24 @@
 
 \bigskip
 \begin{abstract}
-Mean-decrease-in-impurity (MDI) variable importance is the default, cheapest way
-to read a random forest regression, and routinely misread as a per-unit
-effect size comparable to a linear-model coefficient. In additive settings MDI
-instead estimates each feature's variance contribution,
-$\mathrm{Var}(f_j(X_j))$ --- for a linear term, $\beta_j^2\,\mathrm{Var}(X_j)$.
-Through controlled experiments we show that
-impurity importance (i) grows with the \emph{square} of a linear coefficient, not
-the coefficient; (ii) assigns an interaction's variance to the interacting
-variables; and (iii) gives \emph{provably identical} scores to a genuinely non-linear
-effect and to a linear effect on a skewed feature, because one is a monotone
-relabelling of the other and a tree sees only feature order. These effects are
-distinct from the well-known bias toward high-cardinality or
-correlated features. The effects are not 
-specific to impurity -- permutation importance behaves the same way, and
-standardised regression coefficients spread too, one power lower. No marginal
-importance measure separates an effect's \emph{shape} from a feature's \emph{distribution};
-partial dependency plots do.
-A LLM-screen of literature citing the popular random forest library \emph{ranger} suggests that
-one in six papers interpreting an impurity ranking do so uncorroborated, including heavily-cited work.
+Impurity-based variable importance (mean decrease in impurity) is the default,
+cheapest way to read which features matter in a random forest regression, and it
+is routinely misread as an effect size comparable to a linear-model coefficient.
+What it actually estimates is each feature's contribution to the variance of the
+response: for a linear effect, the square of the coefficient times the feature's
+variance. Through controlled experiments we show that importance (i) grows with
+the \emph{square} of a linear coefficient; (ii) assigns an
+interaction's variance to the interacting variables, so a feature with no effect
+of its own can top the ranking; and (iii) gives \emph{identical} scores
+to a genuinely non-linear effect and to a linear effect on a skewed feature.
+These problems are distinct from the long-known bias towards features with many
+distinct values, and the usual corrections do not help: bias-corrected impurity,
+permutation importance, and SHAP-based importance scores all inherit them. No importance measure that reduces a
+feature to a single number can separate the \emph{shape} of its effect from the
+\emph{spread} of its values; partial-dependence plots, which show the effect's
+shape, can. An LLM-assisted screen of literature citing the popular random
+forest library \emph{ranger} suggests that one in six papers interpreting an
+impurity ranking rely on it without corroboration, including heavily-cited work.
 \end{abstract}
 
 \noindent%
