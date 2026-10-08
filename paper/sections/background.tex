@@ -5,8 +5,8 @@ To interpret random forests, researchers frequently rely on variable
 importance measures as proxies for effect size, much like slope 
 coefficients in linear regression. 
 In this paper, we present a series of experiments demonstrating 
-how and why importance measures (particular the impurity-based variants)
-systematically diverges from per-unit 
+how and why importance measures (particularly the impurity-based variants)
+systematically diverge from per-unit 
 effect sizes across various regression settings. 
 This investigation is motivated by the prevalent, yet flawed, practice 
 of interpreting them as if they reflect direct, per-unit feature effects. 
@@ -42,7 +42,7 @@ $1 - \sum_k p_k^2 = \sum_k \mathrm{Var}(\mathbf{1}\{Y = k\})$, the total varianc
 of the class indicators. 
 %Impurity importance is a variance-explained quantity in
 %both settings, and that is the source of every effect studied here.
-Hence, the underlying metric is variance in both regression and classification settings, impurity importance is fundamentally a variance-explained quantity. 
+Hence, the underlying metric is variance in both regression and classification settings; impurity importance is fundamentally a variance-explained quantity. 
 
 MDI is known to be
 \emph{biased} toward continuous and high-cardinality
@@ -64,9 +64,9 @@ the copy $X_j^{*}$, and the remaining notation is as in the MDI definition.
 Further debiased MDI variants \citep{li2019,zhou2021} address the same type of
 bias. 
 
-A theoretical result explains the divergence. 
+Theoretical results explain the divergence. 
 \citet{louppe2013}
-decompose asymptotic MDI into per-variable contributions (for totally
+decomposes asymptotic MDI into per-variable contributions (for totally
 randomised trees on categorical inputs), and \citet{scornet2023} proves that for
 additive regression with independent uniform inputs, fitted with
 \emph{truncated} (not fully grown) trees, MDI recovers a
@@ -80,27 +80,25 @@ under dependence and give the Sobol-MDA, a consistent estimator of the total
 Sobol index --- under independence, the same variance contribution normalised
 by $\mathrm{Var}(y)$.
 
-To guide practioners reaching for random forests and interpreting variable importance for regression problems,
-we provide a series of simple empirical experiments that illustrates the consequences of this identity in practice.
-Section~\ref{sec:linear}) demonstrates implications with linear effects on identically distributed
-features. How variable importance is distributed 
+To guide practitioners reaching for random forests and interpreting variable importance for regression problems,
+we provide a series of simple empirical experiments that illustrate the consequences of this identity in practice.
+Section~\ref{sec:linear} demonstrates the implications for linear effects on identically distributed
+features. Section~\ref{sec:interactions} examines how variable importance is distributed
 when the variables include pure interaction with no marginal effects.
-% FIXME
-Section~\ref{sec:variance} traces both effects to the split criterion itself.
-charging further splits to the same feature. 
-Non-linear effects
-In Section~\ref{sec:nonlinear} we show non-linear terms earn importance
-relative linear terms. 
-Section~\ref{sec:confound} shows no marginal importance can separate an effect's shape
+Section~\ref{sec:variance} traces both effects to the split criterion itself,
+which charges further splits to the same feature.
+In Section~\ref{sec:nonlinear} we show that non-linear terms earn importance
+relative to linear terms.
+Section~\ref{sec:confound} shows that no marginal importance measure can separate an effect's shape
 from a feature's spread. This applies to any marginal importance measure,
 not just MDI and AIR. To our knowledge this is previously unstated for random forests, though
-it is well-known problem for linear regression. 
+it is a well-known problem for linear regression.
 All experiments use \code{ranger} 0.18.0; the code that generates them and the
 figures is available with the rest of the supporting material
-(Section~\ref{sec:availability}). 
+(Section~\ref{sec:availability}).
 
-Finally in Section \ref{sec:prevalence-results}, we provide an LLM-based estimate of how often
-how often the misreading of variable importances reaches published conclusions.
+Finally, in Section~\ref{sec:prevalence-results}, we provide an LLM-based estimate of how often
+the misreading of variable importances reaches published conclusions.
 
 
 
