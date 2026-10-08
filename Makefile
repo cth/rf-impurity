@@ -5,22 +5,28 @@ SECTIONS := $(wildcard paper/sections/*.tex)
 FIGURES  := $(wildcard figures/*.png)
 LATEXMK  := latexmk -pdf -interaction=nonstopmode
 
-.PHONY: all paper tas tas-anon tas-title submission clean
+.PHONY: all paper tas tas-anon tas-title asa asa-anon asa-title submission clean
 
-all: paper tas
+all: paper tas asa
 
 paper: paper/impurity-importance.pdf
 tas: paper/tas/impurity-importance-tas.pdf
+asa: paper/asa/impurity-importance-asa.pdf
 
 # The two files TAS actually takes: an anonymized main document (built from
 # the same source with \anon predefined to 0, under its own jobname so the
 # full build's aux files are untouched) and a separate title page.
 tas-anon:  paper/tas/impurity-importance-tas-anon.pdf
 tas-title: paper/tas/title-page.pdf
-submission: tas tas-anon tas-title supplement
-	cp paper/tas/impurity-importance-tas-anon.pdf dist/main_document_anonymized.pdf
+asa-anon:  paper/asa/impurity-importance-asa_anon.pdf
+asa-title: paper/asa/title-page.pdf
+submission: tas tas-anon tas-title asa asa-anon asa-title supplement
+	cp paper/tas/impurity-importance-tas_anon.pdf dist/main_document_anonymized.pdf
 	cp paper/tas/impurity-importance-tas.pdf dist/manuscript_with_author_details.pdf
 	cp paper/tas/title-page.pdf dist/title_page.pdf
+	cp paper/asa/impurity-importance-asa_anon.pdf dist/asa_main_document_anonymized.pdf
+	cp paper/asa/impurity-importance-asa.pdf dist/asa_manuscript_with_author_details.pdf
+	cp paper/asa/title-page.pdf dist/asa_title_page.pdf
 	@ls -la dist
 
 paper/impurity-importance.pdf: paper/impurity-importance.tex $(SECTIONS) paper/bibliography.bib $(FIGURES)
@@ -35,11 +41,23 @@ paper/tas/impurity-importance-tas-anon.pdf: paper/tas/impurity-importance-tas.te
 paper/tas/title-page.pdf: paper/tas/title-page.tex
 	cd paper/tas && $(LATEXMK) title-page.tex
 
+paper/asa/impurity-importance-asa.pdf: paper/asa/impurity-importance-asa.tex $(SECTIONS) paper/bibliography.bib paper/asa/agsm.bst $(FIGURES)
+	cd paper/asa && $(LATEXMK) impurity-importance-asa.tex
+
+paper/asa/impurity-importance-asa_anon.pdf: paper/asa/impurity-importance-asa.tex $(SECTIONS) paper/bibliography.bib paper/asa/agsm.bst $(FIGURES)
+	cd paper/asa && $(LATEXMK) -jobname=impurity-importance-asa_anon -usepretex='\def\anon{0}' impurity-importance-asa.tex
+
+paper/asa/title-page.pdf: paper/asa/title-page.tex
+	cd paper/asa && $(LATEXMK) title-page.tex
+
 clean:
 	cd paper && latexmk -C impurity-importance.tex
 	cd paper/tas && latexmk -C impurity-importance-tas.tex
-	cd paper/tas && latexmk -C -jobname=impurity-importance-tas-anon impurity-importance-tas.tex
+	cd paper/tas && latexmk -C -jobname=impurity-importance-tas_anon impurity-importance-tas.tex
 	cd paper/tas && latexmk -C title-page.tex
+	cd paper/asa && latexmk -C impurity-importance-asa.tex
+	cd paper/asa && latexmk -C -jobname=impurity-importance-asa_anon impurity-importance-asa.tex
+	cd paper/asa && latexmk -C title-page.tex
 
 # Supplementary-material archive for journal submission. Built from the
 # committed tree with `git archive`, so it carries no revision history and no
