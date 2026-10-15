@@ -4,7 +4,8 @@
 Take equal linear effects but
 skewed feature \emph{distributions}:
 \[
-  a = 1 + U_a, \quad b = (1 + U_b)^2, \quad c = (1 + U_c)^3, \quad y = a + b + c,
+  a = 1 + U_a, \quad b = (1 + U_b)^2, \quad c = (1 + U_c)^3, \quad y = a + b +
+  c,
   \quad n = 10000,
 \]
 where $U_a, U_b, U_c$ are \emph{the same} draws used in
@@ -21,7 +22,8 @@ order. The following proposition makes this precise.
 \paragraph{Proposition.} Fix draws $U_a, U_b, U_c$ and compare two worlds:
 \emph{(A)} features $(1{+}U_a,\; 1{+}U_b,\; 1{+}U_c)$ with response
 $y = a + b^2 + c^3$, and \emph{(B)} features
-$(1{+}U_a,\; (1{+}U_b)^2,\; (1{+}U_c)^3)$ with response $y = a + b + c$. Then the
+$(1{+}U_a,\; (1{+}U_b)^2,\; (1{+}U_c)^3)$ with response $y = a + b + c$. Then
+the
 response vector is the same in both worlds, and each world-B feature is a
 strictly increasing transform of its world-A counterpart. If (i) bootstrap
 indices and candidate-feature draws are held fixed across the two fits, and
@@ -29,7 +31,8 @@ indices and candidate-feature draws are held fixed across the two fits, and
 its values --- as it does for an exhaustive search over thresholds between
 consecutive order statistics, \code{ranger}'s default
 \code{splitrule = "variance"} --- then the two forests are identical tree for
-tree as partitions of the in-bag sample, and every importance that is a functional of those partitions (MDI,
+tree as partitions of the in-bag sample, and every importance that is a
+functional of those partitions (MDI,
 AIR) coincides exactly.
 
 Equal variance contribution is a by-product of the same construction; the
@@ -70,7 +73,8 @@ impurity, debiased (AIR)  & $1:8.8:47.4$   & exactly $0$ \\
 permutation               & $1:9.2:50.3$   & ${\sim}10^{-4}$ \\
 mean $|\text{SHAP}|$      & $1:3.06:6.98$  & $1.3 \times 10^{-4}$ \\
 \midrule
-standardised OLS          & $1:2.98:6.88$ (A), $1:2.99:6.98$ (B) & $1.4 \times 10^{-2}$ \\
+standardised OLS          & $1:2.98:6.88$ (A), $1:2.99:6.98$ (B) & $1.4 \times
+10^{-2}$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -85,7 +89,8 @@ copy of $1+U_b$ --- so the correction is a functional of the same trees and the
 same orderings. Debiasing moves the ratio from plain MDI's compressed
 $1:4.7:22.6$ toward the variance-contribution ratio $1:9.07:48.96$ (a single
 draw; Section~\ref{sec:linear} warns against reading any single-seed AIR
-ratio closely and that applies here too), and moves the cross-world agreement not at
+ratio closely and that applies here too), and moves the cross-world agreement
+not at
 all. Permutation and
 path-dependent TreeSHAP \citep{lundberg2020} also touch feature values at the
 thresholds --- one
@@ -122,12 +127,14 @@ and of the feature ordering, and the proposition makes both identical across the
 two worlds. Any marginal importance inherits this,
 whatever its units. The remedy is a shape-aware view: a partial-dependence plot,
 or a SHAP \emph{dependence} plot, which plots each observation's SHAP value
-against its feature value, and the feature values do differ between the two worlds.
+against its feature value, and the feature values do differ between the two
+worlds.
 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.85\textwidth]{fig3_confound.png}
-\caption{Provably identical importances from two different worlds. Left: genuinely
+\caption{Provably identical importances from two different worlds. Left:
+genuinely
 non-linear effects. Right: linear effects on skewed features. No marginal
 importance measure can distinguish them.}
 \label{fig:confound}

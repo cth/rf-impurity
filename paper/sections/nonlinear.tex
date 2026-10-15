@@ -1,7 +1,9 @@
 \section{Non-linear effects: variance contribution predicts the scores}
 \label{sec:nonlinear}
 
-A non-linear term earns importance in proportion to the variance it contributes, whatever its form. To see what a non-linear effect is worth, consider a purely non-linear design:
+A non-linear term earns importance in proportion to the variance it contributes,
+whatever its form. To see what a non-linear effect is worth, consider a purely
+non-linear design:
 $y = a + b^2 + c^3$, with $a = 1 + U_a$, $b = 1 + U_b$, $c = 1 + U_c$ and
 $U_a, U_b, U_c$ independent $U(0,1)$ draws, $n = 10000$. (The draws are
 \emph{separate} per feature: a single shared $U$ would make the three features
@@ -47,7 +49,8 @@ same importance follows in closed form,
   \frac{\mathrm{sd}\big(f_j(X_j)\big)}{\mathrm{sd}(X_j)} ,
 \]
 which here gives $\beta = 3.01$ for the squared term and $\beta = 7.00$ for the
-cubic. On this data a cubic effect results in exactly as much impurity importance as
+cubic. On this data a cubic effect results in exactly as much impurity
+importance as
 a linear effect with a coefficient of $7$. Note that this is the coefficient
 matching the \emph{variance contributed}, which is not the best linear
 approximation to $f_j$: the two differ by the factor

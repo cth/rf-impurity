@@ -4,8 +4,10 @@
 SECTIONS := $(wildcard paper/sections/*.tex)
 FIGURES  := $(wildcard figures/*.png)
 LATEXMK  := latexmk -pdf -interaction=nonstopmode
+TEXFILES := $(wildcard paper/*.tex paper/sections/*.tex paper/tas/*.tex paper/asa/*.tex)
+MAXLEN   := 80
 
-.PHONY: all paper tas tas-anon tas-title asa asa-anon asa-title submission clean
+.PHONY: all paper tas tas-anon tas-title asa asa-anon asa-title submission clean check-lines wrap-lines
 
 all: paper tas asa
 
@@ -58,6 +60,18 @@ clean:
 	cd paper/asa && latexmk -C impurity-importance-asa.tex
 	cd paper/asa && latexmk -C -jobname=impurity-importance-asa_anon impurity-importance-asa.tex
 	cd paper/asa && latexmk -C title-page.tex
+
+# Fail if any .tex line exceeds $(MAXLEN) chars. Override with `make check-lines MAXLEN=100`.
+check-lines:
+	@awk -v max=$(MAXLEN) 'length > max {printf "%s:%d: %d chars (max %d)\n", FILENAME, FNR, length, max; bad=1} END {if (bad) {print "error: lines exceed " max " chars"; exit 1} else {print "ok: all tex lines <= " max " chars"}}' $(TEXFILES)
+
+# Wrap long .tex lines at word boundaries so they fit in $(MAXLEN) chars.
+# A single newline is whitespace in LaTeX, so this is semantics-preserving;
+# comment lines keep their "% " prefix on continuations. Lines with no
+# breakable space (e.g. pandoc \def\maxheight boilerplate) are reported,
+# not wrapped. Run `make check-lines` afterwards to verify.
+wrap-lines:
+	@python3 tools/wrap_tex.py --maxlen $(MAXLEN) $(TEXFILES)
 
 # Supplementary-material archive for journal submission. Built from the
 # committed tree with `git archive`, so it carries no revision history and no

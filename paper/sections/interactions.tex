@@ -2,36 +2,45 @@
 \label{sec:interactions}
 
 A high importance need not imply any marginal effect.
-Variables that matter only in combination are credited disproportionately. 
+Variables that matter only in combination are credited disproportionately.
 Consider a pure two-way parity interaction with no marginal effects:
 \[
-  y = c/10 + \big((a + b) \bmod 2\big), \qquad a,b,c \in \{0,1\}, \quad n = 10000.
+  y = c/10 + \big((a + b) \bmod 2\big), \qquad a,b,c \in \{0,1\}, \quad n =
+  10000.
 \]
 Neither $a$ nor $b$ carries information about $y$ on its own; only their joint
 parity does. $c$ is the only variable with an independent effect. We fit a
 random forest and a linear regression model against this data.
 
 Main-effects \textbf{OLS} sees only $c$: the fitted coefficients on $a$ and $b$
-are $0.000$ and $0.000$ against $0.101$ for $c$, at $R^2 = 0.01$. 
+are $0.000$ and $0.000$ against $0.101$ for $c$, at $R^2 = 0.01$.
 For binary inputs $(a+b) \bmod 2 = a + b - 2ab$ is bilinear, so adding an
 $a{\times}b$ term fits the target exactly ($R^2 = 1.000$).
 
 %What follows is a
-%claim about how impurity importance \emph{allocates} an interaction the model has
+%claim about how impurity importance \emph{allocates} an interaction the model
+%has
 %already captured; the OLS fit is here only to establish that $c$ is the sole
 %variable with a marginal effect to find.
 
-When the interaction is captured in the Random Forest, the two interacting variables $a$ and $b$
+When the interaction is captured in the Random Forest, the two interacting
+variables $a$ and $b$
 are allocated most of the variable importance. The size of their share follows
-from the variance decomposition. Impurity importance sums the reduction in node sum of squares over splits, and
-trees grown to purity remove $n\,\mathrm{Var}(y)$ between them, so the importance 
+from the variance decomposition. Impurity importance sums the reduction in node
+sum of squares over splits, and
+trees grown to purity remove $n\,\mathrm{Var}(y)$ between them, so the
+importance
 divides as the variance does. The target is additive in two independent pieces,
-$\mathrm{Var}(c/10) = 0.0025$ and $\mathrm{Var}\big((a+b) \bmod 2\big) = 0.25$: the
-coefficient $1/10$ gives $c$ one hundredth of the pair's variance, so $c$ gets importance 
+$\mathrm{Var}(c/10) = 0.0025$ and $\mathrm{Var}\big((a+b) \bmod 2\big) = 0.25$:
+the
+coefficient $1/10$ gives $c$ one hundredth of the pair's variance, so $c$ gets
+importance
 $1\%$ and the pair $99\%$. Note that this is exactly the explained
 variance ($R^2 = 0.01$) of main effects OLS.
-At $\code{mtry} = 3$, the measured total is $2525.2 = n\,\mathrm{Var}(y)$ and $c$ receives $1.02\%$
-of it. Over seeds $1$--$10$ at the default $\code{mtry} = 1$, $a$ and $b$ average
+At $\code{mtry} = 3$, the measured total is $2525.2 = n\,\mathrm{Var}(y)$ and
+$c$ receives $1.02\%$
+of it. Over seeds $1$--$10$ at the default $\code{mtry} = 1$, $a$ and $b$
+average
 $451$ (SD $29$) against $15$ for $c$, and its share rises to $1.6\%$, because
 $\code{mtry} = 1$ truncates trees and the loss falls harder on the pair, whose
 credit needs both variables on one path: a node whose single candidate is
@@ -45,24 +54,29 @@ $2$--$20\%$ (median $10\%$), against $1$--$6\%$ when the parity is replaced by
 equal \emph{marginal} effects for $a$ and $b$ ($y = c/10 + (a + b)/2$).
 So only the $a,b \gg c$ gap is informative here.
 
-The interaction spread is the wider one because credit for an interacting variable is
-conditional on tree topology. Splitting on $a$ or $b$ alone reduces no variance; 
+The interaction spread is the wider one because credit for an interacting
+variable is
+conditional on tree topology. Splitting on $a$ or $b$ alone reduces no variance;
 once a tree has split on one of the pair, the
 other separates the parity completely. Each tree therefore hands the pair's
-entire contribution to whichever variable it splits last. 
+entire contribution to whichever variable it splits last.
 At $\code{mtry} = 1$ that division between $a$ and $b$ is made by the
-candidate draw rather than by the data, 
-so the number of trees crediting each variable is binomial and the imbalance averages 
+candidate draw rather than by the data,
+so the number of trees crediting each variable is binomial and the imbalance
+averages
 away as trees accumulate.
 At
-$\code{mtry} = p$ both variables compete at each node and the one with the larger
+$\code{mtry} = p$ both variables compete at each node and the one with the
+larger
 empirical decrease wins:
 with bagging disabled the pair's credit goes entirely to one variable, and
-bootstrap resampling only partly decorrelates that choice. 
+bootstrap resampling only partly decorrelates that choice.
 Conditional on the
-training sample the surviving imbalance therefore becomes a bias rather than noise:
+training sample the surviving imbalance therefore becomes a bias rather than
+noise:
 every tree re-derives the same allocation from the same data, so averaging
-converges to that allocation instead of to an even split. Refitting each of six datasets with
+converges to that allocation instead of to an even split. Refitting each of six
+datasets with
 eight forest seeds at $\code{mtry} = p$ confirms this: all eight land on the
 same side of an even split for every dataset, and from $500$ to $4000$ trees the
 forest-to-forest SD falls from $0.02$ to $0.005$ while the mean does not move.
@@ -71,27 +85,32 @@ $3\%$ to $119\%$ across the six.
 %What is left is the
 %$\rho\sigma^2$ floor that averaging cannot cross, $\rho$ being the sampling
 %correlation between pairs of trees \citep[\S15.2, \S15.4.1]{hastie2009} --- for
-%a fixed sample the imbalance is effectively a bias, and therefore adding more trees does not affect 
-%it ($31.7\%$ at $500$ trees, $30.9\%$ at $4000$). 
+%a fixed sample the imbalance is effectively a bias, and therefore adding more
+%trees does not affect
+%it ($31.7\%$ at $500$ trees, $30.9\%$ at $4000$).
 %Lowering
-%$\rho$ is the stated purpose of \code{mtry}: 
+%$\rho$ is the stated purpose of \code{mtry}:
 Breiman introduced the per-node
-random draw of $F$ candidate inputs (what the parameter \code{mtry} implements) because
+random draw of $F$ candidate inputs (what the parameter \code{mtry} implements)
+because
 ``the randomness injected has to minimize the correlation $\bar\rho$ while
 maintaining strength'' \citep[\S3; Thm.~11.2 for regression]{breiman2001},
 $\bar\rho$ being the correlation between the predictions of pairs of trees.
 At $\code{mtry} = p$ none of that randomness is injected. The $\code{mtry}$
 setting that results in the best OOB generalization (OOB $R^2$ $1.00$ at
-$\code{mtry} = p$ against $0.59$ at the default) is therefore also the one whose division of
-importance between $a$ and $b$ is least trustworthy. 
+$\code{mtry} = p$ against $0.59$ at the default) is therefore also the one whose
+division of
+importance between $a$ and $b$ is least trustworthy.
 
-AIR was not designed to remove \emph{this bias}, but it has an incidental 
+AIR was not designed to remove \emph{this bias}, but it has an incidental
 effect through tree decorrelation.
 At $\code{mtry} = 1$ the two importance measures are indistinguishable, whereas
 AIR shows improvement
-at $\code{mtry} = p$ (median $a$-vs-$b$ spread $13.3\%$ against $29.1\%$). This comes
+at $\code{mtry} = p$ (median $a$-vs-$b$ spread $13.3\%$ against $29.1\%$). This
+comes
 from its permuted pseudo-variables enlarging the candidate pool to $2p$, which
-lowers $\bar\rho$ in the same vein as a smaller \code{mtry} would, degrading also 
+lowers $\bar\rho$ in the same vein as a smaller \code{mtry} would, degrading
+also
 OOB $R^2$ to $0.946$.
 
 \paragraph{Practical implications.} A variable at the top of an impurity

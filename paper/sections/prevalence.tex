@@ -5,7 +5,8 @@ variance-contribution measure can be misread as an effect size. To estimate how
 often that misreading reaches published conclusions, we screened the literature
 that uses the \code{ranger} R package --- one of the most widely used
 random-forest implementations, and the one whose importances these results
-concern. We screen for papers whose stated conclusions depend on the magnitude or
+concern. We screen for papers whose stated conclusions depend on the magnitude
+or
 ranking of an impurity importance without the corroboration that would guard
 against the effects of Sections~\ref{sec:linear}--\ref{sec:confound}.
 
@@ -28,23 +29,28 @@ prioritised the $524$ whose text matched a variable-importance keyword filter
 afterwards under the same instruction, so the filter plays no role in the counts
 below.
 
-\paragraph{Two-stage screen.} Each paper was read by a large language model under
+\paragraph{Two-stage screen.} Each paper was read by a large language model
+under
 a fixed instruction and asked to return a structured judgement; the verbatim
 prompts are in the supporting repository (Section~\ref{sec:availability}). The
 screen has two stages using different models, so that the second acts as an
 adversarial check on the first.
 
-\emph{Stage 1 --- screening.} A first model (Claude Haiku 4.5) read each paper and
-recorded which importance measure it uses, whether it interprets that importance's
+\emph{Stage 1 --- screening.} A first model (Claude Haiku 4.5) read each paper
+and
+recorded which importance measure it uses, whether it interprets that
+importance's
 magnitude or ranking, which corroborating analyses it reports, and a flag for
 whether a central conclusion could have been affected. The instruction was
 explicit that the bias corrupts magnitude and ranking, not the binary verdict
 that a variable is used, so a significant importance $p$-value
 \citep{altmann2010,janitza2018,kursa2010}
-does not by itself protect a conclusion. A paper was flagged only if it leaned on
+does not by itself protect a conclusion. A paper was flagged only if it leaned
+on
 the magnitude or ranking of an impurity importance for a central conclusion
 \emph{without} corroboration, defined as permutation importance,
-SHAP \citep{lundberg2017}, partial-dependence/ALE \citep{friedman2001,apley2020},
+SHAP \citep{lundberg2017}, partial-dependence/ALE
+\citep{friedman2001,apley2020},
 conditional importance \citep{strobl2008}, or held-out validation of the
 \emph{selected} features (overall test accuracy does not count, as it validates
 prediction, not the ranking). Every flag required a quoted passage.
@@ -58,14 +64,19 @@ Permutation importance, which Section~\ref{sec:confound} shows to carry the
 same confound, was credited likewise. Both can only suppress flags, so they make
 the confirmed count conservative.
 
-\emph{Stage 2 --- adjudication.} Every flagged paper was independently re-read by
+\emph{Stage 2 --- adjudication.} Every flagged paper was independently re-read
+by
 a second, stronger model (Claude Sonnet 5) under an explicitly adversarial
 instruction: its task was to \emph{refute} the flag. It returned a verdict of
-\emph{confirmed}, \emph{refuted}, or \emph{uncertain}, and confirmed only when all
-three conditions held at once: 1) the paper genuinely uses an impurity (not solely
-a permutation or SHAP) importance, 2) the ranking is central to a stated conclusion,
+\emph{confirmed}, \emph{refuted}, or \emph{uncertain}, and confirmed only when
+all
+three conditions held at once: 1) the paper genuinely uses an impurity (not
+solely
+a permutation or SHAP) importance, 2) the ranking is central to a stated
+conclusion,
 and 3) the ranking is not adequately corroborated. Both models were accessed in
-July and September 2026. Using two models from a single vendor means the adjudication is a
+July and September 2026. Using two models from a single vendor means the
+adjudication is a
 precision filter, not an independent validation --- a different-vendor or human
 check would be stronger; we return to this in the limitations.
 
@@ -74,8 +85,10 @@ check would be stronger; we return to this in the limitations.
 
 Table~\ref{tab:prevalence} traces the corpus through the pipeline. Of the $773$
 papers screened, $331$ were judged to use an impurity importance and $129$ were
-flagged in stage~1. The adversarial adjudication confirmed $56$, refuted $68$, and
-could not decide for $5$, refuting $53\%$ of the stage-1 flags and leaving $4\%$ undecided. The
+flagged in stage~1. The adversarial adjudication confirmed $56$, refuted $68$,
+and
+could not decide for $5$, refuting $53\%$ of the stage-1 flags and leaving $4\%$
+undecided. The
 implied stage-1 precision is therefore about $43\%$, and raw screening counts
 should be discounted accordingly.
 
@@ -111,13 +124,16 @@ Two features of the confirmed set are worth drawing out. First, exposure is
 concentrated in papers that use no significance machinery: $52$ of the $56$
 confirmed papers ($93\%$) report no importance $p$-value or Boruta selection and
 simply rank features by impurity importance, suggesting that familiarity with
-significance testing goes with more cautious interpretation of a ranking. Second,
+significance testing goes with more cautious interpretation of a ranking.
+Second,
 the confirmed papers are not confined to low-visibility venues: citation counts
-span the full range of the corpus (median $11$, versus a screened-set median of $10$),
+span the full range of the corpus (median $11$, versus a screened-set median of
+$10$),
 and $12$ of the $56$ exceed $50$ citations.
 
 \paragraph{Limitations.} These are model judgements, not audits: a flag means a
-conclusion \emph{could} have been affected and was uncorroborated, not that it is
+conclusion \emph{could} have been affected and was uncorroborated, not that it
+is
 wrong, and predictive accuracy is unaffected. The $7\%$ is an unvalidated
 estimate; stage 2 raises precision but is not independent validation, and there
 is no human ground truth. Only $773$ of $3{,}189$ works had open-access full

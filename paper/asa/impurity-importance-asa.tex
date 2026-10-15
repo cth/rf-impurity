@@ -18,7 +18,10 @@
 }{}
 \usepackage{xcolor}
 \setlength{\emergencystretch}{3em}
-\setcounter{secnumdepth}{5}
+% Paragraph headings (Practical implications, Proposition, ...) stay
+% unnumbered, as in the main build: secnumdepth 3 covers section,
+% subsection and subsubsection only.
+\setcounter{secnumdepth}{3}
 
 \usepackage{longtable,booktabs,array}
 \usepackage{calc}
@@ -27,7 +30,8 @@
 \usepackage{enumitem}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else%
+\Gin@nat@height\fi}
 \makeatother
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \makeatletter
@@ -49,7 +53,8 @@
 \urlstyle{same}
 \hypersetup{
   pdftitle={On the misinterpretation of variable importance as effect size},
-  pdfkeywords={random forests, mean decrease in impurity, Gini index, partial dependence, interpretability},
+  pdfkeywords={random forests, mean decrease in impurity, Gini index, partial
+  dependence, interpretability},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -108,7 +113,8 @@ of its own can top the ranking; and (iii) gives \emph{identical} scores
 to a genuinely non-linear effect and to a linear effect on a skewed feature.
 These problems are distinct from the long-known bias towards features with many
 distinct values, and the usual corrections do not help: bias-corrected impurity,
-permutation importance, and SHAP-based importance scores all inherit them. No importance measure that reduces a
+permutation importance, and SHAP-based importance scores all inherit them. No
+importance measure that reduces a
 feature to a single number can separate the \emph{shape} of its effect from the
 \emph{spread} of its values; partial-dependence plots, which show the effect's
 shape, can. An LLM-assisted screen of literature citing the popular random

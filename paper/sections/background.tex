@@ -1,105 +1,136 @@
-\section{Background}
+\section{Introduction}
 \label{sec:background-strands}
 
-To interpret random forests, researchers frequently rely on variable 
-importance measures as proxies for effect size, much like slope 
-coefficients in linear regression. 
-In this paper, we present a series of experiments demonstrating 
+To interpret random forests, researchers frequently rely on variable
+importance measures as proxies for effect size, much like slope
+coefficients in linear regression.
+In this paper, we present a series of experiments demonstrating
 how and why importance measures (particularly the impurity-based variants)
-systematically diverge from per-unit 
-effect sizes across various regression settings. 
-This investigation is motivated by the prevalent, yet flawed, practice 
-of interpreting them as if they reflect direct, per-unit feature effects. 
-To demonstrate the real-world scope of this issue, we employ a large 
-language model (LLM) pipeline to screen published literature, 
-estimating the prevalence of instances where authors use impurity 
-importance to draw substantive conclusions about effect sizes without 
-adequate corroboration.
+systematically diverge from per-unit
+effect sizes across various regression settings.
+%This investigation is motivated by the prevalent, yet flawed, practice
+%of interpreting them as if they reflect direct, per-unit feature effects.
+%To demonstrate the real-world scope of this issue, we employ a large
+%language model (LLM) pipeline to screen published literature,
+%estimating the prevalence of instances where authors use impurity
+%importance to draw substantive conclusions about effect sizes without
+%adequate corroboration.
 
-In decision tree algorithms, a node's impurity measures the variability of the target variable among the samples reaching that node. 
+To guide practitioners reaching for
+random forests and interpreting variable importance for regression
+problems, we provide a series of simple empirical experiments that
+illustrate biases seen in variable importances as compared to the
+expectations about coefficients etimated in linear regression.
+
+Section~\ref{sec:linear} demonstrates the implications for linear effects on
+identically distributed
+features. Section~\ref{sec:interactions} examines how variable importance is
+distributed
+when the variables include pure interaction with no marginal effects.
+Section~\ref{sec:variance} traces both effects to the split criterion itself,
+which charges further splits to the same feature.
+In Section~\ref{sec:nonlinear} we show how non-linear terms earn importance
+relative to linear terms.
+Section~\ref{sec:confound} shows that no marginal importance measure can
+separate an effect's shape
+from a feature's spread. This applies to any marginal importance measure,
+not just MDI and AIR. To our knowledge this is previously unstated for random
+forests, though
+it is a well-known problem for linear regression.
+All experiments use \code{ranger} 0.18.0; the code that generates them and the
+figures is available with the rest of the supporting material
+(Section~\ref{sec:availability}).
+Finally, in Section~\ref{sec:prevalence-results}, we provide an LLM-based
+estimate of how often
+the misreading of variable importances reaches published conclusions.
+
+\subsection{Related work}
+
+In decision tree algorithms, a node's impurity measures the variability
+of the target variable among the samples reaching that node.
 For a random forest \citep{breiman2001}, the impurity importance of a feature is
 the total decrease in node impurity attributable to splits on that feature,
-summed over all splits and all trees \citep{breiman1984,louppe2013}. 
-%Among these, \emph{impurity importance}—often reported as Mean Decrease in Impurity (MDI)—is the most widely used. 
-Formally, the Mean-Decrease-in-Impurity (MDI) for feature $j$ is defined as the decrease in node impurity across all splits on that feature, averaged over all trees:
+summed over all splits and all trees \citep{breiman1984,louppe2013}.
+%Among these, \emph{impurity importance}—often reported as Mean Decrease in
+%Impurity (MDI)—is the most widely used.
+
+%For
+%regression, \code{ranger} \citep{wright2017}
+%(and most implementations) score a split by how much it reduces the sum of
+%within-child \textbf{response variances}.
+
+Formally, the Mean-Decrease-in-Impurity (MDI) for feature $j$ is defined as the
+decrease in node impurity across all splits on that feature, averaged over all
+trees:
 
 \begin{equation}
 \text{MDI}_j = \frac{1}{T}\sum_{t=1}^{T} \sum_{v \in S_j^{(t)}} p(v) \Delta i(v)
 \end{equation}
 
 \noindent
-where $T$ is the number of trees, $S_j^{(t)}$ is the set of internal nodes in tree $t$ that split on feature $j$, $p(v)$ is the proportion of samples reaching node $v$, and $\Delta i(v)$ is the decrease in impurity (e.g., Gini or variance) caused by the split at node $v$.
+where $T$ is the number of trees, $S_j^{(t)}$ is the set of internal nodes in
+tree $t$ that split on feature $j$, $p(v)$ is the proportion of samples reaching
+node $v$, and $\Delta i(v)$ is the decrease in impurity (e.g., Gini or variance)
+caused by the split at node $v$.
 
-The rest of the paper concerns impurity importance in a regression setting.
-For
-regression, \code{ranger} \citep{wright2017}
-(and most implementations) score a split by how much it reduces the sum of
-within-child \textbf{response variances}. Note that 
-for classification the impurity is the
-Gini index, which measures the same thing: since $\mathbf{1}\{Y=k\}$ is
-Bernoulli with variance $p_k(1-p_k)$,
-$1 - \sum_k p_k^2 = \sum_k \mathrm{Var}(\mathbf{1}\{Y = k\})$, the total variance
-of the class indicators. 
+
+
+%The rest of the paper concerns impurity importance in a regression setting.
+%Note that
+%for classification the impurity is the
+%Gini index, which measures the same thing: since $\mathbf{1}\{Y=k\}$ is
+%Bernoulli with variance $p_k(1-p_k)$,
+%$1 - \sum_k p_k^2 = \sum_k \mathrm{Var}(\mathbf{1}\{Y = k\})$, the total
+%variance
+%of the class indicators.
 %Impurity importance is a variance-explained quantity in
 %both settings, and that is the source of every effect studied here.
-Hence, the underlying metric is variance in both regression and classification settings; impurity importance is fundamentally a variance-explained quantity. 
+%Hence, the underlying metric is variance in both regression and classification
+%settings; impurity importance is fundamentally a variance-explained quantity.
 
 MDI is known to be
-\emph{biased} toward continuous and high-cardinality
+\emph{biased} toward continuous features as well as high-cardinality categorical
+features, i.e.,
+a large number of observed values,
 features \citep{strobl2007,nembrini2018}. \citet{nembrini2018} propose the
-bias-corrected ``actual impurity reduction'' (AIR), which \code{ranger}
-implements as \code{impurity\_corrected}. Formally, each feature $X_j$ is paired with a
+bias-corrected ``Actual Impurity Reduction'' (AIR), which \code{ranger}
+implements as \code{impurity\_corrected}. Formally, each feature $X_j$ is paired
+with a
 permuted copy $X_j^{*}$ --- same distribution and the same split points, but by
 construction unassociated with the response --- the trees are grown over the
 doubled candidate pool, and the impurity decrease the copy earns is subtracted
 from the feature's own:
 %
 \begin{equation}
-\text{AIR}_j = \frac{1}{T}\sum_{t=1}^{T}\left(\;\sum_{v \in S_j^{(t)}} p(v)\,\Delta i(v) \;-\; \sum_{v \in S_{j^{*}}^{(t)}} p(v)\,\Delta i(v)\;\right)
+\text{AIR}_j = \frac{1}{T}\sum_{t=1}^{T}\left(\;\sum_{v \in S_j^{(t)}}
+p(v)\,\Delta i(v) \;-\; \sum_{v \in S_{j^{*}}^{(t)}} p(v)\,\Delta i(v)\;\right)
 \end{equation}
 %
 \noindent
 where $S_{j^{*}}^{(t)}$ is the set of internal nodes in tree $t$ that split on
 the copy $X_j^{*}$, and the remaining notation is as in the MDI definition.
 Further debiased MDI variants \citep{li2019,zhou2021} address the same type of
-bias. 
+bias.
 
-Theoretical results explain the divergence. 
+Theoretical results already explain the divergence from linear regression
+coefficients.
 \citet{louppe2013}
 decomposes asymptotic MDI into per-variable contributions (for totally
 randomised trees on categorical inputs), and \citet{scornet2023} proves that for
 additive regression with independent uniform inputs, fitted with
 \emph{truncated} (not fully grown) trees, MDI recovers a
 \emph{variance-explained} decomposition, each
-feature's score tracking $\mathrm{Var}(f_j(X_j))$, which for a linear term is
+feature's variable importance score tracking $\mathrm{Var}(f_j(X_j))$,
+which for a linear term is
 $\beta_j^2\,\mathrm{Var}(X_j)$. \citet{gromping2009} had already set
 random-forest importances beside the $R^2$-decomposition importances of linear
-regression, the comparison this paper makes throughout; and on the permutation
+regression, the comparison this paper makes throughout.
+On the permutation
 side, \citet{benard2022} show that mean decrease in accuracy is inconsistent
 under dependence and give the Sobol-MDA, a consistent estimator of the total
 Sobol index --- under independence, the same variance contribution normalised
 by $\mathrm{Var}(y)$.
 
-To guide practitioners reaching for random forests and interpreting variable importance for regression problems,
-we provide a series of simple empirical experiments that illustrate the consequences of this identity in practice.
-Section~\ref{sec:linear} demonstrates the implications for linear effects on identically distributed
-features. Section~\ref{sec:interactions} examines how variable importance is distributed
-when the variables include pure interaction with no marginal effects.
-Section~\ref{sec:variance} traces both effects to the split criterion itself,
-which charges further splits to the same feature.
-In Section~\ref{sec:nonlinear} we show that non-linear terms earn importance
-relative to linear terms.
-Section~\ref{sec:confound} shows that no marginal importance measure can separate an effect's shape
-from a feature's spread. This applies to any marginal importance measure,
-not just MDI and AIR. To our knowledge this is previously unstated for random forests, though
-it is a well-known problem for linear regression.
-All experiments use \code{ranger} 0.18.0; the code that generates them and the
-figures is available with the rest of the supporting material
-(Section~\ref{sec:availability}).
-
-Finally, in Section~\ref{sec:prevalence-results}, we provide an LLM-based estimate of how often
-the misreading of variable importances reaches published conclusions.
-
-
-
+% Note this dense
+% maybe we need to explain what a sobol index is
 

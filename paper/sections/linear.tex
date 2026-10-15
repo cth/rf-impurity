@@ -2,7 +2,8 @@
 \label{sec:linear}
 
 A random forest is fitted to the data: $y = a + 2b + 4c$, with
-$a,b,c \sim U(0,1)$, $n = 1000$. The forest's out-of-bag (OOB) $R^2$ is $0.98$. Impurity
+$a,b,c \sim U(0,1)$, $n = 1000$. The forest's out-of-bag (OOB) $R^2$ is $0.98$.
+Impurity
 importance (abbreviated ``vip'', variable importance)
 ranks the features in the correct order, but its \emph{ratios} do not match the
 ordinary-least-squares (OLS) coefficient ratios:
@@ -10,7 +11,8 @@ ordinary-least-squares (OLS) coefficient ratios:
 \begin{center}
 \begin{tabular}{rccc}
 \toprule
-feature & OLS coefficient & impurity vip (ratio) & impurity\_corrected (ratio) \\
+feature & OLS coefficient & impurity vip (ratio) & impurity\_corrected (ratio)
+\\
 \midrule
 a & 1 & 1.00 & 1.00 \\
 b & 2 & 2.39 & 6.23 \\
@@ -33,7 +35,8 @@ The difference to this expectation is due to the number of features drawn as
 candidates at each node (a configurable parameter called \code{mtry}), intended
 to decorrelate the trees. In \code{ranger} it defaults
 to $\lfloor \sqrt{p} \rfloor$, here $1$: each node must split on the
-single feature it drew, so $a$ takes splits it would never win in competition and
+single feature it drew, so $a$ takes splits it would never win in competition
+and
 is inflated at the expense of $c$. Letting features compete removes the dilution
 (means over seeds $1$--$10$, $n=1000$, 500 trees):
 
@@ -58,7 +61,8 @@ bias comes from fitting the noise term; $y$ here is noiseless, so it cannot
 operate. A
 \code{max.depth} sweep (seeds $1$--$10$) shows the opposite, finite-sample
 effect: truncating the trees removes splits, and the features with the smallest
-variance contributions are the first to lose them. At depth $2$ with $\code{mtry}=p$
+variance contributions are the first to lose them. At depth $2$ with
+$\code{mtry}=p$
 the weakest feature earns no splits at all. Deepening lowers the ratios in
 both settings: at $\code{mtry}=p$ they approach the predicted $1:4:16$
 ($1:12.0:58.3$ at depth $4$, $1:4.45:19.1$ fully grown), and at the default
@@ -66,8 +70,9 @@ $\code{mtry}=1$ they fall further below it ($1:3.38:12.1$ at depth $2$,
 $1:2.25:7.26$ fully grown). The residual overshoot at $\code{mtry}=p$ is a
 finite-sample effect: it diminishes as $n$ grows
 ($1:4.15:17.1$ at $n=4000$, $1:4.01:16.1$ at $n=64000$; means over seeds
-$1$--$10$). This is aligned with Scornet's theorem about greedy CART splitting 
-being asymptotic in $n$. The compression at $\code{mtry}=1$, which the theorem does not
+$1$--$10$). This is aligned with Scornet's theorem about greedy CART splitting
+being asymptotic in $n$. The compression at $\code{mtry}=1$, which the theorem
+does not
 cover, also shrinks with $n$ but far more slowly ($1:3.51:13.7$ at
 $n=64000$). The deviations in the table are finite-sample properties of the
 fitting procedure --- split randomisation and greedy split selection --- and
@@ -75,7 +80,8 @@ shrink toward the squared-coefficient prediction as $n$ grows.
 
 Extending to
 $y = a + 2b + 3c + \dots + 11k$ (11 features, coefficients $1\ldots11$)
-demonstrates the same. Over seeds $1$--$10$, regressing importance on $\beta^2$ gives a mean
+demonstrates the same. Over seeds $1$--$10$, regressing importance on $\beta^2$
+gives a mean
 $R^2$ of $0.98$ (range $0.96$--$0.99$) against $0.91$ on $\beta$ (range
 $0.88$--$0.94$), and $\beta^2$ is the better fit on every seed;
 Figure~\ref{fig:superlinear} shows one of them. Importance is denominated in
@@ -89,9 +95,10 @@ It is therefore a difference of variance reductions, expressed in units of
 variance, and no closer to a per-unit effect size than plain impurity.
 
 Compared to impurity importance, AIR is nearly
-\code{mtry}-insensitive: over seeds $1$--$10$ its average ratios are $1:4.4:17.5$ at the
+\code{mtry}-insensitive: over seeds $1$--$10$ its average ratios are
+$1:4.4:17.5$ at the
 default, $1:4.1:16.6$ at $\code{mtry}=2$, and $1:4.1:16.8$ at $\code{mtry}=3$,
-near the predicted $1:4:16$ throughout. 
+near the predicted $1:4:16$ throughout.
 
 The price is sampling variance, and it comes from that same subtraction.
 For the weakest feature the two terms nearly cancel, leaving a small difference
@@ -113,7 +120,7 @@ Importance is linear in $\beta^2$, not in $\beta$.}
 \label{fig:superlinear}
 \end{figure}
 
-%\paragraph{Takeaway.} 
+%\paragraph{Takeaway.}
 Among identically distributed features with linear
 effects, importance recovers the coefficient order when the contributions are
 well separated, but not reliably when they are close: for
@@ -121,13 +128,15 @@ $\beta = 1\ldots11$ at the default \code{mtry}, only $3$ of $10$ seeds rank
 all eleven correctly (mean Spearman $0.99$), and the inversions fall among the
 weak features that \code{mtry} compression pushes into near-ties. AIR does not
 rescue this. It spreads that weak end much further apart
-% (the $\beta = 5$ feature scores $16.4$ times the $\beta = 1$ feature, against $2.45$ under plain impurity, where the variance identity predicts $25$),
+% (the $\beta = 5$ feature scores $16.4$ times the $\beta = 1$ feature, against
+% $2.45$ under plain impurity, where the variance identity predicts $25$),
 but it is also
 far noisier from seed to seed, and the two effects offset: it ranks no better
 (mean Spearman $0.99$). Even where
-the order holds, ``how much more'' is not comparable to a coefficient. 
+the order holds, ``how much more'' is not comparable to a coefficient.
 
-Furthermore, an interaction lets a variable with no marginal effect outrank one that has
+Furthermore, an interaction lets a variable with no marginal effect outrank one
+that has
 (Section~\ref{sec:interactions}), and unequal feature distributions reorder
 the ranking on their own (Section~\ref{sec:confound}).
 

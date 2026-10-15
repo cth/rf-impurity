@@ -4,12 +4,14 @@
 Two properties of variance-based splitting underlie the effects in the sections
 that follow. Take a
 noise-free, sorted dataset and sweep every single split, scoring each by the sum
-of within-child variances, for $y = x$, $y = x^2$, $y = x^3$ ($x = 1\ldots1000$):
+of within-child variances, for $y = x$, $y = x^2$, $y = x^3$ ($x =
+1\ldots1000$):
 
 \begin{center}
 \begin{tabular}{cccc}
 \toprule
-response & min split-variance & fraction of parent variance removed & argmin (of 1000) \\
+response & min split-variance & fraction of parent variance removed & argmin (of
+1000) \\
 \midrule
 $x$   & $4.2 \times 10^{4}$  & $0.75$ & 500 (centre) \\
 $x^2$ & $4.3 \times 10^{10}$ & $0.76$ & 697 \\
@@ -24,14 +26,18 @@ three splits are essentially equal (${\approx}0.75$). The two relevant
 properties that the table illustrates are:
 
 \begin{enumerate}[leftmargin=1.6em]
-\item \textbf{Trees discard feature-distribution shape.} A split compares only the
-  \emph{ordering} of a feature's values, so the tree is invariant to any monotone
+\item \textbf{Trees discard feature-distribution shape.} A split compares only
+the
+  \emph{ordering} of a feature's values, so the tree is invariant to any
+  monotone
   transform and cannot see whether a feature is uniform or heavy-tailed,
-  information a per-unit effect size needs. This is the root cause of the confound
+  information a per-unit effect size needs. This is the root cause of the
+  confound
   in Section~\ref{sec:confound}.
 \item \textbf{The optimal split migrates with response shape.} For a linear
   response the best split is central; for higher orders it moves toward the
-  high-$y$ tail ($500 \rightarrow 697 \rightarrow 799$). The imbalance leaves more
+  high-$y$ tail ($500 \rightarrow 697 \rightarrow 799$). The imbalance leaves
+  more
   structure in the large child, so more splits follow down that branch, each
   charged to the same feature.
 \end{enumerate}
