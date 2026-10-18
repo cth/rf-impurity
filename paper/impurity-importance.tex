@@ -53,12 +53,14 @@ values.
 \end{abstract}
 
 \input{sections/background}
-\input{sections/linear}
-\input{sections/interactions}
-\input{sections/variance}
-\input{sections/nonlinear}
-\input{sections/confound}
 \input{sections/prevalence}
+\section{Controlled experiments}
+The experiments that follow use synthetic data with known ground truth to isolate, one mechanism at a time, what impurity importance measures when it is read as an effect size. In each case the data-generating process is fully specified, the features are independent except where dependence is the point, and the impurity ranking is set beside the ordinary-least-squares coefficient on the same data --- the per-unit effect a reader is tempted to see in it. The unifying finding is that importance tracks each term's contribution to the variance of the response, $\mathrm{Var}(f_j(X_j))$, not its per-unit slope: it grows with the \emph{square} of a linear coefficient (Section~\ref{sec:linear}), credits an interaction's variance to the interacting variables even when neither has a marginal effect (Section~\ref{sec:interactions}), and therefore prices a non-linear effect at the variance it contributes (Sections~\ref{sec:variance}--\ref{sec:nonlinear}), leaving effect shape and feature spread exactly indistinguishable to any marginal importance measure (Section~\ref{sec:confound}).
+  \input{sections/linear}
+  \input{sections/interactions}
+  \input{sections/variance}
+  \input{sections/nonlinear}
+  \input{sections/confound}
 \input{sections/conclusion}
 
 \section{Data and code availability}

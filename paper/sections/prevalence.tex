@@ -1,8 +1,7 @@
-\section{Prevalence in the literature}
+\section{How often variable importances are misread as effect sizes}
 
-The preceding sections establish, in controlled settings, how a
-variance-contribution measure can be misread as an effect size. To estimate how
-often that misreading reaches published conclusions, we screened the literature
+To estimate how
+often impurity importances are misread as effect sizes in published conclusions, we screened the literature
 that uses the \code{ranger} R package --- one of the most widely used
 random-forest implementations, and the one whose importances these results
 concern. We screen for papers whose stated conclusions depend on the magnitude
@@ -119,30 +118,31 @@ have been distorted by the effects of
 Sections~\ref{sec:linear}--\ref{sec:confound} and did not cross-check it. That
 is about $7\%$. Measured against the $331$ that actually interpret an impurity
 importance, it is $17\%$.
-
-Two features of the confirmed set are worth drawing out. First, exposure is
-concentrated in papers that use no significance machinery: $52$ of the $56$
-confirmed papers ($93\%$) report no importance $p$-value or Boruta selection and
-simply rank features by impurity importance, suggesting that familiarity with
-significance testing goes with more cautious interpretation of a ranking.
-Second,
-the confirmed papers are not confined to low-visibility venues: citation counts
+%
+%Two features of the confirmed set are worth drawing out. 
+%First, exposure is
+%concentrated in papers that use no significance machinery: $52$ of the $56$
+%confirmed papers ($93\%$) report no importance $p$-value or Boruta selection and
+%simply rank features by impurity importance, suggesting that familiarity with
+%significance testing goes with more cautious interpretation of a ranking.
+%Second,
+The confirmed papers are not confined to low-visibility venues: citation counts
 span the full range of the corpus (median $11$, versus a screened-set median of
 $10$),
 and $12$ of the $56$ exceed $50$ citations.
 
-\paragraph{Limitations.} These are model judgements, not audits: a flag means a
-conclusion \emph{could} have been affected and was uncorroborated, not that it
-is
-wrong, and predictive accuracy is unaffected. The $7\%$ is an unvalidated
-estimate; stage 2 raises precision but is not independent validation, and there
-is no human ground truth. Only $773$ of $3{,}189$ works had open-access full
-text, and open access correlates with field and venue, so the sample may not
-generalise. Our controlled
-experiments are all regressions, and the screen does not record which of the
-screened papers are classification and which regression; the variance reading of
-the Gini index in Section~\ref{sec:background-strands} is what carries the
-caution across to the classification papers, and we did not verify it there
-empirically. The repository
-lists flagged papers by identifier; we treat this as a claim about corroboration
-practice, not correctness, with each flag backed by a quoted passage.
+%\paragraph{Limitations.} These are model judgements, not audits: a flag means a
+%%conclusion \emph{could} have been affected and was uncorroborated, not that it
+%is
+%wrong, and predictive accuracy is unaffected. The $7\%$ is an unvalidated
+%estimate; stage 2 raises precision but is not independent validation, and there
+%is no human ground truth. Only $773$ of $3{,}189$ works had open-access full
+%text, and open access correlates with field and venue, so the sample may not
+%generalise. Our controlled
+%experiments are all regressions, and the screen does not record which of the
+%screened papers are classification and which regression; the variance reading of
+%the Gini index in Section~\ref{sec:background-strands} is what carries the
+%caution across to the classification papers, and we did not verify it there
+%empirically. The repository
+%lists flagged papers by identifier; we treat this as a claim about corroboration
+%practice, not correctness, with each flag backed by a quoted passage.

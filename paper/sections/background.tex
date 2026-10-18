@@ -19,24 +19,23 @@ effect sizes across various regression settings.
 To guide practitioners reaching for
 random forests and interpreting variable importance for regression
 problems, we provide a series of simple empirical experiments that
-illustrate biases seen in variable importances as compared to the
-expectations about coefficients etimated in linear regression.
+illustrate biases seen in variable importances 
+relative to the coefficients estimated in linear regression.
 
 Section~\ref{sec:linear} demonstrates the implications for linear effects on
 identically distributed
 features. Section~\ref{sec:interactions} examines how variable importance is
 distributed
-when the variables include pure interaction with no marginal effects.
+when the variables include pure interactions with no marginal effects.
 Section~\ref{sec:variance} traces both effects to the split criterion itself,
 which charges further splits to the same feature.
 In Section~\ref{sec:nonlinear} we show how non-linear terms earn importance
 relative to linear terms.
 Section~\ref{sec:confound} shows that no marginal importance measure can
-separate an effect's shape
-from a feature's spread. This applies to any marginal importance measure,
-not just MDI and AIR. To our knowledge this is previously unstated for random
-forests, though
-it is a well-known problem for linear regression.
+separate an effect's shape from a feature's spread. 
+It is well-known that coefficients in linear regression have this problem \cite{bring1994}, 
+but to our problem has not been acknowledged explicitly in the context of variable
+importances for random forests.
 All experiments use \code{ranger} 0.18.0; the code that generates them and the
 figures is available with the rest of the supporting material
 (Section~\ref{sec:availability}).
@@ -76,17 +75,18 @@ caused by the split at node $v$.
 
 
 %The rest of the paper concerns impurity importance in a regression setting.
-%Note that
-%for classification the impurity is the
-%Gini index, which measures the same thing: since $\mathbf{1}\{Y=k\}$ is
-%Bernoulli with variance $p_k(1-p_k)$,
-%$1 - \sum_k p_k^2 = \sum_k \mathrm{Var}(\mathbf{1}\{Y = k\})$, the total
-%variance
-%of the class indicators.
+Note that
+for classification the impurity is the
+Gini index, which measures the same thing: since $\mathbf{1}\{Y=k\}$ is
+Bernoulli with variance $p_k(1-p_k)$,
+$1 - \sum_k p_k^2 = \sum_k \mathrm{Var}(\mathbf{1}\{Y = k\})$, the total
+variance
+of the class indicators.
 %Impurity importance is a variance-explained quantity in
-%both settings, and that is the source of every effect studied here.
-%Hence, the underlying metric is variance in both regression and classification
-%settings; impurity importance is fundamentally a variance-explained quantity.
+%both settings.
+%, and that is the source of every effect studied here.
+Hence, the underlying metric is variance in both regression and classification
+settings; impurity importance is fundamentally a variance-explained quantity.
 
 MDI is known to be
 \emph{biased} toward continuous features as well as high-cardinality categorical
@@ -112,7 +112,55 @@ the copy $X_j^{*}$, and the remaining notation is as in the MDI definition.
 Further debiased MDI variants \citep{li2019,zhou2021} address the same type of
 bias.
 
-Theoretical results already explain the divergence from linear regression
+Permutation importance \citep{breiman2001}, \code{ranger}'s
+\code{importance = "permutation"}, instead measures the drop in
+predictive performance when a feature is destroyed. Let
+$\mathcal{D}_t$ be the out-of-bag sample for tree $t$ and
+$\mathcal{D}_t^{(j)}$ the same sample with $X_j$ randomly permuted.
+With squared-error loss:
+%
+\begin{equation}
+\text{Perm}_j = \frac{1}{T}\sum_{t=1}^{T}\left(
+  \frac{1}{|\mathcal{D}_t^{(j)}|}\sum_{i \in \mathcal{D}_t^{(j)}}
+    (y_i - \hat{y}_t(x_i^{(j)}))^2 \;-\;
+  \frac{1}{|\mathcal{D}_t|}\sum_{i \in \mathcal{D}_t}
+    (y_i - \hat{y}_t(x_i))^2 \right)
+\end{equation}
+%
+\noindent
+i.e.\ the mean OOB MSE increase after permuting $X_j$.
+Like MDI/AIR it is denominated in variance.
+
+Global mean $|\text{SHAP}|$ aggregates local Shapley attributions
+\citep{lundberg2017}. For observation $i$ and feature $j$,
+$\phi_{ij}$ is the Shapley value: the average marginal
+contribution of $j$ over all feature coalitions,
+%
+\begin{equation}
+\phi_{ij} = \sum_{S \subseteq F \setminus \{j\}} w(S)
+\left[f_{S \cup \{j\}}(x_i) - f_S(x_i)\right],
+\end{equation}
+%
+\noindent
+where $F$ is the full feature set,
+$w(S) = |S|!(|F| - |S| - 1)!/|F|!$, and $f_S(x_i)$ is the
+prediction with only features in $S$ known. They add up to
+$f(x_i) = E[f(X)] + \sum_j \phi_{ij}$; here computed with
+path-dependent TreeSHAP \citep{lundberg2020}. The global score
+averages the magnitudes over $n$ explained observations:
+%
+\begin{equation}
+\text{mean}|\text{SHAP}|_j = \frac{1}{n}\sum_{i=1}^{n} |\phi_{ij}|
+\end{equation}
+%
+\noindent
+Unlike, the other importance meaasures, 
+it is denominated in response units --- tracking the square root of
+the variance contribution as linear regressions coefficeints also do.
+Nevertheless, as Section~\ref{sec:confound}
+shows, it inherits the same shape/spread confound.
+
+Theoretical results already explain the divergence of impurity variable importances from linear regression
 coefficients.
 \citet{louppe2013}
 decomposes asymptotic MDI into per-variable contributions (for totally
