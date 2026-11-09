@@ -190,6 +190,7 @@ def main():
     print(f"chars sent:   {chars:,}  (~{toks:,.0f} tokens at 4 chars/token)")
     print(f"est. cost:    ${cost:.4f}  (output tokens are free)")
     print(f"threshold:    {args.threshold}")
+    print(f"output dir:   {os.path.join(args.out, args.model.replace("/", "_").replace("~", ""))}")
 
     if args.dry_run:
         return
@@ -199,7 +200,9 @@ def main():
         print("ERROR: set OPENROUTER_API_KEY", file=sys.stderr)
         sys.exit(1)
 
-    os.makedirs(args.out, exist_ok=True)
+    model_slug = args.model.replace("/", "_").replace("~", "")
+    out_dir = os.path.join(args.out, model_slug)
+    os.makedirs(out_dir, exist_ok=True)
     done = skipped = failed = 0
     total_cost = 0.0
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
@@ -207,7 +210,7 @@ def main():
             ex.submit(
                 classify_file,
                 p,
-                args.out,
+                out_dir,
                 args.model,
                 args.threshold,
                 args.max_chars,
