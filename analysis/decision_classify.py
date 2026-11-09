@@ -11,6 +11,7 @@ Usage:
   python3 analysis/decision_classify.py corpus/fulltext --dry-run
 """
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -122,6 +123,7 @@ def classify_file(path, out_dir, model, threshold, max_chars, api_key, timeout, 
             pass
 
     text = read_text(path, max_chars)
+    text_sha256 = hashlib.sha256(text.encode("utf-8", errors="ignore")).hexdigest()
     resp = call_model(model, text, api_key, timeout, retries)
     answers = resp.get("answers", {})
     ans = answers.get("uses_impurity_importance", {})
@@ -130,12 +132,20 @@ def classify_file(path, out_dir, model, threshold, max_chars, api_key, timeout, 
         raise RuntimeError(f"no noul answer for {stem}: {resp}")
     rec = {
         "id": stem,
+        "input_path": os.path.abspath(path),
+        "input_sha256": text_sha256,
+        "input_chars": len(text),
+        "max_chars": max_chars,
+        "model_requested": model,
         "model": resp.get("model", model),
         "probability": prob,
         "relevant": bool(prob >= threshold),
         "threshold": threshold,
+        "question": QUESTION,
         "answer": ans,
         "usage": resp.get("usage", {}),
+        "raw_response": resp,
+        "classified_at_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
     os.makedirs(out_dir, exist_ok=True)
     with open(out_path, "w") as f:
