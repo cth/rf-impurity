@@ -26,34 +26,28 @@
 \maketitle
 
 \begin{abstract}
-Variable importance, typically impurity-based (mean decrease in impurity) is 
-the default way to read which features matter in a random forest regression, and it
+Impurity-based variable importance (mean decrease in impurity) is the default,
+cheapest way to read which features matter in a random forest regression, and it
 is routinely misread as an effect size comparable to a linear-model coefficient.
-This we demonstrate through LLM-assisted screen of the literature, which 
-%  citing the \code{ranger} R package
-suggests that about one in six papers that interpret an impurity importance ranking rely on
-it without such corroboration, including heavily-cited work. 
-What impurity importance actually estimates is each feature's contribution to the variance of the
-response. We make the practical consequences of this concrete through a sequence of
-controlled experiments: importance (i) grows with the \emph{square} of a linear
-coefficient; (ii) assigns an interaction's variance to the
-interacting variables, so a feature with no effect of its own can top the
-ranking; and (iii) gives \emph{identical} scores to a genuinely
-non-linear effect and to a linear effect on a skewed feature. These biases are
-distinct from the long-known bias towards features with many distinct values,
-and the usual corrections do not help: bias-corrected impurity, permutation
-importance, and SHAP-based importance scores all inherit them. No importance
-measure that reduces a feature to a single number
-can separate the \emph{shape} of its effect from the \emph{spread} of its
-values. 
-% partial-dependence plots, which show the effect's shape, can. 
-%Read as a ranked
-%shortlist and paired with partial-dependence plots, impurity importance is a
-%useful screening tool; read as an effect size, it misleads.
+What it actually estimates is each feature's contribution to the variance of the
+response: for a linear effect, the square of the coefficient times the feature's
+variance. Through controlled experiments we show that importance (i) grows with
+the \emph{square} of a linear coefficient; (ii) assigns an interaction's
+variance to the interacting variables, so a feature with no effect of its own
+can top the ranking; and (iii) gives \emph{identical} scores to a genuinely
+non-linear effect and to a linear effect on a skewed feature. These problems are
+distinct from the long-known bias towards features with many distinct values.
+Our closing point is that they cannot be escaped by switching measure:
+bias-corrected impurity, permutation importance, and SHAP-based importance
+scores all inherit them, because no importance measure that reduces a feature to
+a single number can separate the \emph{shape} of its effect from the
+\emph{spread} of its values; partial-dependence plots, which show the effect's
+shape, can. An LLM-assisted screen of literature citing the popular random
+forest library \emph{ranger} suggests that one in six papers interpreting an
+impurity ranking rely on it without corroboration, including heavily-cited work.
 \end{abstract}
 
 \input{sections/background}
-\input{sections/prevalence}
 \section{Controlled experiments}
 The experiments that follow use synthetic data with known ground truth to isolate, one mechanism at a time, what impurity importance measures when it is read as an effect size. In each case the data-generating process is fully specified, the features are independent except where dependence is the point, and the impurity ranking is set beside the ordinary-least-squares coefficient on the same data --- the per-unit effect a reader is tempted to see in it. The unifying finding is that importance tracks each term's contribution to the variance of the response, $\mathrm{Var}(f_j(X_j))$, not its per-unit slope: it grows with the \emph{square} of a linear coefficient (Section~\ref{sec:linear}), credits an interaction's variance to the interacting variables even when neither has a marginal effect (Section~\ref{sec:interactions}), and therefore prices a non-linear effect at the variance it contributes (Sections~\ref{sec:variance}--\ref{sec:nonlinear}), leaving effect shape and feature spread exactly indistinguishable to any marginal importance measure (Section~\ref{sec:confound}).
   \input{sections/linear}
@@ -61,6 +55,7 @@ The experiments that follow use synthetic data with known ground truth to isolat
   \input{sections/variance}
   \input{sections/nonlinear}
   \input{sections/confound}
+\input{sections/prevalence}
 \input{sections/conclusion}
 
 \section{Data and code availability}
@@ -78,6 +73,9 @@ every count in it. The corpus manifest records every work screened, with its
 identifier and retrieval timestamp; the retrieved full texts themselves are not
 redistributed, and the included retrieval script regenerates them from Europe
 PMC.
+
+\appendix
+\input{sections/appendix}
 
 \bibliography{bibliography}
 

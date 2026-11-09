@@ -6,9 +6,10 @@ effect. Read that way its behaviour is unsurprising: it scales with the square
 of
 a linear coefficient, assigns an interaction's variance to the interacting
 variables, and gives identical scores to a non-linear effect and to a linear
-effect on a skewed feature. That last identity is provable, and it extends to
-permutation importance to four significant figures, so it is a property of
-variance-based measures rather than a defect of MDI. The mechanisms are
+effect on a skewed feature. That last identity is provable, and it carries over
+to bias-corrected impurity, permutation importance, and mean absolute SHAP ---
+so it is a property of marginal importance measures, not a defect of MDI, and
+switching measure does not escape it. The mechanisms are
 established in the literature; what is added here is a demonstration that
 non-linearity and feature skew are \emph{indistinguishable} to every marginal
 importance measure, and an estimate of how often the misreading reaches

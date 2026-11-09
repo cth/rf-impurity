@@ -1,0 +1,41 @@
+\section{The interaction's credit under permutation and SHAP}
+\label{app:interactions}
+
+Permutation importance is the increase in OOB MSE on scrambling the variable,
+which \code{ranger} returns as such --- a hand replication of its per-tree OOB
+permutation reproduces the reported value to four decimals. For a binary
+feature the increase is twice the variance of the contribution it destroys,
+because scrambling substitutes an independent copy and
+$\mathrm{E}\big[(X-X')^2\big] = 2\,\mathrm{Var}(X)$; the marginal-effect control
+confirms it ($0.500$ against $\mathrm{Var}(a) = 0.25$). On the parity design
+permuting either member destroys the \emph{entire} parity, so each is charged
+the whole interaction rather than half of it: at $\code{mtry}=3$ the measured
+values are $0.500$ for both $a$ and $b$ against $0.005$ for $c$ ($c$'s share
+$0.5\%$), and $0.169$/$0.169$/$0.003$ at $\code{mtry}=1$. On the variance
+scale that is $0.25$ each, against the pair's total MDI of $0.25$ (split
+$0.115$/$0.135$): permutation importance does not partition the pair's credit,
+it charges each the full joint effect, so the pair's importances sum to twice
+the interaction variance. The even split between $a$ and $b$ is exact (spread
+$0.1\%$ over seeds $1$--$10$ at both $\code{mtry}$ settings, against
+$7.6\%$/$26.8\%$ for MDI) because the loss is symmetric in the two variables by
+construction --- but read as an effect size, either variable's permutation
+importance reads $100\times$ $c$'s, handing one member the credit the pair's
+joint variance shares between the two.
+
+Mean absolute TreeSHAP divides the pair's credit evenly \emph{and} without the
+winner-take-all mechanism: $\overline{|\varphi_a|} = \overline{|\varphi_b|} =
+0.250$ at $\code{mtry}=3$, against $0.050$ for $c$ ($c$'s share $9.1\%$), and
+the division is exact at every seed and both $\code{mtry}$ settings (spread
+$0.1$--$0.2\%$, no seed outside $[0.45, 0.55]$). This is the Shapley property:
+order-averaging removes the within-tree winner-take-all that biases MDI, with
+no decorrelation side-effects (OOB $R^2$ stays $1.000$), and on this balanced
+design the path-dependent values coincide with the exact game-theoretic ones,
+$\varphi_a + \varphi_b = \big((a+b) \bmod 2\big) - 0.5$ pointwise. The cost is
+a different scale: mean $|\varphi|$ counts absolute deviations, not variances,
+so the interaction's $|\pm 0.5|$ per-observation deviation looms larger
+relative to $c$'s $0.05$ than the variance ratio suggests --- $c$'s share is
+$9\%$ rather than $1\%$, and the per-variable ratio $a:c$ is $5\times$ where MDI
+gives $\sim 50\times$ and permutation $100\times$. No measure returns a
+comparable effect size: they agree on the pair-versus-$c$ ordering and disagree
+on the magnitudes, each in a measure-specific way. Table~\ref{tab:interactions}
+collects the four allocations.

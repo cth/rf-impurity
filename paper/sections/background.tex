@@ -32,7 +32,11 @@ which charges further splits to the same feature.
 In Section~\ref{sec:nonlinear} we show how non-linear terms earn importance
 relative to linear terms.
 Section~\ref{sec:confound} shows that no marginal importance measure can
-separate an effect's shape from a feature's spread. 
+separate an effect's shape from a feature's spread. The two measures
+practitioners switch to when an impurity ranking is doubted --- permutation
+importance and mean absolute SHAP --- enter there as foils, and on the
+interaction design in Appendix~\ref{app:interactions}; neither escapes the
+confound.
 It is well-known that coefficients in linear regression have this problem \cite{bring1994}, 
 but to our problem has not been acknowledged explicitly in the context of variable
 importances for random forests.
@@ -112,6 +116,9 @@ the copy $X_j^{*}$, and the remaining notation is as in the MDI definition.
 Further debiased MDI variants \citep{li2019,zhou2021} address the same type of
 bias.
 
+When MDI is distrusted, the customary replacements are permutation importance
+and SHAP; we define both here because the paper's closing result is that neither
+escapes the biases studied.
 Permutation importance \citep{breiman2001}, \code{ranger}'s
 \code{importance = "permutation"}, instead measures the drop in
 predictive performance when a feature is destroyed. Let

@@ -1,8 +1,12 @@
-\subsection{Interactions are charged to the interacting variables}
+\subsection{Interactions}
 \label{sec:interactions}
 
-A high importance need not imply any marginal effect.
-Variables that matter only in combination are credited disproportionately.
+Random forests are particularly adept at capturing interactions between
+features and are
+for that reason often utilized when the features are believed to interact.
+Here, we examine how variable importances are allocated when a feature is
+itself an interaction between other features.
+
 Consider a pure two-way parity interaction with no marginal effects:
 \[
   y = c/10 + \big((a + b) \bmod 2\big), \qquad a,b,c \in \{0,1\}, \quad n =
@@ -16,12 +20,6 @@ Main-effects \textbf{OLS} sees only $c$: the fitted coefficients on $a$ and $b$
 are $0.000$ and $0.000$ against $0.101$ for $c$, at $R^2 = 0.01$.
 For binary inputs $(a+b) \bmod 2 = a + b - 2ab$ is bilinear, so adding an
 $a{\times}b$ term fits the target exactly ($R^2 = 1.000$).
-
-%What follows is a
-%claim about how impurity importance \emph{allocates} an interaction the model
-%has
-%already captured; the OLS fit is here only to establish that $c$ is the sole
-%variable with a marginal effect to find.
 
 When the interaction is captured in the Random Forest, the two interacting
 variables $a$ and $b$
@@ -82,14 +80,7 @@ same side of an even split for every dataset, and from $500$ to $4000$ trees the
 forest-to-forest SD falls from $0.02$ to $0.005$ while the mean does not move.
 The size of the imbalance is the sample's: the $a$-vs-$b$ spread runs from
 $3\%$ to $119\%$ across the six.
-%What is left is the
-%$\rho\sigma^2$ floor that averaging cannot cross, $\rho$ being the sampling
-%correlation between pairs of trees \citep[\S15.2, \S15.4.1]{hastie2009} --- for
-%a fixed sample the imbalance is effectively a bias, and therefore adding more
-%trees does not affect
-%it ($31.7\%$ at $500$ trees, $30.9\%$ at $4000$).
-%Lowering
-%$\rho$ is the stated purpose of \code{mtry}:
+
 Breiman introduced the per-node
 random draw of $F$ candidate inputs (what the parameter \code{mtry} implements)
 because
@@ -106,21 +97,62 @@ AIR was not designed to remove \emph{this bias}, but it has an incidental
 effect through tree decorrelation.
 At $\code{mtry} = 1$ the two importance measures are indistinguishable, whereas
 AIR shows improvement
-at $\code{mtry} = p$ (median $a$-vs-$b$ spread $13.3\%$ against $29.1\%$). This
-comes
+at $\code{mtry} = p$ (median $a$-vs-$b$ spread $13.3\%$ against $29.1\%$).
+This comes
 from its permuted pseudo-variables enlarging the candidate pool to $2p$, which
 lowers $\bar\rho$ in the same vein as a smaller \code{mtry} would, degrading
 also
 OOB $R^2$ to $0.946$.
 
+The same allocation question can be put to the two measures most often used to
+corroborate an impurity ranking, and which this paper takes as its foils:
+\textbf{permutation importance} (OOB Breiman-style, as returned by
+\code{ranger}) and \textbf{mean absolute TreeSHAP} ($\overline{|\varphi_j|}$,
+the path-dependent \emph{observational} variant). Both confirm the $a,b \gg c$
+reading, so switching measure does not rescue the interpretation, and both give
+$a$ and $b$ equal scores. They part company on how the pair's shared credit is
+divided. Permutation importance charges each member the \emph{entire}
+interaction rather than a share of it --- scrambling either variable destroys
+the whole parity --- so the pair's importances sum to twice the interaction
+variance, while mean $|\varphi|$ partitions the credit exactly. Each is
+denominated in units of its own, so neither is an effect size.
+Appendix~\ref{app:interactions} derives both; Table~\ref{tab:interactions}
+collects the allocations.
+
+\begin{table}[htb]
+\centering
+\caption{The four allocations on the seed-42 parity dataset, ratios normalised
+to $c$ (the only variable with a marginal effect).}
+\label{tab:interactions}
+\begin{tabular}{llccc}
+\toprule
+\code{mtry} & measure & $a : b : c$ (to $c$) & $c$ share & $a/(a{+}b)$ \\
+\midrule
+1 (default) & MDI              & $28 : 23 : 1$    & $1.9\%$  & $0.545$ \\
+            & AIR              & $21 : 22 : 1$    & $2.3\%$  & $0.496$ \\
+            & permutation      & $53 : 53 : 1$    & $0.9\%$  & $0.501$ \\
+            & mean $|\varphi|$ & $2.7 : 2.7 : 1$  & $15.8\%$ & $0.500$ \\
+\midrule
+3 ($= p$)   & MDI              & $44 : 52 : 1$    & $1.0\%$  & $0.459$ \\
+            & AIR              & $40 : 39 : 1$    & $1.2\%$  & $0.503$ \\
+            & permutation      & $100 : 100 : 1$  & $0.5\%$  & $0.500$ \\
+            & mean $|\varphi|$ & $5 : 5 : 1$      & $9.1\%$  & $0.500$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \paragraph{Practical implications.} A variable at the top of an impurity
-ranking may have no marginal effect at all and owe its place to an interaction.
+ranking may have no marginal effect at all and owe its place to an interaction,
+and switching measure does not rescue the reading: permutation importance and
+mean $|\varphi|$ rank the interacting pair as far above $c$ as MDI does, while
+within an interacting pair, the order is not to be read --- the division of
+their shared credit is candidate-draw noise at the default \code{mtry} and a
+sample-fixed bias at $\code{mtry} = p$ under MDI, and permutation importance
+additionally charges each member the full joint effect rather than a share of
+it.
 What distinguishes the two cases is the one-way
 partial-dependence plot (PDP) under a tall bar: here it is flat, and the parity
-appears only in the joint PDP over $(a,b)$. Within an interacting
-pair, the order is not to be read --- the division of their shared credit is
-candidate-draw noise at the default \code{mtry} and a sample-fixed bias at
-$\code{mtry} = p$.
+appears only in the joint PDP over $(a,b)$.
 
 \begin{figure}[htb]
 \centering
