@@ -1,0 +1,114 @@
+{
+  "id": "W4393389721",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4393389721.txt",
+  "input_sha256": "6b6b87a3598c6fb0d488605f008c0bde4a1baa0cc33a938c947706654737ffbf",
+  "input_chars": 51350,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.79,
+  "ranking_central_prob": 0.76,
+  "uncorroborated_prob": 0.95,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.76,
+    "refuted": 0.2,
+    "uncertain": 0.04
+  },
+  "verdict_confidence": 0.64,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.79
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.76
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.76,
+        "refuted": 0.2,
+        "uncertain": 0.04
+      },
+      "confidence": 0.64
+    }
+  },
+  "stage1_record": {
+    "id": "W4393389721",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper identifies \"three most important variables affecting the habitat suitability\" for each species (Results section, Figure 5), ranking predictors like temperature, precipitation, and soil parameters. These importance rankings are central to restoration recommendations: \"Highly suitable habitats for A. pedunculata...are mostly predicted in degraded lands in Java\" based on variable importance. No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of importance ranks is provided. Only biological explanations for why variables should matter are offered, which does not correct for impurity bias magnifying effects on skewed features or confounding interactions with the named variables."
+  },
+  "usage": {
+    "input_tokens": 16660,
+    "output_tokens": 98,
+    "cost": 0.00069972,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00069972,
+      "upstream_inference_prompt_cost": 0.00069972,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.79
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.76
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.76,
+          "refuted": 0.2,
+          "uncertain": 0.04
+        },
+        "confidence": 0.64
+      }
+    },
+    "usage": {
+      "input_tokens": 16660,
+      "output_tokens": 98,
+      "cost": 0.00069972,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00069972,
+        "upstream_inference_prompt_cost": 0.00069972,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223183-bbxjLNxRvpDdnZ2pZQkT",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:44Z"
+}

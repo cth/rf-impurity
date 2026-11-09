@@ -1,0 +1,115 @@
+{
+  "id": "W4390540183",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4390540183.txt",
+  "input_sha256": "d7ced92d164c8d3217ceb7689cc11a410002ab9c1ba5ea813d8f0f6f97e652a2",
+  "input_chars": 75241,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.56,
+  "ranking_central_prob": 0.93,
+  "uncorroborated_prob": 0.52,
+  "conditions_met": true,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.42,
+    "refuted": 0.53,
+    "uncertain": 0.05
+  },
+  "verdict_confidence": 0.3,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.56
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.52
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.42,
+        "refuted": 0.53,
+        "uncertain": 0.05
+      },
+      "confidence": 0.3
+    }
+  },
+  "stage1_record": {
+    "id": "W4390540183",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "altmann",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"Random forest modelling identified wind speed as the primary predictor of the occurrence of killer whale calls (with a negative correlation) while sea surface height, chlorophyll-a and sea surface temperature were moderately important\" and \"Wind speed was the most important predictor of the occurrence of echolocation clicks and social calls.\" The discussion interprets these rankings ecologically: \"Wind speed was the most important predictor... as their occurrence in October to December coincided with low wind speed.\" No alternative importance measures (permutation importance, SHAP, conditional importance) or held-out predictive validation support the magnitude and ranking."
+  },
+  "usage": {
+    "input_tokens": 21357,
+    "output_tokens": 99,
+    "cost": 0.000896994,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000896994,
+      "upstream_inference_prompt_cost": 0.000896994,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.56
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.52
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.42,
+          "refuted": 0.53,
+          "uncertain": 0.05
+        },
+        "confidence": 0.3
+      }
+    },
+    "usage": {
+      "input_tokens": 21357,
+      "output_tokens": 99,
+      "cost": 0.000896994,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000896994,
+        "upstream_inference_prompt_cost": 0.000896994,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223182-XdFOTLII8t2onZdu3qxM",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:43Z"
+}

@@ -1,0 +1,116 @@
+{
+  "id": "W4224278670",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4224278670.txt",
+  "input_sha256": "af629a65672aee5e166bce721a4c5eeaa433329177bcb53abe929c7d8644c5bb",
+  "input_chars": 36465,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.82,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.92,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.8,
+    "refuted": 0.09,
+    "uncertain": 0.11
+  },
+  "verdict_confidence": 0.7,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.82
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.8,
+        "refuted": 0.09,
+        "uncertain": 0.11
+      },
+      "confidence": 0.7
+    }
+  },
+  "stage1_record": {
+    "id": "W4224278670",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "\"Random forest modeling identified the size of the field as the most important factor for passing or failing followed by algorithm\" and \"collimator was found to be among the least important parameters in predicting phantom performance.\" The paper concludes \"Field size had the largest impact in determining performance\" and recommends treatment parameters needing \"particular attention...include smaller field sizes and pencil beam algorithms,\" making the importance ranking the basis for clinical guidance. The authors note field size and collimator correlate (cone collimators used for majority of small fields), yet attribute the effect to field size as \"the driving force,\" which is vulnerable to impurity-importance bias that favors continuous over categorical variables."
+  },
+  "usage": {
+    "input_tokens": 10393,
+    "output_tokens": 98,
+    "cost": 0.000436506,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000436506,
+      "upstream_inference_prompt_cost": 0.000436506,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.82
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.8,
+          "refuted": 0.09,
+          "uncertain": 0.11
+        },
+        "confidence": 0.7
+      }
+    },
+    "usage": {
+      "input_tokens": 10393,
+      "output_tokens": 98,
+      "cost": 0.000436506,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000436506,
+        "upstream_inference_prompt_cost": 0.000436506,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223179-9oO53keErcklxHceThIb",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:39Z"
+}

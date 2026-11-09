@@ -1,0 +1,116 @@
+{
+  "id": "W4383711365",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4383711365.txt",
+  "input_sha256": "39c61d11092b1b6449db46ec5b55475e903d07950a0d8f2d7f00f35c0cc50c4c",
+  "input_chars": 54982,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.93,
+  "uncorroborated_prob": 0.7,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.94,
+    "refuted": 0.05,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.91,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.7
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.94,
+        "refuted": 0.05,
+        "uncertain": 0.01
+      },
+      "confidence": 0.91
+    }
+  },
+  "stage1_record": {
+    "id": "W4383711365",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "Section 2.7: \"Feature importance was assessed using Gini importance.\" Results 3.3 identifies \"putative novel drug-resistance mutations\" based on high importance ranking (e.g., ethR 579G>C, embA Ala576Thr). Discussion acknowledges known limitation: \"the feature weighted model may be biased towards features with higher minor allele frequency. This is also a known existing limitation of RF models using Gini importance measures.\" The paper ranks mutations by Gini importance to distinguish causal drug-resistance drivers from confounded phylogenetic variants, but lacks permutation or SHAP corroboration."
+  },
+  "usage": {
+    "input_tokens": 14529,
+    "output_tokens": 98,
+    "cost": 0.000610218,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000610218,
+      "upstream_inference_prompt_cost": 0.000610218,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.7
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.94,
+          "refuted": 0.05,
+          "uncertain": 0.01
+        },
+        "confidence": 0.91
+      }
+    },
+    "usage": {
+      "input_tokens": 14529,
+      "output_tokens": 98,
+      "cost": 0.000610218,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000610218,
+        "upstream_inference_prompt_cost": 0.000610218,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223181-CiBVB3lPf15vAu9xCVZS",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:42Z"
+}

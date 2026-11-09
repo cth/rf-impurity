@@ -1,0 +1,117 @@
+{
+  "id": "W4307429571",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4307429571.txt",
+  "input_sha256": "da151442c30ce8dd0223aaf5119010e30a1f0a7a5e93f6658d89a45bc1633727",
+  "input_chars": 48776,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.64,
+  "ranking_central_prob": 0.92,
+  "uncorroborated_prob": 0.85,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.57,
+    "refuted": 0.18,
+    "uncertain": 0.25
+  },
+  "verdict_confidence": 0.35,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.64
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.85
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.57,
+        "refuted": 0.18,
+        "uncertain": 0.25
+      },
+      "confidence": 0.35
+    }
+  },
+  "stage1_record": {
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses ranger random survival forests and identifies features as \"among the 20 most important predictors\" and \"among the 50 most important predictors,\" ranking them by impurity-based importance. Key claim: \"Clinically relevant features identified by the model to have the most predictive value for the time to clinical remission included age at index, time from first recorded CU-related symptom to first CU diagnosis, BMI, smoking status, asthma, allergic rhinitis, chronic pulmonary disease, and prior medication use.\" Only one variable (age) receives partial dependence validation shown in supplementary materials; other top-ranked categorical and binary comorbidity variables lack corroboration. Discussion emphasizes these identified predictors as central to understanding disease pathogenesis: \"The potential for the characteristics identified as important by the predictive model, such as comorbidities, polypharmacy, and increased laboratory workup, to help predict time to clinical remission raise intriguing questions regarding the pathogenesis of CU.\"",
+    "id": "W4307429571",
+    "set": "survivor"
+  },
+  "usage": {
+    "input_tokens": 15346,
+    "output_tokens": 98,
+    "cost": 0.000644532,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000644532,
+      "upstream_inference_prompt_cost": 0.000644532,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.64
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.85
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.57,
+          "refuted": 0.18,
+          "uncertain": 0.25
+        },
+        "confidence": 0.35
+      }
+    },
+    "usage": {
+      "input_tokens": 15346,
+      "output_tokens": 98,
+      "cost": 0.000644532,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000644532,
+        "upstream_inference_prompt_cost": 0.000644532,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223180-a1MXdGVyp35cZVNL2JEb",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:41Z"
+}

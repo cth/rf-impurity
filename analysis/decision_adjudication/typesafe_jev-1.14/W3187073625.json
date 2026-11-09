@@ -1,0 +1,115 @@
+{
+  "id": "W3187073625",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3187073625.txt",
+  "input_sha256": "8c1b96eac24160eaeb3c56a5f45c01e5caf577cc0c78a35ef32c6d0cad687b5d",
+  "input_chars": 41384,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.5,
+  "ranking_central_prob": 0.89,
+  "uncorroborated_prob": 0.82,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.5,
+    "refuted": 0.4,
+    "uncertain": 0.1
+  },
+  "verdict_confidence": 0.25,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.5
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.89
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.82
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.5,
+        "refuted": 0.4,
+        "uncertain": 0.1
+      },
+      "confidence": 0.25
+    }
+  },
+  "stage1_record": {
+    "uses_impurity_importance": true,
+    "pvalue_method": "boruta",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper ranks variables as \"the most important variables were number of positive lymph nodes, pT stage and completeness of resection\" based on impurity importance filtering via Boruta (\"comparing the importance of candidate variables in a random forest to a corresponding set of 'shadow' variables\"). This ranking is central to conclusions: \"The most important variables identified (lymph node status, pT stage, resection margin) are well recognised as highly prognostic.\" However, no independent corroboration is provided\u2014survival curves and RMST/LED/LER metrics derive from the same impurity-based model. Lymph node counts are count data likely heavily skewed, vulnerable to impurity-importance magnification.",
+    "id": "W3187073625",
+    "set": "survivor"
+  },
+  "usage": {
+    "input_tokens": 11997,
+    "output_tokens": 98,
+    "cost": 0.000503874,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000503874,
+      "upstream_inference_prompt_cost": 0.000503874,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.5
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.89
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.82
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.5,
+          "refuted": 0.4,
+          "uncertain": 0.1
+        },
+        "confidence": 0.25
+      }
+    },
+    "usage": {
+      "input_tokens": 11997,
+      "output_tokens": 98,
+      "cost": 0.000503874,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000503874,
+        "upstream_inference_prompt_cost": 0.000503874,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223178-8UHF8eLc2vgJJDhpoq02",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:38Z"
+}

@@ -1,0 +1,115 @@
+{
+  "id": "W2970271155",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W2970271155.txt",
+  "input_sha256": "6a848cc3663a816ee01c101249b226e1b5939c9e2c7296363e25e30ae74d0107",
+  "input_chars": 74123,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.86,
+  "uncorroborated_prob": 0.9,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.94,
+    "refuted": 0.05,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.91,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.86
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.9
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.94,
+        "refuted": 0.05,
+        "uncertain": 0.01
+      },
+      "confidence": 0.91
+    }
+  },
+  "stage1_record": {
+    "id": "W2970271155",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The authors quantify feature contribution using \"variable importance (Gini index)\" to rank evolutionary information types as Family, Target, and PFAM (high importance) versus TS-SMART, TS-TIGR, TS-PRINT, and TS-Gene3D (low importance). They directly interpret this ranking to explain model performance differences (\"probably due to the low model performance and target coverage\") without permutation importance, SHAP, PDP/ALE, or conditional importance validation. Features are heterogeneous in type (sequence-based domains vs structure-based superfamilies) and coverage (PFAM/Family/Superfamily annotate >74% of targets; SMART/TIGRFAM/PRINT/Gene3D <50%), conditions under which Gini importance is biased upward for high-coverage features regardless of true predictive contribution. While held-out AUC test sets validate overall model performance, they do not validate the importance ranking itself."
+  },
+  "usage": {
+    "input_tokens": 21078,
+    "output_tokens": 98,
+    "cost": 0.000885276,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000885276,
+      "upstream_inference_prompt_cost": 0.000885276,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.86
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.9
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.94,
+          "refuted": 0.05,
+          "uncertain": 0.01
+        },
+        "confidence": 0.91
+      }
+    },
+    "usage": {
+      "input_tokens": 21078,
+      "output_tokens": 98,
+      "cost": 0.000885276,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000885276,
+        "upstream_inference_prompt_cost": 0.000885276,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223176-bq95C7o4BcuaNEgvZo2F",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:36Z"
+}

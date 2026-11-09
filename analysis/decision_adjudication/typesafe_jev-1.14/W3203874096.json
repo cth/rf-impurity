@@ -1,0 +1,116 @@
+{
+  "id": "W3203874096",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3203874096.txt",
+  "input_sha256": "8887ee7fcd5c2f686564a5655f247d291310469ad83e53e32809c30c54bf2015",
+  "input_chars": 98107,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.96,
+  "ranking_central_prob": 0.94,
+  "uncorroborated_prob": 0.72,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.85,
+    "refuted": 0.13,
+    "uncertain": 0.02
+  },
+  "verdict_confidence": 0.77,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.72
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.85,
+        "refuted": 0.13,
+        "uncertain": 0.02
+      },
+      "confidence": 0.77
+    }
+  },
+  "stage1_record": {
+    "uses_impurity_importance": true,
+    "pvalue_method": "janitza",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"Importance for community data (0.08% threshold, genus rank) and combined data was calculated utilizing the corrected Gini impurity (Nembrini et al., 2018), followed by p-value estimation after Janitza et al. (2018).\" The central claim identifies \"potential microbial fingerprints\" by ranking: \"Thus, 25 genera were selected with Janitza importance > 0.25, p < 0.01\" and \"The most supportive genera (Figure 5) were Cocleimonas (1.65% maximal relative abundance), the unclassified Anaerolineae SBR1031 A4b (0.11%) and an unclassified Gemmatimonadaceae (0.38%).\" Notably, the authors explicitly used permutation importance (Altmann) for sediment data but not for the 25 bacterial genera that form their fingerprint. The data are compositional (1,703 genera available, highly skewed abundances), creating conditions for impurity-bias to distort both magnitude and ranking.",
+    "id": "W3203874096",
+    "set": "survivor"
+  },
+  "usage": {
+    "input_tokens": 25765,
+    "output_tokens": 98,
+    "cost": 0.00108213,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00108213,
+      "upstream_inference_prompt_cost": 0.00108213,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.72
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.85,
+          "refuted": 0.13,
+          "uncertain": 0.02
+        },
+        "confidence": 0.77
+      }
+    },
+    "usage": {
+      "input_tokens": 25765,
+      "output_tokens": 98,
+      "cost": 0.00108213,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00108213,
+        "upstream_inference_prompt_cost": 0.00108213,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223178-K07nNwDo3qAmFPp7VfeC",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:39Z"
+}

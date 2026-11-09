@@ -1,0 +1,115 @@
+{
+  "id": "W4302363433",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4302363433.txt",
+  "input_sha256": "1981cedf3c5ca686710ff2ae9bac2d081308a98b9b9c5b0c422e1223dbaaffb3",
+  "input_chars": 61241,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.96,
+  "ranking_central_prob": 0.93,
+  "uncorroborated_prob": 0.84,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.87,
+    "refuted": 0.11,
+    "uncertain": 0.02
+  },
+  "verdict_confidence": 0.8,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.84
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.87,
+        "refuted": 0.11,
+        "uncertain": 0.02
+      },
+      "confidence": 0.8
+    }
+  },
+  "stage1_record": {
+    "id": "W4302363433",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "conditional"
+    ],
+    "feature_heterogeneity": [
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"we used a custom R implementation of iterative random forest (iRF) machine learning to classify the cluster labels... The top ten most important genes for each cluster were extracted based on their Gini importance scores provided by the Ranger v0.12 R package.\" The authors then claim specific genes \"define\" each cluster (e.g., \"an ASD-SV in the CTNNA2 gene defines cluster 1\"), using the ranking of Gini importance to support precision medicine conclusions. Biological validation via GO enrichment, eQTL overlap, and RNA-seq validates plausibility but does not corroborate the importance ranking itself against permutation importance, SHAP, or other methods."
+  },
+  "usage": {
+    "input_tokens": 17932,
+    "output_tokens": 98,
+    "cost": 0.000753144,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000753144,
+      "upstream_inference_prompt_cost": 0.000753144,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.84
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.87,
+          "refuted": 0.11,
+          "uncertain": 0.02
+        },
+        "confidence": 0.8
+      }
+    },
+    "usage": {
+      "input_tokens": 17932,
+      "output_tokens": 98,
+      "cost": 0.000753144,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000753144,
+        "upstream_inference_prompt_cost": 0.000753144,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223180-YElVoeWsDC5jbJTzRLIs",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:41Z"
+}

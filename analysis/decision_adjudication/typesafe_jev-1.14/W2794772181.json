@@ -1,0 +1,116 @@
+{
+  "id": "W2794772181",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W2794772181.txt",
+  "input_sha256": "b0f7a2114d7e2ef47de9e3184a07c2004e18b9b4c6f82172fe3f41407320e683",
+  "input_chars": 88479,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.73,
+  "ranking_central_prob": 0.94,
+  "uncorroborated_prob": 0.94,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.79,
+    "refuted": 0.14,
+    "uncertain": 0.07
+  },
+  "verdict_confidence": 0.68,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.73
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.79,
+        "refuted": 0.14,
+        "uncertain": 0.07
+      },
+      "confidence": 0.68
+    }
+  },
+  "stage1_record": {
+    "id": "W2794772181",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed",
+      "high_cardinality"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The conclusions state findings explicitly based on importance ranking: \"the most important predictors being total annual precipitation, monthly temperatures, and bioclimatic layers\" and \"Precipitation, temperature maps, and bioclimatic images are consistently the most important covariates in all three case studies.\" The paper also ranks predictors (\"top 20 most important\") and interprets magnitude (\"decline in variable importance was gradual\"). Corroboration is limited to cross-validation accuracy and ecological plausibility arguments; the paper provides no permutation, SHAP, PDP/ALE, conditional, or held-out validation of importance rankings."
+  },
+  "usage": {
+    "input_tokens": 26625,
+    "output_tokens": 98,
+    "cost": 0.00111825,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00111825,
+      "upstream_inference_prompt_cost": 0.00111825,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.73
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.79,
+          "refuted": 0.14,
+          "uncertain": 0.07
+        },
+        "confidence": 0.68
+      }
+    },
+    "usage": {
+      "input_tokens": 26625,
+      "output_tokens": 98,
+      "cost": 0.00111825,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00111825,
+        "upstream_inference_prompt_cost": 0.00111825,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223175-0V1GxyBGZFxYdhgc7hDG",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:35Z"
+}

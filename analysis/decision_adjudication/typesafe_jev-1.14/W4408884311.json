@@ -1,0 +1,115 @@
+{
+  "id": "W4408884311",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4408884311.txt",
+  "input_sha256": "4a085d4b4d8091831afd49fbcf6b5d5f1e0b51e0b680961288bddfb87f3fa9f4",
+  "input_chars": 90334,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.83,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.88,
+  "conditions_met": true,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.46,
+    "refuted": 0.49,
+    "uncertain": 0.05
+  },
+  "verdict_confidence": 0.24,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.83
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.88
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.46,
+        "refuted": 0.49,
+        "uncertain": 0.05
+      },
+      "confidence": 0.24
+    }
+  },
+  "stage1_record": {
+    "id": "W4408884311",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper explicitly interprets importance magnitude and ranking to identify \"drivers of microclimatic variability\": local macroclimatic data \"exerted the most substantial influence, with its influence ranging from 50 to 80%\"; TMIN at station is ranked #1 with 68.3% importance for soil temperature prediction; solar radiation, FAPAR, NDMI emerge as \"key predictors\" based on relative importance percentages. No alternative importance methods (permutation, SHAP, PDP/ALE, conditional) are used to corroborate these rankings."
+  },
+  "usage": {
+    "input_tokens": 29232,
+    "output_tokens": 99,
+    "cost": 0.001227744,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001227744,
+      "upstream_inference_prompt_cost": 0.001227744,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.83
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.88
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.46,
+          "refuted": 0.49,
+          "uncertain": 0.05
+        },
+        "confidence": 0.24
+      }
+    },
+    "usage": {
+      "input_tokens": 29232,
+      "output_tokens": 99,
+      "cost": 0.001227744,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001227744,
+        "upstream_inference_prompt_cost": 0.001227744,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223185-LJy3Hi28cQnUNY9BiKs4",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:45Z"
+}

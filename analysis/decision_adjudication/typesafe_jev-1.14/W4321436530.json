@@ -1,0 +1,117 @@
+{
+  "id": "W4321436530",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4321436530.txt",
+  "input_sha256": "5c6d1c3d69f6431b1a1dd76d1948c41bc0c9fc2c04e1eb2cb1dc1b6e3d0bedaf",
+  "input_chars": 91465,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.85,
+  "ranking_central_prob": 0.88,
+  "uncorroborated_prob": 0.92,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.91,
+    "refuted": 0.06,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.86,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.85
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.88
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.91,
+        "refuted": 0.06,
+        "uncertain": 0.03
+      },
+      "confidence": 0.86
+    }
+  },
+  "stage1_record": {
+    "id": "W4321436530",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "Abstract states \"we identified a set of kinases, several of which are understudied, that are strongly influential in the cell viability prediction models.\" Results section: \"We next built the final random forest model with the full data set and collected variable importance metrics for each of the included features...the model also identifies several understudied kinases, CSNK2A2, PIP4K2C, CAMKK2 and DYRK1B, as being influential.\" Experimental validation (Fig 6) tests overall model predictions on held-out data but does not corroborate individual feature importances through permutation importance, SHAP, or conditional methods. Features span heterogeneous scales and cardinalities without importance-ranking corroboration."
+  },
+  "usage": {
+    "input_tokens": 21917,
+    "output_tokens": 98,
+    "cost": 0.000920514,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000920514,
+      "upstream_inference_prompt_cost": 0.000920514,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.85
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.88
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.91,
+          "refuted": 0.06,
+          "uncertain": 0.03
+        },
+        "confidence": 0.86
+      }
+    },
+    "usage": {
+      "input_tokens": 21917,
+      "output_tokens": 98,
+      "cost": 0.000920514,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000920514,
+        "upstream_inference_prompt_cost": 0.000920514,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223181-Nk4Ht1Xv0Yu32QWr14qO",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:41Z"
+}

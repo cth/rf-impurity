@@ -1,0 +1,115 @@
+{
+  "id": "W4361286446",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4361286446.txt",
+  "input_sha256": "5761c64217a10491a9b0ba14545149e5172cae6f44caec9d129d368164c45891",
+  "input_chars": 69729,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.82,
+  "ranking_central_prob": 0.78,
+  "uncorroborated_prob": 0.86,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.82,
+    "refuted": 0.16,
+    "uncertain": 0.02
+  },
+  "verdict_confidence": 0.73,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.82
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.78
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.86
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.82,
+        "refuted": 0.16,
+        "uncertain": 0.02
+      },
+      "confidence": 0.73
+    }
+  },
+  "stage1_record": {
+    "id": "W4361286446",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "Feature selection used ranger random forest importance to identify \"the top 15 from each comparison\" visualized in \"variable importance plots\" and discussed as key biomarkers. While \"ROC analyses for the top seven phosphosites showed excellent area under the ROC curve (AUC) scores, which were more than 90%\", this validates predictive performance but not the impurity-based ranking itself. The paper concludes with specific phosphosites (TRIM28, NDRG2, SDCBP, etc.) identified via ranger ranking without comparing to alternative importance methods like permutation importance or SHAP."
+  },
+  "usage": {
+    "input_tokens": 20020,
+    "output_tokens": 98,
+    "cost": 0.00084084,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00084084,
+      "upstream_inference_prompt_cost": 0.00084084,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.82
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.78
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.86
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.82,
+          "refuted": 0.16,
+          "uncertain": 0.02
+        },
+        "confidence": 0.73
+      }
+    },
+    "usage": {
+      "input_tokens": 20020,
+      "output_tokens": 98,
+      "cost": 0.00084084,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00084084,
+        "upstream_inference_prompt_cost": 0.00084084,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223181-oDwx3EgZEgGFLSPLNHZL",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:41Z"
+}

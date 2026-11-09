@@ -1,0 +1,115 @@
+{
+  "id": "W3126841944",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3126841944.txt",
+  "input_sha256": "739e3c4ecd38cebbe069dad11f90f0341ec059e13a5fbd41bea725fe90dc3175",
+  "input_chars": 64052,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.89,
+  "uncorroborated_prob": 0.88,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.8,
+    "refuted": 0.19,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.7,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.89
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.88
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.8,
+        "refuted": 0.19,
+        "uncertain": 0.01
+      },
+      "confidence": 0.7
+    }
+  },
+  "stage1_record": {
+    "id": "W3126841944",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "Paper explicitly uses mean decrease in node impurity and mean decrease Gini for RF feature importance. Authors interpret biological drivers from feature ranking: soil data show \"prediction is primarily driven by few OTUs of extreme pH ecosystems (e.g., genera Rubrobacter and Balneimonas)\"; pig data note \"great importance given by cLin to Desulfovibrio.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out predictive validation of feature ranking is provided to corroborate these importance magnitude and ranking claims."
+  },
+  "usage": {
+    "input_tokens": 18191,
+    "output_tokens": 98,
+    "cost": 0.000764022,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000764022,
+      "upstream_inference_prompt_cost": 0.000764022,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.89
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.88
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.8,
+          "refuted": 0.19,
+          "uncertain": 0.01
+        },
+        "confidence": 0.7
+      }
+    },
+    "usage": {
+      "input_tokens": 18191,
+      "output_tokens": 98,
+      "cost": 0.000764022,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000764022,
+        "upstream_inference_prompt_cost": 0.000764022,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223177-DVVq0IBVLBkJMAS0ltPE",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:37Z"
+}

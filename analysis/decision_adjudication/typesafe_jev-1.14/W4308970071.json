@@ -1,0 +1,115 @@
+{
+  "id": "W4308970071",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4308970071.txt",
+  "input_sha256": "9f9bacccb9dd637a031cdec43c2f1578088345a78e928826a98910a14706fcc7",
+  "input_chars": 55054,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.62,
+  "ranking_central_prob": 0.94,
+  "uncorroborated_prob": 0.84,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.81,
+    "refuted": 0.13,
+    "uncertain": 0.06
+  },
+  "verdict_confidence": 0.72,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.62
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.84
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.81,
+        "refuted": 0.13,
+        "uncertain": 0.06
+      },
+      "confidence": 0.72
+    }
+  },
+  "stage1_record": {
+    "id": "W4308970071",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states \"The XGBoost machine learning approach was used to select variables with the highest prediction value\" and concludes \"The following variables showed the strongest impact in building the models: VO2, [La-]b, VE age, and BMI.\" The discussion interprets these rankings physiologically: \"VO2 at RCP and maximal VO2 were the most important parameters responsible for the prediction.\" These importance rankings are supported only by internal cross-validation of predictive error (RMSE/MAE), without corroboration via permutation importance, SHAP, PDP/ALE, or conditional importance methods that would be robust to impurity-importance bias."
+  },
+  "usage": {
+    "input_tokens": 17818,
+    "output_tokens": 98,
+    "cost": 0.000748356,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000748356,
+      "upstream_inference_prompt_cost": 0.000748356,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.62
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.84
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.81,
+          "refuted": 0.13,
+          "uncertain": 0.06
+        },
+        "confidence": 0.72
+      }
+    },
+    "usage": {
+      "input_tokens": 17818,
+      "output_tokens": 98,
+      "cost": 0.000748356,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000748356,
+        "upstream_inference_prompt_cost": 0.000748356,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223180-9S2SQdv2u946GZ8bw67H",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:41Z"
+}

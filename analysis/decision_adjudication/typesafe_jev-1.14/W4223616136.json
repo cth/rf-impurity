@@ -1,0 +1,115 @@
+{
+  "id": "W4223616136",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4223616136.txt",
+  "input_sha256": "d043c0244287d7dad385bcf22df70fb2d9dc0d6f1123df616fdf4f5ef3facaa3",
+  "input_chars": 47001,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.89,
+  "ranking_central_prob": 0.91,
+  "uncorroborated_prob": 0.9,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.86,
+    "refuted": 0.11,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.79,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.89
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.91
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.9
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.86,
+        "refuted": 0.11,
+        "uncertain": 0.03
+      },
+      "confidence": 0.79
+    }
+  },
+  "stage1_record": {
+    "id": "W4223616136",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper ranks features by impurity importance during optimization and removes all clinical features, concluding they \"added no additional benefit.\" This ranking-based feature selection decision is central to the final \"combined model\" result. However, they validate only the FINAL MODEL's performance on held-out data (AUC 0.78-0.80), not the importance ranking itself. Without corroboration via permutation importance, SHAP, PDP/ALE, or conditional importance, the impurity-importance bias could have inflated variability feature importance (especially across 71 highly correlated metrics) while depressing clinical feature importance, leading to overcorrected feature removal."
+  },
+  "usage": {
+    "input_tokens": 14954,
+    "output_tokens": 98,
+    "cost": 0.000628068,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000628068,
+      "upstream_inference_prompt_cost": 0.000628068,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.89
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.91
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.9
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.86,
+          "refuted": 0.11,
+          "uncertain": 0.03
+        },
+        "confidence": 0.79
+      }
+    },
+    "usage": {
+      "input_tokens": 14954,
+      "output_tokens": 98,
+      "cost": 0.000628068,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000628068,
+        "upstream_inference_prompt_cost": 0.000628068,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223179-SkBNYT1bxp0BenW1T3nr",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:39Z"
+}

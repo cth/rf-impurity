@@ -1,0 +1,114 @@
+{
+  "id": "W4294628899",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4294628899.txt",
+  "input_sha256": "aa7c4b494382c1ef3b447c6d50a8996f9faa2a13d4dc2cc3e65a60586314ffb8",
+  "input_chars": 45800,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.73,
+  "ranking_central_prob": 0.91,
+  "uncorroborated_prob": 0.8,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.53,
+    "refuted": 0.33,
+    "uncertain": 0.14
+  },
+  "verdict_confidence": 0.3,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.73
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.91
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.8
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.53,
+        "refuted": 0.33,
+        "uncertain": 0.14
+      },
+      "confidence": 0.3
+    }
+  },
+  "stage1_record": {
+    "id": "W4294628899",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "high_cardinality"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses RF importance to rank and select biomarkers: \"on the basis of 21 metabolites, we screened the important variables in the models...five common variables were obtained by intersecting the important variables of three models...2-Hydroxypalmitic acid, L-carnitine and cyclic AMP were found to be potential targets and specific biomarkers for pSS.\" The main corroboration is SLE cohort validation for specificity, but this does not independently validate the importance ranking itself without permutation, SHAP, PDP/ALE, conditional, or held-out methods. The biomarker discovery is entirely dependent on RF/XGBoost importance magnitude and ranking."
+  },
+  "usage": {
+    "input_tokens": 14166,
+    "output_tokens": 98,
+    "cost": 0.000594972,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000594972,
+      "upstream_inference_prompt_cost": 0.000594972,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.73
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.91
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.8
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.53,
+          "refuted": 0.33,
+          "uncertain": 0.14
+        },
+        "confidence": 0.3
+      }
+    },
+    "usage": {
+      "input_tokens": 14166,
+      "output_tokens": 98,
+      "cost": 0.000594972,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000594972,
+        "upstream_inference_prompt_cost": 0.000594972,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223180-Af0IDg71KP40fbLBBi9V",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:40Z"
+}

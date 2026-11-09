@@ -1,0 +1,116 @@
+{
+  "id": "W4412488746",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4412488746.txt",
+  "input_sha256": "e4f76ccb1d313f2302cfb3a561ae61b14204d72ed4acf80e6eeebe31f72dce73",
+  "input_chars": 52259,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.7,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.92,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.44,
+    "refuted": 0.38,
+    "uncertain": 0.18
+  },
+  "verdict_confidence": 0.16,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.7
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.44,
+        "refuted": 0.38,
+        "uncertain": 0.18
+      },
+      "confidence": 0.16
+    }
+  },
+  "stage1_record": {
+    "id": "W4412488746",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper's core aim is to \"identify the most important predictors of risky alcohol use,\" presenting rankings where \"weekly drinking at the previous wave (mean weighted importance 0.999), lifetime cannabis use (0.446), lifetime parent financial stress (0.420)\" lead the list. These impurity-importance rankings directly drive clinical recommendations: \"Using the most important features in SuperLearner to improve prediction of risky alcohol use may enable earlier and more efficient alcohol prevention programs and messaging by targeting resources to those most at risk.\" The paper provides no permutation importance, SHAP, PDP/ALE, or conditional importance validation of these magnitudes and rankings, relying instead only on ensemble weighting as corroboration."
+  },
+  "usage": {
+    "input_tokens": 14165,
+    "output_tokens": 98,
+    "cost": 0.00059493,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00059493,
+      "upstream_inference_prompt_cost": 0.00059493,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.7
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.44,
+          "refuted": 0.38,
+          "uncertain": 0.18
+        },
+        "confidence": 0.16
+      }
+    },
+    "usage": {
+      "input_tokens": 14165,
+      "output_tokens": 98,
+      "cost": 0.00059493,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00059493,
+        "upstream_inference_prompt_cost": 0.00059493,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223185-tmOMpXuDZou8orHgqPUo",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:46Z"
+}

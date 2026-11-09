@@ -1,0 +1,114 @@
+{
+  "id": "W4400414696",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4400414696.txt",
+  "input_sha256": "d748683a44535ae87faaaa35bcdd6fd4f63d09654309cf1e90de449dfb366243",
+  "input_chars": 44865,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.92,
+  "ranking_central_prob": 0.89,
+  "uncorroborated_prob": 0.8,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.55,
+    "refuted": 0.39,
+    "uncertain": 0.06
+  },
+  "verdict_confidence": 0.33,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.89
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.8
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.55,
+        "refuted": 0.39,
+        "uncertain": 0.06
+      },
+      "confidence": 0.33
+    }
+  },
+  "stage1_record": {
+    "id": "W4400414696",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses the R package vip to extract variable importance from a ranger random forest model without specifying the importance type, defaulting to impurity-based (Gini) importance. The authors explicitly rank variables by importance magnitude: \"Delayed GES was the most important predictor by variable importance analysis, followed by absence of diabetes, BMI, and infectious prodrome\" and state clinical conclusions directly tied to these rankings such as \"increase in BMI was predictive of response\" while \"delayed GES, absence of diabetes, and infectious prodrome were predictors of nonresponse.\" They validate on a held-out test set but provide no permutation importance, SHAP, PDP/ALE, or conditional importance corroboration of the variable rankings."
+  },
+  "usage": {
+    "input_tokens": 14015,
+    "output_tokens": 98,
+    "cost": 0.00058863,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00058863,
+      "upstream_inference_prompt_cost": 0.00058863,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.89
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.8
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.55,
+          "refuted": 0.39,
+          "uncertain": 0.06
+        },
+        "confidence": 0.33
+      }
+    },
+    "usage": {
+      "input_tokens": 14015,
+      "output_tokens": 98,
+      "cost": 0.00058863,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00058863,
+        "upstream_inference_prompt_cost": 0.00058863,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223184-GoyvS53ha1mnIICl08hp",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:44Z"
+}

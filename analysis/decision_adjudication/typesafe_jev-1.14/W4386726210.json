@@ -1,0 +1,115 @@
+{
+  "id": "W4386726210",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4386726210.txt",
+  "input_sha256": "d9bcfd0844b0744f8d69bbb07d4c72b4adc3b9e8247d57a100e0987d2cca1aca",
+  "input_chars": 47569,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.08,
+  "ranking_central_prob": 0.51,
+  "uncorroborated_prob": 0.94,
+  "conditions_met": false,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.38,
+    "refuted": 0.59,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.38,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.08
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.51
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.38,
+        "refuted": 0.59,
+        "uncertain": 0.03
+      },
+      "confidence": 0.38
+    }
+  },
+  "stage1_record": {
+    "id": "W4386726210",
+    "set": "complement",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper extracts 1940 radiomic features from ADC maps and uses random forest regression with feature selection (mRMR and RFE). They report feature importance by counting selection frequency across 1000 models: \"The most dominant feature was selected as input data for 992 out of 1000 models\" and analyze \"the relative frequency of the features used in more than 500 out of 1000 models.\" They rank and interpret which feature types (first-order, GLCM, GLDM, NGTDM, 3D Shape) matter most, concluding \"First-order statistics describe the distribution of voxel intensities within the VOI and showed to be a helpful tool...\" This magnitude/ranking-based interpretation occurs without corroborating via permutation importance, SHAP, PDP/ALE, conditional importance, or validation on held-out data specific to feature importance."
+  },
+  "usage": {
+    "input_tokens": 15287,
+    "output_tokens": 99,
+    "cost": 0.000642054,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000642054,
+      "upstream_inference_prompt_cost": 0.000642054,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.08
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.51
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.38,
+          "refuted": 0.59,
+          "uncertain": 0.03
+        },
+        "confidence": 0.38
+      }
+    },
+    "usage": {
+      "input_tokens": 15287,
+      "output_tokens": 99,
+      "cost": 0.000642054,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000642054,
+        "upstream_inference_prompt_cost": 0.000642054,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223182-yI3slVPKemxHK5p3NDXw",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:42Z"
+}

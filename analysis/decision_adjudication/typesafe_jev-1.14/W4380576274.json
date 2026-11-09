@@ -1,0 +1,115 @@
+{
+  "id": "W4380576274",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4380576274.txt",
+  "input_sha256": "263df799fac660d2e759442fe30caf3e37041bf675770507c361c23d61cc158c",
+  "input_chars": 53139,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.83,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.93,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.96,
+    "refuted": 0.03,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.94,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.83
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.96,
+        "refuted": 0.03,
+        "uncertain": 0.01
+      },
+      "confidence": 0.94
+    }
+  },
+  "stage1_record": {
+    "id": "W4380576274",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The authors report \"Lure attractiveness, release size, and trap density were the most important variables, and site shape, mean step size, and site size the least important\" from the random forest MSE importance plot. They explicitly state \"Lure attractiveness and trapping density had the greatest effect on pest detection\" and conclude \"These results were robust to the size and shape of the site\" \u2014 a robustness claim grounded entirely in those variables ranking least important. No comparative validation against other methods (permutation, SHAP, PDP/ALE, conditional importance) is presented; the GLM results mentioned in Supplementary Material are not compared to RF importance magnitudes or rankings."
+  },
+  "usage": {
+    "input_tokens": 14321,
+    "output_tokens": 98,
+    "cost": 0.000601482,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000601482,
+      "upstream_inference_prompt_cost": 0.000601482,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.83
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.96,
+          "refuted": 0.03,
+          "uncertain": 0.01
+        },
+        "confidence": 0.94
+      }
+    },
+    "usage": {
+      "input_tokens": 14321,
+      "output_tokens": 98,
+      "cost": 0.000601482,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000601482,
+        "upstream_inference_prompt_cost": 0.000601482,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223181-rciaAbxQfuVpNVd3a3w7",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:42Z"
+}

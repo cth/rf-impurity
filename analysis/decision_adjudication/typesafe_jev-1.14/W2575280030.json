@@ -1,0 +1,116 @@
+{
+  "id": "W2575280030",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W2575280030.txt",
+  "input_sha256": "661573971ddc7da898da90341e23c1e542d102ec2ce83a417ce166976caf0938",
+  "input_chars": 58483,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.38,
+  "ranking_central_prob": 0.88,
+  "uncorroborated_prob": 0.84,
+  "conditions_met": false,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.43,
+    "refuted": 0.48,
+    "uncertain": 0.09
+  },
+  "verdict_confidence": 0.22,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.38
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.88
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.84
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.43,
+        "refuted": 0.48,
+        "uncertain": 0.09
+      },
+      "confidence": 0.22
+    }
+  },
+  "stage1_record": {
+    "id": "W2575280030",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"The most important variables predicting movements were farm type (downstream combinations from finishers and farrowing farms to market sites), sharing the same owner, and distance (Figure 6).\" This ranking is based entirely on impurity importance with no validation via permutation, SHAP, PDP/ALE, or conditional importance. The abstract and conclusion both emphasize which variables are \"most important,\" yet the paper provides no corroboration of these importance magnitudes or rankings."
+  },
+  "usage": {
+    "input_tokens": 15894,
+    "output_tokens": 99,
+    "cost": 0.000667548,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000667548,
+      "upstream_inference_prompt_cost": 0.000667548,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.38
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.88
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.84
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.43,
+          "refuted": 0.48,
+          "uncertain": 0.09
+        },
+        "confidence": 0.22
+      }
+    },
+    "usage": {
+      "input_tokens": 15894,
+      "output_tokens": 99,
+      "cost": 0.000667548,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000667548,
+        "upstream_inference_prompt_cost": 0.000667548,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223175-SWWXDOyBUbTMc0uer2Tt",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:35Z"
+}

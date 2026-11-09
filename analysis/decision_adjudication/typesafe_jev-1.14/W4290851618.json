@@ -1,0 +1,115 @@
+{
+  "id": "W4290851618",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4290851618.txt",
+  "input_sha256": "77ac7b09a0f722a8c9412300ddc08d6c6c351773cd3c84762675212ee97cde84",
+  "input_chars": 53255,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.79,
+  "ranking_central_prob": 0.94,
+  "uncorroborated_prob": 0.94,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.68,
+    "refuted": 0.15,
+    "uncertain": 0.17
+  },
+  "verdict_confidence": 0.52,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.79
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.68,
+        "refuted": 0.15,
+        "uncertain": 0.17
+      },
+      "confidence": 0.52
+    }
+  },
+  "stage1_record": {
+    "id": "W4290851618",
+    "set": "rejected_sample",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper identifies and emphasizes impurity-importance rankings as primary findings: \"Employment, HIV clinical stage, revenue source, body mass index (BMI), and education were the 5 most important predictors.\" In Discussion, it interprets these rankings to draw substantive conclusions: \"The five most important predictors are related two main themes\u2014i. SES (education, revenue source and employment) and ii. overall health status (HIV clinical stage and BMI).\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation is reported to corroborate the ranking."
+  },
+  "usage": {
+    "input_tokens": 15742,
+    "output_tokens": 98,
+    "cost": 0.000661164,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000661164,
+      "upstream_inference_prompt_cost": 0.000661164,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.79
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.68,
+          "refuted": 0.15,
+          "uncertain": 0.17
+        },
+        "confidence": 0.52
+      }
+    },
+    "usage": {
+      "input_tokens": 15742,
+      "output_tokens": 98,
+      "cost": 0.000661164,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000661164,
+        "upstream_inference_prompt_cost": 0.000661164,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223180-DLSHjBTixi1BelFoOFEz",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:40Z"
+}

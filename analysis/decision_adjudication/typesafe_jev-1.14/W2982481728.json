@@ -1,0 +1,116 @@
+{
+  "id": "W2982481728",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W2982481728.txt",
+  "input_sha256": "a35eb6b3bfb576beb504f07c4e62ee7f7a98a5bdb46aba8bb1dee122b43f6331",
+  "input_chars": 39966,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.92,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.91,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.79,
+    "refuted": 0.13,
+    "uncertain": 0.08
+  },
+  "verdict_confidence": 0.68,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.91
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.79,
+        "refuted": 0.13,
+        "uncertain": 0.08
+      },
+      "confidence": 0.68
+    }
+  },
+  "stage1_record": {
+    "id": "W2982481728",
+    "set": "rejected_sample",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper calculates feature importance from \"node impurity, such as the Gini index...or variance explained for regression.\" For iRF-LOOP, \"the resulting importance scores are then combined into an edge matrix\" and networks are created by keeping \"the top 10%, 5%, 1%, and 0.1% of edge scores.\" Validation occurs only through Gene Ontology overlap (\"intersecting with the GO network\"), but the authors never employ permutation importance, SHAP, conditional importance, or held-out validation to corroborate whether the importance rankings themselves are accurate or resistant to impurity bias."
+  },
+  "usage": {
+    "input_tokens": 10790,
+    "output_tokens": 98,
+    "cost": 0.00045318,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00045318,
+      "upstream_inference_prompt_cost": 0.00045318,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.91
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.79,
+          "refuted": 0.13,
+          "uncertain": 0.08
+        },
+        "confidence": 0.68
+      }
+    },
+    "usage": {
+      "input_tokens": 10790,
+      "output_tokens": 98,
+      "cost": 0.00045318,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00045318,
+        "upstream_inference_prompt_cost": 0.00045318,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223176-0I1YQTA28mfCmwdV46Yt",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:36Z"
+}

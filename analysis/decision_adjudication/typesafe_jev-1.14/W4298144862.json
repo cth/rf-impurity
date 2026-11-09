@@ -1,0 +1,115 @@
+{
+  "id": "W4298144862",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4298144862.txt",
+  "input_sha256": "64df3d106d54fdbd13a45a8799b138dfa46bb49fca6a3471449e312ba063db90",
+  "input_chars": 77831,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.1,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.54,
+  "conditions_met": false,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.21,
+    "refuted": 0.76,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.64,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.1
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.54
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.21,
+        "refuted": 0.76,
+        "uncertain": 0.03
+      },
+      "confidence": 0.64
+    }
+  },
+  "stage1_record": {
+    "uses_impurity_importance": true,
+    "pvalue_method": "boruta",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper ranks microbiome features by importance and selects which to highlight based on rank position. Key passages: (1) \"Based on the median calculated permutated variable importance, a ranking of which features contributed most to the prediction...the relative abundance of P. salivae is the most important predictor\" and \"ranked higher than both patient age and BMI\"; (2) \"Decreased P. salivae abundance was the strongest and most general predictor\"; (3) Conclusion claims species with high importance \"contribute to COVID-19 respiratory symptoms\" and \"the decreased abundance of some organisms, primarily P. salivae, is predictive.\" No corroboration via permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of the ranking itself.",
+    "id": "W4298144862",
+    "set": "survivor"
+  },
+  "usage": {
+    "input_tokens": 21645,
+    "output_tokens": 99,
+    "cost": 0.00090909,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00090909,
+      "upstream_inference_prompt_cost": 0.00090909,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.1
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.54
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.21,
+          "refuted": 0.76,
+          "uncertain": 0.03
+        },
+        "confidence": 0.64
+      }
+    },
+    "usage": {
+      "input_tokens": 21645,
+      "output_tokens": 99,
+      "cost": 0.00090909,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00090909,
+        "upstream_inference_prompt_cost": 0.00090909,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223180-phaZQ5OyfBuKfkQ7Wtv4",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:40Z"
+}

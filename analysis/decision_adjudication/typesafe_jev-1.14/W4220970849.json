@@ -1,0 +1,116 @@
+{
+  "id": "W4220970849",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4220970849.txt",
+  "input_sha256": "097d705d473a5e111f38515d6c5939263e9f610a53d8db1fb6133fcd4b78856a",
+  "input_chars": 73531,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.93,
+  "ranking_central_prob": 0.94,
+  "uncorroborated_prob": 0.89,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.84,
+    "refuted": 0.13,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.76,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.89
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.84,
+        "refuted": 0.13,
+        "uncertain": 0.03
+      },
+      "confidence": 0.76
+    }
+  },
+  "stage1_record": {
+    "uses_impurity_importance": true,
+    "pvalue_method": "boruta",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states it uses \"the relative importance obtained from the feature importance algorithm\" (Ranger default = impurity importance) to weight PCs and rank variables. It explicitly claims: \"Of all trace metals in the global dataset, dFe measured from GEOTRACES samples explained most of the weighted variance across the principal component predictors used in the random forest.\" Based on importance rankings, the authors conclude that \"dFe's predictive power in the random forest was primarily derived from its nonlinear associations and interactions with other environmental variables\" despite showing dFe has weak linear correlation (r = -0.10). These importance-based interpretations are central to supporting the paper's main conclusion that specific environmental variables drive siderophore consumer biogeography.",
+    "id": "W4220970849",
+    "set": "survivor"
+  },
+  "usage": {
+    "input_tokens": 21710,
+    "output_tokens": 98,
+    "cost": 0.00091182,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00091182,
+      "upstream_inference_prompt_cost": 0.00091182,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.89
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.84,
+          "refuted": 0.13,
+          "uncertain": 0.03
+        },
+        "confidence": 0.76
+      }
+    },
+    "usage": {
+      "input_tokens": 21710,
+      "output_tokens": 98,
+      "cost": 0.00091182,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00091182,
+        "upstream_inference_prompt_cost": 0.00091182,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223179-kfcsuEx9g9yguFKtD8Ix",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:39Z"
+}

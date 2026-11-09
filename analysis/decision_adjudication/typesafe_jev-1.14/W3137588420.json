@@ -1,0 +1,116 @@
+{
+  "id": "W3137588420",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3137588420.txt",
+  "input_sha256": "fbff6f31e2d985c60d4c9241c3809465b9842556bca242add707e8f355a37edf",
+  "input_chars": 100865,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.87,
+  "ranking_central_prob": 0.86,
+  "uncorroborated_prob": 0.93,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.82,
+    "refuted": 0.07,
+    "uncertain": 0.11
+  },
+  "verdict_confidence": 0.73,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.87
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.86
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.82,
+        "refuted": 0.07,
+        "uncertain": 0.11
+      },
+      "confidence": 0.73
+    }
+  },
+  "stage1_record": {
+    "id": "W3137588420",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper identifies \"the most important feature in predicting MCL1 dependency was BCL2L1 expression\" and \"the top predictive feature for MDM2 dependency was RNA expression of EDA2R, a known direct target of p53\" and \"Predictive feature modeling for HDAC2 highlighted RNA expression of its known target FUCA1.\" These ranking-based feature importance statements are used to make biological inferences, but the Methods section provides no description of how importance was calculated (scikit-learn default is Gini/MDI). No permutation importance, SHAP, PDP/ALE, conditional importance, or other robust validation of the feature importance rankings is reported; bivariate correlations shown (Fig 8b) do not validate the multivariate feature importance ranking."
+  },
+  "usage": {
+    "input_tokens": 27089,
+    "output_tokens": 98,
+    "cost": 0.001137738,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001137738,
+      "upstream_inference_prompt_cost": 0.001137738,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.87
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.86
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.82,
+          "refuted": 0.07,
+          "uncertain": 0.11
+        },
+        "confidence": 0.73
+      }
+    },
+    "usage": {
+      "input_tokens": 27089,
+      "output_tokens": 98,
+      "cost": 0.001137738,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001137738,
+        "upstream_inference_prompt_cost": 0.001137738,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223177-FdxryjmVdU6RE7faLxza",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:37Z"
+}

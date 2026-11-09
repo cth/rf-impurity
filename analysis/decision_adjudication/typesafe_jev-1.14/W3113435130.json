@@ -1,0 +1,113 @@
+{
+  "id": "W3113435130",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3113435130.txt",
+  "input_sha256": "33ef29e20ee82d5d4ad289f706f01ad0b05764781f5e0267fcdf964c37122eb0",
+  "input_chars": 65293,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.87,
+  "uncorroborated_prob": 0.93,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.98,
+    "refuted": 0.02,
+    "uncertain": 0
+  },
+  "verdict_confidence": 0.97,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.87
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.98,
+        "refuted": 0.02,
+        "uncertain": 0
+      },
+      "confidence": 0.97
+    }
+  },
+  "stage1_record": {
+    "id": "W3113435130",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses \"unbiased corrected Gini index\" for feature importance and states \"The most important model features for identifying high-risk vessels were engine power, maximum distance from port, number of voyages per year, and average daily fishing hours.\" It then interprets this ranking substantively: \"The importance of engine power, a proxy for vessel size, suggests that forced labor appears to cluster in similarly sized vessels\" and \"The importance of maximum distance from port and average daily fishing hours is consistent with expert opinion.\" No permutation, SHAP, PDP/ALE, conditional, or held-out validation methods are used to corroborate the importance ranking."
+  },
+  "usage": {
+    "input_tokens": 15912,
+    "output_tokens": 98,
+    "cost": 0.000668304,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000668304,
+      "upstream_inference_prompt_cost": 0.000668304,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.87
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.98,
+          "refuted": 0.02,
+          "uncertain": 0
+        },
+        "confidence": 0.97
+      }
+    },
+    "usage": {
+      "input_tokens": 15912,
+      "output_tokens": 98,
+      "cost": 0.000668304,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000668304,
+        "upstream_inference_prompt_cost": 0.000668304,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223176-AIUAvrt4NcpxcFLquAuc",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:37Z"
+}

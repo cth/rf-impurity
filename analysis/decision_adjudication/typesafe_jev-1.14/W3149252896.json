@@ -1,0 +1,116 @@
+{
+  "id": "W3149252896",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3149252896.txt",
+  "input_sha256": "bf615b2faeaab6a87e1e06dade60ebb2a539f60bd6c6782793482fdcf73c8a9a",
+  "input_chars": 59506,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.35,
+  "ranking_central_prob": 0.8,
+  "uncorroborated_prob": 0.88,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.91,
+    "refuted": 0.08,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.86,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.35
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.8
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.88
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.91,
+        "refuted": 0.08,
+        "uncertain": 0.01
+      },
+      "confidence": 0.86
+    }
+  },
+  "stage1_record": {
+    "id": "W3149252896",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"For random forest models, the importance was determined by the mean decrease in out-of-bag accuracy when that parameter was excluded from the model\" and interprets rankings extensively: \"Of note, both distance to the nearest Phe (Fd) and solvent exposure (SASA, PSA, SC_SASA, or PSSA) appear among the top features used by all models\" and \"In all predictive models of Met oxidation presented herein, Wd (distance to the nearest Trp) and Fd (distance to the nearest Phe) are among the most important parameters.\" No permutation, SHAP, PDP/ALE, or conditional importance methods are used to corroborate these rankings. Features show heterogeneous scales (distances, percentages, pH, concentrations) and the outcome is sparse (86/235 Met oxidized, 67/342 Trp oxidized)."
+  },
+  "usage": {
+    "input_tokens": 19604,
+    "output_tokens": 98,
+    "cost": 0.000823368,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000823368,
+      "upstream_inference_prompt_cost": 0.000823368,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.35
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.8
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.88
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.91,
+          "refuted": 0.08,
+          "uncertain": 0.01
+        },
+        "confidence": 0.86
+      }
+    },
+    "usage": {
+      "input_tokens": 19604,
+      "output_tokens": 98,
+      "cost": 0.000823368,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000823368,
+        "upstream_inference_prompt_cost": 0.000823368,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223177-GQuPFHI1chR2LJvZrbHr",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:37Z"
+}

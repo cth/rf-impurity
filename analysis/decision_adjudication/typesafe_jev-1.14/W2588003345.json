@@ -1,0 +1,115 @@
+{
+  "id": "W2588003345",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W2588003345.txt",
+  "input_sha256": "e58e84a4376364609218fff238076fbbed2703961b85f2757bc4f1ffabc593bb",
+  "input_chars": 113397,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.86,
+  "ranking_central_prob": 0.65,
+  "uncorroborated_prob": 0.92,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.87,
+    "refuted": 0.09,
+    "uncertain": 0.04
+  },
+  "verdict_confidence": 0.8,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.86
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.65
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.87,
+        "refuted": 0.09,
+        "uncertain": 0.04
+      },
+      "confidence": 0.8
+    }
+  },
+  "stage1_record": {
+    "id": "W2588003345",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper displays \"Fitted variable importance plots\" (Figure 6) from ranger and xgboost and makes substantive claims about magnitude and ranking: \"spatial pattern of soil pH is primarily influenced by precipitation and surface reflectance,\" \"depth emerges as the most important covariate,\" and \"DEM-parameters...emerge as second-most dominant covariates.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or Boruta analysis is mentioned. Figure 7 shows individual scatter plots but not systematic corroboration. Expert knowledge validation (\"largely correspond with conventional soil survey knowledge\") is mentioned but does not qualify as statistical corroboration."
+  },
+  "usage": {
+    "input_tokens": 33065,
+    "output_tokens": 98,
+    "cost": 0.00138873,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00138873,
+      "upstream_inference_prompt_cost": 0.00138873,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.86
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.65
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.87,
+          "refuted": 0.09,
+          "uncertain": 0.04
+        },
+        "confidence": 0.8
+      }
+    },
+    "usage": {
+      "input_tokens": 33065,
+      "output_tokens": 98,
+      "cost": 0.00138873,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00138873,
+        "upstream_inference_prompt_cost": 0.00138873,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223175-YmI8sJoiCFr4Lz3ZRifM",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:35Z"
+}

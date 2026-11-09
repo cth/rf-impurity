@@ -1,0 +1,112 @@
+{
+  "id": "W4390704691",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4390704691.txt",
+  "input_sha256": "5b5ceedf25bd82f59384f5f4aed27fa4151475e4c373624155e3a44374123427",
+  "input_chars": 68186,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.91,
+  "ranking_central_prob": 0.69,
+  "uncorroborated_prob": 0.91,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.67,
+    "refuted": 0.24,
+    "uncertain": 0.09
+  },
+  "verdict_confidence": 0.5,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.91
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.69
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.91
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.67,
+        "refuted": 0.24,
+        "uncertain": 0.09
+      },
+      "confidence": 0.5
+    }
+  },
+  "stage1_record": {
+    "id": "W4390704691",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [],
+    "feature_heterogeneity": [
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses scikit-learn random forest with default impurity-based importance (not specified but standard Gini/MDI for classification). It ranks features explicitly: \"5-aminovaleric acid as the most important compound\" and \"5-(Carbamoylamino)pentanoic acid, which had the second highest contribution in the random forest model.\" The authors interpret these rankings biologically: \"The substance that contributed the most to the classification, 5-aminovaleric acid, is known to act as a weak GABA receptor agonist...may be associated with increased gene expression of Chrna4.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation was performed to corroborate the feature rankings."
+  },
+  "usage": {
+    "input_tokens": 20791,
+    "output_tokens": 98,
+    "cost": 0.000873222,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000873222,
+      "upstream_inference_prompt_cost": 0.000873222,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.91
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.69
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.91
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.67,
+          "refuted": 0.24,
+          "uncertain": 0.09
+        },
+        "confidence": 0.5
+      }
+    },
+    "usage": {
+      "input_tokens": 20791,
+      "output_tokens": 98,
+      "cost": 0.000873222,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000873222,
+        "upstream_inference_prompt_cost": 0.000873222,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223183-sfB6JQfoDYeiVRoHesgD",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:43Z"
+}

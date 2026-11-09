@@ -1,0 +1,114 @@
+{
+  "id": "W4401931282",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4401931282.txt",
+  "input_sha256": "a1fbe8e1687562f147e5d7fc91e4f482e91a571a8d3a4cb84f3d9c00e8540d50",
+  "input_chars": 90388,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.71,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.43,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.72,
+    "refuted": 0.17,
+    "uncertain": 0.11
+  },
+  "verdict_confidence": 0.58,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.71
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.43
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.72,
+        "refuted": 0.17,
+        "uncertain": 0.11
+      },
+      "confidence": 0.58
+    }
+  },
+  "stage1_record": {
+    "id": "W4401931282",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "\"Further variable selection was achieved by first running each RF model with all remaining predictors which allowed us to determine variable importance for each model predictor. We could then run a series of models starting with just the two most important predictors and iterating through all variables in order of importance.\" The paper explicitly structures conclusions around rankings: \"Lake depth is the top predictor for TN by a large margin\" and \"TN and TP are by far the most important predictors of chlorophyll-a.\" These rankings support core findings presented as \"the results of the RF models can be leveraged...to provide actionable information for management on predominant drivers of nutrient pollution.\" However, corroboration is limited to partial dependence plots showing directional relationships, with no permutation or SHAP validation of the rankings themselves."
+  },
+  "usage": {
+    "input_tokens": 24856,
+    "output_tokens": 98,
+    "cost": 0.001043952,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001043952,
+      "upstream_inference_prompt_cost": 0.001043952,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.71
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.43
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.72,
+          "refuted": 0.17,
+          "uncertain": 0.11
+        },
+        "confidence": 0.58
+      }
+    },
+    "usage": {
+      "input_tokens": 24856,
+      "output_tokens": 98,
+      "cost": 0.001043952,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001043952,
+        "upstream_inference_prompt_cost": 0.001043952,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223184-TxPpCdrruePomgfOaAO4",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:44Z"
+}

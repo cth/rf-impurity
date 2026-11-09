@@ -1,0 +1,115 @@
+{
+  "id": "W4221124318",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4221124318.txt",
+  "input_sha256": "11b47289b6697762e0075292abfdeb92e9e3be33588f2cdb93558eec5ea6003e",
+  "input_chars": 48376,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.69,
+  "ranking_central_prob": 0.93,
+  "uncorroborated_prob": 0.63,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.58,
+    "refuted": 0.36,
+    "uncertain": 0.06
+  },
+  "verdict_confidence": 0.37,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.69
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.63
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.58,
+        "refuted": 0.36,
+        "uncertain": 0.06
+      },
+      "confidence": 0.37
+    }
+  },
+  "stage1_record": {
+    "id": "W4221124318",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states \"The most important predictors were all SVIs sensitive towards changes in leaf pigments...photochemical reflectance index (PRI)\" and \"The high importance of indices related to changes in leaf pigments...is in line with the effects of yellow rust infection.\" These conclusions rest entirely on RF importance ranking without permutation or SHAP validation. More critically, feature ranking directly influences practical recommendations: the authors retest models after excluding low-ranked imaging sensors, concluding \"it does suggest their use needs rethinking,\" making sensor-selection decisions based solely on impurity importance magnitude."
+  },
+  "usage": {
+    "input_tokens": 14011,
+    "output_tokens": 98,
+    "cost": 0.000588462,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000588462,
+      "upstream_inference_prompt_cost": 0.000588462,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.69
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.63
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.58,
+          "refuted": 0.36,
+          "uncertain": 0.06
+        },
+        "confidence": 0.37
+      }
+    },
+    "usage": {
+      "input_tokens": 14011,
+      "output_tokens": 98,
+      "cost": 0.000588462,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000588462,
+        "upstream_inference_prompt_cost": 0.000588462,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223179-kmh8HJscJD8x0L9KXwtS",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:39Z"
+}

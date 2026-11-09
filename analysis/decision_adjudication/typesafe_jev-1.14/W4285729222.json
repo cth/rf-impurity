@@ -1,0 +1,116 @@
+{
+  "id": "W4285729222",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4285729222.txt",
+  "input_sha256": "30fd332ed641cbbed7a16eb40e7abcc0071fd5ca612566cba2a557ee9f58e5c2",
+  "input_chars": 50141,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.43,
+  "ranking_central_prob": 0.94,
+  "uncorroborated_prob": 0.92,
+  "conditions_met": false,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.44,
+    "refuted": 0.51,
+    "uncertain": 0.05
+  },
+  "verdict_confidence": 0.26,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.43
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.44,
+        "refuted": 0.51,
+        "uncertain": 0.05
+      },
+      "confidence": 0.26
+    }
+  },
+  "stage1_record": {
+    "id": "W4285729222",
+    "set": "rejected_sample",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses feature contributions from random forest models and explicitly interprets magnitude and ranking: \"For each of the six categories, the contribution of the sample to the target value was calculated, and then medians of feature contributions as a proxy for the 'standard level' of variable contributions were obtained with higher absolute values indicating a larger contribution.\" The entire Discussion (4.1) depends on interpreting these magnitudes to explain city-specific patterns: \"For Beijing (Figure 6a), the contribution of the company gradually declined from stage I to IV and recovered in stage V.\" No permutation importance, SHAP, or conditional importance validation exists; OOB validation only checks overall fit (R\u00b2 ~0.52), not feature-ranking robustness. Conclusions state \"companies in all cities were resuscitated during stationary period, but Guangzhou's recovery was earlier\" - a ranking claim unsupported by alternative importance methods."
+  },
+  "usage": {
+    "input_tokens": 15067,
+    "output_tokens": 99,
+    "cost": 0.000632814,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000632814,
+      "upstream_inference_prompt_cost": 0.000632814,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.43
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.44,
+          "refuted": 0.51,
+          "uncertain": 0.05
+        },
+        "confidence": 0.26
+      }
+    },
+    "usage": {
+      "input_tokens": 15067,
+      "output_tokens": 99,
+      "cost": 0.000632814,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000632814,
+        "upstream_inference_prompt_cost": 0.000632814,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223179-Xrewv0A64aVKAdequwug",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:40Z"
+}

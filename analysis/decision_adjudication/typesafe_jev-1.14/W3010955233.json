@@ -1,0 +1,114 @@
+{
+  "id": "W3010955233",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3010955233.txt",
+  "input_sha256": "96d78f90db9ae57c70e4322f53a74e12852a3de5ca523818131a8d12140c774f",
+  "input_chars": 49572,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.74,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.77,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.75,
+    "refuted": 0.18,
+    "uncertain": 0.07
+  },
+  "verdict_confidence": 0.62,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.74
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.77
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.75,
+        "refuted": 0.18,
+        "uncertain": 0.07
+      },
+      "confidence": 0.62
+    }
+  },
+  "stage1_record": {
+    "id": "W3010955233",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "conditional"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "Section 3.6 reports: \"The results revealed that TP53 and CSMD3 were the most important gene mutations associated with the mast cell-related risk score\" (Methods 2.8 uses ranger/randomforest packages without p-value testing). Figure 6 caption states \"TP53 was the most important mutation according to the importance of ranking.\" The Discussion concludes \"we further identified TP53 as the most critical mutation associated with the mast cell-related signature,\" making mechanistic claims about TP53-c-MYC-mast cell interactions based solely on impurity ranking without permutation, SHAP, PDP/ALE, or held-out validation corroboration."
+  },
+  "usage": {
+    "input_tokens": 15326,
+    "output_tokens": 98,
+    "cost": 0.000643692,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000643692,
+      "upstream_inference_prompt_cost": 0.000643692,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.74
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.77
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.75,
+          "refuted": 0.18,
+          "uncertain": 0.07
+        },
+        "confidence": 0.62
+      }
+    },
+    "usage": {
+      "input_tokens": 15326,
+      "output_tokens": 98,
+      "cost": 0.000643692,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000643692,
+        "upstream_inference_prompt_cost": 0.000643692,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223176-0lXOJuYXcgCBUnS3sm1j",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:36Z"
+}

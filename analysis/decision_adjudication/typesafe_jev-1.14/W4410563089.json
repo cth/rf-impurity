@@ -1,0 +1,115 @@
+{
+  "id": "W4410563089",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4410563089.txt",
+  "input_sha256": "f9be2e5b379ecdccc1db86635e3cc2c3323e64f89326561f15ce30d8b781b5e7",
+  "input_chars": 48847,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.85,
+  "ranking_central_prob": 0.93,
+  "uncorroborated_prob": 0.96,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.89,
+    "refuted": 0.09,
+    "uncertain": 0.02
+  },
+  "verdict_confidence": 0.83,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.85
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.89,
+        "refuted": 0.09,
+        "uncertain": 0.02
+      },
+      "confidence": 0.83
+    }
+  },
+  "stage1_record": {
+    "id": "W4410563089",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper reports RF importance scores (Table 6) and ranks variables as \"CC > CH > CD > HW > BL > CW > BH\", concluding that \"Using the RF algorithm, the variables affecting body weight the most were CC, CH, and CD\" to guide farmer selection of predictors. However, no p-values test the importance (no Altmann/Janitza/Boruta), and the ranking is not validated via permutation importance, SHAP, PDP/ALE, conditional testing, or held-out validation. The RF ranking notably diverges from correlation magnitudes (e.g., HW ranks 4th in importance despite r=0.187, lowest correlation with target), and features span vastly different scales (chest width 14-18 cm vs. chest circumference 76-93.5 cm)."
+  },
+  "usage": {
+    "input_tokens": 15929,
+    "output_tokens": 98,
+    "cost": 0.000669018,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000669018,
+      "upstream_inference_prompt_cost": 0.000669018,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.85
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.89,
+          "refuted": 0.09,
+          "uncertain": 0.02
+        },
+        "confidence": 0.83
+      }
+    },
+    "usage": {
+      "input_tokens": 15929,
+      "output_tokens": 98,
+      "cost": 0.000669018,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000669018,
+        "upstream_inference_prompt_cost": 0.000669018,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223185-W6cuhHWgzwFh7UTd8OQV",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:45Z"
+}

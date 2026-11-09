@@ -1,0 +1,115 @@
+{
+  "id": "W4360808845",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4360808845.txt",
+  "input_sha256": "1c6781a5970ac41d78d986503ca95f976d95757c84a952fae5f11a26c9386398",
+  "input_chars": 48296,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.79,
+  "ranking_central_prob": 0.47,
+  "uncorroborated_prob": 0.95,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.58,
+    "refuted": 0.17,
+    "uncertain": 0.25
+  },
+  "verdict_confidence": 0.37,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.79
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.47
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.58,
+        "refuted": 0.17,
+        "uncertain": 0.25
+      },
+      "confidence": 0.37
+    }
+  },
+  "stage1_record": {
+    "id": "W4360808845",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper reports: \"The following five serum metabolites and covariates were the most important features in the classifier; glycerol, cholesterol esters to total lipids ratio in very large HDL particles, acetoacetate, free cholesterol to total lipids ratio in large HDL and age.\" It then states \"In our model, glycerol was the most important predictor\" and uses these importance rankings to drive biological interpretation without corroboration. No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation of rankings is provided."
+  },
+  "usage": {
+    "input_tokens": 14705,
+    "output_tokens": 98,
+    "cost": 0.00061761,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00061761,
+      "upstream_inference_prompt_cost": 0.00061761,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.79
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.47
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.58,
+          "refuted": 0.17,
+          "uncertain": 0.25
+        },
+        "confidence": 0.37
+      }
+    },
+    "usage": {
+      "input_tokens": 14705,
+      "output_tokens": 98,
+      "cost": 0.00061761,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00061761,
+        "upstream_inference_prompt_cost": 0.00061761,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223181-F6r55VFT8fo65UMzJO5O",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:41Z"
+}

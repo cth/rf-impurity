@@ -1,0 +1,116 @@
+{
+  "id": "W4413304431",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4413304431.txt",
+  "input_sha256": "3d0427be45a575ae0625840cdc0004db1f7e2f06bf87169d239a54a2a410ae51",
+  "input_chars": 86131,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.75,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.63,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.77,
+    "refuted": 0.19,
+    "uncertain": 0.04
+  },
+  "verdict_confidence": 0.66,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.75
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.63
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.77,
+        "refuted": 0.19,
+        "uncertain": 0.04
+      },
+      "confidence": 0.66
+    }
+  },
+  "stage1_record": {
+    "id": "W4413304431",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "altmann",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper concludes: \"Sea surface height and sea surface temperature, either separately or in combination, were the most important predictors of whale acoustic occurrence, highlighting the influence of environmental conditions on the distribution, habitat selection, and ecology of these whales\" (abstract). This ranking-based conclusion is unsupported by independent corroboration methods. While Figure 6a shows partial dependence influence curves for the relationships, the paper relies on importance ranking from ranger's default Gini importance (scaled to percentages) to claim which predictors are \"most important\" versus \"moderately important\" versus \"least important\" (Results, Section 3.5). Statistical significance testing uses Altmann's permutation method, which only tests whether importance != 0, not whether the ranking is reliable or resistant to bias from skewed features (chlorophyll-a) or high-cardinality categorical features (hour with 24 levels)."
+  },
+  "usage": {
+    "input_tokens": 25631,
+    "output_tokens": 98,
+    "cost": 0.001076502,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001076502,
+      "upstream_inference_prompt_cost": 0.001076502,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.75
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.63
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.77,
+          "refuted": 0.19,
+          "uncertain": 0.04
+        },
+        "confidence": 0.66
+      }
+    },
+    "usage": {
+      "input_tokens": 25631,
+      "output_tokens": 98,
+      "cost": 0.001076502,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001076502,
+        "upstream_inference_prompt_cost": 0.001076502,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223185-5tdgPPL58lOcgl6SCwdl",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:46Z"
+}

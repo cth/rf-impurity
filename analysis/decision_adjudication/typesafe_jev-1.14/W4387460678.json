@@ -1,0 +1,114 @@
+{
+  "id": "W4387460678",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4387460678.txt",
+  "input_sha256": "edd201c43f7ff1078543ef4254c1b27e9f3737e951c7d2f62982d2cd786674fa",
+  "input_chars": 54228,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.44,
+  "ranking_central_prob": 0.81,
+  "uncorroborated_prob": 0.95,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.68,
+    "refuted": 0.28,
+    "uncertain": 0.04
+  },
+  "verdict_confidence": 0.52,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.44
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.81
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.68,
+        "refuted": 0.28,
+        "uncertain": 0.04
+      },
+      "confidence": 0.52
+    }
+  },
+  "stage1_record": {
+    "id": "W4387460678",
+    "set": "complement",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "\"The two variables chosen from all the selection methods, age and leukocytes, appear to be key influencing factors for physical frailty syndrome.\" And: \"The two described variables were followed in terms of importance by self-assessed health status, GFR, EQ-5D index, and handgrip strength.\" The paper ranks variables by selection frequency from impurity-based and information-theoretic methods, without corroboration via permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation. Features span laboratory values (sodium, potassium, glucose, creatinine), questionnaires (SARC-F, EQ-5D), physical measures, and demographics\u2014mixed types and scales.\""
+  },
+  "usage": {
+    "input_tokens": 14671,
+    "output_tokens": 98,
+    "cost": 0.000616182,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000616182,
+      "upstream_inference_prompt_cost": 0.000616182,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.44
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.81
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.68,
+          "refuted": 0.28,
+          "uncertain": 0.04
+        },
+        "confidence": 0.52
+      }
+    },
+    "usage": {
+      "input_tokens": 14671,
+      "output_tokens": 98,
+      "cost": 0.000616182,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000616182,
+        "upstream_inference_prompt_cost": 0.000616182,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223182-l54xSLhsTuVJirh1bCsZ",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:42Z"
+}

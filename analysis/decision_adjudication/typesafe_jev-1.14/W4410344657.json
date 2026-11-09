@@ -1,0 +1,115 @@
+{
+  "id": "W4410344657",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4410344657.txt",
+  "input_sha256": "94a07a410cc34b5dff0e80cf45187c92ae828aa58523da72aa34eab0828d5d2e",
+  "input_chars": 68909,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.68,
+  "ranking_central_prob": 0.97,
+  "uncorroborated_prob": 0.75,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.62,
+    "refuted": 0.3,
+    "uncertain": 0.08
+  },
+  "verdict_confidence": 0.43,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.68
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.75
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.62,
+        "refuted": 0.3,
+        "uncertain": 0.08
+      },
+      "confidence": 0.43
+    }
+  },
+  "stage1_record": {
+    "id": "W4410344657",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses ranger/vip to extract impurity-based variable importance and explicitly states the top variables were \"life satisfaction (relative importance = 1.00), negative social interactions (0.99), primary stress source (0.85), and age (0.77).\" Variable selection for linear regression depends on this ranking: \"Using the predictors with highest importance from the random forest analysis, we first built simple linear regression models with each important variable.\" The paper provides no permutation importance, SHAP, PDP/ALE, or conditional importance validation of the ranking itself. The conclusions emphasize \"life satisfaction, negative social interactions, age, and identification of a primary source of stress were the most important\"\u2014a ranking statement that could be altered if impurity importance distorted feature ordering on heterogeneous mixed-type features."
+  },
+  "usage": {
+    "input_tokens": 18510,
+    "output_tokens": 98,
+    "cost": 0.00077742,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00077742,
+      "upstream_inference_prompt_cost": 0.00077742,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.68
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.75
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.62,
+          "refuted": 0.3,
+          "uncertain": 0.08
+        },
+        "confidence": 0.43
+      }
+    },
+    "usage": {
+      "input_tokens": 18510,
+      "output_tokens": 98,
+      "cost": 0.00077742,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00077742,
+        "upstream_inference_prompt_cost": 0.00077742,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223185-4PZMyCkCjsISqK6vGw69",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:45Z"
+}

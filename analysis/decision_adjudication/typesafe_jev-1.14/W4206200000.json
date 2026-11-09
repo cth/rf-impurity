@@ -1,0 +1,114 @@
+{
+  "id": "W4206200000",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4206200000.txt",
+  "input_sha256": "8a5b14934ef5f0ed7425cf04afb1285e6feac3fad2d9bd0422ac7a78e12827ad",
+  "input_chars": 42224,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.97,
+  "ranking_central_prob": 0.93,
+  "uncorroborated_prob": 0.95,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.77,
+    "refuted": 0.22,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.66,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.77,
+        "refuted": 0.22,
+        "uncertain": 0.01
+      },
+      "confidence": 0.66
+    }
+  },
+  "stage1_record": {
+    "id": "W4206200000",
+    "set": "rejected_sample",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "Methods state \"Gini impurity was used to rank the variables in order of their importance.\" Results report \"The number of steps and the step length were the most decisive factors...The gait speed followed in third place.\" Discussion concludes \"the advanced modeling used in this study weighted stride length equally important as gait speed...in terms of their classification importance measured by the Gini impurity\" and recommends \"stride length in addition to gait speed might be a valuable clinical parameter to identify patients with physical frailty.\" No permutation, SHAP, PDP/ALE, or conditional importance validation provided."
+  },
+  "usage": {
+    "input_tokens": 13671,
+    "output_tokens": 98,
+    "cost": 0.000574182,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000574182,
+      "upstream_inference_prompt_cost": 0.000574182,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.77,
+          "refuted": 0.22,
+          "uncertain": 0.01
+        },
+        "confidence": 0.66
+      }
+    },
+    "usage": {
+      "input_tokens": 13671,
+      "output_tokens": 98,
+      "cost": 0.000574182,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000574182,
+        "upstream_inference_prompt_cost": 0.000574182,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223178-rmwO4j5aQcu8m1Do66w2",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:39Z"
+}

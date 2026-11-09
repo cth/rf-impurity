@@ -1,0 +1,117 @@
+{
+  "id": "W4408246350",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4408246350.txt",
+  "input_sha256": "2d8b73df88b76bd082ce630554f5fd26302d2fa369dbb79870bacd34697e46b5",
+  "input_chars": 60823,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.73,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.99,
+    "refuted": 0.01,
+    "uncertain": 0
+  },
+  "verdict_confidence": 0.98,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.73
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.99,
+        "refuted": 0.01,
+        "uncertain": 0
+      },
+      "confidence": 0.98
+    }
+  },
+  "stage1_record": {
+    "id": "W4408246350",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale",
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper explicitly uses 'mean decrease in node impurity, using the Gini index as the splitting rule.' It reports specific rankings: intraspecific NND as '7th most important predictor', interspecific interactions as '14th, 16th and 26th most important predictors,' and groups factors into 'primary' (7 factors) and 'secondary' (10 factors) groups. The main conclusions lean on these rankings: 'Vegetation and topographic features (first-order factors) were the primary ecological drivers...Secondary factors included intraspecific interactions...third-order factors were relatively less influential.' While PDPs and test-set validation (F1=87.5%, Accuracy=85%) are provided, these do not independently corroborate importance RANKINGS\u2014they show model performance and marginal effects but not whether Gini rankings correctly reflect relative variable importance. No permutation importance, SHAP, or conditional importance analysis validates the rankings."
+  },
+  "usage": {
+    "input_tokens": 16481,
+    "output_tokens": 98,
+    "cost": 0.000692202,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000692202,
+      "upstream_inference_prompt_cost": 0.000692202,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.73
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.99,
+          "refuted": 0.01,
+          "uncertain": 0
+        },
+        "confidence": 0.98
+      }
+    },
+    "usage": {
+      "input_tokens": 16481,
+      "output_tokens": 98,
+      "cost": 0.000692202,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000692202,
+        "upstream_inference_prompt_cost": 0.000692202,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223185-0c2DqowRZOoRZotwQQOT",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:45Z"
+}

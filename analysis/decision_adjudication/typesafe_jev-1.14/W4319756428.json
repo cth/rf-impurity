@@ -1,0 +1,115 @@
+{
+  "id": "W4319756428",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4319756428.txt",
+  "input_sha256": "9c65ac587fe729aa5855a5fbe889282ca72004f41479c063049ea9100813c429",
+  "input_chars": 66755,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.17,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.83,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.53,
+    "refuted": 0.45,
+    "uncertain": 0.02
+  },
+  "verdict_confidence": 0.3,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.17
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.83
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.53,
+        "refuted": 0.45,
+        "uncertain": 0.02
+      },
+      "confidence": 0.3
+    }
+  },
+  "stage1_record": {
+    "id": "W4319756428",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "boruta",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "skewed",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "\"The top features were defined as the highest average normalized hits across 100 iterations\" and the random forest importance (Z-scores) are evaluated and compared with shuffled replicas to determine importance. The paper makes biomarker selections based on importance ranking: \"these consistently high-importance taxa are good candidates for disease-related microbial biomarkers.\" While ANCOM-BC differential abundance provides some validation for CRC and CD, this corroboration is incomplete and fails entirely for immunotherapy (\"ANCOM-BC did not identify any genus and species-level taxa as being differentially abundant\"), yet the importance-based biomarker claims remain central to the conclusions without reliance on permutation, SHAP, PDP/ALE, conditional importance, or held-out validation."
+  },
+  "usage": {
+    "input_tokens": 21647,
+    "output_tokens": 98,
+    "cost": 0.000909174,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000909174,
+      "upstream_inference_prompt_cost": 0.000909174,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.17
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.83
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.53,
+          "refuted": 0.45,
+          "uncertain": 0.02
+        },
+        "confidence": 0.3
+      }
+    },
+    "usage": {
+      "input_tokens": 21647,
+      "output_tokens": 98,
+      "cost": 0.000909174,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000909174,
+        "upstream_inference_prompt_cost": 0.000909174,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223181-wiRh2Jng3TPRqxStzjUx",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:41Z"
+}

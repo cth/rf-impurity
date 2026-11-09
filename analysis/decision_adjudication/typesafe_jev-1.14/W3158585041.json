@@ -1,0 +1,114 @@
+{
+  "id": "W3158585041",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3158585041.txt",
+  "input_sha256": "1bb870235c9cc517960ad8d2f0327f4d197c2ec15c1a64c3880e2366e5b54e76",
+  "input_chars": 81846,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.59,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.59,
+  "conditions_met": true,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.4,
+    "refuted": 0.45,
+    "uncertain": 0.15
+  },
+  "verdict_confidence": 0.18,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.59
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.59
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.4,
+        "refuted": 0.45,
+        "uncertain": 0.15
+      },
+      "confidence": 0.18
+    }
+  },
+  "stage1_record": {
+    "uses_impurity_importance": true,
+    "pvalue_method": "other",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper explicitly uses \"random survival forest (RSF) approach\" to rank pathways and genes by \"feature importance (RSF variable importance, p-value < 0.05).\" Based on this ranking, they select pathways \"with the greatest bearing on predictive power\" and construct a final biomarker panel from the \"top 40 IPMGs,\" stating that \"the model taking the expression of the top 40 IPMGs as input achieved the highest 88.91% accuracy.\" Their main conclusion is that \"the expression of the 40 IPMGs can serve as a set of pan-cancer prognostic biomarkers for immunotherapies.\" This relies directly on the ranking being correct to identify which genes should be included in the panel.",
+    "id": "W3158585041",
+    "set": "survivor"
+  },
+  "usage": {
+    "input_tokens": 23127,
+    "output_tokens": 99,
+    "cost": 0.000971334,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000971334,
+      "upstream_inference_prompt_cost": 0.000971334,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.59
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.59
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.4,
+          "refuted": 0.45,
+          "uncertain": 0.15
+        },
+        "confidence": 0.18
+      }
+    },
+    "usage": {
+      "input_tokens": 23127,
+      "output_tokens": 99,
+      "cost": 0.000971334,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000971334,
+        "upstream_inference_prompt_cost": 0.000971334,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223177-t70DyR08uGf72lVN3Ixm",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:38Z"
+}

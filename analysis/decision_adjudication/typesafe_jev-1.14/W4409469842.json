@@ -1,0 +1,113 @@
+{
+  "id": "W4409469842",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4409469842.txt",
+  "input_sha256": "03bfd8d6b0581ca23515ba14db7261e8464b57ad74a67f2c88b47059a23e6fc7",
+  "input_chars": 61213,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.62,
+  "ranking_central_prob": 0.89,
+  "uncorroborated_prob": 0.93,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.85,
+    "refuted": 0.1,
+    "uncertain": 0.05
+  },
+  "verdict_confidence": 0.77,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.62
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.89
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.85,
+        "refuted": 0.1,
+        "uncertain": 0.05
+      },
+      "confidence": 0.77
+    }
+  },
+  "stage1_record": {
+    "id": "W4409469842",
+    "set": "complement",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"Recursive feature elimination (random forest, 'ranger' package, 1000 trees, 5 times repeated cross-validation, 5 folds) was used to find relevant properties for the prediction of XlogP.\" Results report: \"The recursive feature elimination...selected the following molecular properties and functional groups as most important to predict the XlogP (in this order): R-OH, aromatic structures, molecular weight, number of rings, R-O-R, RCOR...Aldehydes and carboxylic groups contributed less to the prediction of XlogP.\" The conclusion reinforces this: \"We verified that less retained DOM isomers...were likely to contain more alcohol groups and ring elements than stronger retained isomers, instead containing more esters and ethers.\" However, the paper provides no permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation to corroborate these importance rankings; cross-validation (R\u00b2=0.81) only validates predictive accuracy, not feature importance magnitude or ranking."
+  },
+  "usage": {
+    "input_tokens": 19079,
+    "output_tokens": 98,
+    "cost": 0.000801318,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000801318,
+      "upstream_inference_prompt_cost": 0.000801318,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.62
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.89
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.85,
+          "refuted": 0.1,
+          "uncertain": 0.05
+        },
+        "confidence": 0.77
+      }
+    },
+    "usage": {
+      "input_tokens": 19079,
+      "output_tokens": 98,
+      "cost": 0.000801318,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000801318,
+        "upstream_inference_prompt_cost": 0.000801318,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223185-fdd9JDUnrubTzKcepgPK",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:45Z"
+}

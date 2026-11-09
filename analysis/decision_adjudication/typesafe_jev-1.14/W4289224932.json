@@ -1,0 +1,116 @@
+{
+  "id": "W4289224932",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4289224932.txt",
+  "input_sha256": "a72097d5457691a1f470dbdbec2c7f799df232b675431efeee315ff3a740aeef",
+  "input_chars": 53970,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.72,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.91,
+    "refuted": 0.08,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.86,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.72
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.91,
+        "refuted": 0.08,
+        "uncertain": 0.01
+      },
+      "confidence": 0.86
+    }
+  },
+  "stage1_record": {
+    "id": "W4289224932",
+    "set": "rejected_sample",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The Methods section states importance was \"determined as the mean decrease of the Gini index (classification impurity)\" and the paper concludes \"The geospatial prediction model is dominated by climate parameters\" based explicitly on Gini rankings in Fig. 2a. While univariate Kendall correlations in Fig. 2b show relationships between individual predictors and fluoride prevalence, no permutation importance, SHAP, PDP/ALE, or conditional importance methods are employed to validate the importance magnitude or ranking. The authors acknowledge the bias directly: \"a categorical variable (such as lithology) is less likely than a continuous variable to have an effect on the model when its values are randomly sorted, due to having far fewer possible values,\" yet implement no correction. The predictor set mixes continuous (climate, topography, soil at 250m-1km resolution) and categorical (acidic igneous rocks) variables with inherently different cardinalities, creating conditions for impurity importance to magnify effects on high-cardinality continuous features."
+  },
+  "usage": {
+    "input_tokens": 15512,
+    "output_tokens": 98,
+    "cost": 0.000651504,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000651504,
+      "upstream_inference_prompt_cost": 0.000651504,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.72
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.91,
+          "refuted": 0.08,
+          "uncertain": 0.01
+        },
+        "confidence": 0.86
+      }
+    },
+    "usage": {
+      "input_tokens": 15512,
+      "output_tokens": 98,
+      "cost": 0.000651504,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000651504,
+        "upstream_inference_prompt_cost": 0.000651504,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223180-pjZPC3XGulIiixu3xUuV",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:40Z"
+}

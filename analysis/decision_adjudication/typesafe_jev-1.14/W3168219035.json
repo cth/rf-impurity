@@ -1,0 +1,117 @@
+{
+  "id": "W3168219035",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3168219035.txt",
+  "input_sha256": "bf75accc7236379766c42291470e75e9f78f430aade66003a8be07beaf92ae93",
+  "input_chars": 36620,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.12,
+  "ranking_central_prob": 0.79,
+  "uncorroborated_prob": 0.79,
+  "conditions_met": false,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.3,
+    "refuted": 0.66,
+    "uncertain": 0.04
+  },
+  "verdict_confidence": 0.49,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.12
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.79
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.79
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.3,
+        "refuted": 0.66,
+        "uncertain": 0.04
+      },
+      "confidence": 0.49
+    }
+  },
+  "stage1_record": {
+    "id": "W3168219035",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "conditional"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses selection frequency across trees to rank genes and identifies ATP6V0D2 as the \"main gene used to classify the cases\" and reports \"the 20 top genes.\" The substantive claim is that \"knowledge-slanted RF could be more easily interpreted by users because the prediction can be attributed mainly to associated genes.\" However, ranking is validated only via post-hoc univariate ANOVA on differential expression (conditional on prior selection), not via permutation importance, SHAP, PDP/ALE, or held-out validation of classification importance."
+  },
+  "usage": {
+    "input_tokens": 10361,
+    "output_tokens": 99,
+    "cost": 0.000435162,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000435162,
+      "upstream_inference_prompt_cost": 0.000435162,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.12
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.79
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.79
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.3,
+          "refuted": 0.66,
+          "uncertain": 0.04
+        },
+        "confidence": 0.49
+      }
+    },
+    "usage": {
+      "input_tokens": 10361,
+      "output_tokens": 99,
+      "cost": 0.000435162,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000435162,
+        "upstream_inference_prompt_cost": 0.000435162,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223177-NV7rEFrxc3xG2aRr8ajA",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:38Z"
+}

@@ -1,0 +1,116 @@
+{
+  "id": "W4225788860",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4225788860.txt",
+  "input_sha256": "e424b05fd4de78a661f6c6f349899a19c45a8dc7802d2f69b1c866f740c4cff4",
+  "input_chars": 48174,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.96,
+  "ranking_central_prob": 0.94,
+  "uncorroborated_prob": 0.71,
+  "conditions_met": true,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.19,
+    "refuted": 0.8,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.7,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.71
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.19,
+        "refuted": 0.8,
+        "uncertain": 0.01
+      },
+      "confidence": 0.7
+    }
+  },
+  "stage1_record": {
+    "id": "W4225788860",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The authors rank predictors using corrected Gini importance, declaring that \"worsening perceptions of agricultural conditions are the main predictor for climate change risk perception\" and state \"Local changes in climate conditions are among the most important predictors across all models. Overall, they are more important than access to news, political ideology, or demographics.\" While partial dependence plots show conditional direction and magnitude of effects, they do not independently validate the importance ranking itself. The entire narrative rests on interpreting the magnitude and ranking of importance scores without corroboration from permutation importance, SHAP, or other ranking-validating methods."
+  },
+  "usage": {
+    "input_tokens": 13299,
+    "output_tokens": 99,
+    "cost": 0.000558558,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000558558,
+      "upstream_inference_prompt_cost": 0.000558558,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.71
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.19,
+          "refuted": 0.8,
+          "uncertain": 0.01
+        },
+        "confidence": 0.7
+      }
+    },
+    "usage": {
+      "input_tokens": 13299,
+      "output_tokens": 99,
+      "cost": 0.000558558,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000558558,
+        "upstream_inference_prompt_cost": 0.000558558,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223179-S9mD1Z9HJvhx8bJIFGad",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:39Z"
+}

@@ -1,0 +1,60 @@
+{
+  "id": "W4413759482",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4413759482.txt",
+  "input_sha256": "0b9ef173c69291304f1ca97d0e884ece76000074fefabc3af949ab04a3d2cd67",
+  "input_chars": 157717,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "probability": 0.04,
+  "relevant": false,
+  "threshold": 0.5,
+  "question": {
+    "uses_impurity_importance": {
+      "type": "noul",
+      "instructions": "Does this paper use or interpret a random-forest impurity-based (Gini, MDI, or mean decrease in impurity/variance) variable importance?",
+      "criteria": {
+        "true": "The paper computes, reports, ranks, or draws a conclusion from an impurity-based (Gini/MDI/variance) variable importance produced by a random forest (e.g. ranger, randomForest).",
+        "false": "The paper uses only permutation importance, SHAP, prediction, speed, or cites ranger without interpreting an impurity importance."
+      }
+    }
+  },
+  "answer": {
+    "type": "noul",
+    "noul": 0.04
+  },
+  "usage": {
+    "input_tokens": 44811,
+    "output_tokens": 25,
+    "cost": 0.001882062,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001882062,
+      "upstream_inference_prompt_cost": 0.001882062,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity_importance": {
+        "type": "noul",
+        "noul": 0.04
+      }
+    },
+    "usage": {
+      "input_tokens": 44811,
+      "output_tokens": 25,
+      "cost": 0.001882062,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001882062,
+        "upstream_inference_prompt_cost": 0.001882062,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794222647-qxV24j1tFt5Um5sKaLHV",
+    "provider": "TypeSafe"
+  },
+  "classified_at_utc": "2026-11-09T11:10:48Z"
+}
