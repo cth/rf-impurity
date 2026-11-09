@@ -166,7 +166,7 @@ def main():
     ap.add_argument("--out", default="analysis/decision_classification")
     ap.add_argument("--model", default="typesafe/jev-1.14")
     ap.add_argument("--threshold", type=float, default=0.5)
-    ap.add_argument("--max-chars", type=int, default=200000)
+    ap.add_argument("--max-chars", type=int, default=250000)
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--retries", type=int, default=5)
     ap.add_argument("--timeout", type=int, default=120)
