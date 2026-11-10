@@ -1,0 +1,60 @@
+{
+  "id": "W4406060147",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4406060147.txt",
+  "input_sha256": "686c93bde83eb7ee20c7ea18cfe5f534762679d95f206dba1867e32e9026e1cd",
+  "input_chars": 67722,
+  "max_chars": 90000,
+  "model_requested": "microsoft/microsoft-decision-1",
+  "model": "microsoft/microsoft-decision-1-20261009",
+  "probability": 0.0015011933446395609,
+  "relevant": false,
+  "threshold": 0.5,
+  "question": {
+    "uses_impurity_importance": {
+      "type": "noul",
+      "instructions": "Does this paper use or interpret a random-forest impurity-based (Gini, MDI, or mean decrease in impurity/variance) variable importance?",
+      "criteria": {
+        "true": "The paper computes, reports, ranks, or draws a conclusion from an impurity-based (Gini/MDI/variance) variable importance produced by a random forest (e.g. ranger, randomForest).",
+        "false": "The paper uses only permutation importance, SHAP, prediction, speed, or cites ranger without interpreting an impurity importance."
+      }
+    }
+  },
+  "answer": {
+    "type": "noul",
+    "noul": 0.0015011933446395609
+  },
+  "usage": {
+    "input_tokens": 17684,
+    "output_tokens": 1,
+    "cost": 0.000742728,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000742728,
+      "upstream_inference_prompt_cost": 0.000742728,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "microsoft/microsoft-decision-1-20261009",
+    "answers": {
+      "uses_impurity_importance": {
+        "type": "noul",
+        "noul": 0.0015011933446395609
+      }
+    },
+    "usage": {
+      "input_tokens": 17684,
+      "output_tokens": 1,
+      "cost": 0.000742728,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000742728,
+        "upstream_inference_prompt_cost": 0.000742728,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794316398-1f4sdSxk3nzeBvqZnNUl",
+    "provider": "Azure"
+  },
+  "classified_at_utc": "2026-11-10T13:13:18Z"
+}

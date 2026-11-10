@@ -1,0 +1,60 @@
+{
+  "id": "W4307190583",
+  "input_path": "/tmp/missing_corpus/W4307190583.txt",
+  "input_sha256": "64fc3faf63a2cac9c7ebbc842e0984e5adae4454a8f7e46ba6ffa58b344702f0",
+  "input_chars": 50000,
+  "max_chars": 50000,
+  "model_requested": "microsoft/microsoft-decision-1",
+  "model": "microsoft/microsoft-decision-1-20261009",
+  "probability": 0.3208238158502659,
+  "relevant": false,
+  "threshold": 0.5,
+  "question": {
+    "uses_impurity_importance": {
+      "type": "noul",
+      "instructions": "Does this paper use or interpret a random-forest impurity-based (Gini, MDI, or mean decrease in impurity/variance) variable importance?",
+      "criteria": {
+        "true": "The paper computes, reports, ranks, or draws a conclusion from an impurity-based (Gini/MDI/variance) variable importance produced by a random forest (e.g. ranger, randomForest).",
+        "false": "The paper uses only permutation importance, SHAP, prediction, speed, or cites ranger without interpreting an impurity importance."
+      }
+    }
+  },
+  "answer": {
+    "type": "noul",
+    "noul": 0.3208238158502659
+  },
+  "usage": {
+    "input_tokens": 17413,
+    "output_tokens": 1,
+    "cost": 0.000731346,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000731346,
+      "upstream_inference_prompt_cost": 0.000731346,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "microsoft/microsoft-decision-1-20261009",
+    "answers": {
+      "uses_impurity_importance": {
+        "type": "noul",
+        "noul": 0.3208238158502659
+      }
+    },
+    "usage": {
+      "input_tokens": 17413,
+      "output_tokens": 1,
+      "cost": 0.000731346,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000731346,
+        "upstream_inference_prompt_cost": 0.000731346,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794316509-w8OxIz8YboqdgzMGd6vz",
+    "provider": "Azure"
+  },
+  "classified_at_utc": "2026-11-10T13:15:10Z"
+}

@@ -1,0 +1,60 @@
+{
+  "id": "W7130659195",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W7130659195.txt",
+  "input_sha256": "c7b850842ae25ae9e16096453aec88e2471f655a928848285a616fee78254b43",
+  "input_chars": 47417,
+  "max_chars": 90000,
+  "model_requested": "microsoft/microsoft-decision-1",
+  "model": "microsoft/microsoft-decision-1-20261009",
+  "probability": 0.0024726388774243347,
+  "relevant": false,
+  "threshold": 0.5,
+  "question": {
+    "uses_impurity_importance": {
+      "type": "noul",
+      "instructions": "Does this paper use or interpret a random-forest impurity-based (Gini, MDI, or mean decrease in impurity/variance) variable importance?",
+      "criteria": {
+        "true": "The paper computes, reports, ranks, or draws a conclusion from an impurity-based (Gini/MDI/variance) variable importance produced by a random forest (e.g. ranger, randomForest).",
+        "false": "The paper uses only permutation importance, SHAP, prediction, speed, or cites ranger without interpreting an impurity importance."
+      }
+    }
+  },
+  "answer": {
+    "type": "noul",
+    "noul": 0.0024726388774243347
+  },
+  "usage": {
+    "input_tokens": 13531,
+    "output_tokens": 1,
+    "cost": 0.000568302,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000568302,
+      "upstream_inference_prompt_cost": 0.000568302,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "microsoft/microsoft-decision-1-20261009",
+    "answers": {
+      "uses_impurity_importance": {
+        "type": "noul",
+        "noul": 0.0024726388774243347
+      }
+    },
+    "usage": {
+      "input_tokens": 13531,
+      "output_tokens": 1,
+      "cost": 0.000568302,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000568302,
+        "upstream_inference_prompt_cost": 0.000568302,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794316465-7CFwFXT5aKsoBgChKrhF",
+    "provider": "Azure"
+  },
+  "classified_at_utc": "2026-11-10T13:14:26Z"
+}
