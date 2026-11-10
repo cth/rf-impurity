@@ -32,32 +32,31 @@ its values --- as it does for an exhaustive search over thresholds between
 consecutive order statistics, \code{ranger}'s default
 \code{splitrule = "variance"} --- then the two forests are identical tree for
 tree as partitions of the in-bag sample, and every importance that is a
-functional of those partitions (MDI,
-AIR) coincides exactly.
+functional of those partitions coincides for the two worlds.
 
-Equal variance contribution is a by-product of the same construction; the
-argument does not use it.
+%Equal variance contribution is a by-product of the same construction; the
+%argument does not use it.
 
-Both hypotheses can fail in practice. Hypothesis (i) fails in any script that
-fits the two worlds one after the other without reseeding, and the cross-world
-variation that follows is seed noise: world B under any RNG state gives the same
-trees as world A under that state, so an unseeded cross-world pair is
-distributed exactly as refitting a single world under two seeds. A sweep over
-seeds $1$--$10$ confirms the corollary in \code{ranger}'s implementation: the
-identity is exact at every seed, and across all $\binom{10}{2} = 45$ pairs of
-distinct seeds the cross-world gap equals the same-world gap.
-Hypothesis (ii) concerns the split search: a rule that sees a feature only
-through the ordering of its values discards exactly the distribution-shape
-information that would tell the two worlds apart.
-\code{splitrule = "extratrees"} keeps a little of it, drawing thresholds
-uniformly from the feature's value \emph{range} instead of scanning order
-statistics. Squaring stretches that range, so the same draw lands elsewhere in
-the data and the two worlds separate: $1:4.9:23.7$ against $1:5.0:24.6$.
-The same thing happens to predictions. \citet{galili2016} show that a tree's
-predictions for new observations are not invariant to monotone transforms of its
-features, for the same reason: a threshold placed between two observed values
-sits at their midpoint, and stretching the scale moves that midpoint even though
-the training points either side of it stay put.
+%Both hypotheses can fail in practice. Hypothesis (i) fails in any script that
+%fits the two worlds one after the other without reseeding, and the cross-world
+%variation that follows is seed noise: world B under any RNG state gives the same
+%trees as world A under that state, so an unseeded cross-world pair is
+%distributed exactly as refitting a single world under two seeds. A sweep over
+%seeds $1$--$10$ confirms the corollary in \code{ranger}'s implementation: the
+%identity is exact at every seed, and across all $\binom{10}{2} = 45$ pairs of
+%distinct seeds the cross-world gap equals the same-world gap.
+%Hypothesis (ii) concerns the split search: a rule that sees a feature only
+%through the ordering of its values discards exactly the distribution-shape
+%information that would tell the two worlds apart.
+%\code{splitrule = "extratrees"} keeps a little of it, drawing thresholds
+%uniformly from the feature's value \emph{range} instead of scanning order
+%statistics. Squaring stretches that range, so the same draw lands elsewhere in
+%the data and the two worlds separate: $1:4.9:23.7$ against $1:5.0:24.6$.
+%The same thing happens to predictions. \citet{galili2016} show that a tree's
+%predictions for new observations are not invariant to monotone transforms of its
+%features, for the same reason: a threshold placed between two observed values
+%sits at their midpoint, and stretching the scale moves that midpoint even though
+%the training points either side of it stay put.
 
 This is \textbf{not specific to impurity}, and debiasing does not touch it.
 Bias-corrected impurity (AIR), permutation importance, and global mean
@@ -66,7 +65,7 @@ $|\text{SHAP}|$ all give the same ratios in both worlds:
 \begin{center}
 \begin{tabular}{lcc}
 \toprule
-measure & ratio & cross-world agreement \\
+measure & ratio & cross-world disagreement \\
 \midrule
 impurity (MDI)            & $1:4.7:22.6$   & exactly $0$ \\
 impurity, debiased (AIR)  & $1:8.8:47.4$   & exactly $0$ \\
@@ -86,13 +85,11 @@ impurity a permuted copy of each feature would earn, and under hypothesis (i)
 those permutation draws are fixed too, while permuting commutes with monotone
 transforms --- the permuted copy of $(1+U_b)^2$ is the square of the permuted
 copy of $1+U_b$ --- so the correction is a functional of the same trees and the
-same orderings. Debiasing moves the ratio from plain MDI's compressed
-$1:4.7:22.6$ toward the variance-contribution ratio $1:9.07:48.96$ (a single
-draw; Section~\ref{sec:linear} warns against reading any single-seed AIR
-ratio closely and that applies here too), and moves the cross-world agreement
-not at
-all. Permutation and
-path-dependent TreeSHAP \citep{lundberg2020} also touch feature values at the
+same orderings. 
+
+Permutation and
+path-dependent TreeSHAP \citep{lundberg2020} are not pure functionals of 
+the trees, but touch feature values at the
 thresholds --- one
 through the values it shuffles, the other through node weights it reconstructs
 from the data, which differ by at most two observations on $0.3\%$ of nodes ---
@@ -109,26 +106,27 @@ worlds differ by exactly the factor $\mathrm{Corr}(b, b^2)$: the fraction of the
 squared feature that a linear projection captures. For $U(1,2)$ these
 correlations are $0.9963$ for the square and $0.9861$ for the cube, and the
 table reproduces them: $2.98/2.99 = 0.997$ and $6.88/6.98 = 0.986$. The
-discrepancy is the population correlation gap itself, two orders of magnitude
-larger than anything the proposition-pinned measures show. That a standardised
+cross-world disagreement
+is the population correlation gap itself, which is two orders of magnitude
+larger than any of the random forest measures show. That a standardised
 coefficient ties a variable's apparent importance to the spread of its
 distribution is a long-standing complaint in the regression
 literature \citep{bring1994}; the proposition is the tree-based version, with
 effect shape and feature spread made exactly indistinguishable.
 
-The spread of agreement is what identifies the mechanism. Equal variance
-contribution alone would predict uniform approximate agreement, and cannot
-produce an exact zero. Nor is being a variance the operative property: MDI and
-permutation are denominated in variance, but mean $|\text{SHAP}|$ tracks the
-\emph{square root} of the variance contribution ($\sqrt{1:9.07:48.96} =
-1:3.01:7.00$), one power lower, and is confounded just the same. What the four
-share, and what none of them escapes, is being a functional of the fitted model
-and of the feature ordering, and the proposition makes both identical across the
-two worlds. Any marginal importance inherits this,
-whatever its units. The remedy is a shape-aware view: a partial-dependence plot,
-or a SHAP \emph{dependence} plot, which plots each observation's SHAP value
-against its feature value, and the feature values do differ between the two
-worlds.
+%The spread of agreement is what identifies the mechanism. Equal variance
+%contribution alone would predict uniform approximate agreement, and cannot
+%produce an exact zero. Nor is being a variance the operative property: MDI and
+%permutation are denominated in variance, but mean $|\text{SHAP}|$ tracks the
+%\emph{square root} of the variance contribution ($\sqrt{1:9.07:48.96} =
+%1:3.01:7.00$), one power lower, and is confounded just the same. What the four
+%share, and what none of them escapes, is being a functional of the fitted model
+%and of the feature ordering, and the proposition makes both identical across the
+%two worlds. Any marginal importance inherits this,
+%whatever its units. The remedy is a shape-aware view: a partial-dependence plot,
+%or a SHAP \emph{dependence} plot, which plots each observation's SHAP value
+%against its feature value, and the feature values do differ between the two
+%worlds.
 
 \begin{figure}[htb]
 \centering

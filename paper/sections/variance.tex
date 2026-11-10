@@ -10,8 +10,7 @@ of within-child variances, for $y = x$, $y = x^2$, $y = x^3$ ($x =
 \begin{center}
 \begin{tabular}{cccc}
 \toprule
-response & min split-variance & fraction of parent variance removed & argmin (of
-1000) \\
+response & min split-variance & fraction of parent variance removed & argmin split index (1--1000) \\
 \midrule
 $x$   & $4.2 \times 10^{4}$  & $0.75$ & 500 (centre) \\
 $x^2$ & $4.3 \times 10^{10}$ & $0.76$ & 697 \\
@@ -19,6 +18,9 @@ $x^3$ & $4.1 \times 10^{16}$ & $0.74$ & 799 \\
 \bottomrule
 \end{tabular}
 \end{center}
+
+Here \code{argmin} is the position among the $1000$ sorted values of $x$ at
+which the split minimizes the sum of within-child variances.
 
 The raw minimum grows by orders of magnitude with the degree, but that is a
 \emph{response-scale artifact}: as a fraction of parent variance removed, all

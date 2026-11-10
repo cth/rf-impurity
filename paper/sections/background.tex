@@ -135,7 +135,9 @@ With squared-error loss:
 \end{equation}
 %
 \noindent
-i.e.\ the mean OOB MSE increase after permuting $X_j$.
+i.e.\ the mean OOB MSE increase after permuting $X_j$, where
+$\hat y_t(x)$ is tree $t$'s prediction for input $x$ and
+$x_i^{(j)}$ denotes observation $i$ with its $j$-th feature permuted.
 Like MDI/AIR it is denominated in variance.
 
 Global mean $|\text{SHAP}|$ aggregates local Shapley attributions

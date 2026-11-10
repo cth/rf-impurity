@@ -28,14 +28,14 @@ Importance is linear in $\beta^2$, not in $\beta$.}
 For a linear term the contributed
 variance is $\beta_j^2\,\mathrm{Var}(X_j)$, and here the standard-uniform
 variance $\mathrm{Var}(X_j)=1/12$ is
-common to all features, so the MDI should track $\beta_j^2$.
-
-The experiment supports that, but the fit is not \emph{perfect}. This is also 
-observed from the ranking of the feature importances: MDI only ranks
-feature constributions correctly when they differ enough and there is enough data
-to dwarf the randommness of the procedure of fitting the trees.
+common to all features, so the MDI should track $\beta_j^2$, which Figure~\ref{fig:superlinear}
+confirms only approximately. 
+The discrepancy can also be
+observed from the ranking of the feature importances. 
+%feature constributions correctly when they differ enough and there is enough data
+%to dwarf the randommness of the procedure of fitting the trees.
 For this data, 
-$\beta = 1\ldots11$ at the default \code{mtry}, only $3$ of $10$ seeds rank
+$\beta = 1\ldots11$, only $3$ of $10$ seeds rank
 all eleven correctly (mean Spearman $0.99$). 
 AIR spreads weak features (those with smaller coefficients) further apart,
 % (the $\beta = 5$ feature scores $16.4$ times the $\beta = 1$ feature, against
@@ -46,6 +46,7 @@ far noisier from seed to seed, and the two effects offset: it ranks no better th
 the order holds, ``how much more'' is not comparable to a coefficient.
 
 \subsubsection{Relative interpretations of feature importances}
+\label{sec:relativelinear}
 An experiment that examines divergences from the expected ratios between 
 variable importances enables determining in more detail how and why 
 variable importances in practice differ from the theoretical expectation

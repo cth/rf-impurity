@@ -21,37 +21,55 @@ are $0.000$ and $0.000$ against $0.101$ for $c$, at $R^2 = 0.01$.
 For binary inputs $(a+b) \bmod 2 = a + b - 2ab$ is bilinear, so adding an
 $a{\times}b$ term fits the target exactly ($R^2 = 1.000$).
 
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.85\textwidth]{fig2_interaction.png}
+\caption{Same data, two views. Main-effects OLS assigns $a$ and $b$ essentially
+zero coefficient, seeing only $c$; RF impurity importance ranks the two
+interacting variables far above it. The ordering between $a$ and $b$ is sampling
+noise --- they are exchangeable by construction.}
+\label{fig:interaction}
+\end{figure}
+
 When the interaction is captured in the Random Forest, the two interacting
 variables $a$ and $b$
-are allocated most of the variable importance. The size of their share follows
-from the variance decomposition. Impurity importance sums the reduction in node
-sum of squares over splits, and
-trees grown to purity remove $n\,\mathrm{Var}(y)$ between them, so the
-importance
-divides as the variance does. The target is additive in two independent pieces,
+are allocated most of the variable importance. 
+Figure~\ref{fig:interaction} shows the contrast against main-effects OLS.
+
+The size of the share of a, b and c follows
+from the variance decomposition in the random forest, 
+%Impurity importance sums the reduction in node
+%sum of squares over splits, and
+%trees grown to purity remove $n\,\mathrm{Var}(y)$ in total---the root's sum of
+%squares is $n\,\mathrm{Var}(y)$ and pure leaves contribute zero, so every unit
+%of variance reduction is credited to some split and hence to some feature, with
+%no residual left over---so the
+%importance divides as the variance does. 
+%The target is additive in two independent pieces,
 $\mathrm{Var}(c/10) = 0.0025$ and $\mathrm{Var}\big((a+b) \bmod 2\big) = 0.25$:
 the
 coefficient $1/10$ gives $c$ one hundredth of the pair's variance, so $c$ gets
 importance
-$1\%$ and the pair $99\%$. Note that this is exactly the explained
-variance ($R^2 = 0.01$) of main effects OLS.
-At $\code{mtry} = 3$, the measured total is $2525.2 = n\,\mathrm{Var}(y)$ and
+$1\%$ and the pair $99\%$. Note that for $c$, which is what main effect OLS sees,
+this is exactly the explained variance ($R^2 = 0.01$).
+
+
+The number of features drawn at each node affects this.
+At $\code{mtry} = 3$
 $c$ receives $1.02\%$
-of it. Over seeds $1$--$10$ at the default $\code{mtry} = 1$, $a$ and $b$
-average
-$451$ (SD $29$) against $15$ for $c$, and its share rises to $1.6\%$, because
+of it (very close to the expected 1\%).  
+At the default $\code{mtry} = 1$ its share rises to $1.6\%$.
+%$a$ and $b$
+%average
+%$451$ (SD $29$) against $15$ for $c$, and its share rises to $1.6\%$, because
 $\code{mtry} = 1$ truncates trees and the loss falls harder on the pair, whose
-credit needs both variables on one path: a node whose single candidate is
-already constant becomes terminal, so paths are cut before both $a$ and $b$
-have been split on. Figure~\ref{fig:interaction} shows the contrast
-against main-effects OLS.
+credit needs both variables on one path. 
 
 Since $a$ and $b$ are exchangeable by construction, any difference between their
 importances is sampling noise, and within a single seed they spread by
 $2$--$20\%$ (median $10\%$), against $1$--$6\%$ when the parity is replaced by
 equal \emph{marginal} effects for $a$ and $b$ ($y = c/10 + (a + b)/2$).
-So only the $a,b \gg c$ gap is informative here.
-
+So only the $a,b \gg c$ gap carries information.
 The interaction spread is the wider one because credit for an interacting
 variable is
 conditional on tree topology. Splitting on $a$ or $b$ alone reduces no variance;
@@ -109,12 +127,10 @@ corroborate an impurity ranking, and which this paper takes as its foils:
 \textbf{permutation importance} (OOB Breiman-style, as returned by
 \code{ranger}) and \textbf{mean absolute TreeSHAP} ($\overline{|\varphi_j|}$,
 the path-dependent \emph{observational} variant). Both confirm the $a,b \gg c$
-reading, so switching measure does not rescue the interpretation, and both give
-$a$ and $b$ equal scores. They part company on how the pair's shared credit is
-divided. Permutation importance charges each member the \emph{entire}
-interaction rather than a share of it --- scrambling either variable destroys
-the whole parity --- so the pair's importances sum to twice the interaction
-variance, while mean $|\varphi|$ partitions the credit exactly. Each is
+reading and both give
+$a$ and $b$ equal scores. However, permutation importance charges each member the \emph{entire}
+interaction rather than a share of it  so the pair's importances sum to twice the interaction
+variance, whereas mean $|\varphi|$ partitions the credit exactly. Each is
 denominated in units of its own, so neither is an effect size.
 Appendix~\ref{app:interactions} derives both; Table~\ref{tab:interactions}
 collects the allocations.
@@ -154,12 +170,4 @@ What distinguishes the two cases is the one-way
 partial-dependence plot (PDP) under a tall bar: here it is flat, and the parity
 appears only in the joint PDP over $(a,b)$.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.85\textwidth]{fig2_interaction.png}
-\caption{Same data, two views. Main-effects OLS assigns $a$ and $b$ essentially
-zero coefficient, seeing only $c$; RF impurity importance ranks the two
-interacting variables far above it. The ordering between $a$ and $b$ is sampling
-noise --- they are exchangeable by construction.}
-\label{fig:interaction}
-\end{figure}
+
