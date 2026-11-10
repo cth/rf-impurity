@@ -1,0 +1,113 @@
+{
+  "id": "W3154410843",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3154410843.txt",
+  "input_sha256": "a6a975919f15e1c0ceddd64a6abe61eca77903e649d896fd11988ca55d7553e5",
+  "input_chars": 91418,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.95,
+  "ranking_central_prob": 0.42,
+  "uncorroborated_prob": 0.93,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.83,
+    "refuted": 0.14,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.74,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.42
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.83,
+        "refuted": 0.14,
+        "uncertain": 0.03
+      },
+      "confidence": 0.74
+    }
+  },
+  "stage1_record": {
+    "id": "W3154410843",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses the ranger R package (via rmweather wrapper) which computes impurity-based importance by default. They report variable importance rankings: \"The most important explanatory variables to predict hourly concentrations of NO2, O3 and Ox in Vienna were monitor dependent. On average, the importance for the NO2 models was given in the following ascending order: ws, wd, thour, tjd, Tair, RH, tweek, ttrend and Patm... the O3 models suggest that RH is, on average, more important than Tair.\" They interpret these rankings substantively to understand physical processes: \"The variables' importance agrees well with the chemical and physical processes expected to drive the dynamics of these pollutants, thereby demonstrating the random forest models' interpretability nature... these results on their own could be valuable to help better understand the sensitivity of O3 pollution to meteorology in future studies.\" No corroboration via permutation importance, SHAP, conditional importance, PDP/ALE, or held-out validation is provided."
+  },
+  "usage": {
+    "input_tokens": 26463,
+    "output_tokens": 98,
+    "cost": 0.001111446,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001111446,
+      "upstream_inference_prompt_cost": 0.001111446,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.42
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.83,
+          "refuted": 0.14,
+          "uncertain": 0.03
+        },
+        "confidence": 0.74
+      }
+    },
+    "usage": {
+      "input_tokens": 26463,
+      "output_tokens": 98,
+      "cost": 0.001111446,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001111446,
+        "upstream_inference_prompt_cost": 0.001111446,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223177-yr9qY9T1Tdx3a96IzXWq",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:37Z"
+}

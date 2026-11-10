@@ -1,0 +1,115 @@
+{
+  "id": "W4410409353",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4410409353.txt",
+  "input_sha256": "ebe8b072cdf18f8fd17b188d011628cc99c4dcb3fec4d6d7988b8d7b1852fe2c",
+  "input_chars": 92875,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.67,
+  "ranking_central_prob": 0.97,
+  "uncorroborated_prob": 0.73,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.55,
+    "refuted": 0.32,
+    "uncertain": 0.13
+  },
+  "verdict_confidence": 0.33,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.67
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.73
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.55,
+        "refuted": 0.32,
+        "uncertain": 0.13
+      },
+      "confidence": 0.33
+    }
+  },
+  "stage1_record": {
+    "id": "W4410409353",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states \"We generated variable importance for each model to assess how the foliar traits rank amongst the other drought predictors.\" Key conclusions depend on importance rankings: \"Mortality at Soaproot was best predicted by mean height and LMA\" and \"Teakettle mortality was explained primarily by elevation and mean height.\" The paper compares importance across variables (\"LMA was a more important predictor for ponderosa pine, while elevation was a more important predictor for mixed conifer\") and identifies \"top predictors\" and variables \"showing the highest relative importance,\" all without validating these rankings via permutation importance, SHAP, conditional importance, or held-out validation. PDPs only corroborate directional relationships, not relative importance magnitude or ranking."
+  },
+  "usage": {
+    "input_tokens": 29036,
+    "output_tokens": 98,
+    "cost": 0.001219512,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001219512,
+      "upstream_inference_prompt_cost": 0.001219512,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.67
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.73
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.55,
+          "refuted": 0.32,
+          "uncertain": 0.13
+        },
+        "confidence": 0.33
+      }
+    },
+    "usage": {
+      "input_tokens": 29036,
+      "output_tokens": 98,
+      "cost": 0.001219512,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001219512,
+        "upstream_inference_prompt_cost": 0.001219512,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223185-QvL2nA78DA5cnUbIv8l6",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:45Z"
+}

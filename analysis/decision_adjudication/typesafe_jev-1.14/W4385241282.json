@@ -1,0 +1,115 @@
+{
+  "id": "W4385241282",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4385241282.txt",
+  "input_sha256": "7c11b8009c1b8c4342494c66069ec7fa69176b98af850d7f98f2d8c1dc6e8253",
+  "input_chars": 56441,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.44,
+  "ranking_central_prob": 0.97,
+  "uncorroborated_prob": 0.31,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.74,
+    "refuted": 0.22,
+    "uncertain": 0.04
+  },
+  "verdict_confidence": 0.61,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.44
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.31
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.74,
+        "refuted": 0.22,
+        "uncertain": 0.04
+      },
+      "confidence": 0.61
+    }
+  },
+  "stage1_record": {
+    "id": "W4385241282",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale",
+      "conditional"
+    ],
+    "feature_heterogeneity": [
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper ranks variables by \"mean decrease in accuracy,\" concluding oil viscosity (0.59) is far more important than Ra (0.30) or K/Rp0.2 (0.05-0.06). These magnitude and ranking claims are central to conclusions like \"K and the other inputs...was the least important one.\" ALE plots and ANNs provide partial corroboration that viscosity and Ra drive friction, but permutation importance, SHAP, or held-out predictive validation are absent. Feature scales range over orders of magnitude (Ra: 0.3-1.25 \u00b5m; viscosity: 14-44 mm\u00b2/s; Rp0.2: 68-212 MPa; K: 242-370 MPa), creating conditions where impurity importance can magnify apparent effect size differences."
+  },
+  "usage": {
+    "input_tokens": 16780,
+    "output_tokens": 98,
+    "cost": 0.00070476,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00070476,
+      "upstream_inference_prompt_cost": 0.00070476,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.44
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.31
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.74,
+          "refuted": 0.22,
+          "uncertain": 0.04
+        },
+        "confidence": 0.61
+      }
+    },
+    "usage": {
+      "input_tokens": 16780,
+      "output_tokens": 98,
+      "cost": 0.00070476,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00070476,
+        "upstream_inference_prompt_cost": 0.00070476,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223182-sdCSvTvUUjFS0noS1h60",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:42Z"
+}

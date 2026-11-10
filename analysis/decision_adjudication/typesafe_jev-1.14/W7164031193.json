@@ -1,0 +1,115 @@
+{
+  "id": "W7164031193",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W7164031193.txt",
+  "input_sha256": "784ff081254816f928b96e497cd7b04c46b69b00056ef229ba04cf7717ae886f",
+  "input_chars": 54203,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.61,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.88,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.63,
+    "refuted": 0.3,
+    "uncertain": 0.07
+  },
+  "verdict_confidence": 0.44,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.61
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.88
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.63,
+        "refuted": 0.3,
+        "uncertain": 0.07
+      },
+      "confidence": 0.44
+    }
+  },
+  "stage1_record": {
+    "id": "W7164031193",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"RF regression with 50 trees and 5-fold cross-validation identified income, activity limitation, age, and chronic conditions as key predictors of medical expenditure\" and \"Across all specifications, chronic conditions consistently emerged as the most important variable of medical expenditure, confirming the stability, robustness, and reliability of the findings.\" The main conclusion is: \"Statistical and machine learning analyses of the MEPS consistently identify chronic disease burden as the strongest predictor of total medical expenditure.\" This ranking-based interpretation relies entirely on impurity-importance measures from RF/GBR without permutation, SHAP, PDP/ALE, conditional, or held-out importance validation."
+  },
+  "usage": {
+    "input_tokens": 11879,
+    "output_tokens": 98,
+    "cost": 0.000498918,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000498918,
+      "upstream_inference_prompt_cost": 0.000498918,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.61
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.88
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.63,
+          "refuted": 0.3,
+          "uncertain": 0.07
+        },
+        "confidence": 0.44
+      }
+    },
+    "usage": {
+      "input_tokens": 11879,
+      "output_tokens": 98,
+      "cost": 0.000498918,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000498918,
+        "upstream_inference_prompt_cost": 0.000498918,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223186-2igqljZF31XlnhoWCCjE",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:47Z"
+}

@@ -1,0 +1,115 @@
+{
+  "id": "W4313511865",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4313511865.txt",
+  "input_sha256": "c04923d88e4e6552a2d64ae792e68374d0d31055bdc5cefe2b270ff1868c34cf",
+  "input_chars": 68268,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.9,
+  "ranking_central_prob": 0.97,
+  "uncorroborated_prob": 0.95,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.83,
+    "refuted": 0.09,
+    "uncertain": 0.08
+  },
+  "verdict_confidence": 0.74,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.9
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.83,
+        "refuted": 0.09,
+        "uncertain": 0.08
+      },
+      "confidence": 0.74
+    }
+  },
+  "stage1_record": {
+    "id": "W4313511865",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states it \"determined the variable importance for each model based on the training set using the packages' built-in methods\" (impurity-based for ranger). The Discussion repeatedly interprets magnitude and ranking: \"the most important predictors\" (parallel program, application timing), \"the order of predictors reverses\" in year 2, and \"the third group of predictors...becomes important.\" These rankings drive all mechanistic claims about educational fit, study choice issues, and academic performance. No permutation importance, SHAP, PDP/ALE, or conditional importance validation is mentioned."
+  },
+  "usage": {
+    "input_tokens": 20902,
+    "output_tokens": 98,
+    "cost": 0.000877884,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000877884,
+      "upstream_inference_prompt_cost": 0.000877884,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.9
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.83,
+          "refuted": 0.09,
+          "uncertain": 0.08
+        },
+        "confidence": 0.74
+      }
+    },
+    "usage": {
+      "input_tokens": 20902,
+      "output_tokens": 98,
+      "cost": 0.000877884,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000877884,
+        "upstream_inference_prompt_cost": 0.000877884,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223181-I30ySoQNYY9AApEDuvYQ",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:41Z"
+}

@@ -1,0 +1,114 @@
+{
+  "id": "W2969695615",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W2969695615.txt",
+  "input_sha256": "a3fbf98e5dfa464a2e557ae2630f7f66ee49af53ac2ea5bd4f4122027ff4aa96",
+  "input_chars": 46528,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.44,
+  "ranking_central_prob": 0.92,
+  "uncorroborated_prob": 0.43,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.54,
+    "refuted": 0.42,
+    "uncertain": 0.04
+  },
+  "verdict_confidence": 0.31,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.44
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.43
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.54,
+        "refuted": 0.42,
+        "uncertain": 0.04
+      },
+      "confidence": 0.31
+    }
+  },
+  "stage1_record": {
+    "id": "W2969695615",
+    "set": "rejected_sample",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses ranger variable importance scoring to screen 12,806 DNA methylation probes down to 62 (discovery) and 38 (validation), and gene expression data down to 9 and 13 genes: \"Ranger screened out 62 DNA methylation probes in the discovery phase according to variable importance score (VIS).\" The core claim is \"we identified 7 cancer-related genes and 12 DNA methylation probes as potentially associated with early-stage LUAD survival,\" which depends on this importance-based ranking. While the selected biomarkers are validated with Cox regression (FDR-corrected in discovery, p<0.05 in validation) and tested in independent cohorts, the paper provides no permutation importance, SHAP, PDP/ALE, or conditional importance analysis to verify that the importance ranking itself is accurate."
+  },
+  "usage": {
+    "input_tokens": 14794,
+    "output_tokens": 98,
+    "cost": 0.000621348,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000621348,
+      "upstream_inference_prompt_cost": 0.000621348,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.44
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.43
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.54,
+          "refuted": 0.42,
+          "uncertain": 0.04
+        },
+        "confidence": 0.31
+      }
+    },
+    "usage": {
+      "input_tokens": 14794,
+      "output_tokens": 98,
+      "cost": 0.000621348,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000621348,
+        "upstream_inference_prompt_cost": 0.000621348,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223175-2YjYynEf68WPnVWFiBZg",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:36Z"
+}

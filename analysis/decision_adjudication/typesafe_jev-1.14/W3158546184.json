@@ -1,0 +1,116 @@
+{
+  "id": "W3158546184",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3158546184.txt",
+  "input_sha256": "8046046be62de55ff9e144b68feecb65d54225a8c3b028cb8d310a2dce4335e9",
+  "input_chars": 55310,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.57,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.82,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.74,
+    "refuted": 0.22,
+    "uncertain": 0.04
+  },
+  "verdict_confidence": 0.61,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.57
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.82
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.74,
+        "refuted": 0.22,
+        "uncertain": 0.04
+      },
+      "confidence": 0.61
+    }
+  },
+  "stage1_record": {
+    "id": "W3158546184",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper evaluates variable selection performance by \"frequency of ranking top of the variable importance measures of the correct variables\" and concludes \"MSR-RF and CIF have higher selection rates\" than RSF, with \"MSR-RF possess practical value and is well worth popularizing.\" However, the authors themselves observe that \"higher correct variable selection frequency does not match better IBS or c-index value exactly in simulation study,\" indicating VIM-based ranking does not correlate with predictive validity. No permutation importance, SHAP, or conditional importance corroboration is provided, leaving method-ranking conclusions vulnerable to impurity-importance bias, especially for RSF which the paper acknowledges exhibits \"selection bias towards covariates with more possible split points.\""
+  },
+  "usage": {
+    "input_tokens": 16430,
+    "output_tokens": 98,
+    "cost": 0.00069006,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00069006,
+      "upstream_inference_prompt_cost": 0.00069006,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.57
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.82
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.74,
+          "refuted": 0.22,
+          "uncertain": 0.04
+        },
+        "confidence": 0.61
+      }
+    },
+    "usage": {
+      "input_tokens": 16430,
+      "output_tokens": 98,
+      "cost": 0.00069006,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00069006,
+        "upstream_inference_prompt_cost": 0.00069006,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223177-FE0qe8Yb7XhXSLoBsgj5",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:37Z"
+}

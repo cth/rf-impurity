@@ -1,0 +1,116 @@
+{
+  "id": "W4408188986",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4408188986.txt",
+  "input_sha256": "f5a357930dc97364579a2afb4806e42196d86f29c72c88cfd473e7a87440a2a4",
+  "input_chars": 59062,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.94,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.87,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.87,
+    "refuted": 0.11,
+    "uncertain": 0.02
+  },
+  "verdict_confidence": 0.8,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.87
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.87,
+        "refuted": 0.11,
+        "uncertain": 0.02
+      },
+      "confidence": 0.8
+    }
+  },
+  "stage1_record": {
+    "id": "W4408188986",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "boruta",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "conditional"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses Random Forest impurity importance (via Ranger package) to rank features and states: \"Among the 18 features retained after the feature selection process, the average temperature and pressure in February (T2M_2 and PS_2), as well as the average wind speed in January (WS2M_1), emerged as the most significant predictors\" (Sect. 3.4). Figure 2 displays \"Feature importance based on Random Forest\" with explicit ranking. No permutation importance, SHAP, PDP/ALE, or held-out validation of importance is provided. Boruta is used for feature selection (zero/non-zero detection) but not to validate the ranking. Discussion and conclusions hinge on this ranking: \"Beekeepers can use pre-harvest weather parameters, such as winter temperature, humidity, atmospheric pressure, and wind speed, to inform management strategies\" (Conclusions). Dataset contains multiple correlated monthly variants (T2M_12, T2M_1, T2M_2, T2M_MAX_1/12/2, T2M_MIN_1/12/2; RH2M variants; WS2M variants in different months), EVI at 5 different months, and features spanning disparate scales (pressure ~99 kPa, temperature ~2-15\u00b0C, wind ~1 m/s, EVI ~0.4-0.55)."
+  },
+  "usage": {
+    "input_tokens": 18829,
+    "output_tokens": 98,
+    "cost": 0.000790818,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000790818,
+      "upstream_inference_prompt_cost": 0.000790818,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.87
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.87,
+          "refuted": 0.11,
+          "uncertain": 0.02
+        },
+        "confidence": 0.8
+      }
+    },
+    "usage": {
+      "input_tokens": 18829,
+      "output_tokens": 98,
+      "cost": 0.000790818,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000790818,
+        "upstream_inference_prompt_cost": 0.000790818,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223184-E9w88CyyMn75A2LXAcqQ",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:45Z"
+}

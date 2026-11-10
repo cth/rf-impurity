@@ -1,0 +1,115 @@
+{
+  "id": "W4280621189",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4280621189.txt",
+  "input_sha256": "4f56a00639cebcf935776fcad25e96c3c445dadd7c8d9bcdebf19e374e9bbc25",
+  "input_chars": 43392,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.48,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.5,
+  "conditions_met": false,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.3,
+    "refuted": 0.64,
+    "uncertain": 0.06
+  },
+  "verdict_confidence": 0.46,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.48
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.5
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.3,
+        "refuted": 0.64,
+        "uncertain": 0.06
+      },
+      "confidence": 0.46
+    }
+  },
+  "stage1_record": {
+    "id": "W4280621189",
+    "set": "rejected_sample",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper's central claim is that 'the prealbumin level and the PT were found to be the most crucial factors' based on feature selection where 'the prealbumin level and the PT were identified as the predictors of top priority. Their importance was much greater than those of the other factors.' This ranking-based conclusion depends entirely on impurity importance. While partial dependence plots are provided for the selected variables to show effect shapes, no cross-variable comparison is performed to validate the ranking across all 81 features, and the authors note that 'the distributions of the PT...are left-skewed'\u2014precisely the scenario where impurity importance magnification bias peaks. No permutation importance, SHAP, or conditional importance analysis is provided to verify the ranking is robust to the known biases of Gini/MDI-based importance."
+  },
+  "usage": {
+    "input_tokens": 13326,
+    "output_tokens": 99,
+    "cost": 0.000559692,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000559692,
+      "upstream_inference_prompt_cost": 0.000559692,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.48
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.5
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.3,
+          "refuted": 0.64,
+          "uncertain": 0.06
+        },
+        "confidence": 0.46
+      }
+    },
+    "usage": {
+      "input_tokens": 13326,
+      "output_tokens": 99,
+      "cost": 0.000559692,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000559692,
+        "upstream_inference_prompt_cost": 0.000559692,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223179-jGvlgYrbHlsmiAcVovC6",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:39Z"
+}

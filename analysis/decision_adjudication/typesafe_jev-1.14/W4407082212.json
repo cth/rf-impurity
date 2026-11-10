@@ -1,0 +1,116 @@
+{
+  "id": "W4407082212",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4407082212.txt",
+  "input_sha256": "8a740966d4654317dfa60267f69cbae798961088dee5bad880e1d642faa13207",
+  "input_chars": 86455,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.85,
+  "ranking_central_prob": 0.94,
+  "uncorroborated_prob": 0.88,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.64,
+    "refuted": 0.22,
+    "uncertain": 0.14
+  },
+  "verdict_confidence": 0.46,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.85
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.88
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.64,
+        "refuted": 0.22,
+        "uncertain": 0.14
+      },
+      "confidence": 0.46
+    }
+  },
+  "stage1_record": {
+    "id": "W4407082212",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "conditional"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses Random Forest with default MDI (mean decrease in impurity) importance via tidymodels, reporting \"variable importance of each model was scaled to be within [0,1].\" It explicitly ranks biomarkers: \"Among the eight common CVD-risk biomarkers, the top three predictive biomarkers in plasma were LRP1B (median importance = 0.876309), PLXNB2 (median importance = 0.352254), and CCL15 (median importance = 0.328339)\" and identifies LRP1B as \"the strongest CVD-risk predictive biomarker.\" Biomarker selection and clinical prioritization depend entirely on these importance rankings. However, the paper provides no permutation importance, SHAP, or held-out test validation of these ranking magnitudes only cross-validation AUC for overall model performance."
+  },
+  "usage": {
+    "input_tokens": 30926,
+    "output_tokens": 98,
+    "cost": 0.001298892,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001298892,
+      "upstream_inference_prompt_cost": 0.001298892,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.85
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.88
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.64,
+          "refuted": 0.22,
+          "uncertain": 0.14
+        },
+        "confidence": 0.46
+      }
+    },
+    "usage": {
+      "input_tokens": 30926,
+      "output_tokens": 98,
+      "cost": 0.001298892,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001298892,
+        "upstream_inference_prompt_cost": 0.001298892,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223184-qn7RayzE7ohro06nft5Y",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:45Z"
+}

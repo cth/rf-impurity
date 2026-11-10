@@ -1,0 +1,113 @@
+{
+  "id": "W2322754609",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W2322754609.txt",
+  "input_sha256": "e1ec730f91e39a2c56bd9ec61a708e5e501f4ed0665496fabb3c33c2ad329647",
+  "input_chars": 44803,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.98,
+  "uncorroborated_prob": 0.76,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.75,
+    "refuted": 0.23,
+    "uncertain": 0.02
+  },
+  "verdict_confidence": 0.62,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.76
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.75,
+        "refuted": 0.23,
+        "uncertain": 0.02
+      },
+      "confidence": 0.62
+    }
+  },
+  "stage1_record": {
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [],
+    "feature_heterogeneity": [
+      "skewed",
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper's core claims rest entirely on interpreting the magnitude and ranking of Gini importance: \"Of the single importance measures, the Gini importance ranked the interacting SNPs generally higher than the permutation importance\" and \"The Gini importance performs better than the permutation importance in identifying SNPs involved in an interaction.\" Central to the conclusions is the claim that \"in most of the cases, the interactions are masked by marginal effects and interactions cannot be differentiated from marginal effects\"\u2014a ranking-based finding that depends on comparing importance scores of interacting SNPs versus marginal-only SNPs. The paper shows comparative results against permutation importance (which ranks variables differently), but this is comparison rather than corroboration; no independent validation via SHAP, PDP/ALE, conditional importance, or held-out validation is provided to confirm that the Gini importance ranking truly reflects underlying variable roles.",
+    "id": "W2322754609",
+    "set": "survivor"
+  },
+  "usage": {
+    "input_tokens": 12260,
+    "output_tokens": 98,
+    "cost": 0.00051492,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00051492,
+      "upstream_inference_prompt_cost": 0.00051492,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.76
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.75,
+          "refuted": 0.23,
+          "uncertain": 0.02
+        },
+        "confidence": 0.62
+      }
+    },
+    "usage": {
+      "input_tokens": 12260,
+      "output_tokens": 98,
+      "cost": 0.00051492,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00051492,
+        "upstream_inference_prompt_cost": 0.00051492,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223175-YXqbyuCaP1ceEZDfDe2o",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:35Z"
+}

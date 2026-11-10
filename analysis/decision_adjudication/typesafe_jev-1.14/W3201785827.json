@@ -1,0 +1,115 @@
+{
+  "id": "W3201785827",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3201785827.txt",
+  "input_sha256": "2bf0def45d3af04d06be4a8b852f5737fd17dbb6a28d104af4b43c22b5ef85a9",
+  "input_chars": 73211,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.12,
+  "ranking_central_prob": 0.94,
+  "uncorroborated_prob": 0.08,
+  "conditions_met": false,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.16,
+    "refuted": 0.82,
+    "uncertain": 0.02
+  },
+  "verdict_confidence": 0.73,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.12
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.08
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.16,
+        "refuted": 0.82,
+        "uncertain": 0.02
+      },
+      "confidence": 0.73
+    }
+  },
+  "stage1_record": {
+    "uses_impurity_importance": true,
+    "pvalue_method": "altmann",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "scale_mismatch",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states \"four were significant (median latitudinal range, SST, salinity and SST range; ranked according to its importance, see Table 2).\" The key conclusion is: \"the prevalence of the median latitudinal range as the most important predictor of the species richness, being also the predictor with a high degree of phylogenetic conservatism, strongly supports the idea of an extra-tropical origin for many polychaetes species.\" Variable importance uses \"conditional random forest which accounts for the possible predictor collinearity (Strobl et al., 2008), based on the method proposed by Altmann et al. (2010), with p-values based on 10,000 permutations.\" Table 2 shows importance rankings (Median lat. range: 831.525, SST: 732.814, Salinity: 541.348, SST range: 217.978) for variables with different scales and collinearity (VIF 3.18-9.33).",
+    "id": "W3201785827",
+    "set": "survivor"
+  },
+  "usage": {
+    "input_tokens": 23577,
+    "output_tokens": 99,
+    "cost": 0.000990234,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000990234,
+      "upstream_inference_prompt_cost": 0.000990234,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.12
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.08
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.16,
+          "refuted": 0.82,
+          "uncertain": 0.02
+        },
+        "confidence": 0.73
+      }
+    },
+    "usage": {
+      "input_tokens": 23577,
+      "output_tokens": 99,
+      "cost": 0.000990234,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000990234,
+        "upstream_inference_prompt_cost": 0.000990234,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223178-DrTT0ASlaiDr9QkKdYlP",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:38Z"
+}

@@ -1,0 +1,116 @@
+{
+  "id": "W4281708676",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4281708676.txt",
+  "input_sha256": "7ae51bd118f26a66ae7378037f22f3c868d74acbba50e5dffb8befc34646e573",
+  "input_chars": 74597,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.84,
+  "ranking_central_prob": 0.97,
+  "uncorroborated_prob": 0.95,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.88,
+    "refuted": 0.08,
+    "uncertain": 0.04
+  },
+  "verdict_confidence": 0.82,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.84
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.88,
+        "refuted": 0.08,
+        "uncertain": 0.04
+      },
+      "confidence": 0.82
+    }
+  },
+  "stage1_record": {
+    "id": "W4281708676",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "skewed",
+      "high_cardinality",
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper ranks variables as predictors: 'Our machine-learning based risk factor assessment suggests that the immediate social situation, such as not having access to gainful employment and the sector of occupation, are the most dominant factors predicting poverty...Overall, the social situation variables outperform the characteristics that describe social groups...Finally, all characteristics that relate to the opportunity structure have lower predictive power compared to the social situation and social groups.' This ranking conclusion drives policy recommendations for urban vs. rural interventions, yet lacks corroboration by permutation, SHAP, PDP/ALE, or conditional methods. Opportunity-structure variables (political leaning 61.6% vs 8.6%, language 94.8% vs 5.2%) are highly skewed, vulnerable to impurity underweighting; sector of occupation gains importance in full model due to interactions, a known impurity bias signature."
+  },
+  "usage": {
+    "input_tokens": 19698,
+    "output_tokens": 98,
+    "cost": 0.000827316,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000827316,
+      "upstream_inference_prompt_cost": 0.000827316,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.84
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.88,
+          "refuted": 0.08,
+          "uncertain": 0.04
+        },
+        "confidence": 0.82
+      }
+    },
+    "usage": {
+      "input_tokens": 19698,
+      "output_tokens": 98,
+      "cost": 0.000827316,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000827316,
+        "upstream_inference_prompt_cost": 0.000827316,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223179-FPsubCLhi8LDDIlY8k2r",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:40Z"
+}

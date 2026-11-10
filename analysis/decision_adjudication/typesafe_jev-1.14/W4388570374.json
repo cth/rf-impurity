@@ -1,0 +1,114 @@
+{
+  "id": "W4388570374",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4388570374.txt",
+  "input_sha256": "1f2924b94d60c43cf904eecb01649c6787695c4317970058c02b60c2ef0d644b",
+  "input_chars": 30494,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.94,
+  "ranking_central_prob": 0.97,
+  "uncorroborated_prob": 0.81,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.78,
+    "refuted": 0.16,
+    "uncertain": 0.06
+  },
+  "verdict_confidence": 0.67,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.81
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.78,
+        "refuted": 0.16,
+        "uncertain": 0.06
+      },
+      "confidence": 0.67
+    }
+  },
+  "stage1_record": {
+    "id": "W4388570374",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "other",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper concludes: \"The top predictive features were found to be drug product quality attributes... Figure 2 A shows that the %LVV+ cells are the most predictive attribute of PB VCN at month 6 and subsequently TI\" and uses this ranking to establish clinical \"acceptance criteria for future release and clinical use of beti-cel.\" This critical ranking relies solely on ranger impurity importance; no permutation importance on validation set, SHAP values, PDP/ALE plots, or external cohort validation corroborate the ranking. The %LVV+ variable is a percentage measure with probable rightward skew, precisely where impurity importance magnifies effects, and multiple correlated transduction efficiency surrogates exist that could have had importance mis-attributed."
+  },
+  "usage": {
+    "input_tokens": 9605,
+    "output_tokens": 98,
+    "cost": 0.00040341,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00040341,
+      "upstream_inference_prompt_cost": 0.00040341,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.81
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.78,
+          "refuted": 0.16,
+          "uncertain": 0.06
+        },
+        "confidence": 0.67
+      }
+    },
+    "usage": {
+      "input_tokens": 9605,
+      "output_tokens": 98,
+      "cost": 0.00040341,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00040341,
+        "upstream_inference_prompt_cost": 0.00040341,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223182-Zz2l1DcBmsqudKHapQCb",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:43Z"
+}

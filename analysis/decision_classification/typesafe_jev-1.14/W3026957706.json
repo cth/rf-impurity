@@ -1,0 +1,60 @@
+{
+  "id": "W3026957706",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3026957706.txt",
+  "input_sha256": "3232c4d9908a1b3f83b78fa7ac00350cb466fd27529099bd7ba246e207be7b89",
+  "input_chars": 70939,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "probability": 0.09,
+  "relevant": false,
+  "threshold": 0.5,
+  "question": {
+    "uses_impurity_importance": {
+      "type": "noul",
+      "instructions": "Does this paper use or interpret a random-forest impurity-based (Gini, MDI, or mean decrease in impurity/variance) variable importance?",
+      "criteria": {
+        "true": "The paper computes, reports, ranks, or draws a conclusion from an impurity-based (Gini/MDI/variance) variable importance produced by a random forest (e.g. ranger, randomForest).",
+        "false": "The paper uses only permutation importance, SHAP, prediction, speed, or cites ranger without interpreting an impurity importance."
+      }
+    }
+  },
+  "answer": {
+    "type": "noul",
+    "noul": 0.09
+  },
+  "usage": {
+    "input_tokens": 19650,
+    "output_tokens": 25,
+    "cost": 0.0008253,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.0008253,
+      "upstream_inference_prompt_cost": 0.0008253,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity_importance": {
+        "type": "noul",
+        "noul": 0.09
+      }
+    },
+    "usage": {
+      "input_tokens": 19650,
+      "output_tokens": 25,
+      "cost": 0.0008253,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0008253,
+        "upstream_inference_prompt_cost": 0.0008253,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794222593-0oD3cvQ94Y8IhT6o7ZiE",
+    "provider": "TypeSafe"
+  },
+  "classified_at_utc": "2026-11-09T11:09:53Z"
+}

@@ -1,0 +1,115 @@
+{
+  "id": "W3168330745",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3168330745.txt",
+  "input_sha256": "7e0227e5c2f9081a12c5be71d6e4195cd347e471890168d7135b06968b11f940",
+  "input_chars": 85141,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.73,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.75,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.64,
+    "refuted": 0.29,
+    "uncertain": 0.07
+  },
+  "verdict_confidence": 0.46,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.73
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.75
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.64,
+        "refuted": 0.29,
+        "uncertain": 0.07
+      },
+      "confidence": 0.46
+    }
+  },
+  "stage1_record": {
+    "id": "W3168330745",
+    "set": "rejected_sample",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "high_cardinality",
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "\"The paper states: 'the importance of each ASV for the prediction performance of the four classifiers...was estimated by the built-in random forest scores in the 100-fold cross-validation. For each body site or environmental site, we finally ranked all ASVs by their average ranking of importance scores.' The main contribution is identifying 'the top 100 ranked important ASV's' and reporting 'One ASV with an exact match to Rothia dentocariosa...was highly ranked as predictive across all four disparate sample types' and 'ASVs from the genera Actinomyces, Anaerococcus, Dialister, Gemella, and Schaalia were in the top 40 ranked predictive features.' These rankings drive their biological conclusions about which taxa are most associated with SARS-CoV-2.\""
+  },
+  "usage": {
+    "input_tokens": 24478,
+    "output_tokens": 98,
+    "cost": 0.001028076,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001028076,
+      "upstream_inference_prompt_cost": 0.001028076,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.73
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.75
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.64,
+          "refuted": 0.29,
+          "uncertain": 0.07
+        },
+        "confidence": 0.46
+      }
+    },
+    "usage": {
+      "input_tokens": 24478,
+      "output_tokens": 98,
+      "cost": 0.001028076,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001028076,
+        "upstream_inference_prompt_cost": 0.001028076,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223177-QamW40AoGj4LnLXhK8ME",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:38Z"
+}

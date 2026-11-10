@@ -1,0 +1,114 @@
+{
+  "id": "W4392811269",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4392811269.txt",
+  "input_sha256": "504339d3e713afbe1a01e6c82c8a5bc012614542311712a969de885c66a56e58",
+  "input_chars": 73966,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.37,
+  "ranking_central_prob": 0.89,
+  "uncorroborated_prob": 0.8,
+  "conditions_met": false,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.46,
+    "refuted": 0.47,
+    "uncertain": 0.07
+  },
+  "verdict_confidence": 0.2,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.37
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.89
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.8
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.46,
+        "refuted": 0.47,
+        "uncertain": 0.07
+      },
+      "confidence": 0.2
+    }
+  },
+  "stage1_record": {
+    "id": "W4392811269",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "conditional"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses random forest with randomForestSRC and ranger packages, stating \"Variable importance estimates were also examined to understand which variables made the strongest contributions to model performance. Note that variable importance estimates show how model performance would be impacted if the variable were removed.\" Results explicitly interpret ranking: \"Examining variable importance estimates revealed that maternal pre-eclampsia, anxiety, obesity, hypertension and tobacco use were the top five predictors\" and \"two of the CpG sites...moved into the top five variables with the greatest variable importance scores.\" The ranking is central to the conclusion: \"These findings again highlight why it is so important to add internal measures, like the epigenome, to an exposome approach\"\u2014justified by epigenetic variables entering the top five. Corroboration via ExWAS and cumulative exposure models shows which variables are associated but does not validate the specific ranking. Features are heterogeneous: maternal demographics (categorical/continuous), medical conditions (binary), substance use (binary/ordinal), infant characteristics (continuous), and DNA methylation sites (continuous 0-1), with varying cardinality and skew."
+  },
+  "usage": {
+    "input_tokens": 20224,
+    "output_tokens": 99,
+    "cost": 0.000849408,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000849408,
+      "upstream_inference_prompt_cost": 0.000849408,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.37
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.89
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.8
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.46,
+          "refuted": 0.47,
+          "uncertain": 0.07
+        },
+        "confidence": 0.2
+      }
+    },
+    "usage": {
+      "input_tokens": 20224,
+      "output_tokens": 99,
+      "cost": 0.000849408,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000849408,
+        "upstream_inference_prompt_cost": 0.000849408,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223183-gPgBPugJatHUd3HWdHya",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:43Z"
+}

@@ -1,0 +1,112 @@
+{
+  "id": "W3198579878",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3198579878.txt",
+  "input_sha256": "e51937f59977e275f83a458e92839133d232517c7c3bc8b86d76ca5ac63930c0",
+  "input_chars": 50985,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.1,
+  "ranking_central_prob": 0.84,
+  "uncorroborated_prob": 0.8,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.49,
+    "refuted": 0.48,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.24,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.1
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.84
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.8
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.49,
+        "refuted": 0.48,
+        "uncertain": 0.03
+      },
+      "confidence": 0.24
+    }
+  },
+  "stage1_record": {
+    "id": "W3198579878",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [],
+    "feature_heterogeneity": [
+      "unclear"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper explicitly computes variable importance as \"the percent increase in mean-squared error for a model with the variable over a model with a permuted version of that variable, scaled for comparability across variables\" (Methods 2.7) and reports: \"The random forest identified uniformity, entropy, and energy as the most important radiomic features for classifying lesions.\" It then interprets rankings: \"The radiomic features that were the most important in this context aimed to measure the variability of intensity within a lesion (entropy and uniformity) or quantify the magnitudes of the intensities themselves (energy)\" (Discussion). These conclusions about which features \"are most important\" and why they matter biologically are drawn from impurity importance without corroboration via permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation."
+  },
+  "usage": {
+    "input_tokens": 15718,
+    "output_tokens": 98,
+    "cost": 0.000660156,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000660156,
+      "upstream_inference_prompt_cost": 0.000660156,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.1
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.84
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.8
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.49,
+          "refuted": 0.48,
+          "uncertain": 0.03
+        },
+        "confidence": 0.24
+      }
+    },
+    "usage": {
+      "input_tokens": 15718,
+      "output_tokens": 98,
+      "cost": 0.000660156,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000660156,
+        "upstream_inference_prompt_cost": 0.000660156,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223178-wVyfZgfH8dzAni5vozSY",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:38Z"
+}

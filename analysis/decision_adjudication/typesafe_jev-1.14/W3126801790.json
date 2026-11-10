@@ -1,0 +1,116 @@
+{
+  "id": "W3126801790",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3126801790.txt",
+  "input_sha256": "449b3d17c84b482241ff5e14650d43f3a8e1c6ec33bf743454d82510999936da",
+  "input_chars": 57334,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.85,
+  "ranking_central_prob": 0.84,
+  "uncorroborated_prob": 0.76,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.63,
+    "refuted": 0.23,
+    "uncertain": 0.14
+  },
+  "verdict_confidence": 0.44,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.85
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.84
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.76
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.63,
+        "refuted": 0.23,
+        "uncertain": 0.14
+      },
+      "confidence": 0.44
+    }
+  },
+  "stage1_record": {
+    "id": "W3126801790",
+    "set": "rejected_sample",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation",
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper ranks genes by RF selection frequencies (Table 3), identifying 'LY6E, IFI27 and CD177 as important key genes' and biomarker panels based on which features were selected most often in backward elimination and genetic algorithm runs. These rankings are derived entirely from RF impurity importance via VarSelRF and GALGO. The paper validates predictive performance via cross-manufacturer held-out testing (Fig 5) and functional enrichment, confirming genes lie in immune-response pathways. However, no permutation importance, SHAP, PDP/ALE, or conditional importance analysis is reported to validate whether the magnitude and ranking of individual gene importance is accurate. The impurity-importance bias could distort which genes are ranked highest without invalidating model accuracy."
+  },
+  "usage": {
+    "input_tokens": 16246,
+    "output_tokens": 98,
+    "cost": 0.000682332,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000682332,
+      "upstream_inference_prompt_cost": 0.000682332,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.85
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.84
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.76
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.63,
+          "refuted": 0.23,
+          "uncertain": 0.14
+        },
+        "confidence": 0.44
+      }
+    },
+    "usage": {
+      "input_tokens": 16246,
+      "output_tokens": 98,
+      "cost": 0.000682332,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000682332,
+        "upstream_inference_prompt_cost": 0.000682332,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223177-w0WDS0pCA8Tp5VWQHdW6",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:37Z"
+}

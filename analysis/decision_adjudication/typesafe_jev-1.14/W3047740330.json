@@ -1,0 +1,116 @@
+{
+  "id": "W3047740330",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3047740330.txt",
+  "input_sha256": "d4725095f271af1874177a171f374d73040641269d4adf219b1054a4a60e60f4",
+  "input_chars": 143216,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.17,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.83,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.62,
+    "refuted": 0.36,
+    "uncertain": 0.02
+  },
+  "verdict_confidence": 0.43,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.17
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.83
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.62,
+        "refuted": 0.36,
+        "uncertain": 0.02
+      },
+      "confidence": 0.43
+    }
+  },
+  "stage1_record": {
+    "uses_impurity_importance": true,
+    "pvalue_method": "boruta",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: 'We retrieved the features' \"importance score\" from the Boruta algorithm' using 'Z-scores of mean decrease accuracy measure as importance attribute.' The paper then ranks features as 'the strongest predictor of variation' and constructs mechanistic conclusions: 'Two classes of genes with low variation have distinct regulatory mechanisms' based on which features rank highest (broad promoter TF occupancy vs. narrow promoter Pol II pausing). These ranking claims lack alternative validation: Boruta tests only that features 'predict better than their permuted version' (binary selection), not magnitude. Cross-validation provides held-out performance but not corroboration of feature ranking robustness to impurity bias.",
+    "id": "W3047740330",
+    "set": "survivor"
+  },
+  "usage": {
+    "input_tokens": 39718,
+    "output_tokens": 98,
+    "cost": 0.001668156,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001668156,
+      "upstream_inference_prompt_cost": 0.001668156,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.17
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.83
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.62,
+          "refuted": 0.36,
+          "uncertain": 0.02
+        },
+        "confidence": 0.43
+      }
+    },
+    "usage": {
+      "input_tokens": 39718,
+      "output_tokens": 98,
+      "cost": 0.001668156,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001668156,
+        "upstream_inference_prompt_cost": 0.001668156,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223176-LFVvLrWxrPaBVtjxuYzv",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:36Z"
+}

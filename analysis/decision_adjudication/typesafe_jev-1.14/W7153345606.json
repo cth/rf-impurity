@@ -1,0 +1,117 @@
+{
+  "id": "W7153345606",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W7153345606.txt",
+  "input_sha256": "a706790123f77f0d4282469209029a75cec42c6443d2a36373bfc8d885794183",
+  "input_chars": 87207,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.76,
+  "ranking_central_prob": 0.9,
+  "uncorroborated_prob": 0.15,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.51,
+    "refuted": 0.46,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.26,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.76
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.9
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.15
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.51,
+        "refuted": 0.46,
+        "uncertain": 0.03
+      },
+      "confidence": 0.26
+    }
+  },
+  "stage1_record": {
+    "id": "W7153345606",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "shap",
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states \"RF constructs a collection of decision trees and aggregates their predictions, providing both high predictive performance and feature importance scores for biological features\" and explicitly interprets feature ranking: \"Under drought stress, the most highly contributing features were predominantly flavonoids, including isoflavones (e.g. daidzin and its derivatives and genistin).\" The abstract concludes that \"SHAP indicated that the isoflavone derivative, daidzin, and the drought-tolerant Candidatus Nitrosocosmicus, were major contributors to phenotypic variation.\" The paper uses SHAP for post-hoc interpretation of an RF importance-ranked model, not permutation importance or other magnitude-corroborating methods prior to drawing conclusions about feature ranking and magnitude."
+  },
+  "usage": {
+    "input_tokens": 25874,
+    "output_tokens": 98,
+    "cost": 0.001086708,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001086708,
+      "upstream_inference_prompt_cost": 0.001086708,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.76
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.9
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.15
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.51,
+          "refuted": 0.46,
+          "uncertain": 0.03
+        },
+        "confidence": 0.26
+      }
+    },
+    "usage": {
+      "input_tokens": 25874,
+      "output_tokens": 98,
+      "cost": 0.001086708,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001086708,
+        "upstream_inference_prompt_cost": 0.001086708,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223186-A2feLGZ1AHXWNTQIEumH",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:47Z"
+}

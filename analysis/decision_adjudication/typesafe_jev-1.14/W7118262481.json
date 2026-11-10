@@ -1,0 +1,117 @@
+{
+  "id": "W7118262481",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W7118262481.txt",
+  "input_sha256": "4a5c71422df5a4e4da3ebb1bd25a481082bb6550f33f75f84f31392d9fb0bf39",
+  "input_chars": 53507,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.78,
+  "uncorroborated_prob": 0.64,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.87,
+    "refuted": 0.12,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.8,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.78
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.64
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.87,
+        "refuted": 0.12,
+        "uncertain": 0.01
+      },
+      "confidence": 0.8
+    }
+  },
+  "stage1_record": {
+    "id": "W7118262481",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation",
+      "shap"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper ranks features by Gini score and emphasizes that Maskoriginal_VolumeNum \"had a Gini score significantly higher than all other features, underscoring its importance in the model.\" Feature selection is driven by ranking: \"The top features, ranging from the top 5 to 20, were then used as inputs.\" However, SHAP values are mentioned only in supplementary material without discussion of whether they corroborate the Gini ranking, and no permutation/conditional importance is provided. In a 65-patient cohort with 112+ radiomic features mixed with categorical clinical variables, impurity importance will be biased toward high-cardinality features, yet the ranking is treated as ground truth for interpretation."
+  },
+  "usage": {
+    "input_tokens": 18728,
+    "output_tokens": 98,
+    "cost": 0.000786576,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000786576,
+      "upstream_inference_prompt_cost": 0.000786576,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.78
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.64
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.87,
+          "refuted": 0.12,
+          "uncertain": 0.01
+        },
+        "confidence": 0.8
+      }
+    },
+    "usage": {
+      "input_tokens": 18728,
+      "output_tokens": 98,
+      "cost": 0.000786576,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000786576,
+        "upstream_inference_prompt_cost": 0.000786576,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223186-fH5eZk26UlZ6UGHwBapo",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:46Z"
+}

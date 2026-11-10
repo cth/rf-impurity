@@ -1,0 +1,114 @@
+{
+  "id": "W4412136488",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4412136488.txt",
+  "input_sha256": "9f6770faa8a0913d3fea84f44172dd87dc1db6be88b9205abd9b0fc0ced7327b",
+  "input_chars": 77842,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.97,
+  "ranking_central_prob": 0.93,
+  "uncorroborated_prob": 0.94,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.95,
+    "refuted": 0.05,
+    "uncertain": 0
+  },
+  "verdict_confidence": 0.92,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.95,
+        "refuted": 0.05,
+        "uncertain": 0
+      },
+      "confidence": 0.92
+    }
+  },
+  "stage1_record": {
+    "id": "W4412136488",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper identifies significant predictors using Gini importance thresholds: \"The predictor variables were considered significant only if they exceeded the absolute values of the variable with the lowest Gini impurity.\" Three variables are ranked by importance magnitude (wing chord 0.494 > trash 0.38 > tables 0.375) and interpreted as \"the most significant variables for predicting infection risk.\" The core conclusion states: \"biotic factors\u2014rather than abiotic environmental conditions\u2014may play a more significant role in increasing infection risk.\" No independent validation method (permutation, SHAP, PDP/ALE, conditional importance) corroborates these importance rankings."
+  },
+  "usage": {
+    "input_tokens": 24284,
+    "output_tokens": 98,
+    "cost": 0.001019928,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001019928,
+      "upstream_inference_prompt_cost": 0.001019928,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.95,
+          "refuted": 0.05,
+          "uncertain": 0
+        },
+        "confidence": 0.92
+      }
+    },
+    "usage": {
+      "input_tokens": 24284,
+      "output_tokens": 98,
+      "cost": 0.001019928,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001019928,
+        "upstream_inference_prompt_cost": 0.001019928,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223185-6g5u4kirUmkAaaCkEcEw",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:46Z"
+}

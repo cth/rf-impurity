@@ -1,0 +1,112 @@
+{
+  "id": "W4415614888",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4415614888.txt",
+  "input_sha256": "86cb7c09175845d7b5a17bff24ab3ceaaac4c1c6c44bf8db2a94fe6b8707e0c0",
+  "input_chars": 82772,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.67,
+  "ranking_central_prob": 0.97,
+  "uncorroborated_prob": 0.92,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.71,
+    "refuted": 0.09,
+    "uncertain": 0.2
+  },
+  "verdict_confidence": 0.56,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.67
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.71,
+        "refuted": 0.09,
+        "uncertain": 0.2
+      },
+      "confidence": 0.56
+    }
+  },
+  "stage1_record": {
+    "id": "W4415614888",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [],
+    "feature_heterogeneity": [
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"we used the 'vivid' package (Inglis et al. 2023) to estimate variable importance and its interaction effects for each predictor\" and concludes: \"photoperiod dominated at the perennial site, while DTW was the controlling factor at intermittent sites\" (Section 3.3). Figure 5 visualizes importance via node size, and the text emphasizes rank: \"photoperiod having the highest importance\" at perennial sites versus \"DTW...dominated\" at intermittent sites. No permutation, SHAP, PDP/ALE, conditional, or held-out validation of these importance rankings is provided; only a sensitivity analysis of model performance confirms precipitation lags offer \"no significant improvement.\""
+  },
+  "usage": {
+    "input_tokens": 25040,
+    "output_tokens": 98,
+    "cost": 0.00105168,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00105168,
+      "upstream_inference_prompt_cost": 0.00105168,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.67
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.71,
+          "refuted": 0.09,
+          "uncertain": 0.2
+        },
+        "confidence": 0.56
+      }
+    },
+    "usage": {
+      "input_tokens": 25040,
+      "output_tokens": 98,
+      "cost": 0.00105168,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00105168,
+        "upstream_inference_prompt_cost": 0.00105168,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223186-wnino1J7qtqxJ29cS9g7",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:46Z"
+}

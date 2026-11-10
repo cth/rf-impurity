@@ -1,0 +1,116 @@
+{
+  "id": "W4384397967",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4384397967.txt",
+  "input_sha256": "810cbd9fbd7b4e68c454f11c5fc28fd0de0613c6c7e324b283f0c254effc449f",
+  "input_chars": 35075,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.83,
+  "ranking_central_prob": 0.85,
+  "uncorroborated_prob": 0.92,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.91,
+    "refuted": 0.07,
+    "uncertain": 0.02
+  },
+  "verdict_confidence": 0.86,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.83
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.85
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.91,
+        "refuted": 0.07,
+        "uncertain": 0.02
+      },
+      "confidence": 0.86
+    }
+  },
+  "stage1_record": {
+    "id": "W4384397967",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "conditional"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper reports: \"The highest ranking variables of importance for classification and all regression variables were irradiation year and PTV1 and PTV2 extent.\" However, univariate analysis contradicts this parity: extent predicts pass rate with R^2=0.71-0.85 (p=0.008-0.003), while year shows R^2=0.30 (p=0.20, non-significant). The ranking that year equals extent in importance is not corroborated by univariate regression. No permutation, SHAP, PDP/ALE, or conditional importance is provided to defend the ranked distinction between variables, leaving the ranking vulnerable to impurity bias magnification."
+  },
+  "usage": {
+    "input_tokens": 10801,
+    "output_tokens": 98,
+    "cost": 0.000453642,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000453642,
+      "upstream_inference_prompt_cost": 0.000453642,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.83
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.85
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.91,
+          "refuted": 0.07,
+          "uncertain": 0.02
+        },
+        "confidence": 0.86
+      }
+    },
+    "usage": {
+      "input_tokens": 10801,
+      "output_tokens": 98,
+      "cost": 0.000453642,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000453642,
+        "upstream_inference_prompt_cost": 0.000453642,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223181-DxlBmKtLhqddEisXrbVy",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:42Z"
+}

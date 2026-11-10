@@ -1,0 +1,116 @@
+{
+  "id": "W4415960373",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4415960373.txt",
+  "input_sha256": "75ab57d8231e2228c94bc6fe58cb8b2b38c13ccf69b4b7574b5a24846ba9fcb4",
+  "input_chars": 68510,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.97,
+  "uncorroborated_prob": 0.95,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.95,
+    "refuted": 0.05,
+    "uncertain": 0
+  },
+  "verdict_confidence": 0.92,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.95,
+        "refuted": 0.05,
+        "uncertain": 0
+      },
+      "confidence": 0.92
+    }
+  },
+  "stage1_record": {
+    "id": "W4415960373",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses Gini impurity importance via ranger: \"Node impurity was measured by the Gini index embedded within the R package ranger to determine variable importance.\" It interprets magnitude and ranking without corroboration: \"The most important predictor of adjustment to civilian life was life satisfaction\" and \"the top ten most important predictors...in order of importance, were life satisfaction, mastery, mental health, age, BMI, social support, satisfaction with one's main activity, general health, income, and financial satisfaction.\" No permutation importance, SHAP, PDP/ALE, conditional importance, or held-out validation is used; multinomial logistic regression tests class differences on selected predictors but does not validate the importance rankings themselves."
+  },
+  "usage": {
+    "input_tokens": 17148,
+    "output_tokens": 98,
+    "cost": 0.000720216,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000720216,
+      "upstream_inference_prompt_cost": 0.000720216,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.95,
+          "refuted": 0.05,
+          "uncertain": 0
+        },
+        "confidence": 0.92
+      }
+    },
+    "usage": {
+      "input_tokens": 17148,
+      "output_tokens": 98,
+      "cost": 0.000720216,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000720216,
+        "upstream_inference_prompt_cost": 0.000720216,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223186-TujbS1d6vkr1PJ7n5n0l",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:46Z"
+}

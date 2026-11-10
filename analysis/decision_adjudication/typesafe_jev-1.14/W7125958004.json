@@ -1,0 +1,115 @@
+{
+  "id": "W7125958004",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W7125958004.txt",
+  "input_sha256": "ca18bf68764b7d6b881528c99a7d3f344ec773831c54bd58f67d988e8d97e95e",
+  "input_chars": 111343,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.85,
+  "uncorroborated_prob": 0.89,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.9,
+    "refuted": 0.09,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.85,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.85
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.89
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.9,
+        "refuted": 0.09,
+        "uncertain": 0.01
+      },
+      "confidence": 0.85
+    }
+  },
+  "stage1_record": {
+    "id": "W7125958004",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "conditional"
+    ],
+    "feature_heterogeneity": [
+      "high_cardinality",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper explicitly uses \"decrease of node impurity\" for Random Forest and \"gain\" for XGBoost. Methods section states: \"As feature importance metrics, we selected gain for XGB and decrease of node impurity for RF instead of permutation-based importance.\" The results interpret magnitude and ranking: \"RF model identified 44 highly important markers, with major loci on chromosomes 6A and 6D\" and \"XGB algorithm highlighted highly important loci.\" While MTAs are cross-validated across traditional and ML methods, this validation addresses which variables are selected (yes/no), not whether the magnitude and ranking of impurity importance is correct. No permutation importance, SHAP, PDP/ALE, or conditional importance validation is provided."
+  },
+  "usage": {
+    "input_tokens": 32356,
+    "output_tokens": 98,
+    "cost": 0.001358952,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001358952,
+      "upstream_inference_prompt_cost": 0.001358952,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.85
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.89
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.9,
+          "refuted": 0.09,
+          "uncertain": 0.01
+        },
+        "confidence": 0.85
+      }
+    },
+    "usage": {
+      "input_tokens": 32356,
+      "output_tokens": 98,
+      "cost": 0.001358952,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001358952,
+        "upstream_inference_prompt_cost": 0.001358952,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223186-Tgh7mCsT2Sca5im2ejcA",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:47Z"
+}

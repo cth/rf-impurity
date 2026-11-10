@@ -1,0 +1,114 @@
+{
+  "id": "W4200472447",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4200472447.txt",
+  "input_sha256": "95e986c6b6a085d949d0b4d6d6d440725cb70b41414ba0003b681bb02b4a9b8b",
+  "input_chars": 57218,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.85,
+  "uncorroborated_prob": 0.86,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.91,
+    "refuted": 0.08,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.86,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.85
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.86
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.91,
+        "refuted": 0.08,
+        "uncertain": 0.01
+      },
+      "confidence": 0.86
+    }
+  },
+  "stage1_record": {
+    "id": "W4200472447",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"Random forest classification analysis was carried out following optimization of the random forest model parameters using the R libraries caret and ranger. The importance of variables was calculated and presented using the randomForestExplainer package,\" employing \"mean decrease in gini\" metrics. The results explicitly interpret the importance ranking: \"Importance analysis of the variables suggested that 6 of the 7 (86%) INA, 2 of the 4 (50%) NHLH2, and 2 of the 7 (29%) THBS4 annotated CpG loci were the most important predictors.\" The paper uses this ranking to identify \"a subset of 10 candidate loci from the total of 18\" as most informative for the biomarker signature. While test-set validation demonstrates 73% classification accuracy, the importance ranking itself lacks corroboration via permutation importance, SHAP, or other bias-robust methods."
+  },
+  "usage": {
+    "input_tokens": 19046,
+    "output_tokens": 98,
+    "cost": 0.000799932,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000799932,
+      "upstream_inference_prompt_cost": 0.000799932,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.85
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.86
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.91,
+          "refuted": 0.08,
+          "uncertain": 0.01
+        },
+        "confidence": 0.86
+      }
+    },
+    "usage": {
+      "input_tokens": 19046,
+      "output_tokens": 98,
+      "cost": 0.000799932,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000799932,
+        "upstream_inference_prompt_cost": 0.000799932,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223178-l8QYLro5UDEbJQCMRFqa",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:38Z"
+}

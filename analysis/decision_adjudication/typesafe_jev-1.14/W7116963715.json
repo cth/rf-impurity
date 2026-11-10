@@ -1,0 +1,115 @@
+{
+  "id": "W7116963715",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W7116963715.txt",
+  "input_sha256": "ada1b310156239f3525f544cf49004b969d12e2c4f6e5bff810c5c47a6ca42b2",
+  "input_chars": 112642,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.75,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.68,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.82,
+    "refuted": 0.13,
+    "uncertain": 0.05
+  },
+  "verdict_confidence": 0.73,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.75
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.68
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.82,
+        "refuted": 0.13,
+        "uncertain": 0.05
+      },
+      "confidence": 0.73
+    }
+  },
+  "stage1_record": {
+    "id": "W7116963715",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper identifies drivers of fish species loss by ranking RF impurity importance: 'The most important predictor variables in the heavily modified and agricultural Sacramento-San Joaquin ecoregion are local, reach-scale hydrologic regulation...followed by upstream dam density.' and 'change in stream length...ranks highest in explaining declines in fish community composition.' These rankings guide conservation strategy recommendations (dam removal, habitat restoration). While PDPs are used to interpret relationships of top-ranked variables, they do not corroborate the rankings themselves; permutation importance or SHAP values would be required for that."
+  },
+  "usage": {
+    "input_tokens": 28318,
+    "output_tokens": 98,
+    "cost": 0.001189356,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001189356,
+      "upstream_inference_prompt_cost": 0.001189356,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.75
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.68
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.82,
+          "refuted": 0.13,
+          "uncertain": 0.05
+        },
+        "confidence": 0.73
+      }
+    },
+    "usage": {
+      "input_tokens": 28318,
+      "output_tokens": 98,
+      "cost": 0.001189356,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001189356,
+        "upstream_inference_prompt_cost": 0.001189356,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223186-pqLKpbgkgtCs5zKVp0R7",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:46Z"
+}

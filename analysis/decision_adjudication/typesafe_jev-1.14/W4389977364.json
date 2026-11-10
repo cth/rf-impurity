@@ -1,0 +1,114 @@
+{
+  "id": "W4389977364",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4389977364.txt",
+  "input_sha256": "9558d4229c2d39183e52fcf242addc78121f148b5d58f474b2a3aeef28869256",
+  "input_chars": 62828,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.8,
+  "uncorroborated_prob": 0.86,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.93,
+    "refuted": 0.06,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.89,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.8
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.86
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.93,
+        "refuted": 0.06,
+        "uncertain": 0.01
+      },
+      "confidence": 0.89
+    }
+  },
+  "stage1_record": {
+    "id": "W4389977364",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper explicitly uses \"average Gini impurity increase\" importance and ranks genes by it: \"Not only known marker genes, such as S100A12 and S100A9, but also genes encoding ribosomal components and mitochondrial genes (examples including COX6B1, MT-RNR2, RPS9) were among the top 10 most important genes (Table S19).\" For pathway enrichment, \"we used the top 50% cumulated importance genes as input and weighted those by feature importance.\" Critically, validation is limited to predictive performance on held-out cohorts; there is no permutation importance, SHAP, or conditional importance analysis to validate the feature ranking itself. The conclusions about which genes distinguish UC from PSC rely substantially on this unvalidated importance ranking."
+  },
+  "usage": {
+    "input_tokens": 18740,
+    "output_tokens": 98,
+    "cost": 0.00078708,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00078708,
+      "upstream_inference_prompt_cost": 0.00078708,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.8
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.86
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.93,
+          "refuted": 0.06,
+          "uncertain": 0.01
+        },
+        "confidence": 0.89
+      }
+    },
+    "usage": {
+      "input_tokens": 18740,
+      "output_tokens": 98,
+      "cost": 0.00078708,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00078708,
+        "upstream_inference_prompt_cost": 0.00078708,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223182-glISTQfqDwZTEEayT9Q6",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:43Z"
+}

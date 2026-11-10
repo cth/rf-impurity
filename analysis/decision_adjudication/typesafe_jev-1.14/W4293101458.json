@@ -1,0 +1,114 @@
+{
+  "id": "W4293101458",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4293101458.txt",
+  "input_sha256": "d6b963cfdbff5d14da828705661699d194af7b59bb1c2f97a55d20a1255a2a30",
+  "input_chars": 115252,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.63,
+  "ranking_central_prob": 0.85,
+  "uncorroborated_prob": 0.37,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.54,
+    "refuted": 0.2,
+    "uncertain": 0.26
+  },
+  "verdict_confidence": 0.31,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.63
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.85
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.37
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.54,
+        "refuted": 0.2,
+        "uncertain": 0.26
+      },
+      "confidence": 0.31
+    }
+  },
+  "stage1_record": {
+    "id": "W4293101458",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states it \"estimated the relative variable importance for the 22 topics as predictors in the random forests classification model\" which \"provided a global relative ranking of the topics,\" explicitly noting that \"cookie_1 was ranked as the most important predictor.\" The discussion emphasizes these as \"most influential\" predictors. While partial dependence profiles (PDP) are used via DALEX to examine individual topic contributions, the importance ranking itself drives which topics are deemed central for each story type, with limited statistical corroboration beyond PDP follow-up analysis."
+  },
+  "usage": {
+    "input_tokens": 30426,
+    "output_tokens": 98,
+    "cost": 0.001277892,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001277892,
+      "upstream_inference_prompt_cost": 0.001277892,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.63
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.85
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.37
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.54,
+          "refuted": 0.2,
+          "uncertain": 0.26
+        },
+        "confidence": 0.31
+      }
+    },
+    "usage": {
+      "input_tokens": 30426,
+      "output_tokens": 98,
+      "cost": 0.001277892,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001277892,
+        "upstream_inference_prompt_cost": 0.001277892,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223180-qBazsouVUMrWH9q4obyJ",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:40Z"
+}

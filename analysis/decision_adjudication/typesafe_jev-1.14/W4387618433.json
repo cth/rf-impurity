@@ -1,0 +1,115 @@
+{
+  "id": "W4387618433",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4387618433.txt",
+  "input_sha256": "bb02e8148d8e949ae787a0230d5063a2035662862497f0015efb1be491bd1fb2",
+  "input_chars": 55172,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.92,
+  "ranking_central_prob": 0.92,
+  "uncorroborated_prob": 0.93,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.96,
+    "refuted": 0.04,
+    "uncertain": 0
+  },
+  "verdict_confidence": 0.94,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.96,
+        "refuted": 0.04,
+        "uncertain": 0
+      },
+      "confidence": 0.94
+    }
+  },
+  "stage1_record": {
+    "id": "W4387618433",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses Random Forest importance as \"reduction in sum of squared errors whenever a variable is chosen to split a node\" and states \"It is clear that for 2020 and 2021 G has a greater importance compared to the other features.\" It then concludes \"We demonstrate that human mobility data from Google...can be used to nowcast tourism demand,\" resting this claim on G's superior importance ranking. No permutation importance, SHAP, PDP/ALE, or alternative validation is provided. Features include continuous mobility (skewed by lockdowns) and categorical tourism/population variables."
+  },
+  "usage": {
+    "input_tokens": 15262,
+    "output_tokens": 98,
+    "cost": 0.000641004,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000641004,
+      "upstream_inference_prompt_cost": 0.000641004,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.96,
+          "refuted": 0.04,
+          "uncertain": 0
+        },
+        "confidence": 0.94
+      }
+    },
+    "usage": {
+      "input_tokens": 15262,
+      "output_tokens": 98,
+      "cost": 0.000641004,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000641004,
+        "upstream_inference_prompt_cost": 0.000641004,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223182-jpjoJKQq5LrHA1ByTyId",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:42Z"
+}

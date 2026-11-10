@@ -1,0 +1,115 @@
+{
+  "id": "W2741922227",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W2741922227.txt",
+  "input_sha256": "76148a8c5355dcb8aa733eb948d2b8660b6e9646912afb25626bff14af6f82ac",
+  "input_chars": 79044,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.73,
+  "ranking_central_prob": 0.93,
+  "uncorroborated_prob": 0.94,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.85,
+    "refuted": 0.12,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.77,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.73
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.85,
+        "refuted": 0.12,
+        "uncertain": 0.03
+      },
+      "confidence": 0.77
+    }
+  },
+  "stage1_record": {
+    "id": "W2741922227",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"The variable importance plot (Fig. 11) further shows that the most influential predictors of the crop yield are: crop type, selection of nutrients and micro-nutrients (Mn, Zn, Al, B, Na)...This proves that producing maps of soil nutrients is indeed valuable for modeling agricultural productivity.\" For individual nutrients, they claim \"soil pH is clearly most important covariate for Na, K, Ca, Mg, Al\" and \"Precipitation distinctly comes as the most important covariate overall\" based entirely on ranger importance rankings reported in Table 2. The paper acknowledges post-hoc: \"although some micro-nutrients such as Mn and Zn come highest on the variable importance list, this does not necessarily makes them the most important nutrients in Africa...because soil nutrients are heavily cross-correlated relatively high importance of Mn and Zn could also indicate high importance of P, B, Fe and/or S.\""
+  },
+  "usage": {
+    "input_tokens": 22031,
+    "output_tokens": 98,
+    "cost": 0.000925302,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000925302,
+      "upstream_inference_prompt_cost": 0.000925302,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.73
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.85,
+          "refuted": 0.12,
+          "uncertain": 0.03
+        },
+        "confidence": 0.77
+      }
+    },
+    "usage": {
+      "input_tokens": 22031,
+      "output_tokens": 98,
+      "cost": 0.000925302,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000925302,
+        "upstream_inference_prompt_cost": 0.000925302,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223175-zxI4vo6wN6N8v4WSovyz",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:35Z"
+}

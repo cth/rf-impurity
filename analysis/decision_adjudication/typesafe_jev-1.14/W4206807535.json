@@ -1,0 +1,117 @@
+{
+  "id": "W4206807535",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4206807535.txt",
+  "input_sha256": "e87c0e1573a90ad7992f4fcae6a3d48d85aef10695f62d1acd74e8f1ed8abb09",
+  "input_chars": 49098,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.81,
+  "ranking_central_prob": 0.75,
+  "uncorroborated_prob": 0.94,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.74,
+    "refuted": 0.23,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.61,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.81
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.75
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.74,
+        "refuted": 0.23,
+        "uncertain": 0.03
+      },
+      "confidence": 0.61
+    }
+  },
+  "stage1_record": {
+    "id": "W4206807535",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses random forest feature importance to \"select variables with the top 11 average feature importance in each multi-omics data\" (Section 2.2) and interprets biological meaning from rankings: \"Among the selected bacteria and metabolic pathways used for the 30-day mortality prediction, 6 pathways were related to purine nucleoside biosynthesis. Nucleotide biosynthesis has been reported to be critical for the growth of bacteria in human blood.\" No corroboration via permutation, SHAP, PDP/ALE, or conditional importance is provided, and the heterogeneous omics data (529 bacterial species, 472 pathways, 287 lipids, plus metabolites and clinical labs with different scales and distributions) amplifies impurity-importance bias risk."
+  },
+  "usage": {
+    "input_tokens": 15648,
+    "output_tokens": 98,
+    "cost": 0.000657216,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000657216,
+      "upstream_inference_prompt_cost": 0.000657216,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.81
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.75
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.74,
+          "refuted": 0.23,
+          "uncertain": 0.03
+        },
+        "confidence": 0.61
+      }
+    },
+    "usage": {
+      "input_tokens": 15648,
+      "output_tokens": 98,
+      "cost": 0.000657216,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000657216,
+        "upstream_inference_prompt_cost": 0.000657216,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223179-fiPi7Zq0QydR9scggO9S",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:39Z"
+}

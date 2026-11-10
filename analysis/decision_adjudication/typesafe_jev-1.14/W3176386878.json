@@ -1,0 +1,117 @@
+{
+  "id": "W3176386878",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W3176386878.txt",
+  "input_sha256": "d610375ad9da776c1357f21f4e6d9bf3750c6b9ec6d68f41db7940378082f947",
+  "input_chars": 75135,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.79,
+  "ranking_central_prob": 0.97,
+  "uncorroborated_prob": 0.94,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.68,
+    "refuted": 0.16,
+    "uncertain": 0.16
+  },
+  "verdict_confidence": 0.52,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.79
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.97
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.68,
+        "refuted": 0.16,
+        "uncertain": 0.16
+      },
+      "confidence": 0.52
+    }
+  },
+  "stage1_record": {
+    "id": "W3176386878",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses ranger random forest and reports importance rankings as central findings: \"The most important variables in our soil texture models are soil physical environment classes and soil parent material, followed by altitude and variables regarding climate\" (Discussion, Variable importance section). The conclusion depends on this ranking: \"Relative measures of variable importance in the models confirm that the characterization and delineation of soil characteristics by trained photo-interpreters are more relevant for soil texture mapping than climate and remote sensing covariates.\" No independent corroboration (permutation, SHAP, PDP/ALE, conditional, or held-out validation) is provided to validate these importance magnitude/ranking claims."
+  },
+  "usage": {
+    "input_tokens": 21797,
+    "output_tokens": 98,
+    "cost": 0.000915474,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000915474,
+      "upstream_inference_prompt_cost": 0.000915474,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.79
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.97
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.68,
+          "refuted": 0.16,
+          "uncertain": 0.16
+        },
+        "confidence": 0.52
+      }
+    },
+    "usage": {
+      "input_tokens": 21797,
+      "output_tokens": 98,
+      "cost": 0.000915474,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000915474,
+        "upstream_inference_prompt_cost": 0.000915474,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223178-eW8ivxpZRU4n7nmDfqyM",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:38Z"
+}

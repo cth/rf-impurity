@@ -1,0 +1,117 @@
+{
+  "id": "W4410521450",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4410521450.txt",
+  "input_sha256": "fbda2a036ef599b9f0c95091cb6df09b6e902472cb6ed9d63ccfde6ce8d218fa",
+  "input_chars": 48548,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.92,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.73,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.86,
+    "refuted": 0.12,
+    "uncertain": 0.02
+  },
+  "verdict_confidence": 0.79,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.92
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.73
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.86,
+        "refuted": 0.12,
+        "uncertain": 0.02
+      },
+      "confidence": 0.79
+    }
+  },
+  "stage1_record": {
+    "id": "W4410521450",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses \"corrected impurity measure which estimates mean decrease in accuracy\" via ranger to rank importance of 32 predictors. The core conclusions depend on this ranking: \"Location variables, including longitude, latitude and country had high predictive power...Forest landscape characteristics tended to be very important...Factors relating directly to forms of human pressure...had little influence.\" These importance-based rankings drive policy recommendations that \"restoration efforts...should target areas with high surrounding forest landscape integrity.\" The feature space is vulnerable to impurity bias: data are \"heavily skewed towards younger forests\" (52% age \u22645 years), include mixed variable types (continuous environmental, high-cardinality categorical locations like country, landscape indices), and lack corroboration beyond partial dependence plots (which show shape, not relative importance)."
+  },
+  "usage": {
+    "input_tokens": 13612,
+    "output_tokens": 98,
+    "cost": 0.000571704,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000571704,
+      "upstream_inference_prompt_cost": 0.000571704,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.92
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.73
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.86,
+          "refuted": 0.12,
+          "uncertain": 0.02
+        },
+        "confidence": 0.79
+      }
+    },
+    "usage": {
+      "input_tokens": 13612,
+      "output_tokens": 98,
+      "cost": 0.000571704,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000571704,
+        "upstream_inference_prompt_cost": 0.000571704,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223185-8OM9MkYrF32IQV7cZrxn",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:45Z"
+}

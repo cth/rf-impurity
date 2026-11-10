@@ -1,0 +1,115 @@
+{
+  "id": "W4311575488",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4311575488.txt",
+  "input_sha256": "46ec5abd6eadec015fffd03ea6da5942a74ace1dce32a6919683d79c2c9ddf5e",
+  "input_chars": 68335,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.79,
+  "ranking_central_prob": 0.94,
+  "uncorroborated_prob": 0.6,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.73,
+    "refuted": 0.24,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.6,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.79
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.6
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.73,
+        "refuted": 0.24,
+        "uncertain": 0.03
+      },
+      "confidence": 0.6
+    }
+  },
+  "stage1_record": {
+    "id": "W4311575488",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The authors explicitly interpret importance magnitude and ranking: \"Governance effectiveness is the most important governance indicator in fixed gear, longliner and tuna purse seiner DWF, for the latter two it is the most informative across all variables\" and \"Tuna purse seiners are the only gear type in which governance indicators dominantly exceed biophysical variables in their Variable Importance scores.\" They use this ranking to argue that governance performance is unexpectedly important relative to traditional fisheries productivity theory. Corroboration is limited to ALE plots showing directional effects, with no permutation importance, SHAP, conditional importance, or held-out validation to confirm the ranking. Features combine six heterogeneous governance ordinals with continuous biophysical variables at different depths, all z-score standardized but inherently incommensurate."
+  },
+  "usage": {
+    "input_tokens": 18422,
+    "output_tokens": 98,
+    "cost": 0.000773724,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000773724,
+      "upstream_inference_prompt_cost": 0.000773724,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.79
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.6
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.73,
+          "refuted": 0.24,
+          "uncertain": 0.03
+        },
+        "confidence": 0.6
+      }
+    },
+    "usage": {
+      "input_tokens": 18422,
+      "output_tokens": 98,
+      "cost": 0.000773724,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000773724,
+        "upstream_inference_prompt_cost": 0.000773724,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223181-khiUcLXFIIrIOtpT9oky",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:41Z"
+}

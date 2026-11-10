@@ -1,0 +1,116 @@
+{
+  "id": "W2957116182",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W2957116182.txt",
+  "input_sha256": "f116fe3f24e3a42207d53e47485f6f5d167bc8316bd1fc00a0803f2077a56a38",
+  "input_chars": 64528,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.82,
+  "uncorroborated_prob": 0.79,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.94,
+    "refuted": 0.05,
+    "uncertain": 0.01
+  },
+  "verdict_confidence": 0.91,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.82
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.79
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.94,
+        "refuted": 0.05,
+        "uncertain": 0.01
+      },
+      "confidence": 0.91
+    }
+  },
+  "stage1_record": {
+    "id": "W2957116182",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper identifies top oncogenes by ranking Gini impurity indices: \"The four oncogenes whose mutational statuses are the most important variables...are TP53, BRAF, MYC, and CREBBP, which have Gini impurity indices of 108, 105, 96, and 86\" and selects features based on this ranking without permutation or SHAP validation of importance ranking. Although model performance is validated through cross-validation and the identified genes show biological plausibility, the magnitude and ranking of impurity importance are not corroborated by alternative importance methods."
+  },
+  "usage": {
+    "input_tokens": 17325,
+    "output_tokens": 98,
+    "cost": 0.00072765,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00072765,
+      "upstream_inference_prompt_cost": 0.00072765,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.82
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.79
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.94,
+          "refuted": 0.05,
+          "uncertain": 0.01
+        },
+        "confidence": 0.91
+      }
+    },
+    "usage": {
+      "input_tokens": 17325,
+      "output_tokens": 98,
+      "cost": 0.00072765,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00072765,
+        "upstream_inference_prompt_cost": 0.00072765,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223175-A3EJaK89lOMiszx5R8Zs",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:36Z"
+}

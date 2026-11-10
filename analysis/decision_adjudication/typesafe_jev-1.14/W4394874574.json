@@ -1,0 +1,116 @@
+{
+  "id": "W4394874574",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4394874574.txt",
+  "input_sha256": "502b4ed638274d805987647f72b2d948fce6c8df8d92c484a74a8527eecc1891",
+  "input_chars": 188556,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.07,
+  "ranking_central_prob": 0.93,
+  "uncorroborated_prob": 0.72,
+  "conditions_met": false,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.31,
+    "refuted": 0.66,
+    "uncertain": 0.03
+  },
+  "verdict_confidence": 0.49,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.07
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.93
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.72
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.31,
+        "refuted": 0.66,
+        "uncertain": 0.03
+      },
+      "confidence": 0.49
+    }
+  },
+  "stage1_record": {
+    "id": "W4394874574",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "conditional"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality",
+      "skewed"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"The Chi-Square statistics...and mean decrease accuracy...both ranked the importance of the five predictors identically, showing calving ease and parity to be the most influential predictors for PM, with calving ease showing a much higher importance for PM compared to parity. The brute-force model selection approach ranked parity as the most influential predictor, closely followed by calving ease and breed.\" However, these three methods show discrepant rankings (brute-force differs on whether parity or calving ease is #1), and no permutation importance, SHAP, PDP/ALE, or held-out validation is used. The abstract centrally claims: \"The difficulty of calving, breed and parity of the cow were found to be the most important factors, followed by farm size and season,\" driving breed-specific recommendations without robust corroboration of the importance magnitudes or rankings. The balanced random forest's sensitivity to class imbalance (unbalanced RF ranked breed second vs. third) is acknowledged but not addressed through robust methods.\""
+  },
+  "usage": {
+    "input_tokens": 46403,
+    "output_tokens": 99,
+    "cost": 0.001948926,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001948926,
+      "upstream_inference_prompt_cost": 0.001948926,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.07
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.93
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.72
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.31,
+          "refuted": 0.66,
+          "uncertain": 0.03
+        },
+        "confidence": 0.49
+      }
+    },
+    "usage": {
+      "input_tokens": 46403,
+      "output_tokens": 99,
+      "cost": 0.001948926,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001948926,
+        "upstream_inference_prompt_cost": 0.001948926,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223183-fz6lyIvWNGvYVglRnQMu",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:44Z"
+}

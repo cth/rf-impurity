@@ -1,0 +1,115 @@
+{
+  "id": "W4413489220",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4413489220.txt",
+  "input_sha256": "7ddbeaf76e1cda70bc5437e3e9b7d614318a3fe217008ee12f9aa613741c20c2",
+  "input_chars": 103685,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.06,
+  "ranking_central_prob": 0.91,
+  "uncorroborated_prob": 0.48,
+  "conditions_met": false,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.19,
+    "refuted": 0.77,
+    "uncertain": 0.04
+  },
+  "verdict_confidence": 0.66,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.06
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.91
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.48
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.19,
+        "refuted": 0.77,
+        "uncertain": 0.04
+      },
+      "confidence": 0.66
+    }
+  },
+  "stage1_record": {
+    "id": "W4413489220",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "janitza",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "high_cardinality",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper states: \"For creating a 'small' Random Forest model, the uncorrelated markers with high VI were incrementally added as model features, starting with the markers with the highest VI.\" Results show \"22 markers were detected for R8, 15 for Y and 9 for P\" at f>3 thresholds. The authors acknowledge that \"the VI can be biased\" but rely on Janitza et al. p-value adjustment via f-factor. However, they never corroborate the importance ranking with alternative methods (no SHAP, PDP/ALE, or conditional importance). While held-out validation confirms the selected 50 markers achieve \"similar predictive ability,\" this does not validate the ranking of importance among those markers, which the impurity bias could have distorted."
+  },
+  "usage": {
+    "input_tokens": 33635,
+    "output_tokens": 99,
+    "cost": 0.00141267,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00141267,
+      "upstream_inference_prompt_cost": 0.00141267,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.06
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.91
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.48
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.19,
+          "refuted": 0.77,
+          "uncertain": 0.04
+        },
+        "confidence": 0.66
+      }
+    },
+    "usage": {
+      "input_tokens": 33635,
+      "output_tokens": 99,
+      "cost": 0.00141267,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00141267,
+        "upstream_inference_prompt_cost": 0.00141267,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223186-O0TNKVaj8o9bhVRP0rC7",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:46Z"
+}

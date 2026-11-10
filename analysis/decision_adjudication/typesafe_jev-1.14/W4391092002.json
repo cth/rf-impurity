@@ -1,0 +1,115 @@
+{
+  "id": "W4391092002",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4391092002.txt",
+  "input_sha256": "a5399994e1036ab2c3ffcd557c80b7f35e3556fdbc5e2ff893eb4651dc51ab89",
+  "input_chars": 46241,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.34,
+  "ranking_central_prob": 0.96,
+  "uncorroborated_prob": 0.9,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.64,
+    "refuted": 0.31,
+    "uncertain": 0.05
+  },
+  "verdict_confidence": 0.46,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.34
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.96
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.9
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.64,
+        "refuted": 0.31,
+        "uncertain": 0.05
+      },
+      "confidence": 0.46
+    }
+  },
+  "stage1_record": {
+    "id": "W4391092002",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "boruta",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "none"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "high_cardinality"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper uses Boruta, which \"is built on random survival forest (RF), which determines an unbiased grading of the predictive importance.\" Results emphasize ranking: \"in descending order of importance: PlGF, MMP-12, LOX-1...\" and \"MMP-12 is highlighted as a promising predictive mid-pregnancy biomarker\" and \"BNP and IDUA were the two strongest biomarkers.\" The conclusion states the study \"found MMP-12 to be the most promising candidate.\" Logistic regression was applied only to examine \"the direction of the individual association\" and found significant associations only for late-onset, not validating the Boruta rankings through alternative methods."
+  },
+  "usage": {
+    "input_tokens": 14159,
+    "output_tokens": 98,
+    "cost": 0.000594678,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000594678,
+      "upstream_inference_prompt_cost": 0.000594678,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.34
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.96
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.9
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.64,
+          "refuted": 0.31,
+          "uncertain": 0.05
+        },
+        "confidence": 0.46
+      }
+    },
+    "usage": {
+      "input_tokens": 14159,
+      "output_tokens": 98,
+      "cost": 0.000594678,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000594678,
+        "upstream_inference_prompt_cost": 0.000594678,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223183-FwNlw4TjICToccxjZgVI",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:43Z"
+}

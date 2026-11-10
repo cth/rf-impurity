@@ -1,0 +1,116 @@
+{
+  "id": "W4390875684",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4390875684.txt",
+  "input_sha256": "a213dfdee4611885cfad54454565f7fc5af4c5369d6a18cea0bb10802389f48f",
+  "input_chars": 79401,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.98,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.75,
+  "conditions_met": true,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.98,
+    "refuted": 0.02,
+    "uncertain": 0
+  },
+  "verdict_confidence": 0.97,
+  "derived_verdict": "confirmed",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.98
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.75
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.98,
+        "refuted": 0.02,
+        "uncertain": 0
+      },
+      "confidence": 0.97
+    }
+  },
+  "stage1_record": {
+    "id": "W4390875684",
+    "set": "rejected_sample",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "high_cardinality",
+      "skewed",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper ranks 3054 EBV peptide antibodies using mean decrease in Gini index and selects features by adding top-ranked antibodies until reaching 85% accuracy, yielding a 26-antibody diagnostic classifier. It interprets magnitude (\"overall average antibody importance was around 0.018\" vs. highest at 0.36) and ranking explicitly, stating \"antibodies against this candidate antigen were not among the top most important antibodies for disease prediction,\" using this ranking interpretation to downplay molecular mimicry's pathogenic role. Corroboration is limited to held-out test accuracy (90%), without permutation importance, SHAP, conditional importance, or alternative feature selection methods to verify whether MDI ranking identifies optimal biomarkers or whether magnitude/ranking would persist under different importance measures."
+  },
+  "usage": {
+    "input_tokens": 25982,
+    "output_tokens": 98,
+    "cost": 0.001091244,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.001091244,
+      "upstream_inference_prompt_cost": 0.001091244,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.98
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.75
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.98,
+          "refuted": 0.02,
+          "uncertain": 0
+        },
+        "confidence": 0.97
+      }
+    },
+    "usage": {
+      "input_tokens": 25982,
+      "output_tokens": 98,
+      "cost": 0.001091244,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.001091244,
+        "upstream_inference_prompt_cost": 0.001091244,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223183-uitY2PYhHzMyLELQf191",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:43Z"
+}

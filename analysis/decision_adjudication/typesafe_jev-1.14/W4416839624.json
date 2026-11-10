@@ -1,0 +1,115 @@
+{
+  "id": "W4416839624",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4416839624.txt",
+  "input_sha256": "03ae63f4bf06147b0cdfdd9dbde96abcb6d7e87213d848f70ab1016dcb76e41e",
+  "input_chars": 84969,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.22,
+  "ranking_central_prob": 0.95,
+  "uncorroborated_prob": 0.42,
+  "conditions_met": false,
+  "verdict_choice": "refuted",
+  "verdict_probabilities": {
+    "confirmed": 0.41,
+    "refuted": 0.54,
+    "uncertain": 0.05
+  },
+  "verdict_confidence": 0.31,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.22
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.95
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.42
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "refuted",
+      "probabilities": {
+        "confirmed": 0.41,
+        "refuted": 0.54,
+        "uncertain": 0.05
+      },
+      "confidence": 0.31
+    }
+  },
+  "stage1_record": {
+    "id": "W4416839624",
+    "set": "survivor",
+    "uses_impurity_importance": true,
+    "pvalue_method": "janitza",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "Paper states \"In the global model, anomalously cold and dry summers were the most important predictors of observed groupings...Fire impacts...and site-level/environmental conditions...had similar relative importance values (41-45%). Topographic position had a notably lower importance...We found pre-fire basal area (BA) was the third most important driver.\" Main conclusion: \"post-fire climate anomalies best predicted structural recovery.\" These ranking and magnitude interpretations are unsupported by permutation importance, SHAP, or held-out validation; Boruta only validates that variables are used (importance > noise), not their ranking."
+  },
+  "usage": {
+    "input_tokens": 22566,
+    "output_tokens": 99,
+    "cost": 0.000947772,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000947772,
+      "upstream_inference_prompt_cost": 0.000947772,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.22
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.95
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.42
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "refuted",
+        "probabilities": {
+          "confirmed": 0.41,
+          "refuted": 0.54,
+          "uncertain": 0.05
+        },
+        "confidence": 0.31
+      }
+    },
+    "usage": {
+      "input_tokens": 22566,
+      "output_tokens": 99,
+      "cost": 0.000947772,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000947772,
+        "upstream_inference_prompt_cost": 0.000947772,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223186-nZWjCUSIX4cL3GbvKQWi",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:46Z"
+}

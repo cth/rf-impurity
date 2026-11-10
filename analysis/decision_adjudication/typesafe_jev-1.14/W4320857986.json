@@ -1,0 +1,116 @@
+{
+  "id": "W4320857986",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4320857986.txt",
+  "input_sha256": "5e7558fa4dd0a83a7838b4876f2b2f15a8aa25a4b2b1246698ee3f6f4a7129fe",
+  "input_chars": 61382,
+  "max_chars": 250000,
+  "model_requested": "typesafe/jev-1.14",
+  "model": "typesafe/jev-1.14-20261014",
+  "uses_impurity_prob": 0.84,
+  "ranking_central_prob": 0.94,
+  "uncorroborated_prob": 0.34,
+  "conditions_met": false,
+  "verdict_choice": "confirmed",
+  "verdict_probabilities": {
+    "confirmed": 0.82,
+    "refuted": 0.11,
+    "uncertain": 0.07
+  },
+  "verdict_confidence": 0.73,
+  "derived_verdict": "refuted",
+  "threshold": 0.5,
+  "answer": {
+    "uses_impurity": {
+      "type": "noul",
+      "noul": 0.84
+    },
+    "ranking_central": {
+      "type": "noul",
+      "noul": 0.94
+    },
+    "uncorroborated": {
+      "type": "noul",
+      "noul": 0.34
+    },
+    "verdict": {
+      "type": "choice",
+      "choice": "confirmed",
+      "probabilities": {
+        "confirmed": 0.82,
+        "refuted": 0.11,
+        "uncertain": 0.07
+      },
+      "confidence": 0.73
+    }
+  },
+  "stage1_record": {
+    "id": "W4320857986",
+    "set": "broad",
+    "uses_impurity_importance": true,
+    "pvalue_method": "none",
+    "interprets_magnitude_or_ranking": true,
+    "corroboration": [
+      "pdp_ale",
+      "heldout_validation"
+    ],
+    "feature_heterogeneity": [
+      "mixed_types",
+      "scale_mismatch"
+    ],
+    "p_affected": true,
+    "central_to_conclusions": true,
+    "evidence": "The paper concludes: \"Patterns of land use were strongly associated with different clusters...By contrast, rainfall seasonality was not an important predictor of temporal dynamics and was in the least five important variables.\" And: \"Our analyses identified population per km2 as the most important predictor of cluster membership.\" These magnitude and ranking claims are drawn directly from Ranger variable importance plots (Fig. 2E) without corroboration from permutation importance or SHAP. The feature set mixes satellite variables at different scales with derived aggregate statistics, making the ranking vulnerable to cardinality-driven impurity bias."
+  },
+  "usage": {
+    "input_tokens": 15217,
+    "output_tokens": 98,
+    "cost": 0.000639114,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000639114,
+      "upstream_inference_prompt_cost": 0.000639114,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "typesafe/jev-1.14-20261014",
+    "answers": {
+      "uses_impurity": {
+        "type": "noul",
+        "noul": 0.84
+      },
+      "ranking_central": {
+        "type": "noul",
+        "noul": 0.94
+      },
+      "uncorroborated": {
+        "type": "noul",
+        "noul": 0.34
+      },
+      "verdict": {
+        "type": "choice",
+        "choice": "confirmed",
+        "probabilities": {
+          "confirmed": 0.82,
+          "refuted": 0.11,
+          "uncertain": 0.07
+        },
+        "confidence": 0.73
+      }
+    },
+    "usage": {
+      "input_tokens": 15217,
+      "output_tokens": 98,
+      "cost": 0.000639114,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000639114,
+        "upstream_inference_prompt_cost": 0.000639114,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794223181-dYHqnMRIoOP3EFhZJ41H",
+    "provider": "TypeSafe"
+  },
+  "adjudicated_at_utc": "2026-11-09T11:19:41Z"
+}
