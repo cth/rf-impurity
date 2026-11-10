@@ -107,15 +107,15 @@ is routinely misread as an effect size comparable to a linear-model coefficient.
 What it actually estimates is each feature's contribution to the variance of the
 response: for a linear effect, the square of the coefficient times the feature's
 variance. Through controlled experiments we show that importance (i) grows with
-the \emph{square} of a linear coefficient; (ii) assigns an
-interaction's variance to the interacting variables, so a feature with no effect
-of its own can top the ranking; and (iii) gives \emph{identical} scores
-to a genuinely non-linear effect and to a linear effect on a skewed feature.
-These problems are distinct from the long-known bias towards features with many
-distinct values, and the usual corrections do not help: bias-corrected impurity,
-permutation importance, and SHAP-based importance scores all inherit them. No
-importance measure that reduces a
-feature to a single number can separate the \emph{shape} of its effect from the
+the \emph{square} of a linear coefficient; (ii) assigns an interaction's
+variance to the interacting variables, so a feature with no effect of its own
+can top the ranking; and (iii) gives \emph{identical} scores to a genuinely
+non-linear effect and to a linear effect on a skewed feature. These problems are
+distinct from the long-known bias towards features with many distinct values.
+Our closing point is that they cannot be escaped by switching measure:
+bias-corrected impurity, permutation importance, and SHAP-based importance
+scores all inherit them, because no importance measure that reduces a feature to
+a single number can separate the \emph{shape} of its effect from the
 \emph{spread} of its values; partial-dependence plots, which show the effect's
 shape, can. An LLM-assisted screen of literature citing the popular random
 forest library \emph{ranger} suggests that one in six papers interpreting an
@@ -225,6 +225,9 @@ the manifest by the included retrieval script. (CSV and text)
 All of the above are supplied as a single archive,
 \code{rf\_impurity\_supplement.zip}, whose top-level \code{README.md} gives the
 reproduction commands and the R and Python versions used.
+
+\appendix
+\input{../sections/appendix}
 
 \bibliography{../bibliography}
 

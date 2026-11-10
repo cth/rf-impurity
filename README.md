@@ -47,6 +47,12 @@ Validated with R 4.6.1 and `ranger` 0.18.0; `tally.py` needs Python 3.8 or
 later and uses only the standard library. `validate.R` and `figures.R` write
 into `figures/`; nothing else is modified.
 
+## Interactive companion
+
+A Shinylive (browser-run) companion to the paper's experiments lives in
+`companion/` and is deployed to GitHub Pages by
+`.github/workflows/deploy-companion.yml`.
+
 ## Layout
 
 | Path | What |

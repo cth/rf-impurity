@@ -1,12 +1,63 @@
 \subsection{Linear effects: importance is in squared-coefficient units}
 \label{sec:linear}
 
-A random forest is fitted to the data: $y = a + 2b + 4c$, with
+
+Suppose that a random forest is fitted to the data: 
+$y = a + 2b + 3c + \dots + 11k$ (11 features, coefficients $1\ldots11$)
+$a,\dots,k \sim U(0,1)$, $n = 1000$.
+Over seeds $1$--$10$, we regressing importance on $\beta^2$
+gives a mean
+$R^2$ of $0.98$ (range $0.96$--$0.99$) against $0.91$ on $\beta$ (range
+$0.88$--$0.94$), and $\beta^2$ is the better fit on every seed;
+Figure~\ref{fig:superlinear} shows one of them. 
+
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.95\textwidth]{fig1_superlinear.png}
+\caption{Impurity importance against the coefficient $\beta$ (left, curved) and
+against the variance contribution $\beta^2$ (right, linear, $R^2=0.99$).
+Importance is linear in $\beta^2$, not in $\beta$.}
+\label{fig:superlinear}
+\end{figure}
+
+%This empirically confirms that MDI importance is denominated in
+%squared-coefficient (variance) units rather than coefficient units,
+%as predicted by Scornet's identity.
+
+For a linear term the contributed
+variance is $\beta_j^2\,\mathrm{Var}(X_j)$, and here the standard-uniform
+variance $\mathrm{Var}(X_j)=1/12$ is
+common to all features, so the MDI should track $\beta_j^2$.
+
+The experiment supports that, but the fit is not \emph{perfect}. This is also 
+observed from the ranking of the feature importances: MDI only ranks
+feature constributions correctly when they differ enough and there is enough data
+to dwarf the randommness of the procedure of fitting the trees.
+For this data, 
+$\beta = 1\ldots11$ at the default \code{mtry}, only $3$ of $10$ seeds rank
+all eleven correctly (mean Spearman $0.99$). 
+AIR spreads weak features (those with smaller coefficients) further apart,
+% (the $\beta = 5$ feature scores $16.4$ times the $\beta = 1$ feature, against
+% $2.45$ under plain impurity, where the variance identity predicts $25$),
+but it is also
+far noisier from seed to seed, and the two effects offset: it ranks no better than MDI on these data
+(mean Spearman $0.99$). Even where
+the order holds, ``how much more'' is not comparable to a coefficient.
+
+\subsubsection{Relative interpretations of feature importances}
+An experiment that examines divergences from the expected ratios between 
+variable importances enables determining in more detail how and why 
+variable importances in practice differ from the theoretical expectation
+of them tracking  $\beta_j^2$.
+Here, 
+a random forest is fitted a data where feature contributions are doubled per term: $y = a + 2b + 4c$, with
 $a,b,c \sim U(0,1)$, $n = 1000$. The forest's out-of-bag (OOB) $R^2$ is $0.98$.
-Impurity
-importance (both MDI and AIR)
-ranks the features in the correct order, but their \emph{ratios} do not match the
-ordinary-least-squares (OLS) coefficient ratios:
+Impurity importance (both MDI and AIR) ranks the features in the correct
+order, 
+but their \emph{ratios} do not match the ordinary-least-squares (OLS)
+coefficient ratios (table entries are means over seeds $1$--$10$, ranges in
+parentheses):
 
 \begin{center}
 \begin{tabular}{rccc}
@@ -15,23 +66,26 @@ feature & OLS coefficient & MDI (ratio) & AIR (ratio)
 \\
 \midrule
 a & 1 & 1.00 & 1.00 \\
-b & 2 & 2.39 & 6.23 \\
-c & 4 & 7.76 & 25.9 \\
+b & 2 & 2.24 (2.00--2.47) & 4.19 (2.97--5.53) \\
+c & 4 & 7.19 (6.49--8.21) & 16.88 (11.06--22.94) \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-A coefficient ratio of $1:2:4$ becomes an importance ratio of $1:2.4:7.8$: the
-ordering is correct and the growth is clearly super-linear, but the spread
-falls short of $1:4:16$, the ratio of the \emph{squared} coefficients that
-Section~\ref{sec:background-strands} predicts.
+A coefficient ratio of $1:2:4$ becomes an importance ratio of $1:2.2:7.2$ under
+MDI and $1:4.2:16.9$ under AIR: the
+feature ordering is correct and the growth is clearly super-linear, but the MDI spread is not
+ $1:4:16$, the ratio of the \emph{squared} coefficients that Scornet's identity in 
+Section~\ref{sec:background-strands} predicts. 
 
-For a linear term the contributed
-variance is $\beta_j^2\,\mathrm{Var}(X_j)$, and here the standard-uniform
-variance $\mathrm{Var}(X_j)=1/12$ is
-common to all features, so importance should track $\beta_j^2$.
+%For a linear term the contributed
+%variance is $\beta_j^2\,\mathrm{Var}(X_j)$, and here the standard-uniform
+%variance $\mathrm{Var}(X_j)=1/12$ is
+%common to all features, so the MDI should track $\beta_j^2$.k
 
-The difference to this expectation is due to the number of features drawn as
+The difference 
+%to this expectation
+is due to the number of features drawn as
 candidates at each node (a configurable parameter called \code{mtry}), intended
 to decorrelate the trees. In \code{ranger} it defaults
 to $\lfloor \sqrt{p} \rfloor$, here $1$: each node must split on the
@@ -79,15 +133,6 @@ $n=64000$). The deviations in the table are finite-sample properties of the
 fitting procedure --- split randomisation and greedy split selection --- and
 shrink toward the squared-coefficient prediction as $n$ grows.
 
-Extending to
-$y = a + 2b + 3c + \dots + 11k$ (11 features, coefficients $1\ldots11$)
-demonstrates the same. Over seeds $1$--$10$, regressing importance on $\beta^2$
-gives a mean
-$R^2$ of $0.98$ (range $0.96$--$0.99$) against $0.91$ on $\beta$ (range
-$0.88$--$0.94$), and $\beta^2$ is the better fit on every seed;
-Figure~\ref{fig:superlinear} shows one of them. Importance is denominated in
-squared-coefficient (variance) units rather than coefficient units.
-
 %The AIR bias correction behaves differently. 
 %It
 %pairs each feature with a reordered copy of itself --- same distribution,
@@ -98,57 +143,34 @@ squared-coefficient (variance) units rather than coefficient units.
 %
 Compared to MDI, AIR is nearly
 \code{mtry}-insensitive: averaged over 10 randomly seeded experiment runs, its ratios are
-$1:4.4:17.5$ at the
-default, $1:4.1:16.6$ at $\code{mtry}=2$, and $1:4.1:16.8$ at $\code{mtry}=3$,
+$1:4.2:16.9$ at the
+default, $1:4.0:16.0$ at $\code{mtry}=2$, and $1:4.1:16.7$ at $\code{mtry}=3$,
 near the predicted $1:4:16$ throughout.
-
-The price is sampling variance, and it comes from that same subtraction.
+%
+%The price is sampling variance, and it comes from that same subtraction.
 Note, the AIR formula includes and additional term (a re-ordered copy of the feature) compared to MDI which 
 substracts the reordered variance reduction from the features own.
 In this experiment, for the weakest feature the two terms in AIR nearly cancel, leaving a small difference
 between two large numbers, so the ordinary noise each carries falls on a much
 smaller result: feature $a$'s AIR varies about three times as much from seed to
-seed as plain impurity's ($33\%$ against $11\%$ relative standard deviation).
+seed as plain impurity's ($27\%$ against $10\%$ relative standard deviation).
 The strongest feature, where the subtraction takes little off the total, stays
 steady at $6\%$. Since the unstable feature is the one the ratio divides by,
-AIR's $c$ ratio spans $10.2$--$25.9$ over the ten seeds against $6.3$--$8.1$
-for plain impurity, and the single draw in the table above is the largest of
-the ten. AIR ratios are readable only as an average over seeds.
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.95\textwidth]{fig1_superlinear.png}
-\caption{Impurity importance against the coefficient $\beta$ (left, curved) and
-against the variance contribution $\beta^2$ (right, linear, $R^2=0.99$).
-Importance is linear in $\beta^2$, not in $\beta$.}
-\label{fig:superlinear}
-\end{figure}
+AIR's $c$ ratio spans $11.1$--$22.9$ over the ten seeds against $6.5$--$8.2$
+for plain impurity. The increased sampling variance suggest that AIR ratios 
+are readable only as an average over seeds.
 
 %\paragraph{Takeaway.}
-Among identically distributed features with linear
-effects, importance recovers the coefficient order when the contributions are
-well separated, but not reliably when they are close: for
-$\beta = 1\ldots11$ at the default \code{mtry}, only $3$ of $10$ seeds rank
-all eleven correctly (mean Spearman $0.99$), and the inversions fall among the
-weak features that \code{mtry} compression pushes into near-ties. AIR does not
-rescue this. It spreads that weak end much further apart
-% (the $\beta = 5$ feature scores $16.4$ times the $\beta = 1$ feature, against
-% $2.45$ under plain impurity, where the variance identity predicts $25$),
-but it is also
-far noisier from seed to seed, and the two effects offset: it ranks no better
-(mean Spearman $0.99$). Even where
-the order holds, ``how much more'' is not comparable to a coefficient.
-
-Furthermore, an interaction lets a variable with no marginal effect outrank one
-that has
-(Section~\ref{sec:interactions}), and unequal feature distributions reorder
-the ranking on their own (Section~\ref{sec:confound}).
+%Furthermore, an interaction lets a variable with no marginal effect outrank one
+%that has
+%(Section~\ref{sec:interactions}), and unequal feature distributions reorder
+%the ranking on their own (Section~\ref{sec:confound}).
 
 \paragraph{Practical implications.} Read an impurity ranking as an ordering
 among comparably distributed features, and expect inversions where
 contributions are close. Its ratios are in squared-coefficient units and
 further compressed by the default \code{mtry}, so a bar twice as tall does not
-mean an effect twice as large. \code{impurity\_corrected} removes the bias
-toward null and high-cardinality features it was built for and follows the
-variance contribution more closely, but varies far more from seed to seed on
+mean an effect twice as large. AIR was built to remove the bias
+toward null and high-cardinality features, but for continous features, it also follows the
+variance contribution more closely than plain MDI, but varies far more from seed to seed on
 weak features; average it over seeds before reading a ratio from it.
