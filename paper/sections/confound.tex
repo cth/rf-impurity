@@ -58,6 +58,11 @@ functional of those partitions coincides for the two worlds.
 %sits at their midpoint, and stretching the scale moves that midpoint even though
 %the training points either side of it stay put.
 
+A split rule that sees feature values rather than only their order partially
+escapes this: \code{splitrule = "extratrees"} separates the two worlds
+($1:4.9:23.7$ vs $1:5.0:24.6$), and \citet{galili2016} show the same
+non-invariance in predictions.
+
 This is \textbf{not specific to impurity}, and debiasing does not touch it.
 Bias-corrected impurity (AIR), permutation importance, and global mean
 $|\text{SHAP}|$ all give the same ratios in both worlds:
