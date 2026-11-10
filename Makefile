@@ -23,7 +23,7 @@ tas-title: paper/tas/title-page.pdf
 asa-anon:  paper/asa/impurity-importance-asa_anon.pdf
 asa-title: paper/asa/title-page.pdf
 submission: tas tas-anon tas-title asa asa-anon asa-title supplement
-	cp paper/tas/impurity-importance-tas_anon.pdf dist/main_document_anonymized.pdf
+	cp paper/tas/impurity-importance-tas-anon.pdf dist/main_document_anonymized.pdf
 	cp paper/tas/impurity-importance-tas.pdf dist/manuscript_with_author_details.pdf
 	cp paper/tas/title-page.pdf dist/title_page.pdf
 	cp paper/asa/impurity-importance-asa_anon.pdf dist/asa_main_document_anonymized.pdf

@@ -1,0 +1,60 @@
+{
+  "id": "W4225788860",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4225788860.txt",
+  "input_sha256": "e424b05fd4de78a661f6c6f349899a19c45a8dc7802d2f69b1c866f740c4cff4",
+  "input_chars": 48174,
+  "max_chars": 120000,
+  "model_requested": "microsoft/microsoft-decision-1",
+  "model": "microsoft/microsoft-decision-1-20261009",
+  "probability": 0.9988304892200788,
+  "relevant": true,
+  "threshold": 0.5,
+  "question": {
+    "uses_impurity_importance": {
+      "type": "noul",
+      "instructions": "Does this paper use or interpret a random-forest impurity-based (Gini, MDI, or mean decrease in impurity/variance) variable importance?",
+      "criteria": {
+        "true": "The paper computes, reports, ranks, or draws a conclusion from an impurity-based (Gini/MDI/variance) variable importance produced by a random forest (e.g. ranger, randomForest).",
+        "false": "The paper uses only permutation importance, SHAP, prediction, speed, or cites ranger without interpreting an impurity importance."
+      }
+    }
+  },
+  "answer": {
+    "type": "noul",
+    "noul": 0.9988304892200788
+  },
+  "usage": {
+    "input_tokens": 12210,
+    "output_tokens": 1,
+    "cost": 0.00051282,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00051282,
+      "upstream_inference_prompt_cost": 0.00051282,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "microsoft/microsoft-decision-1-20261009",
+    "answers": {
+      "uses_impurity_importance": {
+        "type": "noul",
+        "noul": 0.9988304892200788
+      }
+    },
+    "usage": {
+      "input_tokens": 12210,
+      "output_tokens": 1,
+      "cost": 0.00051282,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00051282,
+        "upstream_inference_prompt_cost": 0.00051282,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794315563-zn2QgDJCB4V4HQtDwxqw",
+    "provider": "Azure"
+  },
+  "classified_at_utc": "2026-11-10T12:59:23Z"
+}

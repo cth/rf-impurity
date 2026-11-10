@@ -1,0 +1,60 @@
+{
+  "id": "W4410563089",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4410563089.txt",
+  "input_sha256": "f9be2e5b379ecdccc1db86635e3cc2c3323e64f89326561f15ce30d8b781b5e7",
+  "input_chars": 48847,
+  "max_chars": 250000,
+  "model_requested": "perplexity/pplx-decider-flash-v1.2",
+  "model": "perplexity/pplx-decider-flash-v1.2-20261016",
+  "probability": 0.3774942776998407,
+  "relevant": false,
+  "threshold": 0.5,
+  "question": {
+    "uses_impurity_importance": {
+      "type": "noul",
+      "instructions": "Does this paper use or interpret a random-forest impurity-based (Gini, MDI, or mean decrease in impurity/variance) variable importance?",
+      "criteria": {
+        "true": "The paper computes, reports, ranks, or draws a conclusion from an impurity-based (Gini/MDI/variance) variable importance produced by a random forest (e.g. ranger, randomForest).",
+        "false": "The paper uses only permutation importance, SHAP, prediction, speed, or cites ranger without interpreting an impurity importance."
+      }
+    }
+  },
+  "answer": {
+    "type": "noul",
+    "noul": 0.3774942776998407
+  },
+  "usage": {
+    "input_tokens": 15092,
+    "output_tokens": 1,
+    "cost": 0.00015092,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00015092,
+      "upstream_inference_prompt_cost": 0.00015092,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "perplexity/pplx-decider-flash-v1.2-20261016",
+    "answers": {
+      "uses_impurity_importance": {
+        "type": "noul",
+        "noul": 0.3774942776998407
+      }
+    },
+    "usage": {
+      "input_tokens": 15092,
+      "output_tokens": 1,
+      "cost": 0.00015092,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00015092,
+        "upstream_inference_prompt_cost": 0.00015092,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794315812-cu8P3PYrbWWFiuqYzQnE",
+    "provider": "Perplexity"
+  },
+  "classified_at_utc": "2026-11-10T13:03:33Z"
+}

@@ -1,0 +1,60 @@
+{
+  "id": "W7125903745",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W7125903745.txt",
+  "input_sha256": "804db5e55cee2325c3b26633f474be4b901fcf173b99c514f0c389fa1eb2bc33",
+  "input_chars": 47663,
+  "max_chars": 250000,
+  "model_requested": "perplexity/pplx-decider-v1.2",
+  "model": "perplexity/pplx-decider-v1.2-20261016",
+  "probability": 0.01436448163730092,
+  "relevant": false,
+  "threshold": 0.5,
+  "question": {
+    "uses_impurity_importance": {
+      "type": "noul",
+      "instructions": "Does this paper use or interpret a random-forest impurity-based (Gini, MDI, or mean decrease in impurity/variance) variable importance?",
+      "criteria": {
+        "true": "The paper computes, reports, ranks, or draws a conclusion from an impurity-based (Gini/MDI/variance) variable importance produced by a random forest (e.g. ranger, randomForest).",
+        "false": "The paper uses only permutation importance, SHAP, prediction, speed, or cites ranger without interpreting an impurity importance."
+      }
+    }
+  },
+  "answer": {
+    "type": "noul",
+    "noul": 0.01436448163730092
+  },
+  "usage": {
+    "input_tokens": 13650,
+    "output_tokens": 1,
+    "cost": 0.000273,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.000273,
+      "upstream_inference_prompt_cost": 0.000273,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "perplexity/pplx-decider-v1.2-20261016",
+    "answers": {
+      "uses_impurity_importance": {
+        "type": "noul",
+        "noul": 0.01436448163730092
+      }
+    },
+    "usage": {
+      "input_tokens": 13650,
+      "output_tokens": 1,
+      "cost": 0.000273,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.000273,
+        "upstream_inference_prompt_cost": 0.000273,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794315332-BVw5kjGD1FHdi45tYoWE",
+    "provider": "Perplexity"
+  },
+  "classified_at_utc": "2026-11-10T12:55:32Z"
+}

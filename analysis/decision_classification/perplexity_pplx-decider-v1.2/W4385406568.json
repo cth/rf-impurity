@@ -1,0 +1,60 @@
+{
+  "id": "W4385406568",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4385406568.txt",
+  "input_sha256": "2fd1c7665541526d5bf8b23fd854c863ddf2e86c1a432073eb4d14646f0935b6",
+  "input_chars": 49936,
+  "max_chars": 250000,
+  "model_requested": "perplexity/pplx-decider-v1.2",
+  "model": "perplexity/pplx-decider-v1.2-20261016",
+  "probability": 0.9371527657533805,
+  "relevant": true,
+  "threshold": 0.5,
+  "question": {
+    "uses_impurity_importance": {
+      "type": "noul",
+      "instructions": "Does this paper use or interpret a random-forest impurity-based (Gini, MDI, or mean decrease in impurity/variance) variable importance?",
+      "criteria": {
+        "true": "The paper computes, reports, ranks, or draws a conclusion from an impurity-based (Gini/MDI/variance) variable importance produced by a random forest (e.g. ranger, randomForest).",
+        "false": "The paper uses only permutation importance, SHAP, prediction, speed, or cites ranger without interpreting an impurity importance."
+      }
+    }
+  },
+  "answer": {
+    "type": "noul",
+    "noul": 0.9371527657533805
+  },
+  "usage": {
+    "input_tokens": 13185,
+    "output_tokens": 1,
+    "cost": 0.0002637,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.0002637,
+      "upstream_inference_prompt_cost": 0.0002637,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "perplexity/pplx-decider-v1.2-20261016",
+    "answers": {
+      "uses_impurity_importance": {
+        "type": "noul",
+        "noul": 0.9371527657533805
+      }
+    },
+    "usage": {
+      "input_tokens": 13185,
+      "output_tokens": 1,
+      "cost": 0.0002637,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.0002637,
+        "upstream_inference_prompt_cost": 0.0002637,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794315032-7mYA1GEFAt42rFfXNlvD",
+    "provider": "Perplexity"
+  },
+  "classified_at_utc": "2026-11-10T12:50:33Z"
+}

@@ -1,0 +1,60 @@
+{
+  "id": "W4224144614",
+  "input_path": "/home/cth/code/cth/rf-impurity/corpus/fulltext/W4224144614.txt",
+  "input_sha256": "6daa5871fb3b8636130b531ba2c59fc2ff1c8c5008243b637d9d4f24f1aa7667",
+  "input_chars": 45096,
+  "max_chars": 250000,
+  "model_requested": "perplexity/pplx-decider-flash-v1.2",
+  "model": "perplexity/pplx-decider-flash-v1.2-20261016",
+  "probability": 0.04980112783202163,
+  "relevant": false,
+  "threshold": 0.5,
+  "question": {
+    "uses_impurity_importance": {
+      "type": "noul",
+      "instructions": "Does this paper use or interpret a random-forest impurity-based (Gini, MDI, or mean decrease in impurity/variance) variable importance?",
+      "criteria": {
+        "true": "The paper computes, reports, ranks, or draws a conclusion from an impurity-based (Gini/MDI/variance) variable importance produced by a random forest (e.g. ranger, randomForest).",
+        "false": "The paper uses only permutation importance, SHAP, prediction, speed, or cites ranger without interpreting an impurity importance."
+      }
+    }
+  },
+  "answer": {
+    "type": "noul",
+    "noul": 0.04980112783202163
+  },
+  "usage": {
+    "input_tokens": 12879,
+    "output_tokens": 1,
+    "cost": 0.00012879,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.00012879,
+      "upstream_inference_prompt_cost": 0.00012879,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "raw_response": {
+    "model": "perplexity/pplx-decider-flash-v1.2-20261016",
+    "answers": {
+      "uses_impurity_importance": {
+        "type": "noul",
+        "noul": 0.04980112783202163
+      }
+    },
+    "usage": {
+      "input_tokens": 12879,
+      "output_tokens": 1,
+      "cost": 0.00012879,
+      "is_byok": false,
+      "cost_details": {
+        "upstream_inference_cost": 0.00012879,
+        "upstream_inference_prompt_cost": 0.00012879,
+        "upstream_inference_completions_cost": 0
+      }
+    },
+    "id": "gen-dec-1794315758-4O7NNntYXVnO4OEIYLaj",
+    "provider": "Perplexity"
+  },
+  "classified_at_utc": "2026-11-10T13:02:39Z"
+}

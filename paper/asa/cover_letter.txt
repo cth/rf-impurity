@@ -1,0 +1,6 @@
+Dear Editor,
+
+I submit "On the misinterpretation of random forest variable importance as effect size" to the American Statistical Association journal. The manuscript was previously reviewed at The American Statistician; I have revised it in response to that review, adding a formal MDI definition, a clearer data-generation description, standardized terminology, corrected section numbering. I believe the revised manuscript is suitable for consideration at ASA.
+
+Sincerely,
+Christian Theil Have
