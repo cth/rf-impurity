@@ -36,3 +36,6 @@ __pycache__/
 dist/
 paper/tas/impurity-importance-tas-anon.*
 paper/tas/title-page.pdf
+
+# Shinylive export (built by CI)
+companion_out/
