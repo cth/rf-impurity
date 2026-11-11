@@ -28,26 +28,12 @@ jobs:
           root_file: impurity-importance.tex
           working_directory: paper
 
-      - name: Compile TAS submission version -> PDF
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: impurity-importance-tas.tex
-          working_directory: paper/tas
-
-      - name: Compile ASA submission version -> PDF
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: impurity-importance-asa.tex
-          working_directory: paper/asa
-
       - name: Upload PDF artifacts
         uses: actions/upload-artifact@v4
         with:
           name: impurity-importance-pdf
           path: |
             paper/impurity-importance.pdf
-            paper/tas/impurity-importance-tas.pdf
-            paper/asa/impurity-importance-asa.pdf
 
       - name: Attach PDF to release
         if: startsWith(github.ref, 'refs/tags/')
@@ -55,5 +41,3 @@ jobs:
         with:
           files: |
             paper/impurity-importance.pdf
-            paper/tas/impurity-importance-tas.pdf
-            paper/asa/impurity-importance-asa.pdf

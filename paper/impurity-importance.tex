@@ -18,7 +18,7 @@
 
 \newcommand{\code}[1]{\texttt{#1}}
 
-\title{On the misinterpretation of random forest variable importance as effect size}
+\title{Random forest variable importance is variance, not effect size}
 \author{Christian Theil Have}
 \date{September 2026}
 
@@ -57,8 +57,8 @@ The experiments that follow use synthetic data with known ground truth to isolat
 \section{Data and code availability}
 \label{sec:availability}
 
-All code and data supporting this paper are supplied as supplementary
-material, in a single archive: the R scripts that generate the
+All code and data supporting this paper are available at
+\url{https://github.com/cth/rf-impurity}. The R scripts there generate the
 controlled experiments and figures of
 Sections~\ref{sec:linear}--\ref{sec:confound} (with a one-line command to
 reproduce every number cited there). The corpus manifest records every work
@@ -68,6 +68,7 @@ regenerates them from Europe PMC.
 
 \appendix
 \input{sections/appendix}
+\input{sections/prevalence}
 
 \bibliography{bibliography}
 
